@@ -1,0 +1,15 @@
+---
+title: "Living Systematic Reviews"
+format: html
+server: shiny
+---
+
+## AMORE Living Systematic Reviews Directory
+
+```{r}
+#| context: server
+#| echo: false
+
+source("shiny-meta/app.R")
+
+```

@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Quarto and website specific files
+_site/
+/.quarto/
+*_cache/
+
