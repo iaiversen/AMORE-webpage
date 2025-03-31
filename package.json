@@ -1,0 +1,20 @@
+{
+  "name": "amore-project",
+  "version": "1.0.0",
+  "description": "Active Monitoring of Oxytocin Research Evidence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iaiversen/AMORE.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/iaiversen/AMORE/issues"
+  },
+  "homepage": "https://github.com/iaiversen/AMORE#readme"
+}
