@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Active Monitoring of Oxytocin Research Evidence",
   "scripts": {
-    "prebuild": "./netlify-setup-quarto.sh",
     "build": "quarto render"
   },
   "author": "",
@@ -13,13 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/iaiversen/AMORE-webpage.git"
   },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/iaiversen/AMORE-webpage/issues"
-  },
-  "homepage": "https://github.com/iaiversen/AMORE-webpage#readme",
   "devDependencies": {
     "netlify-cli": "^15.0.0"
   }
 }
-
