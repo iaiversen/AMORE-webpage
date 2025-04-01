@@ -1,12 +1,8 @@
 {
   "name": "amore-project",
   "version": "1.0.0",
-  "description": "Active Monitoring of Oxytocin Research Evidence",
   "scripts": {
-    "prebuild": "chmod +x install-quarto.sh && ./install-quarto.sh",
-    "build": "quarto render"
-  },
-  "devDependencies": {
-    "netlify-cli": "^15.0.0"
+    "prebuild": "chmod +x ./netlify-setup-quarto.sh && ./netlify-setup-quarto.sh",
+    "build": "PATH=$PATH:~/.local/bin quarto render"
   }
 }
