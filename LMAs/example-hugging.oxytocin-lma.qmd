@@ -1,0 +1,111 @@
+---
+title: "Effects of Intranasal Oxytocin on Hugging Behavior"
+status: "Published"
+framework: "Frequentist"
+intervention_type: "Intranasal oxytocin"
+biobehavioral_outcome: [hormone, oxytocin, Memory and learning]
+study_type: "Quantitative"
+population: "Healthy Adults"
+update-frequency: "18 months"
+dois:
+  preregistration: "10.XXXX/33333"
+  preprint: "10.XXXX/XXXXX"
+  publication: "10.XXXX/66666"
+page-layout: custom
+format:
+  html:
+    theme: 
+      - yeti
+      - ../styles.scss
+    css: ../styles.scss 
+    classes:
+      - lma-template
+---
+::: {.callout-note .meta-info-container}
+## Project Information
+::: {.meta-grid}
+::: {.meta-column}
+#### Authors
+Author Name  
+Second Author  
+Third Author
+:::
+::: {.meta-column}
+#### Affiliation
+Institution  
+Institution  
+Institution
+:::
+::: {.meta-column}
+#### Timeline
+**Published:** 2023-12-15  
+**Last update:** 2024-02-20  
+**Next update:** 2025-08-20
+:::
+::: {.meta-column}
+#### Identifiers
+**DOI:** 10.XXXX/66666  
+**Keywords:** oxytocin, physical touch, social behaviour, living meta analyses
+:::
+:::
+:::
+::: {.grid}
+::: {.g-col-3 .resources-panel}
+## Resources and data links {.panel-title}
+**Pre-registration**  
+[View on PROSPERO](https://www.crd.york.ac.uk/PROSPERO/fake-id-12345)
+**Pre-print**  
+[View on PsyArXiv](https://psyarxiv.com/fake-preprint-54321)
+**Published Article**  
+[Link to DOI]({{< meta dois.publication >}})
+**Data & Analysis**  
+[Complete Dataset (OSF)](https://osf.io/fake-dataset-98765)  
+[Analysis Scripts (GitHub)](https://github.com/fakeuser/hugging-oxytocin-analysis)
+**Deviation report**  
+[View Report](https://osf.io/fake-deviations-13579)
+**PRISMA Checklist**  
+[View Checklist](https://osf.io/fake-prisma-checklist)
+:::
+::: {.g-col-9 .abstract-section}
+## Abstract
+This living meta-analysis investigates the relationship between intranasal oxytocin administration and hugging behavior in healthy adults. Current evidence suggests a complex relationship between oxytocin and physical touch-seeking behavior, with mixed results across 42 studies (N = 3,876).
+## Current Results
+Our latest analysis (k = 42) indicates a small-to-moderate effect of intranasal oxytocin on hugging behavior (Hedges' g = 0.34, 95% CI [0.21, 0.47], p < .001). Significant moderators include:
+- Administration timing (β = 0.28, p = .015)
+- Social context (β = 0.42, p < .001)
+- Previous relationship status (β = 0.31, p = .008)
+![Forest plot of effect sizes across studies](https://fake-image-url.com/forest-plot.png)
+## Updates Log
+- 2024-02-20: Added 3 new studies, updated effect size calculations
+- 2023-12-15: Initial analysis with 39 studies
+- 2023-09-15: Pre-registration completed
+## Next Update
+Scheduled for: August 2025 (18-month update cycle)
+Contact: fake.email@university.edu
+:::
+::: {.g-col-9 .inclusion.exclusion-section}
+## Inclusion and Exclusion Criteria
+### Inclusion Criteria
+- **Participants:** Healthy adults (18-65 years)
+- **Intervention:** Intranasal oxytocin administration (single dose 24-40 IU)
+- **Comparator:** Placebo-controlled 
+- **Outcomes:** Standardized measures of prosocial behavior or trust
+- **Study Design:** Randomized controlled trials with between-subjects design
+- **Publication Type:** Peer-reviewed articles and preprints
+- **Language:** Any language with English abstract
+### Exclusion Criteria
+- Studies with clinical populations (psychiatric or neurological disorders)
+- Animal studies
+- Studies using endogenous oxytocin measurement only
+- Case studies and non-experimental designs
+- Studies without available effect size data or sufficient information to calculate effect sizes
+:::
+::: {.g-col-3 .search-string-box}
+## Search Strategy {.panel-title}
+**Database Search Strings**
+**PubMed:**  
+(oxytocin[MeSH] OR oxytocin[tiab]) AND ("intranasal"[tiab] OR "nasal"[tiab]) AND ("hug"[tiab] OR "hugging"[tiab] OR "physical touch"[tiab] OR "physical contact"[tiab] OR "social touch"[tiab])
+**Web of Science:**  
+TS=(oxytocin AND (intranasal OR nasal) AND ("physical touch" OR hug OR hugging OR "physical contact" OR "social touch"))
+:::
+

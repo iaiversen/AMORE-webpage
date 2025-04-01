@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "Standardization.html",
+    "href": "Standardization.html",
+    "title": "Standardization Goals for Living Meta-Analysis on AMORE",
+    "section": "",
+    "text": "Mandatory RequirementsRecommended Practices\n\n\n\n\nUpdate Frequency\nMaximum 24 months between analysis updates\nPre-registration\nMeta-analysis must be pre-registered\nPre-print Publication\nInitial results must be published on recognized pre-print server (e.g., Open Science Framework)\nGuidelines Adherence\nMust follow PRISMA or equivalent guidelines (MOOSE, MARS)\nData Repository\nMeta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)\nAnalysis Scripts\nFree software scripts must be deposited in recognized repository\nDeviation Reporting\nSupply deviation report with meta-analysis manuscript\n\n\n\n\n\n\nAccumulation Bias\nDevelop plan to address accumulation bias in frequentist framework\nEffect Determination\nUse Bayes factor of 10 to conclude presence/absence of effects\nNull Hypothesis\nCreate plan to evaluate evidence for null hypothesis\nVisualizations\nInclude forest plots and funnel plots"
+  },
+  {
+    "objectID": "LMAs/lma-template.html#resources-and-data-links",
+    "href": "LMAs/lma-template.html#resources-and-data-links",
+    "title": "Title of your Living meta analysis",
+    "section": "Resources and data links",
+    "text": "Resources and data links\nPre-registration\nLink to pre-registration\nPre-print\nWhen pre-prin is published you will find link here\nPublished Article\nLink to PubMed WHen DOI is published you will find link here\nDeviation report\nWhen deviation report is published you will find link here"
+  },
+  {
+    "objectID": "LMAs/lma-template.html#abstract",
+    "href": "LMAs/lma-template.html#abstract",
+    "title": "Title of your Living meta analysis",
+    "section": "Abstract",
+    "text": "Abstract\nThis living meta-analysis examines the relationship between intranasal oxytocin administration and prosocial behavior across a spectrum of social contexts. Current evidence from 37 randomized controlled trials (N = 2,842) suggests a complex relationship between oxytocin and human sociality, with significant heterogeneity in effect sizes.\nOur Bayesian framework analysis reveals a small-to-moderate effect (Hedges’ g = 0.31, 95% CI [0.18, 0.44]) of oxytocin on prosocial outcomes overall, with notable differences emerging across experimental contexts. Subgroup analyses indicate stronger effects in tasks involving emotional recognition (g = 0.42) compared to economic decision-making (g = 0.23).\nWe find preliminary evidence that administration protocol moderates outcomes, with effects varying by dosage and administration-to-task timing. Publication bias analyses suggest a modest inflation of reported effects, though the core findings remain robust after correction.\nThis living meta-analysis will be updated every 6 months to incorporate emerging evidence in this rapidly evolving field."
+  },
+  {
+    "objectID": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
+    "href": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
+    "title": "Title of your Living meta analysis",
+    "section": "Inclusion and Exclusion Criteria",
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract\n\n\n\nExclusion Criteria\n\nStudies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nStudies using endogenous oxytocin measurement only\nCase studies and non-experimental designs\nStudies without available effect size data or sufficient information to calculate effect sizes"
+  },
+  {
+    "objectID": "LMAs/lma-template.html#search-strategy",
+    "href": "LMAs/lma-template.html#search-strategy",
+    "title": "Title of your Living meta analysis",
+    "section": "Search Strategy",
+    "text": "Search Strategy\nDatabase Search Strings\nPubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\n\nStandardization\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\nLiving Meta Analysis\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. This approach ensures that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\nOpen Science\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.\n\nContact Form\n\n\n\n\nIf you’re interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:\n\nReview our Guidelines on how to get your living meta analysis published on the AMORE platform\nCheck our Standardization Goals for specific requirements\nUse the contact form to submit your initial proposal"
+  },
+  {
+    "objectID": "contact.html#connect-with-us",
+    "href": "contact.html#connect-with-us",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.\n\nContact Form"
+  },
+  {
+    "objectID": "contact.html#publishing-your-meta-analysis",
+    "href": "contact.html#publishing-your-meta-analysis",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "If you’re interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:\n\nReview our Guidelines on how to get your living meta analysis published on the AMORE platform\nCheck our Standardization Goals for specific requirements\nUse the contact form to submit your initial proposal"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Our mission",
+    "section": "",
+    "text": "What is the AMORE initiative about?\nThe Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of indivdiual studies and place them in a bigger evidence picture. Wheras traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.\n\n\nExpert Steering Committee\nThe AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:\n\nApproves project proposals\nProvides methodological guidance\nEnsures computational reproducibility\nMaintains platform standards"
+  },
+  {
+    "objectID": "guidelines.html",
+    "href": "guidelines.html",
+    "title": "How to Publish Your Living Meta-Analysis on AMORE",
+    "section": "",
+    "text": "AMORE workflow \n    \n    \n      \n        1\n        Propose Your Topic\n      \n      \n        2\n        Steering Committee Review\n      \n      \n        3\n        Pre-registration\n      \n      \n        4\n        Conduct Review\n      \n      \n        5\n        Data Deposit\n      \n      \n        6\n        Quality Check\n      \n      \n        7\n        Publication\n      \n      \n        8\n        Regular Updates\n      \n    \n  \n\n\n  \n    \n      Step 1: Propose Your Topic\n      \n        Contact us\n        \n        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about condutcing analysis, our standradization framework and preparing protocols. The contact form will also be used for proposing your topic for your living meta analyses.  \n        \n        What to include:\n        \n          An oxytocin intervention study OR evaluation of oxytocin concentrations between or within populations related to a biobehavioral outcome\n          Living meta-analysis update frequency (maximum 24 months between updates)\n          Proposal of analytical approach within our standradization framework (if using frequentist approach)\n        \n      \n    \n\n\n\n  Step 2: Steering Committee Review\n  \n    Review Process\n    \n      Evaluation that living meta-analysis is within platform remit\n      Confirmation that topic is suitable for inclusion\n      Verification that all mandatory requirements from checklist are met\n      Methodological review and advice if needed\n    \n  \n\n\n\n\n  Step 3: Pre-registration\n  \n    Registration Requirements\n    \n      \n      Pre-register on PROSPERO if there is a clear health outcome\n      OR pre-register on Open Science Framework for other outcomes\n      Project will be added to AMORE homepage with its own project page\n      Project page will include:\n        \n          Links to Pre-registration\n          Brief overview of inclusion/exclusion criteria\n          Search strings used\n        \n      \n    \n  \n\n    \n\n\n  Step 4: Conduct Review\n  \n    Perform systematic review\n    \n      Conduct review based on pre-registered protocol\n      Analyses must be performed on free software for reproducibility\n      Track any deviations from protocol and document in devation report\n    \n  \n\n\n\n\n  Step 5: Data Deposit\n  \n    Data Requirements\n    \n      Deposit complete dataset in recognized repository (e.g. Open Science Framework or Zenodo) \n      Deposit free software script in recognised repository\n      Provide deviation report as supplementary material to analysis script\n        \n      \n    \n  \n\n\n\n\n\n  Step 6: Quality Check\n  \n    Optional Review Process\n    \n      AMORE steering committee can:\n        \n          Cross-check analyses and pre-registration\n          Verify computational reproducibility\n          Review protocol adherence\n          Check reported deviations\n        \n      \n      Committee provides feedback if needed\n      Verification ensures transparency and quality\n    \n  \n\n\n\n\n  Step 7: Publication\n  \n    Publication Process\n    \n      Publish manuscript on recognized pre-print server (e.g., Open Science Framework)\n      Submit to peer-reviewed journal\n      Project page will be updated with links to:\n        \n          Pre-print\n          Published paper\n          Deviation report\n        \n      \n      Ensure all documentation remains accessible\n    \n  \n\n\n\n\n  Step 8: Regular Updates\n  \n    Update Requirements\n    \n      Conduct new searches according to update plan\n      Maximum time between updates: 24 months\n      For each update:\n        \n          Document all changes\n          Remove any retracted papers\n          Update all relevant materials\n          Maintain accessibility of all documents\n        \n      \n      Follow original protocol for consistency\n    \n  \n\n\n\n    \n      Previous\n      Next"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#resources-and-data-links",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#resources-and-data-links",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Resources and data links",
+    "text": "Resources and data links\nPre-registration\nView on PROSPERO Pre-print\nView on PsyArXiv Published Article\nLink to DOI Data & Analysis\nComplete Dataset (OSF)\nAnalysis Scripts (GitHub) Deviation report\nView Report PRISMA Checklist\nView Checklist"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#abstract",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#abstract",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Abstract",
+    "text": "Abstract\nThis living meta-analysis investigates the relationship between intranasal oxytocin administration and hugging behavior in healthy adults. Current evidence suggests a complex relationship between oxytocin and physical touch-seeking behavior, with mixed results across 42 studies (N = 3,876). ## Current Results Our latest analysis (k = 42) indicates a small-to-moderate effect of intranasal oxytocin on hugging behavior (Hedges’ g = 0.34, 95% CI [0.21, 0.47], p &lt; .001). Significant moderators include: - Administration timing (β = 0.28, p = .015) - Social context (β = 0.42, p &lt; .001) - Previous relationship status (β = 0.31, p = .008)  ## Updates Log - 2024-02-20: Added 3 new studies, updated effect size calculations - 2023-12-15: Initial analysis with 39 studies - 2023-09-15: Pre-registration completed ## Next Update Scheduled for: August 2025 (18-month update cycle) Contact: fake.email@university.edu"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#inclusion-and-exclusion-criteria",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#inclusion-and-exclusion-criteria",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Inclusion and Exclusion Criteria",
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract ### Exclusion Criteria\nStudies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nStudies using endogenous oxytocin measurement only\nCase studies and non-experimental designs\nStudies without available effect size data or sufficient information to calculate effect sizes"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#search-strategy",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#search-strategy",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Search Strategy",
+    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“hug”[tiab] OR “hugging”[tiab] OR “physical touch”[tiab] OR “physical contact”[tiab] OR “social touch”[tiab]) Web of Science:\nTS=(oxytocin AND (intranasal OR nasal) AND (“physical touch” OR hug OR hugging OR “physical contact” OR “social touch”))"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#resources-and-data-links",
+    "href": "LMAs/technology-oxytocin-lma.html#resources-and-data-links",
+    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "section": "Resources and data links",
+    "text": "Resources and data links\nPre-registration\nView Pre-registration on OSF Pre-print\nView on bioRxiv Data & Analysis\nRaw Data (Zenodo)\nBayesian Analysis Code (GitHub) Deviation report\nProtocol Deviations Log PRISMA Checklist\nComplete checklist"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#abstract",
+    "href": "LMAs/technology-oxytocin-lma.html#abstract",
+    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "section": "Abstract",
+    "text": "Abstract\nThis Bayesian living meta-analysis examines the relationship between daily technology use and baseline blood plasma oxytocin levels. Preliminary evidence from 28 studies (N = 2,143) suggests that individuals with high screen time (&gt;6 hours/day) show significantly lower baseline oxytocin levels compared to moderate users. ## Current Results Latest Bayesian analysis (k = 28) shows: - Strong evidence for decreased oxytocin levels (BF₁₀ = 15.2) - Posterior median effect size: -0.45 [95% CI: -0.62, -0.28] - Robustness checks support main conclusions (BF₁₀ &gt; 10 across prior specifications)  ## Subgroup Analyses - Age groups (adolescents show strongest effects) - Device type (social media use vs. passive consumption) - Time of day effects ## Updates Log - 2024-02-15: Added 5 new studies, updated Bayesian models - 2024-01-15: Initial pre-registration and protocol ## Next Update Scheduled for: May 2024 (3-month update cycle) Contact: tech.oxy.study@fakeemail.edu"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#inclusion-and-exclusion-criteria",
+    "href": "LMAs/technology-oxytocin-lma.html#inclusion-and-exclusion-criteria",
+    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "section": "Inclusion and Exclusion Criteria",
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nStudies measuring baseline blood plasma oxytocin levels\nParticipants aged 18-65 years\nStudies with self-reported or objective technology use measurement\nCross-sectional and longitudinal designs\nPublished in peer-reviewed journals or preprints ### Exclusion Criteria\nStudies with participants diagnosed with endocrine disorders\nStudies with participants on hormone therapy\nAnimal studies\nCase reports and qualitative studies\nStudies without standardized oxytocin measurement"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#search-strategy",
+    "href": "LMAs/technology-oxytocin-lma.html#search-strategy",
+    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "section": "Search Strategy",
+    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (plasma[tiab] OR blood[tiab] OR serum[tiab]) AND (technology[tiab] OR “screen time”[tiab] OR “digital media”[tiab] OR smartphone[tiab] OR “cell phone”[tiab] OR “social media”[tiab] OR internet[tiab]) PsycINFO:\n(oxytocin) AND (plasma OR blood OR serum) AND (technology OR “screen time” OR “digital media” OR smartphone OR “cell phone” OR “social media” OR internet)"
+  },
+  {
+    "objectID": "login.html",
+    "href": "login.html",
+    "title": "AMORE Platform - Login",
+    "section": "",
+    "text": "Test Site Access\n\n\nThis is a test version of the AMORE platform. Please enter the password to continue.\n\n\n\n  &lt;label for=\"password\"&gt;Password:&lt;/label&gt;\n  &lt;input type=\"password\" id=\"password\" name=\"password\" required&gt;\n&lt;/div&gt;\n&lt;button type=\"submit\"&gt;Access Site&lt;/button&gt;"
+  }
+]
