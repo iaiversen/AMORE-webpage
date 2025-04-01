@@ -1,17 +1,12 @@
-
 {
   "name": "amore-project",
   "version": "1.0.0",
   "description": "Active Monitoring of Oxytocin Research Evidence",
   "scripts": {
-    "build": "quarto render"
+    "build": "npm install -g quarto-cli && quarto render"
   },
   "author": "",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iaiversen/AMORE-webpage.git"
-  },
   "devDependencies": {
     "netlify-cli": "^15.0.0"
   }
