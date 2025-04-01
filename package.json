@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Active Monitoring of Oxytocin Research Evidence",
   "scripts": {
-    "build": "npm install -g quarto-cli && quarto render"
+    "prebuild": "chmod +x install-quarto.sh && ./install-quarto.sh",
+    "build": "quarto render"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "netlify-cli": "^15.0.0"
   }
