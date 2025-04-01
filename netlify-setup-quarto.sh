@@ -12,8 +12,14 @@ curl -L $QUARTO_URL | tar xzf - -C quarto-temp
 # Make Quarto available on PATH
 mkdir -p ~/.local/bin
 cp -r quarto-temp/quarto-${QUARTO_VERSION}/bin/* ~/.local/bin/
+
+# Remove existing symbolic link if it exists
+if [ -L ~/.local/bin/quarto ] || [ -e ~/.local/bin/quarto ]; then
+  rm -f ~/.local/bin/quarto
+fi
+
+
 ln -s ~/.local/quarto/bin/quarto ~/.local/bin/quarto
-chmod +x ~/.local/bin/quarto
 export PATH=~/.local/bin:$PATH
 
 # Verify installation
