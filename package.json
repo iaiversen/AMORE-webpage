@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "scripts": {
     "prebuild": "chmod +x ./netlify-setup-quarto.sh && ./netlify-setup-quarto.sh",
-    "build": "PATH=$PATH:~/.local/bin quarto render"
+    "build": "PATH=$PATH:~/.local/bin:~/.local/quarto/bin quarto render"
   }
 }

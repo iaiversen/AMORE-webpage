@@ -12,6 +12,7 @@ curl -L $QUARTO_URL | tar xzf - -C quarto-temp
 # Make Quarto available on PATH
 mkdir -p ~/.local/bin
 cp -r quarto-temp/quarto-${QUARTO_VERSION}/bin/* ~/.local/bin/
+ln -s ~/.local/quarto/bin/quarto ~/.local/bin/quarto
 chmod +x ~/.local/bin/quarto
 export PATH=~/.local/bin:$PATH
 
