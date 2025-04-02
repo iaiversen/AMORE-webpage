@@ -2,20 +2,35 @@
 set -ex
 
 echo "Installing Quarto..."
-QUARTO_VERSION="1.3.45"
+QUARTO_VERSION="1.3.450"
 QUARTO_URL="https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz"
 
-# Download the Debian package
-echo "Downloading Quarto DEB package..."
-curl -L -o quarto.deb $QUARTO_URL
+# Create directories for installation
+mkdir -p ~/.local
+mkdir -p ~/bin
 
-# Install the package
-echo "Installing Quarto package..."
-sudo dpkg -i quarto.deb
+# Download and extract the tarball
+echo "Downloading Quarto..."
+curl -L -o quarto.tar.gz $QUARTO_URL
+
+echo "Extracting Quarto..."
+tar -xzf quarto.tar.gz
+
+# Move Quarto to the installation directory
+echo "Installing Quarto..."
+mv quarto-${QUARTO_VERSION} ~/.local/quarto
+
+# Create symbolic link to the binary
+echo "Setting up executable link..."
+ln -sf ~/.local/quarto/bin/quarto ~/bin/quarto
+
+# Update PATH
+export PATH=~/bin:$PATH
 
 # Verify installation
-echo "Quarto installation complete. Version:"
+echo "Verifying Quarto installation:"
+which quarto
 quarto --version
 
 # Clean up
-rm -f quarto.deb
+rm -f quarto.tar.gz
