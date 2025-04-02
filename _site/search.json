@@ -102,7 +102,7 @@
     "href": "index.html",
     "title": "| Active Monitoring of Oxytocin Research Evidence",
     "section": "",
-    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\n\nStandardization\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\nLiving Meta Analysis\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. This approach ensures that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\nOpen Science\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
+    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\n\nAMORE Mission & Goals\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. This approach ensures that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
   },
   {
     "objectID": "LMAs/lma-template.html#resources-and-data-links",
@@ -131,5 +131,12 @@
     "title": "Title of your Living meta analysis",
     "section": "Search Strategy",
     "text": "Search Strategy\nDatabase Search Strings\nPubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "AMORE Mission & Goals\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. This approach ensures that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
   }
 ]
