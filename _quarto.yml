@@ -31,8 +31,8 @@ format:
   html:
     theme: 
       - yeti
-      - ../styles.scss
-    css: ../styles.scss
+      - styles.scss
+    css: styles.scss
 # Uncomment when deploying Shiny:
 # resources:
 #   - shiny
