@@ -2,7 +2,7 @@
   "name": "amore-project",
   "version": "1.0.0",
   "scripts": {
-    "prebuild": "chmod +x ./netlify-setup-quarto.sh && ./netlify-setup-quarto.sh,
+    "prebuild": "chmod +x ./netlify-setup-quarto.sh && ./netlify-setup-quarto.sh",
     "build": "quarto render"
   }
 }
