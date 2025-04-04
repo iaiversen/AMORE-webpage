@@ -20,7 +20,7 @@ AMORE is a online platform that hosts living meta-analysis for oxytocin research
 Living meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field. 
 
 ## {.feature-heading}
-AMORE Mission & Goals
+Aims of AMORE  
 
 ::: {.feature-grid}
 ::: {.feature-box}
@@ -30,7 +30,7 @@ AMORE aims to facilitate living meta analysis in the oxytocin research field thr
 
 ::: {.feature-box}
 ### Living Meta Analysis
-Living meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. This approach ensures that the evidence remains current, preventing meta-analyses from becoming outdated.  
+Living meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.  
 :::
 
 ::: {.feature-box}

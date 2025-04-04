@@ -265,18 +265,21 @@ margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /* Center the headings inside feature boxes */
 .feature-box h3 {
   text-align: center;
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
 /* Heading above boxes homepage */
 .feature-heading {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #0A2A5E;
   margin: 3rem 0 1.5rem 0;
   font-weight: 700;
