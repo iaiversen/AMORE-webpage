@@ -168,8 +168,7 @@ ui <- fluidPage(
                              choices = c("Intranasal oxytocin", 
                                          "Intravenous oxytocin", 
                                          "Endogenous oxytocin measurement", 
-                                         "Genetic studies",
-                                         "Technology exposure"),
+                                         "Genetic studies"),
                              selected = NULL
           )
       ),
