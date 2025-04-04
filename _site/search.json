@@ -109,7 +109,7 @@
     "href": "LMAs/lma-template.html#resources-and-data-links",
     "title": "Title of your Living meta analysis",
     "section": "Resources and data links",
-    "text": "Resources and data links\nPre-registration\nLink to pre-registration\nPre-print\nWhen pre-prin is published you will find link here\nPublished Article\nLink to PubMed WHen DOI is published you will find link here\nDeviation report\nWhen deviation report is published you will find link here"
+    "text": "Resources and data links\nPre-registration\nLink to pre-registration Pre-print\nWhen pre-print is published you will find link here Published Article\nLink to PubMed When DOI is published you will find link here Deviation report\nWhen deviation report is published you will find link here"
   },
   {
     "objectID": "LMAs/lma-template.html#abstract",
@@ -123,14 +123,14 @@
     "href": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
     "title": "Title of your Living meta analysis",
     "section": "Inclusion and Exclusion Criteria",
-    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract\n\n\n\nExclusion Criteria\n\nStudies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nStudies using endogenous oxytocin measurement only\nCase studies and non-experimental designs\nStudies without available effect size data or sufficient information to calculate effect sizes"
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract\n\n\n\nExclusion Criteria\n\nParticipants: Studies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nMeasurment: Studies using endogenous oxytocin measurement only\nStudy design: Case studies and non-experimental designs\nEffect sizes: Studies without available effect size data or sufficient information to calculate effect sizes"
   },
   {
     "objectID": "LMAs/lma-template.html#search-strategy",
     "href": "LMAs/lma-template.html#search-strategy",
     "title": "Title of your Living meta analysis",
     "section": "Search Strategy",
-    "text": "Search Strategy\nDatabase Search Strings\nPubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
+    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
   },
   {
     "objectID": "index.html#section",

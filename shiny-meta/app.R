@@ -3,7 +3,9 @@ library(shiny)
 library(DT)
 library(yaml)  # For reading YAML headers from qmd files
 library(fs)    # For file operations
-library(rsconnect)
+library(httr)  # For GitHub API requests
+library(jsonlite)  # For JSON parsing
+library(base64enc)  # For decoding base64 content from GitHub API
 
 #============================= UI section ==============================# 
 ui <- fluidPage(
@@ -82,6 +84,17 @@ ui <- fluidPage(
         background: #f8f9fa;
         border-radius: 4px;
       }
+      
+      /* Subcategory styling */
+      .subcategory {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+      
+      .subcategory-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
     "))
   ),
   
@@ -94,17 +107,64 @@ ui <- fluidPage(
           textInput("search_text", NULL, placeholder = "Search across all fields...")
       ),
       
+      # Biobehavioral Outcomes
       div(class = "filter-section",
-          h4("Analysis Framework", class = "filter-title"),
-          checkboxGroupInput("analysis_type", NULL,
-                             choices = c("Bayesian", "Frequentist", "Mixed Methods"),
-                             selected = NULL
+          h4("Biobehavioral Outcomes", class = "filter-title"),
+          
+          # Biological Outcomes
+          div(class = "subcategory",
+              div(class = "subcategory-title", "Biological Outcomes"),
+              checkboxGroupInput("biological_outcomes", NULL,
+                                 choices = c("HRV", 
+                                             "Cortisol levels", 
+                                             "Pain perception", 
+                                             "Anti-inflammatory effects", 
+                                             "Insulin-sensitivity",
+                                             "Neural activation",
+                                             "Blood pressure",
+                                             "Immune function",
+                                             "Sleep physiology",
+                                             "Endocrine function"),
+                                 selected = NULL
+              )
+          ),
+          
+          # Behavioral Outcomes (with Social Outcomes as a subcategory)
+          div(class = "subcategory",
+              div(class = "subcategory-title", "Behavioral Outcomes"),
+              checkboxGroupInput("behavioral_outcomes", NULL,
+                                 choices = c("Mood", 
+                                             "Aggression", 
+                                             "Stress response", 
+                                             "Eating behavior", 
+                                             "Fear and anxiety",
+                                             "Memory and learning",
+                                             "Risk-taking",
+                                             "Parental care/behavior"),
+                                 selected = NULL
+              ),
+              
+              # Social Outcomes as a nested subcategory of Behavioral Outcomes
+              div(class = "subcategory", style = "margin-left: 20px;",
+                  div(class = "subcategory-title", "Social Outcomes"),
+                  checkboxGroupInput("social_outcomes", NULL,
+                                     choices = c("Trust and cooperation", 
+                                                 "Empathy", 
+                                                 "Sexual behavior", 
+                                                 "Social flexibility", 
+                                                 "Social bonding",
+                                                 "Social recognition",
+                                                 "Conflict resolution"),
+                                     selected = NULL
+                  )
+              )
           )
       ),
       
+      # Oxytocin Assessment Method
       div(class = "filter-section",
-          h4("Intervention Type", class = "filter-title"),
-          checkboxGroupInput("intervention_type", NULL,
+          h4("Oxytocin Assessment Method", class = "filter-title"),
+          checkboxGroupInput("assessment_method", NULL,
                              choices = c("Intranasal oxytocin", 
                                          "Intravenous oxytocin", 
                                          "Endogenous oxytocin measurement", 
@@ -114,50 +174,71 @@ ui <- fluidPage(
           )
       ),
       
+      # Oxytocin Route
       div(class = "filter-section",
-          h4("Biobehavioral Outcome", class = "filter-title"),
-          checkboxGroupInput("outcome_category", NULL,
-                             choices = c("Social behavior", 
-                                         "Emotional processing", 
-                                         "Memory and learning", 
-                                         "Anxiety and fear", 
-                                         "Trust and cooperation",
-                                         "Stress reactivity",
-                                         "Blood plasma",
-                                         "Oxytocin",
-                                         "Hormone levels"),
+          h4("Oxytocin Route", class = "filter-title"),
+          checkboxGroupInput("oxytocin_route", NULL,
+                             choices = c("Central", 
+                                         "Peripheral", 
+                                         "Both"),
                              selected = NULL
           )
       ),
       
+      # Population Health Status
       div(class = "filter-section",
-          h4("Study Type", class = "filter-title"),
-          checkboxGroupInput("study_type", NULL,
-                             choices = c("Quantitative", "Qualitative", "Mixed Methods"),
+          h4("Population Health Status", class = "filter-title"),
+          checkboxGroupInput("population_status", NULL,
+                             choices = c("Healthy", 
+                                         "Clinical", 
+                                         "Mixed"),
                              selected = NULL
           )
       ),
       
+      # Population Age Group
       div(class = "filter-section",
-          h4("Population", class = "filter-title"),
-          checkboxGroupInput("population", NULL,
-                             choices = c("Healthy Adults", "Clinical Populations", "Mixed Populations", "Adults (18-65)"),
+          h4("Population Age Group", class = "filter-title"),
+          checkboxGroupInput("population_age", NULL,
+                             choices = c("Children", 
+                                         "Adults", 
+                                         "Older Adults",
+                                         "Mixed Age Groups"),
                              selected = NULL
           )
       ),
       
+      # Analysis Framework
+      div(class = "filter-section",
+          h4("Analysis Framework", class = "filter-title"),
+          checkboxGroupInput("analysis_framework", NULL,
+                             choices = c("Bayesian", 
+                                         "Frequentist", 
+                                         "Mixed Methods"),
+                             selected = NULL
+          )
+      ),
+      
+      # Status
       div(class = "filter-section",
           h4("Status", class = "filter-title"),
           checkboxGroupInput("status_filter", NULL,
-                             choices = c("Pre-registered", "Pre-print", "Published"),
+                             choices = c("Pre-registered", 
+                                         "Pre-print", 
+                                         "Published"),
                              selected = NULL
           )
       ),
       
+      # Update Frequency
       div(class = "filter-section",
           h4("Update Frequency", class = "filter-title"),
           checkboxGroupInput("update_freq", NULL,
-                             choices = c("3 months", "6 months", "12 months", "18 months", "24 months"),
+                             choices = c("3 months", 
+                                         "6 months", 
+                                         "12 months", 
+                                         "18 months", 
+                                         "24 months"),
                              selected = NULL
           )
       )
@@ -170,102 +251,138 @@ ui <- fluidPage(
 )
 
 #====== Server section ==============================# 
-server <- function(input, output) {
+server <- function(input, output, session) {
   # Helper function for NULL handling
   `%||%` <- function(x, y) {
     if (is.null(x)) y else x
   }
   
-  # Function to read meta-analysis files
-  read_meta_analyses <- function() {
-    base_dir <- file.path("..", "LMAs")
-    files <- list.files(path = base_dir, 
-                        pattern = "*.qmd", 
-                        full.names = TRUE)
+  # Helper function to safely extract nested YAML values
+  safe_extract <- function(list, path, default = NA_character_) {
+    current <- list
+    for (key in path) {
+      if (is.null(current) || !is.list(current) || is.null(current[[key]])) {
+        return(default)
+      }
+      current <- current[[key]]
+    }
+    return(current)
+  }
+  
+  # Function to fetch QMD files from GitHub repository
+  fetch_github_qmd_files <- function(repo = "iaiversen/AMORE-webpage", path = "LMAs") {
+    # Get the contents of the LMAs directory
+    url <- paste0("https://api.github.com/repos/", repo, "/contents/", path)
+    response <- GET(url)
     
-    # Print debug info
-    print(paste("Found", length(files), "QMD files in", base_dir))
-    
-    # Add error handling
-    if (length(files) == 0) {
-      warning("No .qmd files found in LMAs directory")
-      return(data.frame(
-        Title = character(),
-        Status = character(),
-        `Analysis Framework` = character(),
-        `Intervention Type` = character(),
-        `Biobehavioral Outcome` = character(),
-        `Study Type` = character(),
-        Population = character(),
-        `Update Frequency` = character(),
-        `Last Updated` = character(),
-        Keywords = character(),
-        Abstract = character(),
-        stringsAsFactors = FALSE
-      ))
+    if (http_error(response)) {
+      warning("Error fetching files from GitHub: ", http_status(response)$message)
+      return(list())
     }
     
-    # Read metadata from each file
-    meta_data <- lapply(files, function(file) {
+    # Parse the response
+    contents <- fromJSON(content(response, "text", encoding = "UTF-8"))
+    
+    # Filter for QMD files
+    qmd_files <- contents[grep("\\.qmd$", contents$name), ]
+    
+    if (length(qmd_files) == 0) {
+      warning("No .qmd files found in GitHub repository")
+      return(list())
+    }
+    
+    # Fetch the content of each QMD file
+    qmd_contents <- lapply(qmd_files$download_url, function(download_url) {
+      file_response <- GET(download_url)
+      if (http_error(file_response)) {
+        warning("Error fetching file: ", http_status(file_response)$message)
+        return(NULL)
+      }
+      return(content(file_response, "text", encoding = "UTF-8"))
+    })
+    
+    # Combine file names with their contents
+    names(qmd_contents) <- qmd_files$name
+    
+    return(qmd_contents)
+  }
+  
+  # Function to extract list values as comma-separated string
+  extract_list_as_string <- function(list_val) {
+    if (is.null(list_val)) {
+      return(NA_character_)
+    }
+    
+    if (is.list(list_val)) {
+      # Handle nested lists (for social outcomes)
+      flat_list <- unlist(list_val)
+      if (length(flat_list) == 0) {
+        return(NA_character_)
+      }
+      return(paste(flat_list, collapse = ", "))
+    } else if (is.character(list_val)) {
+      if (length(list_val) == 0) {
+        return(NA_character_)
+      }
+      return(paste(list_val, collapse = ", "))
+    }
+    
+    return(NA_character_)
+  }
+  
+  # Function to parse metadata from QMD files
+  parse_qmd_metadata <- function(qmd_contents) {
+    # Initialize empty data frame
+    meta_df <- data.frame(
+      Title = character(),
+      Status = character(),
+      Framework = character(),
+      AssessmentMethod = character(),
+      OxytocinRoute = character(),
+      PopulationStatus = character(),
+      PopulationAge = character(),
+      PopulationClinicalType = character(),
+      BiologicalOutcomes = character(),
+      BehavioralOutcomes = character(),
+      SocialOutcomes = character(),
+      UpdateFrequency = character(),
+      LastUpdated = character(),
+      Abstract = character(),
+      Filename = character(),
+      stringsAsFactors = FALSE
+    )
+    
+    if (length(qmd_contents) == 0) {
+      return(meta_df)
+    }
+    
+    # Process each QMD file
+    meta_list <- lapply(names(qmd_contents), function(filename) {
+      content <- qmd_contents[[filename]]
+      
       tryCatch({
-        # Print file being processed
-        print(paste("Processing file:", file))
+        # Split content into lines
+        lines <- strsplit(content, "\n")[[1]]
         
-        # Read the content
-        content <- readLines(file, warn = FALSE)
-        yaml_start <- which(content == "---")[1]
-        yaml_end <- which(content == "---")[2]
+        # Extract YAML front matter
+        yaml_start <- which(lines == "---")[1]
+        yaml_end <- which(lines == "---")[2]
         
         if (is.na(yaml_start) || is.na(yaml_end)) {
-          warning(paste("Could not find YAML section in", file))
+          warning(paste("Could not find YAML section in", filename))
           return(NULL)
         }
         
         # Get YAML metadata
-        yaml_text <- content[(yaml_start + 1):(yaml_end - 1)]
+        yaml_text <- lines[(yaml_start + 1):(yaml_end - 1)]
         meta <- yaml::yaml.load(paste(yaml_text, collapse = "\n"))
         
-        # Store the full content for later use
-        meta$full_content <- content
-        
-        # Extract keywords if present
-        if (!is.null(meta$keywords)) {
-          meta$keywords_string <- paste(meta$keywords, collapse = ", ")
-        } else {
-          meta$keywords_string <- NA
-        }
-        
-        # Find date from Timeline section in the content
-        timeline_section <- grep("Timeline", content)
-        if (length(timeline_section) > 0) {
-          # Look for Last update line
-          last_update_indices <- grep("Last update", content)
-          if (length(last_update_indices) > 0) {
-            for (idx in last_update_indices) {
-              if (idx > timeline_section[1]) {
-                last_update_line <- content[idx]
-                date_match <- regexpr("\\d{4}-\\d{2}-\\d{2}", last_update_line)
-                if (date_match > 0) {
-                  meta$last_updated <- regmatches(last_update_line, date_match)
-                  break
-                } else {
-                  # Try XX.XX.XXXX format
-                  date_match <- regexpr("\\d{2}\\.\\d{2}\\.\\d{4}", last_update_line)
-                  if (date_match > 0) {
-                    meta$last_updated <- regmatches(last_update_line, date_match)
-                    break
-                  }
-                }
-              }
-            }
-          }
-        }
-        
         # Extract abstract section
-        abstract_section <- grep("## Abstract", content)
+        abstract_section <- grep("## Abstract", lines)
+        abstract <- ""
         if (length(abstract_section) > 0) {
           # Get all lines after Abstract heading
-          abstract_lines <- content[(abstract_section[1] + 1):length(content)]
+          abstract_lines <- lines[(abstract_section[1] + 1):length(lines)]
           
           # Find the next heading
           next_heading <- grep("^##", abstract_lines)
@@ -283,195 +400,245 @@ server <- function(input, output) {
           abstract_text <- abstract_text[!grepl("^:::", abstract_text)]
           abstract_text <- abstract_text[nzchar(trimws(abstract_text))]
           
-          meta$abstract <- paste(abstract_text, collapse = "\n")
+          abstract <- paste(abstract_text, collapse = "\n")
         }
         
-        return(meta)
+        # Find last update date from timeline section
+        last_updated <- NA_character_
+        timeline_section <- grep("Timeline", lines)
+        if (length(timeline_section) > 0) {
+          # Look for Last update line
+          last_update_indices <- grep("Last update", lines)
+          if (length(last_update_indices) > 0) {
+            for (idx in last_update_indices) {
+              if (idx > timeline_section[1]) {
+                last_update_line <- lines[idx]
+                date_match <- regexpr("\\d{4}-\\d{2}-\\d{2}", last_update_line)
+                if (date_match > 0) {
+                  last_updated <- regmatches(last_update_line, date_match)
+                  break
+                } else {
+                  # Try XX.XX.XXXX format
+                  date_match <- regexpr("\\d{2}\\.\\d{2}\\.\\d{4}", last_update_line)
+                  if (date_match > 0) {
+                    last_updated <- regmatches(last_update_line, date_match)
+                    break
+                  }
+                }
+              }
+            }
+          }
+        }
+        
+        # Extract biological outcomes - handle as separate items for filtering
+        biological_outcomes <- safe_extract(meta, c("biobehavioral_outcomes", "biological"))
+        biological_outcomes_str <- extract_list_as_string(biological_outcomes)
+        
+        # Extract behavioral outcomes - excluding nested social outcomes
+        behavioral_outcomes <- safe_extract(meta, c("biobehavioral_outcomes", "behavioral"))
+        # Remove social outcomes if it's a list
+        if (is.list(behavioral_outcomes) && "social" %in% names(behavioral_outcomes)) {
+          social_outcomes <- behavioral_outcomes$social
+          behavioral_outcomes$social <- NULL
+        } else {
+          social_outcomes <- NULL
+        }
+        
+        # Convert remaining behavioral outcomes to string
+        behavioral_items <- list()
+        for (name in names(behavioral_outcomes)) {
+          if (is.character(name) && name != "social") {
+            behavioral_items <- c(behavioral_items, behavioral_outcomes[[name]])
+          }
+        }
+        behavioral_outcomes_str <- extract_list_as_string(behavioral_items)
+        
+        # Convert social outcomes to string
+        social_outcomes_str <- extract_list_as_string(social_outcomes)
+        
+        # Extract data into a structured format
+        entry <- list(
+          Title = meta$title %||% "Untitled",
+          Status = meta$status %||% NA_character_,
+          Framework = meta$framework %||% NA_character_,
+          AssessmentMethod = safe_extract(meta, c("oxytocin", "assessment_method")),
+          OxytocinRoute = safe_extract(meta, c("oxytocin", "route")),
+          PopulationStatus = safe_extract(meta, c("population", "status")),
+          PopulationAge = safe_extract(meta, c("population", "age_group")),
+          PopulationClinicalType = safe_extract(meta, c("population", "clinical_type")),
+          BiologicalOutcomes = biological_outcomes_str,
+          BehavioralOutcomes = behavioral_outcomes_str,
+          SocialOutcomes = social_outcomes_str,
+          UpdateFrequency = meta$`update-frequency` %||% NA_character_,
+          LastUpdated = last_updated,
+          Abstract = abstract,
+          Filename = filename
+        )
+        
+        return(entry)
       }, error = function(e) {
-        warning(paste("Error reading file:", file, "-", e$message))
+        warning(paste("Error processing file:", filename, "-", e$message))
         return(NULL)
       })
     })
     
     # Remove NULL entries
-    meta_data <- meta_data[!sapply(meta_data, is.null)]
+    meta_list <- meta_list[!sapply(meta_list, is.null)]
     
-    # Create data frame
-    meta_df <- data.frame(
-      Title = character(length(meta_data)),
-      Status = character(length(meta_data)),
-      `Analysis Framework` = character(length(meta_data)),
-      `Intervention Type` = character(length(meta_data)),
-      `Biobehavioral Outcome` = character(length(meta_data)),
-      `Study Type` = character(length(meta_data)),
-      Population = character(length(meta_data)),
-      `Update Frequency` = character(length(meta_data)),
-      `Last Updated` = character(length(meta_data)),
-      Keywords = character(length(meta_data)),
-      DOI = character(length(meta_data)),
-      Abstract = character(length(meta_data)),
-      Filename = character(length(meta_data)),
-      stringsAsFactors = FALSE
-    )
-    
-    # Update the tryCatch block in meta_df filling loop:
-    
-    for (i in seq_along(meta_data)) {
-      tryCatch({
-        # Add filename to metadata for easier debugging
-        meta_data[[i]]$filename <- files[i]
-        
-        # Handle title - checking if it's the template
-        if (!is.null(meta_data[[i]]$title)) {
-          if (grepl("Title of [Yy]our", meta_data[[i]]$title)) {
-            meta_df$Title[i] <- "LMA Template (Example)"
-          } else {
-            meta_df$Title[i] <- as.character(meta_data[[i]]$title)
-          }
-        } else {
-          meta_df$Title[i] <- paste("Untitled Entry", i)
-        }
-        
-        # Use as.character and NA_character_ for all fields
-        meta_df$Status[i] <- if (!is.null(meta_data[[i]]$status)) as.character(meta_data[[i]]$status) else NA_character_
-        meta_df$`Analysis Framework`[i] <- if (!is.null(meta_data[[i]]$framework)) as.character(meta_data[[i]]$framework) else NA_character_
-        meta_df$`Intervention Type`[i] <- if (!is.null(meta_data[[i]]$intervention_type)) as.character(meta_data[[i]]$intervention_type) else NA_character_
-        
-        bio_outcome <- meta_data[[i]]$biobehavioral_outcome
-        if (is.null(bio_outcome)) {
-          meta_df$`Biobehavioral Outcome`[i] <- NA_character_
-        } else {
-          tryCatch({
-            if (is.character(bio_outcome)) {
-              meta_df$`Biobehavioral Outcome`[i] <- paste(bio_outcome, collapse = ", ")
-            } else if (is.list(bio_outcome)) {
-              # Convert complex list to character safely
-              outcome_texts <- c()
-              for (item in bio_outcome) {
-                if (is.list(item)) {
-                  item_text <- paste(unlist(lapply(item, as.character)), collapse = ", ")
-                } else {
-                  item_text <- as.character(item)
-                }
-                outcome_texts <- c(outcome_texts, item_text)
-              }
-              meta_df$`Biobehavioral Outcome`[i] <- paste(outcome_texts, collapse = ", ")
-            } else {
-              # Convert any other type to string representation
-              meta_df$`Biobehavioral Outcome`[i] <- as.character(bio_outcome)
-            }
-          }, error = function(e) {
-            warning(paste("Error processing biobehavioral outcome for entry", i, ":", e$message))
-            meta_df$`Biobehavioral Outcome`[i] <<- NA_character_
-          })
-        }
-        
-        meta_df$`Study Type`[i] <- if (!is.null(meta_data[[i]]$study_type)) as.character(meta_data[[i]]$study_type) else NA_character_
-        meta_df$Population[i] <- if (!is.null(meta_data[[i]]$population)) as.character(meta_data[[i]]$population) else NA_character_
-        meta_df$`Update Frequency`[i] <- if (!is.null(meta_data[[i]]$`update-frequency`)) as.character(meta_data[[i]]$`update-frequency`) else NA_character_
-        
-        # Handle last_updated field carefully
-        if (is.null(meta_data[[i]]$last_updated)) {
-          if (!is.null(meta_data[[i]]$`last-updated`)) {
-            meta_df$`Last Updated`[i] <- as.character(meta_data[[i]]$`last-updated`)
-          } else {
-            meta_df$`Last Updated`[i] <- NA_character_
-          }
-        } else {
-          meta_df$`Last Updated`[i] <- as.character(meta_data[[i]]$last_updated)
-        }
-        
-        meta_df$Keywords[i] <- if (!is.null(meta_data[[i]]$keywords_string)) as.character(meta_data[[i]]$keywords_string) else NA_character_
-        
-        if (!is.null(meta_data[[i]]$dois) && !is.null(meta_data[[i]]$dois$publication)) {
-          meta_df$DOI[i] <- as.character(meta_data[[i]]$dois$publication)
-        } else {
-          meta_df$DOI[i] <- NA_character_
-        }
-        
-        if (!is.null(meta_data[[i]]$abstract)) {
-          meta_df$Abstract[i] <- as.character(meta_data[[i]]$abstract)
-        } else {
-          meta_df$Abstract[i] <- NA_character_
-        }
-        
-        meta_df$Filename[i] <- basename(files[i])
-      }, error = function(e) {
-        warning(paste("Error processing entry", i, ":", e$message))
-        meta_df$Title[i] <<- paste("Entry", i, "(Error)")
-        meta_df$Abstract[i] <<- paste("Error processing this entry:", e$message) 
-        meta_df$Status[i] <<- NA_character_
-        meta_df$`Analysis Framework`[i] <<- NA_character_
-        meta_df$`Intervention Type`[i] <<- NA_character_
-        meta_df$`Biobehavioral Outcome`[i] <<- NA_character_
-        meta_df$`Study Type`[i] <<- NA_character_
-        meta_df$Population[i] <<- NA_character_
-        meta_df$`Update Frequency`[i] <<- NA_character_
-        meta_df$`Last Updated`[i] <<- NA_character_
-        meta_df$Keywords[i] <<- NA_character_
-        meta_df$DOI[i] <<- NA_character_
-        meta_df$Filename[i] <<- basename(files[i])
-      })
-    }
-    
-    valid_rows <- rowSums(is.na(meta_df[, c("Title", "Status", "Analysis Framework")])) < 2
-    if (any(!valid_rows)) {
-      print(paste("Filtering out", sum(!valid_rows), "invalid entries"))
-      meta_df <- meta_df[valid_rows, ]
+    # Convert list to data frame
+    if (length(meta_list) > 0) {
+      meta_df <- do.call(rbind, lapply(meta_list, function(x) {
+        data.frame(
+          Title = x$Title,
+          Status = x$Status,
+          Framework = x$Framework,
+          AssessmentMethod = x$AssessmentMethod,
+          OxytocinRoute = x$OxytocinRoute,
+          PopulationStatus = x$PopulationStatus,
+          PopulationAge = x$PopulationAge,
+          PopulationClinicalType = x$PopulationClinicalType,
+          BiologicalOutcomes = x$BiologicalOutcomes,
+          BehavioralOutcomes = x$BehavioralOutcomes,
+          SocialOutcomes = x$SocialOutcomes,
+          UpdateFrequency = x$UpdateFrequency,
+          LastUpdated = x$LastUpdated,
+          Abstract = x$Abstract,
+          Filename = x$Filename,
+          stringsAsFactors = FALSE
+        )
+      }))
     }
     
     return(meta_df)
   }
   
+  # Reactive expression to get and parse metadata from GitHub
+  meta_data <- reactive({
+    # Fetch QMD files from GitHub
+    qmd_contents <- fetch_github_qmd_files()
+    
+    # Parse metadata from QMD files
+    meta_df <- parse_qmd_metadata(qmd_contents)
+    
+    return(meta_df)
+  })
+  
+  # Helper function to check if any term in a list matches a pattern
+  contains_any <- function(terms, pattern) {
+    if (is.na(terms)) return(FALSE)
+    
+    term_list <- trimws(unlist(strsplit(as.character(terms), ",")))
+    return(any(sapply(term_list, function(term) grepl(pattern, term, ignore.case = TRUE))))
+  }
+  
   # Reactive expression for filtered data
   filtered_data <- reactive({
-    meta_df <- read_meta_analyses()
+    meta_df <- meta_data()
+    
+    if (nrow(meta_df) == 0) {
+      return(meta_df)
+    }
     
     # Hide template entry unless specifically searching for it
     if (!grepl("template", tolower(input$search_text %||% ""))) {
       meta_df <- meta_df[!grepl("Template", meta_df$Title), ]
     }
     
-    # Apply filters only if selections are made
-    if (length(input$analysis_type) > 0) {
-      meta_df <- meta_df[meta_df$`Analysis Framework` %in% input$analysis_type, ]
-    }
-    if (length(input$intervention_type) > 0) {
-      meta_df <- meta_df[meta_df$`Intervention Type` %in% input$intervention_type, ]
-    }
-    if (length(input$outcome_category) > 0) {
-      meta_df <- meta_df[sapply(meta_df$`Biobehavioral Outcome`, function(outcomes) {
+    # Apply filters for biological outcomes
+    if (length(input$biological_outcomes) > 0) {
+      matching_rows <- sapply(1:nrow(meta_df), function(i) {
+        outcomes <- meta_df$BiologicalOutcomes[i]
         if (is.na(outcomes)) return(FALSE)
-        outcome_list <- trimws(unlist(strsplit(as.character(outcomes), ",")))
-        return(any(input$outcome_category %in% outcome_list))
-      }), ]
-    }
-    if (length(input$study_type) > 0) {
-      meta_df <- meta_df[meta_df$`Study Type` %in% input$study_type, ]
-    }
-    if (length(input$population) > 0) {
-      meta_df <- meta_df[meta_df$Population %in% input$population, ]
-    }
-    if (length(input$status_filter) > 0) {
-      meta_df <- meta_df[meta_df$Status %in% input$status_filter, ]
-    }
-    if (length(input$update_freq) > 0) {
-      meta_df <- meta_df[meta_df$`Update Frequency` %in% input$update_freq, ]
+        
+        any(sapply(input$biological_outcomes, function(pattern) {
+          contains_any(outcomes, pattern)
+        }))
+      })
+      
+      meta_df <- meta_df[matching_rows, ]
     }
     
+    # Apply filters for behavioral outcomes
+    if (length(input$behavioral_outcomes) > 0) {
+      matching_rows <- sapply(1:nrow(meta_df), function(i) {
+        outcomes <- meta_df$BehavioralOutcomes[i]
+        if (is.na(outcomes)) return(FALSE)
+        
+        any(sapply(input$behavioral_outcomes, function(pattern) {
+          contains_any(outcomes, pattern)
+        }))
+      })
+      
+      meta_df <- meta_df[matching_rows, ]
+    }
+    
+    # Apply filters for social outcomes
+    if (length(input$social_outcomes) > 0) {
+      matching_rows <- sapply(1:nrow(meta_df), function(i) {
+        outcomes <- meta_df$SocialOutcomes[i]
+        if (is.na(outcomes)) return(FALSE)
+        
+        any(sapply(input$social_outcomes, function(pattern) {
+          contains_any(outcomes, pattern)
+        }))
+      })
+      
+      meta_df <- meta_df[matching_rows, ]
+    }
+    
+    # Apply filter for assessment method
+    if (length(input$assessment_method) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$AssessmentMethod) & meta_df$AssessmentMethod %in% input$assessment_method, ]
+    }
+    
+    # Apply filter for oxytocin route
+    if (length(input$oxytocin_route) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$OxytocinRoute) & meta_df$OxytocinRoute %in% input$oxytocin_route, ]
+    }
+    
+    # Apply filter for population status
+    if (length(input$population_status) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$PopulationStatus) & meta_df$PopulationStatus %in% input$population_status, ]
+    }
+    
+    # Apply filter for population age
+    if (length(input$population_age) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$PopulationAge) & meta_df$PopulationAge %in% input$population_age, ]
+    }
+    
+    # Apply filter for analysis framework
+    if (length(input$analysis_framework) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$Framework) & meta_df$Framework %in% input$analysis_framework, ]
+    }
+    
+    # Apply filter for status
+    if (length(input$status_filter) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$Status) & meta_df$Status %in% input$status_filter, ]
+    }
+    
+    # Apply filter for update frequency
+    if (length(input$update_freq) > 0) {
+      meta_df <- meta_df[!is.na(meta_df$UpdateFrequency) & meta_df$UpdateFrequency %in% input$update_freq, ]
+    }
+    
+    # Apply text search across all fields
     if (!is.null(input$search_text) && input$search_text != "") {
       search_pattern <- tolower(input$search_text)
       meta_df <- meta_df[grep(search_pattern, 
                               tolower(paste(
                                 meta_df$Title, 
                                 meta_df$Abstract,
-                                meta_df$`Biobehavioral Outcome`,
-                                meta_df$`Intervention Type`,
-                                meta_df$`Analysis Framework`,
-                                meta_df$`Study Type`,
-                                meta_df$Population,
+                                meta_df$BiologicalOutcomes,
+                                meta_df$BehavioralOutcomes,
+                                meta_df$SocialOutcomes,
+                                meta_df$AssessmentMethod,
+                                meta_df$OxytocinRoute,
+                                meta_df$PopulationStatus,
+                                meta_df$PopulationAge,
+                                meta_df$PopulationClinicalType,
+                                meta_df$Framework,
                                 meta_df$Status,
-                                meta_df$Keywords,
+                                meta_df$UpdateFrequency,
                                 sep = " "
                               ))), ]
     }
@@ -492,28 +659,33 @@ server <- function(input, output) {
     
     div(class = "lma-container",
         lapply(1:nrow(data), function(i) {
-          if (grepl("Template", data$Title[i])) {
-            filename <- "lma-template.qmd"
-          } else {
-            filename <- paste0(gsub(" ", "-", tolower(data$Title[i])), ".qmd")
-          }
-          
           div(class = "lma-entry",
               tags$a(
-                href = paste0("../LMAs/", filename),
+                href = paste0("https://github.com/iaiversen/AMORE-webpage/blob/main/LMAs/", data$Filename[i]),
                 target = "_blank",  # Open in new tab
                 class = "lma-title",
                 data$Title[i]
               ),
               div(class = "lma-meta",
-                  span("Status: ", data$Status[i]), br(),
-                  span("Framework: ", data$`Analysis Framework`[i]), br(),
-                  span("Intervention Type: ", data$`Intervention Type`[i]), br(),
-                  span("Biobehavioral Outcome: ", data$`Biobehavioral Outcome`[i]), br(),
-                  span("Study Type: ", data$`Study Type`[i]), br(),
-                  span("Population: ", data$Population[i]), br(),
-                  span("Update Frequency: ", data$`Update Frequency`[i]), br(),
-                  span("Last Updated: ", data$`Last Updated`[i])
+                  # Only show non-NA values
+                  if (!is.na(data$Status[i])) span("Status: ", data$Status[i], br()) else NULL,
+                  if (!is.na(data$Framework[i])) span("Framework: ", data$Framework[i], br()) else NULL,
+                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i], br()) else NULL,
+                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i], br()) else NULL,
+                  
+                  # Outcomes - only show if they exist
+                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i], br()) else NULL,
+                  if (!is.na(data$BehavioralOutcomes[i])) span("Behavioral Outcomes: ", data$BehavioralOutcomes[i], br()) else NULL,
+                  if (!is.na(data$SocialOutcomes[i])) span("Social Outcomes: ", data$SocialOutcomes[i], br()) else NULL,
+                  
+                  # Population info - only show if they exist
+                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i], br()) else NULL,
+                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i], br()) else NULL,
+                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i], br()) else NULL,
+                  
+                  # Other metadata
+                  if (!is.na(data$UpdateFrequency[i])) span("Update Frequency: ", data$UpdateFrequency[i], br()) else NULL,
+                  if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i], br()) else NULL
               ),
               div(class = "lma-abstract",
                   data$Abstract[i]
