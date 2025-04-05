@@ -9,30 +9,30 @@
   {
     "objectID": "LMAs/technology-oxytocin-lma.html#resources-and-data-links",
     "href": "LMAs/technology-oxytocin-lma.html#resources-and-data-links",
-    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
     "section": "Resources and data links",
-    "text": "Resources and data links\nPre-registration\nView Pre-registration on OSF Pre-print\nView on bioRxiv Data & Analysis\nRaw Data (Zenodo)\nBayesian Analysis Code (GitHub) Deviation report\nProtocol Deviations Log PRISMA Checklist\nComplete checklist"
+    "text": "Resources and data links\nPre-registration\nView on Open Science Framework Pre-print\nView on bioRxiv Data & Analysis\nRaw Data (Zenodo)\nBayesian Analysis Code (GitHub) Deviation report\nProtocol Deviations Log PRISMA Checklist\nComplete checklist"
   },
   {
     "objectID": "LMAs/technology-oxytocin-lma.html#abstract",
     "href": "LMAs/technology-oxytocin-lma.html#abstract",
-    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
     "section": "Abstract",
-    "text": "Abstract\nThis Bayesian living meta-analysis examines the relationship between daily technology use and baseline blood plasma oxytocin levels. Preliminary evidence from 28 studies (N = 2,143) suggests that individuals with high screen time (&gt;6 hours/day) show significantly lower baseline oxytocin levels compared to moderate users. ## Current Results Latest Bayesian analysis (k = 28) shows: - Strong evidence for decreased oxytocin levels (BF₁₀ = 15.2) - Posterior median effect size: -0.45 [95% CI: -0.62, -0.28] - Robustness checks support main conclusions (BF₁₀ &gt; 10 across prior specifications)  ## Subgroup Analyses - Age groups (adolescents show strongest effects) - Device type (social media use vs. passive consumption) - Time of day effects ## Updates Log - 2024-02-15: Added 5 new studies, updated Bayesian models - 2024-01-15: Initial pre-registration and protocol ## Next Update Scheduled for: May 2024 (3-month update cycle) Contact: tech.oxy.study@fakeemail.edu"
+    "text": "Abstract\nThis Bayesian living meta-analysis examines the relationship between daily technology use and baseline blood plasma oxytocin levels. Preliminary evidence from 28 studies (N = 2,143) suggests that individuals with high screen time (&gt;6 hours/day) show significantly lower baseline oxytocin levels compared to moderate users."
   },
   {
     "objectID": "LMAs/technology-oxytocin-lma.html#inclusion-and-exclusion-criteria",
     "href": "LMAs/technology-oxytocin-lma.html#inclusion-and-exclusion-criteria",
-    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
     "section": "Inclusion and Exclusion Criteria",
-    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nStudies measuring baseline blood plasma oxytocin levels\nParticipants aged 18-65 years\nStudies with self-reported or objective technology use measurement\nCross-sectional and longitudinal designs\nPublished in peer-reviewed journals or preprints ### Exclusion Criteria\nStudies with participants diagnosed with endocrine disorders\nStudies with participants on hormone therapy\nAnimal studies\nCase reports and qualitative studies\nStudies without standardized oxytocin measurement"
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nStudies measuring baseline blood plasma oxytocin levels\nParticipants aged 18-65 years\nStudies with self-reported or objective technology use measurement\nCross-sectional and longitudinal designs\nPublished in peer-reviewed journals or preprints\n\n\n\nExclusion Criteria\n\nStudies with participants diagnosed with endocrine disorders\nStudies with participants on hormone therapy\nAnimal studies\nCase reports and qualitative studies\nStudies without standardized oxytocin measurement"
   },
   {
     "objectID": "LMAs/technology-oxytocin-lma.html#search-strategy",
     "href": "LMAs/technology-oxytocin-lma.html#search-strategy",
-    "title": "Heavy use of modern technologies decreases our baseline level of blood plasma oxytocin: A bayesian framework model and living meta-analyses",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
     "section": "Search Strategy",
-    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (plasma[tiab] OR blood[tiab] OR serum[tiab]) AND (technology[tiab] OR “screen time”[tiab] OR “digital media”[tiab] OR smartphone[tiab] OR “cell phone”[tiab] OR “social media”[tiab] OR internet[tiab]) PsycINFO:\n(oxytocin) AND (plasma OR blood OR serum) AND (technology OR “screen time” OR “digital media” OR smartphone OR “cell phone” OR “social media” OR internet)"
+    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (plasma[tiab] OR blood[tiab] OR serum[tiab]) AND (technology[tiab] OR “screen time”[tiab] OR “digital media”[tiab] OR smartphone[tiab] OR “cell phone”[tiab] OR “social media”[tiab] OR internet[tiab])\nPsycINFO:\n(oxytocin) AND (plasma OR blood OR serum) AND (technology OR “screen time” OR “digital media” OR smartphone OR “cell phone” OR “social media” OR internet)"
   },
   {
     "objectID": "LMAs/example-hugging.oxytocin-lma.html#resources-and-data-links",
@@ -46,21 +46,21 @@
     "href": "LMAs/example-hugging.oxytocin-lma.html#abstract",
     "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
     "section": "Abstract",
-    "text": "Abstract\nThis living meta-analysis investigates the relationship between intranasal oxytocin administration and hugging behavior in healthy adults. Current evidence suggests a complex relationship between oxytocin and physical touch-seeking behavior, with mixed results across 42 studies (N = 3,876). ## Current Results Our latest analysis (k = 42) indicates a small-to-moderate effect of intranasal oxytocin on hugging behavior (Hedges’ g = 0.34, 95% CI [0.21, 0.47], p &lt; .001). Significant moderators include: - Administration timing (β = 0.28, p = .015) - Social context (β = 0.42, p &lt; .001) - Previous relationship status (β = 0.31, p = .008)  ## Updates Log - 2024-02-20: Added 3 new studies, updated effect size calculations - 2023-12-15: Initial analysis with 39 studies - 2023-09-15: Pre-registration completed ## Next Update Scheduled for: August 2025 (18-month update cycle) Contact: fake.email@university.edu"
+    "text": "Abstract\nThis living meta-analysis investigates the relationship between intranasal oxytocin administration and hugging behavior in healthy adults. Current evidence suggests a complex relationship between oxytocin and physical touch-seeking behavior, with comprehensive results across 42 studies (N = 3,876)."
   },
   {
     "objectID": "LMAs/example-hugging.oxytocin-lma.html#inclusion-and-exclusion-criteria",
     "href": "LMAs/example-hugging.oxytocin-lma.html#inclusion-and-exclusion-criteria",
     "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
     "section": "Inclusion and Exclusion Criteria",
-    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract ### Exclusion Criteria\nStudies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nStudies using endogenous oxytocin measurement only\nCase studies and non-experimental designs\nStudies without available effect size data or sufficient information to calculate effect sizes"
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of physical touch and social behavior\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract\n\n\n\nExclusion Criteria\n\nStudies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nStudies using only endogenous oxytocin measurement\nCase studies and non-experimental designs\nStudies without available effect size data or sufficient information"
   },
   {
     "objectID": "LMAs/example-hugging.oxytocin-lma.html#search-strategy",
     "href": "LMAs/example-hugging.oxytocin-lma.html#search-strategy",
     "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
     "section": "Search Strategy",
-    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“hug”[tiab] OR “hugging”[tiab] OR “physical touch”[tiab] OR “physical contact”[tiab] OR “social touch”[tiab]) Web of Science:\nTS=(oxytocin AND (intranasal OR nasal) AND (“physical touch” OR hug OR hugging OR “physical contact” OR “social touch”))"
+    "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“hug”[tiab] OR “hugging”[tiab] OR “physical touch”[tiab] OR “physical contact”[tiab] OR “social touch”[tiab])\nWeb of Science:\nTS=(oxytocin AND (intranasal OR nasal) AND (“physical touch” OR hug OR hugging OR “physical contact” OR “social touch”))"
   },
   {
     "objectID": "guidelines.html",
@@ -102,7 +102,7 @@
     "href": "index.html",
     "title": "| Active Monitoring of Oxytocin Research Evidence",
     "section": "",
-    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\n\nAims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
+    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\nPublish your Living Meta Analysis\n\n\n\nAims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
   },
   {
     "objectID": "LMAs/lma-template.html#resources-and-data-links",
@@ -138,5 +138,54 @@
     "title": "| Active Monitoring of Oxytocin Research Evidence",
     "section": "",
     "text": "Aims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#current-results",
+    "href": "LMAs/technology-oxytocin-lma.html#current-results",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
+    "section": "Current Results",
+    "text": "Current Results\nLatest Bayesian analysis (k = 28) shows: - Strong evidence for decreased oxytocin levels (BF₁₀ = 15.2) - Posterior median effect size: -0.45 [95% CI: -0.62, -0.28] - Robustness checks support main conclusions (BF₁₀ &gt; 10 across prior specifications)"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#subgroup-analyses",
+    "href": "LMAs/technology-oxytocin-lma.html#subgroup-analyses",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
+    "section": "Subgroup Analyses",
+    "text": "Subgroup Analyses\n\nAge groups (adolescents show strongest effects)\nDevice type (social media use vs. passive consumption)\nTime of day effects"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#updates-log",
+    "href": "LMAs/technology-oxytocin-lma.html#updates-log",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
+    "section": "Updates Log",
+    "text": "Updates Log\n\n2024-02-15: Added 5 new studies, updated Bayesian models\n2024-01-15: Initial pre-registration and protocol"
+  },
+  {
+    "objectID": "LMAs/technology-oxytocin-lma.html#next-update",
+    "href": "LMAs/technology-oxytocin-lma.html#next-update",
+    "title": "Heavy use of modern technologies decreases baseline blood plasma oxytocin: A Bayesian framework model and living meta-analyses",
+    "section": "Next Update",
+    "text": "Next Update\nScheduled for: May 2024 (3-month update cycle) Contact: tech.oxytocin.research@institute.org"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#current-results",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#current-results",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Current Results",
+    "text": "Current Results\nOur latest analysis (k = 42) indicates a small-to-moderate effect of intranasal oxytocin on hugging behavior (Hedges’ g = 0.34, 95% CI [0.21, 0.47], p &lt; .001).\nSignificant moderators include: - Administration timing (β = 0.28, p = .015) - Social context (β = 0.42, p &lt; .001) - Previous relationship status (β = 0.31, p = .008)"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#updates-log",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#updates-log",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Updates Log",
+    "text": "Updates Log\n\n2024-02-20: Added 3 new studies, updated effect size calculations\n2023-12-15: Initial analysis with 39 studies\n2023-09-15: Pre-registration completed"
+  },
+  {
+    "objectID": "LMAs/example-hugging.oxytocin-lma.html#next-update",
+    "href": "LMAs/example-hugging.oxytocin-lma.html#next-update",
+    "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
+    "section": "Next Update",
+    "text": "Next Update\nScheduled for: August 2025 (18-month update cycle) Contact: hugging.oxytocin.study@research.org"
   }
 ]
