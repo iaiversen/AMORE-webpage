@@ -200,6 +200,7 @@ ui <- fluidPage(
           h4("Population Age Group", class = "filter-title"),
           checkboxGroupInput("population_age", NULL,
                              choices = c("Children", 
+                                         "Adolescents",
                                          "Adults", 
                                          "Older Adults",
                                          "Mixed Age Groups"),
