@@ -24,6 +24,7 @@ If you're interested in publishing your Living Meta-Analysis on AMORE, we encour
 
 - Review our [Guidelines](/guidelines.qmd) on how to get your living meta analysis published on the AMORE platform
 - Check our [Standardization Goals](/Standardization.qmd) for specific requirements
+- Review the [Checklist](/Protocol_checklist.html) for creating a Living Meta-Analysis Protocol
 - [Use the contact form](https://nettskjema.no/a/492183){target="_blank"} to submit your initial proposal
 
 
