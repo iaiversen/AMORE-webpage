@@ -1,0 +1,46 @@
+---
+title: "Research tools and resources" 
+format:
+  html:
+    theme: 
+      - yeti
+      - styles.scss
+    css: styles.scss
+---
+
+::: {.title-space}
+::: 
+
+## Checklist for creating Living Meta-Analysis Protocol
+
+This checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. It covers key aspects such as study design, data collection, analysis methods, and reporting standards. By following this checklist, researchers can ensure that their protocol is well-structured and meets the necessary requirements for a living meta-analysis.
+
+[Access the Protocol Checklist Tool](Protocol_checklist.html){.resource-link}
+
+## Additional Resources
+
+::: {.resource-list}
+::: {.resource-item}
+### PRISMA for Living Systematic Reviews {#prisma}
+
+PRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.
+
+[Visit PRISMA-Statement.org Website](http://prisma-statement.org/Extensions/LivingSystematicReview){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
+### Retraction Watch {#retraction-watch}
+
+Tracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.
+
+[Visit Retraction Watch](https://retractionwatch.com/){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
+### Zotero {#zotero}
+
+Reference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.
+
+[Visit Zotero](https://www.zotero.org/){.resource-link target="_blank"}
+:::
+:::

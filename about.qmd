@@ -24,4 +24,77 @@ The AMORE platform is overseen by a steering committee of experts in the oxytoci
 - Ensures computational reproducibility
 - Maintains platform standards
 :::
+
+::: {.about-section}
+#### Expert Steering Committee Members
+
+- **Prof. Daniel Quintana**  
+  University of Oslo, Department of Psychology
+
+- **Prof. Mariam Bakermans-Kranenburg**  
+  University Institute of Psychological, Social and Life Sciences, Lisbon, Portugal 
+
+- **Prof. Jessica J. Connelly**  
+  University of Virginia, Department of Psychology
+
+- **MPhil Heemin Kang**  
+  University of Oslo, Department of psychology
+
+- **Prof. Jennifer Bartz**  
+  McGill University, Department of Psychology
+
+- **Prof. Natalie Ebner**  
+  University of Florida, Department of Psychology
+
+- **Prof. Dirk Scheele**  
+  Ruhr University Bochum, Research Department of Neuroscience 
+
+- **Prof. Benjamin Becker**  
+  University of Hong Kong, Department of Psychology
+
+- **Prof. Kaat Alaerts**  
+  University of Ku Leuven, Department of Rehabilitation Sciences
+
+- **Dr. Matthijs Moerkerke**  
+  Ghent University, Department of Rehabilitation Sciences and Physiotherapy
+
+- **Dr. Elisabeth A. Lawson**  
+  Assoc. Prof. of Medicine, Harvard Medical School  
+  Assoc. Prof. Endocrine Division, Mass General Research Institute  
+  Physician, Neuroendocrine, Massachusetts General Hospital
+
+- **Dr. Tanya Procyshyn**  
+  University of Cambridge, Department of Psychiatry 
+
+- **Dr. Marilyn Horta**  
+  University of Florida, Department of Psychology
+
+- **Prof. Hidenori Yamasue**  
+  Hamamatsu University, Department of Psychiatry 
+
+- **Constantina Theofanopoulou**  
+  Herbert and Nell Singer Research Assistant Professor, Rockefeller University
+
+- **Dr. Peeled Avron**  
+  Bar Ilan University, Department of Psychology
+
+- **Senior Scientist Nicole Løndtfelt**  
+  University of Copenhagen, Department of Mental Health Services
+
+- **Dr. Ekaterina Schneider**  
+  University hospital Heidelberg, Institute of Medical Psychology
+
+- **Anna-Rosa Cecilie Mora-Jensen**  
+  University of Copenhagen, Department of Clinical Medicine 
+
+- **Prof. Christian Montag**  
+  University of Macau, Center of Cognitive and Brain Sciences 
+
+- **Prof. Robert James Blair**  
+  University of Copenhagen, Child and Adolescent Mental Health Center, Mental Health Services 
+
+- **MSc Alina Sartorious**  
+  University of Oslo, Department of Psychology
+:::
+
 :::

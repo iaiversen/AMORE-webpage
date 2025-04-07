@@ -74,7 +74,7 @@
     "href": "about.html",
     "title": "Our mission",
     "section": "",
-    "text": "What is the AMORE initiative about?\nThe Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of indivdiual studies and place them in a bigger evidence picture. Wheras traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.\n\n\nExpert Steering Committee\nThe AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:\n\nApproves project proposals\nProvides methodological guidance\nEnsures computational reproducibility\nMaintains platform standards"
+    "text": "What is the AMORE initiative about?\nThe Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of indivdiual studies and place them in a bigger evidence picture. Wheras traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.\n\n\nExpert Steering Committee\nThe AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:\n\nApproves project proposals\nProvides methodological guidance\nEnsures computational reproducibility\nMaintains platform standards\n\n\n\nExpert Steering Committee Members\n\nProf. Daniel Quintana\nUniversity of Oslo, Department of Psychology\nProf. Mariam Bakermans-Kranenburg\nUniversity Institute of Psychological, Social and Life Sciences, Lisbon, Portugal\nProf. Jessica J. Connelly\nUniversity of Virginia, Department of Psychology\nMPhil Heemin Kang\nUniversity of Oslo, Department of psychology\nProf. Jennifer Bartz\nMcGill University, Department of Psychology\nProf. Natalie Ebner\nUniversity of Florida, Department of Psychology\nProf. Dirk Scheele\nRuhr University Bochum, Research Department of Neuroscience\nProf. Benjamin Becker\nUniversity of Hong Kong, Department of Psychology\nProf. Kaat Alaerts\nUniversity of Ku Leuven, Department of Rehabilitation Sciences\nDr. Matthijs Moerkerke\nGhent University, Department of Rehabilitation Sciences and Physiotherapy\nDr. Elisabeth A. Lawson\nAssoc. Prof. of Medicine, Harvard Medical School\nAssoc. Prof. Endocrine Division, Mass General Research Institute\nPhysician, Neuroendocrine, Massachusetts General Hospital\nDr. Tanya Procyshyn\nUniversity of Cambridge, Department of Psychiatry\nDr. Marilyn Horta\nUniversity of Florida, Department of Psychology\nProf. Hidenori Yamasue\nHamamatsu University, Department of Psychiatry\nConstantina Theofanopoulou\nHerbert and Nell Singer Research Assistant Professor, Rockefeller University\nDr. Peeled Avron\nBar Ilan University, Department of Psychology\nSenior Scientist Nicole Løndtfelt\nUniversity of Copenhagen, Department of Mental Health Services\nDr. Ekaterina Schneider\nUniversity hospital Heidelberg, Institute of Medical Psychology\nAnna-Rosa Cecilie Mora-Jensen\nUniversity of Copenhagen, Department of Clinical Medicine\nProf. Christian Montag\nUniversity of Macau, Center of Cognitive and Brain Sciences\nProf. Robert James Blair\nUniversity of Copenhagen, Child and Adolescent Mental Health Center, Mental Health Services\nMSc Alina Sartorious\nUniversity of Oslo, Department of Psychology"
   },
   {
     "objectID": "contact.html",
@@ -187,5 +187,89 @@
     "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
     "section": "Next Update",
     "text": "Next Update\nScheduled for: August 2025 (18-month update cycle) Contact: hugging.oxytocin.study@research.org"
+  },
+  {
+    "objectID": "Resources.html",
+    "href": "Resources.html",
+    "title": "Research tools and resources",
+    "section": "",
+    "text": "This checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. It covers key aspects such as study design, data collection, analysis methods, and reporting standards. By following this checklist, researchers can ensure that their protocol is well-structured and meets the necessary requirements for a living meta-analysis.\nAccess the Protocol Checklist Tool"
+  },
+  {
+    "objectID": "Resources.html#research-tools-resources",
+    "href": "Resources.html#research-tools-resources",
+    "title": "Resources",
+    "section": "",
+    "text": "This page contains curated resources to support researchers in conducting living meta-analyses and systematic reviews. These tools help with different stages of the research process, from literature tracking to protocol development.\n\n\n\n\n\nTools to help track and identify retracted studies in your literature reviews.\n\n\n&lt;h4&gt;&lt;a href=\"https://www.zotero.org/\" target=\"_blank\"&gt;Zotero&lt;/a&gt;&lt;/h4&gt;\n&lt;p&gt;Reference management software that includes retraction alerts and notifications. Zotero can flag retracted papers in your library, helping ensure your meta-analyses remain current and accurate.&lt;/p&gt;\n&lt;a href=\"https://www.zotero.org/\" class=\"resource-link\" target=\"_blank\"&gt;Visit Zotero &lt;i class=\"bi bi-box-arrow-up-right\"&gt;&lt;/i&gt;&lt;/a&gt;\n\n\n&lt;h4&gt;&lt;a href=\"https://retractionwatch.com/\" target=\"_blank\"&gt;Retraction Watch&lt;/a&gt;&lt;/h4&gt;\n&lt;p&gt;A database tracking scientific retractions to promote transparency in the scientific process. This resource is invaluable for identifying retracted studies that might affect your analysis.&lt;/p&gt;\n&lt;a href=\"https://retractionwatch.com/\" class=\"resource-link\" target=\"_blank\"&gt;Visit Retraction Watch &lt;i class=\"bi bi-box-arrow-up-right\"&gt;&lt;/i&gt;&lt;/a&gt;\n\n\n\n\n\n\nStandard guidelines for reporting systematic reviews and meta-analyses.\n\n\n&lt;h4&gt;&lt;a href=\"http://prisma-statement.org/Extensions/ScopingReviews\" target=\"_blank\"&gt;PRISMA for Living Systematic Reviews&lt;/a&gt;&lt;/h4&gt;\n&lt;p&gt;The Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) extension for living systematic reviews provides specific guidance for transparent reporting of LSRs.&lt;/p&gt;\n&lt;a href=\"http://prisma-statement.org/Extensions/ScopingReviews\" class=\"resource-link\" target=\"_blank\"&gt;View PRISMA LSR &lt;i class=\"bi bi-box-arrow-up-right\"&gt;&lt;/i&gt;&lt;/a&gt;\n\n\n\n\n\n\nTools and templates to help structure your research protocols.\n\n\n&lt;h4&gt;AMORE Protocol Checklist&lt;/h4&gt;\n&lt;p&gt;Our interactive protocol checklist helps researchers develop comprehensive protocols for living meta-analyses. Check off requirements as you complete them to ensure your protocol meets all AMORE standards.&lt;/p&gt;\n&lt;a href=\"protocol-checklist.html\" class=\"primary-button\"&gt;Use Protocol Checklist Tool&lt;/a&gt;\n\n\n\n\n\n\nRecommended platforms for storing and sharing your meta-analysis data.\n\n\n&lt;h4&gt;&lt;a href=\"https://osf.io/\" target=\"_blank\"&gt;Open Science Framework (OSF)&lt;/a&gt;&lt;/h4&gt;\n&lt;p&gt;A free platform that supports collaboration throughout the research lifecycle. OSF is ideal for storing your meta-analysis data, analysis scripts, and protocols in one accessible location.&lt;/p&gt;\n&lt;a href=\"https://osf.io/\" class=\"resource-link\" target=\"_blank\"&gt;Visit OSF &lt;i class=\"bi bi-box-arrow-up-right\"&gt;&lt;/i&gt;&lt;/a&gt;\n\n\n&lt;h4&gt;&lt;a href=\"https://zenodo.org/\" target=\"_blank\"&gt;Zenodo&lt;/a&gt;&lt;/h4&gt;\n&lt;p&gt;A general-purpose open repository that allows researchers to deposit datasets, software, reports, and other research-related items. Zenodo assigns a DOI to make your data easily citable.&lt;/p&gt;\n&lt;a href=\"https://zenodo.org/\" class=\"resource-link\" target=\"_blank\"&gt;Visit Zenodo &lt;i class=\"bi bi-box-arrow-up-right\"&gt;&lt;/i&gt;&lt;/a&gt;"
+  },
+  {
+    "objectID": "Resources.html#protocol-checklist-tool",
+    "href": "Resources.html#protocol-checklist-tool",
+    "title": "Research tools and resources",
+    "section": "Protocol Checklist Tool",
+    "text": "Protocol Checklist Tool\nInformation about the Protocol Checklist Tool would go here…"
+  },
+  {
+    "objectID": "Resources.html#prisma-for-living-systematic-reviews",
+    "href": "Resources.html#prisma-for-living-systematic-reviews",
+    "title": "Research tools and resources",
+    "section": "PRISMA for Living Systematic Reviews",
+    "text": "PRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website"
+  },
+  {
+    "objectID": "Resources.html#retraction-watch",
+    "href": "Resources.html#retraction-watch",
+    "title": "Research tools and resources",
+    "section": "Retraction Watch",
+    "text": "Retraction Watch\nTracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.\nVisit Retraction Watch"
+  },
+  {
+    "objectID": "Resources.html#zotero",
+    "href": "Resources.html#zotero",
+    "title": "Research tools and resources",
+    "section": "Zotero",
+    "text": "Zotero\nReference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.\nVisit Zotero"
+  },
+  {
+    "objectID": "Resources.html#checklist-for-creating-living-meta-analysis-protocol",
+    "href": "Resources.html#checklist-for-creating-living-meta-analysis-protocol",
+    "title": "Research tools and resources",
+    "section": "Checklist for creating Living Meta-Analysis Protocol",
+    "text": "Checklist for creating Living Meta-Analysis Protocol\nThis checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. It covers key aspects such as study design, data collection, analysis methods, and reporting standards. By following this checklist, researchers can ensure that their protocol is well-structured and meets the necessary requirements for a living meta-analysis.\nAccess the Protocol Checklist Tool"
+  },
+  {
+    "objectID": "Resources.html#prisma-prisma-for-living-systematic-reviews",
+    "href": "Resources.html#prisma-prisma-for-living-systematic-reviews",
+    "title": "Research tools and resources",
+    "section": "{#prisma} PRISMA for Living Systematic Reviews",
+    "text": "{#prisma} PRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website"
+  },
+  {
+    "objectID": "Resources.html#retraction-watch-retraction-watch",
+    "href": "Resources.html#retraction-watch-retraction-watch",
+    "title": "Research tools and resources",
+    "section": "{#retraction-watch} Retraction Watch",
+    "text": "{#retraction-watch} Retraction Watch\nTracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.\nVisit Retraction Watch"
+  },
+  {
+    "objectID": "Resources.html#zotero-zotero",
+    "href": "Resources.html#zotero-zotero",
+    "title": "Research tools and resources",
+    "section": "{#zotero} Zotero",
+    "text": "{#zotero} Zotero\nReference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.\nVisit Zotero"
+  },
+  {
+    "objectID": "Resources.html#prisma",
+    "href": "Resources.html#prisma",
+    "title": "Research tools and resources",
+    "section": "PRISMA for Living Systematic Reviews",
+    "text": "PRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website"
+  },
+  {
+    "objectID": "Resources.html#additional-resources",
+    "href": "Resources.html#additional-resources",
+    "title": "Research tools and resources",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\n\nPRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website\n\n\nRetraction Watch\nTracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.\nVisit Retraction Watch\n\n\nZotero\nReference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.\nVisit Zotero"
   }
 ]

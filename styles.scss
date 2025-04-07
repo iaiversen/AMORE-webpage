@@ -499,6 +499,7 @@ margin-bottom: 3rem;
   }
 }
 
+
 /* References styling */
 #references {
   margin-top: 4rem;
@@ -747,4 +748,67 @@ margin-bottom: 3rem;
   margin-top: 0.5rem;
   margin-bottom: 0.3rem;
   color: #0A2A5E;
+}
+
+/*=============================================
+=            Resources Page                 =
+===============================================*/
+/* Resources page styling */
+
+.title-space {
+  margin-top: 6rem;
+}
+
+/* Clean spacing for section headers */
+h2 {
+  color: #0A2A5E;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* Resource link formatting */
+.resource-link {
+  display: inline-block;
+  color: #1E50A0;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  
+  &:hover {
+    color: #0A2A5E;
+    border-bottom-color: #0A2A5E;
+    text-decoration: none;
+  }
+}
+
+/* Resource list formatting */
+.resource-list {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Individual resource items */
+.resource-item {
+  background: #f9f9f9;
+  border-left: 4px solid #0A2A5E;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  
+  h3 {
+    color: #0A2A5E;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
 }

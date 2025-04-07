@@ -23,6 +23,8 @@ website:
         href: guidelines.qmd
       - text: "Standardization goals"
         href: Standardization.qmd
+      - text: "Resources"
+        href: resources.qmd
       - text: "About"
         href: about.qmd
       - text: "Home"

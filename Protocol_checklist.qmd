@@ -1,0 +1,9 @@
+---
+title: "Protocol checklist"
+format:
+  html:
+    theme: 
+      - yeti
+      - styles.scss
+    css: styles.scss
+---
