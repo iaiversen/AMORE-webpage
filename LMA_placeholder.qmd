@@ -1,5 +1,4 @@
 ---
-title: "Living Systematic Reviews"
 format: 
   html:
     page-layout: full 
