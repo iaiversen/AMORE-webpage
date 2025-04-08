@@ -24,7 +24,7 @@ website:
       - text: "Standardization goals"
         href: Standardization.qmd
       - text: "Resources"
-        href: resources.qmd
+        href: Resources.qmd
       - text: "About"
         href: about.qmd
       - text: "Home"
