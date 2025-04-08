@@ -11,7 +11,7 @@ format:
 ::: {.title-space}
 ::: 
 
-## Checklist for creating Living Meta-Analysis Protocol
+## Checklist for creating Living Meta-Analysis Protocol for AMORE
 
 This checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. By following this checklist, researchers can ensure that their protocol is well-structured and adhere the necessary requirements for a living meta-analysis on the AMORE platform. 
 
@@ -26,6 +26,22 @@ This checklist is designed to help researchers create a comprehensive protocol f
 PRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.
 
 [Visit PRISMA-Statement.org Website](http://prisma-statement.org/Extensions/LivingSystematicReview){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
+### PROSPERO {#prospero}
+
+PROSPERO is specifically designed for registering systematic review protocols focused on health related research It provides a standardized format for documenting review methods before they begin.
+
+[Visit PROSPERO](https://www.crd.york.ac.uk/prospero/){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
+### Open Science Framework (OSF) {#osf}
+
+The Open Science Framework (OSF) is a free and open-source platform that supports researchers in managing their projects, sharing their data, and collaborating with others. It provides tools for pre-registration, data sharing, and project management, making it easier for researchers to conduct and share their work transparently. It is developed by the Center for Open Science (COS).
+
+[Visit OSF](https://osf.io/){.resource-link target="_blank"}
 :::
 
 ::: {.resource-item}
