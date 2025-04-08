@@ -1,5 +1,5 @@
 ---
-title: "Standardization Goals for Living Meta-Analysis on AMORE"
+title: "Standardization Framework for Living Meta-Analysis on AMORE"
 format:
   html:
     theme: 

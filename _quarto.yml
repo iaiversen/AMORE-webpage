@@ -21,7 +21,7 @@ website:
         href: contact.qmd
       - text: "Guidelines"
         href: guidelines.qmd
-      - text: "Standardization goals"
+      - text: "Standardization framework"
         href: Standardization.qmd
       - text: "Resources"
         href: Resources.qmd
