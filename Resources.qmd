@@ -25,7 +25,7 @@ This checklist is designed to help researchers create a comprehensive protocol f
 
 PRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.
 
-[Visit PRISMA-Statement.org Website](http://prisma-statement.org/Extensions/LivingSystematicReview){.resource-link target="_blank"}
+[Visit PRISMA-Statement.org Website](http://prisma-statement.org/lsr){.resource-link target="_blank"}
 :::
 
 ::: {.resource-item}

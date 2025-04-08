@@ -270,7 +270,7 @@
     "href": "Resources.html#additional-resources",
     "title": "Research tools and resources",
     "section": "Additional Resources",
-    "text": "Additional Resources\n\n\nPRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website\n\n\nRetraction Watch\nTracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.\nVisit Retraction Watch\n\n\nZotero\nReference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.\nVisit Zotero"
+    "text": "Additional Resources\n\n\nPRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website\n\n\nPROSPERO\nPROSPERO is specifically designed for registering systematic review protocols focused on health related research It provides a standardized format for documenting review methods before they begin.\nVisit PROSPERO\n\n\nOpen Science Framework (OSF)\nThe Open Science Framework (OSF) is a free and open-source platform that supports researchers in managing their projects, sharing their data, and collaborating with others. It provides tools for pre-registration, data sharing, and project management, making it easier for researchers to conduct and share their work transparently. It is developed by the Center for Open Science (COS).\nVisit OSF\n\n\nRetraction Watch\nTracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.\nVisit Retraction Watch\n\n\nZotero\nReference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.\nVisit Zotero"
   },
   {
     "objectID": "Protocol_checklist.html",
@@ -278,5 +278,12 @@
     "title": "Protocol checklist",
     "section": "",
     "text": "⚠️ Protocol Checklist Tool is currently under development"
+  },
+  {
+    "objectID": "Resources.html#checklist-for-creating-living-meta-analysis-protocol-for-amore",
+    "href": "Resources.html#checklist-for-creating-living-meta-analysis-protocol-for-amore",
+    "title": "Research tools and resources",
+    "section": "Checklist for creating Living Meta-Analysis Protocol for AMORE",
+    "text": "Checklist for creating Living Meta-Analysis Protocol for AMORE\nThis checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. By following this checklist, researchers can ensure that their protocol is well-structured and adhere the necessary requirements for a living meta-analysis on the AMORE platform.\nAccess the Protocol Checklist Tool"
   }
 ]
