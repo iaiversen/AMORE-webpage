@@ -13,7 +13,7 @@ format:
 
 ## Checklist for creating Living Meta-Analysis Protocol
 
-This checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. It covers key aspects such as study design, data collection, analysis methods, and reporting standards. By following this checklist, researchers can ensure that their protocol is well-structured and meets the necessary requirements for a living meta-analysis.
+This checklist is designed to help researchers create a comprehensive protocol for their living meta-analysis. By following this checklist, researchers can ensure that their protocol is well-structured and adhere the necessary requirements for a living meta-analysis on the AMORE platform. 
 
 [Access the Protocol Checklist Tool](Protocol_checklist.html){.resource-link}
 
