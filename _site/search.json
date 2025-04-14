@@ -261,8 +261,8 @@
   {
     "objectID": "LMA_placeholder.html",
     "href": "LMA_placeholder.html",
-    "title": "Living Meta-Analysis Directory",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
     "section": "",
-    "text": "Browse and filter our collection of living meta-analyses on oxytocin research.\n        Use the filters on the left to narrow down the results based on your specific interests.\n      \n    \n  \n\n\n\n\n\n\n&lt;div class=\"col-md-12\"&gt;\n  &lt;div class=\"card bg-light\"&gt;\n    &lt;div class=\"card-body\"&gt;\n      &lt;h5 class=\"card-title\"&gt;Interested in Contributing?&lt;/h5&gt;\n      &lt;p class=\"card-text\"&gt;If you're interested in publishing your own living meta-analysis on the AMORE platform, please review our guidelines and contact us.&lt;/p&gt;\n      &lt;a href=\"guidelines.html\" class=\"btn btn-primary\"&gt;Review Guidelines&lt;/a&gt;\n      &lt;a href=\"contact.html\" class=\"btn btn-primary\"&gt;Contact Us&lt;/a&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;"
+    "text": "&lt;div class=\"col-md-12\"&gt;\n  &lt;h1&gt;Living Meta-Analysis Directory&lt;/h1&gt;\n  &lt;p class=\"lead\"&gt;\n    Browse and filter our collection of living meta-analyses on oxytocin research.\n  &lt;/p&gt;\n&lt;/div&gt;"
   }
 ]

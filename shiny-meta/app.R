@@ -8,6 +8,7 @@ library(jsonlite)  # For JSON parsing
 library(base64enc)  # For decoding base64 content from GitHub API
 
 #============================= UI section ==============================# 
+#============================= UI section ==============================# 
 ui <- fluidPage(
   tags$head(
     tags$link(rel = "icon", type = "image/x-icon", href = "favicon.ico"),
@@ -18,7 +19,7 @@ ui <- fluidPage(
         --secondary-blue: #3c6997ff;
       }
       .title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         color: #0A2A5E;
         margin-top: 1.8rem;
         margin-bottom: 1rem;
@@ -98,7 +99,7 @@ ui <- fluidPage(
     "))
   ),
   
-  titlePanel(tags$h1("Living Systematic Reviews Directory", class = "title")),
+  titlePanel(tags$h1("Living Meta-Analysis Directory", class = "title")),
   
   sidebarLayout(
     sidebarPanel(
@@ -247,7 +248,29 @@ ui <- fluidPage(
     mainPanel(
       uiOutput("lma_list")
     )
-  )
+  ),
+  
+  # JavaScript to handle iframe height adjustment
+  # This script will send the height of the iframe to the parent window
+  # so that it can adjust its size accordingly.
+  tags$script("
+    // Send height to parent frame
+    function sendHeight() {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({frameHeight: height}, '*');
+    }
+    
+    // Send initial height and then periodically update
+    window.addEventListener('load', function() {
+      sendHeight();
+      // Set up monitoring for changes in content height
+      setInterval(sendHeight, 300);
+      
+      // Also send height when UI changes (filtering, etc.)
+      const observer = new MutationObserver(sendHeight);
+      observer.observe(document.body, {childList: true, subtree: true});
+    });
+  ")
 )
 
 #====== Server section ==============================# 
