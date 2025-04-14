@@ -1,58 +1,35 @@
 ---
 title: "Title of your Living meta analysis" 
-status: "Pre-registered" # Pre-registered, Pre-print, Published
-framework: "Bayesian" # Bayesian, Frequentist, Mixed Methods
+status: "Published"
+framework: "Bayesian"
 oxytocin:
-  assessment_method: "Intranasal oxytocin" # Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Technology exposure
-  route: "Central" # Central, Peripheral, Both
+  assessment_method: "Intranasal oxytocin"
+  route: "Central"
 population:
-  status: "Healthy" # Healthy, Clinical, Mixed
-  age_group: "Adults" # Children, Adults, Older Adults, Mixed Age Groups
-  clinical_type: "Autism" # Only include if status is Clinical
+  status: "Healthy"
+  age_group: "Adults"
+  clinical_type: null
 biobehavioral_outcomes:
   biological:
-    - "Cortisol levels"
-    # - "HRV"
-    # - "Pain perception"
-    # - "Anti-inflammatory effects"
-    # - "Insulin-sensitivity"
-    # - "Neural activation"
-    # - "Blood pressure"
-    # - "Immune function"
-    # - "Sleep physiology"
-    # - "Endocrine function"
+    - "Neural activation"
   behavioral:
     - "Stress response"
-    # - "Mood"
-    # - "Aggression"
-    # - "Eating behavior"
-    # - "Fear and anxiety"
-    # - "Memory and learning"
-    # - "Risk-taking"
-    # - "Parental care/behavior"
-  social: # Social outcomes as subcategory
+  social:
     - "Trust and cooperation"
-    # - "Empathy"
-    # - "Sexual behavior"
-    # - "Social flexibility"
-    # - "Social bonding"
-    # - "Social recognition"
-    # - "Conflict resolution"
-update-frequency: "6 months" # 3 months, 6 months, 12 months, 18 months, 24 months
-dois:
-  preregistration: "10.XXXX/33333"
-  preprint: "10.XXXX/XXXXX"
-  publication: "10.XXXX/66666"
-page-layout: custom
+    - "Empathy"
+update-frequency: "12 months"
+last-updated: "2024-03-15"
 format:
   html:
     theme: 
-      - yeti
       - ../styles.scss
-    css: ../styles.scss 
-    classes:
-      - lma-template
---- 
+    css: ../styles.scss
+    toc: true
+    number-sections: true
+    page-layout: full
+bibliography: references.bib
+csl: apa.csl
+---
 ::: {.callout-note .meta-info-container}
 ## Project Information
 ::: {.meta-grid}

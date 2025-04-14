@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: _site
+  post-render: 
+    - "R/inject_metadata.R" # Add the metadata injection script
+
 website:
   title: "| Active Monitoring of Oxytocin Research Evidence"
   open-graph: true
@@ -16,12 +19,12 @@ website:
     logo: "logo.unfinished.jpg"
     right:
       - text: "Living Meta-Analysis"
-        href: LMA_placeholder.qmd # Replace with LMA.shiny.qmd when going live 
+        href: LMA.qmd 
       - text: "Contact"
         href: contact.qmd
       - text: "Guidelines"
         href: guidelines.qmd
-      - text: "Standardization framework"
+      - text: "Standardization goals"
         href: Standardization.qmd
       - text: "Resources"
         href: Resources.qmd
@@ -35,6 +38,12 @@ format:
       - yeti
       - styles.scss
     css: styles.scss
+    include-in-header:
+      # Add metadata tags for better SEO and data extraction
+      text: |
+        <meta name="description" content="Active Monitoring of Oxytocin Research Evidence (AMORE) is a platform for living meta-analyses in oxytocin research.">
+        <meta name="keywords" content="oxytocin, living meta-analysis, systematic review, behavioral outcomes, biobehavioral, AMORE">
+
 # Uncomment when deploying Shiny:
 # resources:
 #   - shiny

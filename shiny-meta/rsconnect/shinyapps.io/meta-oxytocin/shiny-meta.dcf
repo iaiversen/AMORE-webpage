@@ -5,6 +5,8 @@ account: meta-oxytocin
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14204186
-bundleId: 10060861
+bundleId: 10112395
 url: https://meta-oxytocin.shinyapps.io/shiny-meta/
 version: 1
+asMultiple: FALSE
+asStatic: FALSE
