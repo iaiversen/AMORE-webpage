@@ -27,7 +27,6 @@ format:
     toc: true
     number-sections: true
     page-layout: full
-bibliography: references.bib
 ---
 
 
@@ -73,11 +72,12 @@ Institution
 ## Resources and data links {.panel-title}
 
 **Pre-registration**
-[Link to pre-registration](https://www.cos.io/initiatives/prereg) 
+[Link to pre-registration](https://doi.org/10.31219/osf.io/9gx6s_v1) 
 **Pre-print**
-[https://doi.org/10.31219/osf.io/9gx6s_v1]({{< meta dois.preprint >}}) 
+[https://doi.org/10.31219/osf.io/9gx6s_v1](https://doi.org/10.31219/osf.io/9gx6s_v1) 
 **Published Article**
-[Link to PubMed](https://www.ncbi.nlm.nih.gov/) [When DOI is published you will find link here]({{< meta dois.publication >}})
+[Link to PubMed]({{< meta dois.publication >}}) 
+[When DOI is published you will find link here]({{< meta dois.publication >}})
 **Deviation report**
 [When deviation report is published you will find link here](#)
 :::

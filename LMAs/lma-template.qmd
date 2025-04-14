@@ -27,7 +27,6 @@ format:
     toc: true
     number-sections: true
     page-layout: full
-bibliography: references.bib
 ---
 ::: {.callout-note .meta-info-container}
 ## Project Information
