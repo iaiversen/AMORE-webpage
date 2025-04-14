@@ -1,8 +1,6 @@
 project:
   type: website
   output-dir: _site
-  post-render: 
-    - "R/inject_metadata.R" # Add the metadata injection script
 
 website:
   title: "| Active Monitoring of Oxytocin Research Evidence"
@@ -19,7 +17,7 @@ website:
     logo: "logo.unfinished.jpg"
     right:
       - text: "Living Meta-Analysis"
-        href: LMA.qmd 
+        href: LMA_directory.qmd 
       - text: "Contact"
         href: contact.qmd
       - text: "Guidelines"

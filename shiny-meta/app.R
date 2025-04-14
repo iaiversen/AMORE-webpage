@@ -1,21 +1,11 @@
 #====== Load required libraries =========# 
-install_and_load <- function(package) {
-  if (!require(package, character.only = TRUE)) {
-    install.packages(package)
-    library(package, character.only = TRUE)
-  }
-}
-
-install_and_load("shiny") # For reading YAML headers from qmd files
-install_and_load("DT")
-install_and_load("yaml")
-install_and_load("fs")# For file operations
-install_and_load("httr")# For GitHub API requests
-install_and_load("jsonlite")# For JSON parsing
-install_and_load("base64enc")
-install_and_load("xml2")
-install_and_load("rvest")# For decoding base64 content from GitHub API
-
+library(shiny)
+library(DT)
+library(yaml)  # For reading YAML headers from qmd files
+library(fs)    # For file operations
+library(httr)  # For GitHub API requests
+library(jsonlite)  # For JSON parsing
+library(base64enc)  # For decoding base64 content from GitHub API
 
 #============================= UI section ==============================# 
 ui <- fluidPage(
@@ -279,84 +269,69 @@ server <- function(input, output, session) {
     return(current)
   }
   
-  # Function to fetch HTML files from the deployed site
-  fetch_site_html_files <- function(base_url = "https://amore-project.org/LMAs/") {
-    # We'll use a list to store our findings
-    html_contents <- list()
+  # Function to fetch QMD files from GitHub repository
+  fetch_github_qmd_files <- function(repo = "iaiversen/AMORE-webpage", path = "LMAs") {
+    # Get the contents of the LMAs directory
+    url <- paste0("https://api.github.com/repos/", repo, "/contents/", path)
+    response <- GET(url)
     
-    # Try to access the directory listing
-    tryCatch({
-      # Get the list of LMA pages
-      index_url <- base_url
-      index_response <- GET(index_url, config = httr::config(ssl_verifypeer = FALSE))
-      
-      if (!http_error(index_response)) {
-        index_html <- read_html(content(index_response, "text"))
-        
-        # Find all links to HTML files
-        links <- index_html %>% 
-          html_nodes("a") %>%
-          html_attr("href")
-        
-        # Filter for HTML files and normalize paths
-        lma_files <- links[grepl("\\.html$", links)]
-        lma_files <- lma_files[!grepl("index\\.html$", lma_files)]
-        
-        # Fetch each HTML file
-        for (file in lma_files) {
-          # Handle relative vs absolute URLs
-          if (!grepl("^https?://", file)) {
-            file_url <- paste0(base_url, file)
-          } else {
-            file_url <- file
-          }
-          
-          file_response <- GET(file_url, config = httr::config(ssl_verifypeer = FALSE))
-          
-          if (!http_error(file_response)) {
-            html_contents[[basename(file)]] <- content(file_response, "text", encoding = "UTF-8")
-          } else {
-            warning("Error fetching file: ", http_status(file_response)$message)
-          }
-        }
-      } else {
-        warning("Error accessing index page: ", http_status(index_response)$message)
-      }
-    }, error = function(e) {
-      warning("Error accessing site: ", e$message)
-      
-      # Fallback to a few known files if we can't get a directory listing
-      sample_files <- c(
-        "example-hugging.oxytocin-lma.html",
-        "technology-oxytocin-lma.html"
-      )
-      
-      for (file in sample_files) {
-        file_url <- paste0(base_url, file)
-        tryCatch({
-          file_response <- GET(file_url, config = httr::config(ssl_verifypeer = FALSE))
-          
-          if (!http_error(file_response)) {
-            html_contents[[file]] <- content(file_response, "text", encoding = "UTF-8")
-          }
-        }, error = function(e) {
-          warning("Error fetching file: ", e$message)
-        })
-      }
-    })
-    
-    # If we couldn't fetch any files, use sample data
-    if (length(html_contents) == 0) {
-      warning("No files could be fetched, using sample data")
-      html_contents[["sample1.html"]] <- "<html><head><title>Sample Meta-Analysis</title><meta name='status' content='Published'></head><body><h2>Abstract</h2><p>Sample abstract.</p></body></html>"
-      html_contents[["sample2.html"]] <- "<html><head><title>Another Sample</title><meta name='status' content='Pre-print'></head><body><h2>Abstract</h2><p>Another sample abstract.</p></body></html>"
+    if (http_error(response)) {
+      warning("Error fetching files from GitHub: ", http_status(response)$message)
+      return(list())
     }
     
-    return(html_contents)
+    # Parse the response
+    contents <- fromJSON(content(response, "text", encoding = "UTF-8"))
+    
+    # Filter for QMD files
+    qmd_files <- contents[grep("\\.qmd$", contents$name), ]
+    
+    if (length(qmd_files) == 0) {
+      warning("No .qmd files found in GitHub repository")
+      return(list())
+    }
+    
+    # Fetch the content of each QMD file
+    qmd_contents <- lapply(qmd_files$download_url, function(download_url) {
+      file_response <- GET(download_url)
+      if (http_error(file_response)) {
+        warning("Error fetching file: ", http_status(file_response)$message)
+        return(NULL)
+      }
+      return(content(file_response, "text", encoding = "UTF-8"))
+    })
+    
+    # Combine file names with their contents
+    names(qmd_contents) <- qmd_files$name
+    
+    return(qmd_contents)
   }
   
-  # Function to parse metadata from HTML files
-  parse_html_metadata <- function(html_contents) {
+  # Function to extract list values as comma-separated string
+  extract_list_as_string <- function(list_val) {
+    if (is.null(list_val)) {
+      return(NA_character_)
+    }
+    
+    if (is.list(list_val)) {
+      # Handle nested lists (for social outcomes)
+      flat_list <- unlist(list_val)
+      if (length(flat_list) == 0) {
+        return(NA_character_)
+      }
+      return(paste(flat_list, collapse = ", "))
+    } else if (is.character(list_val)) {
+      if (length(list_val) == 0) {
+        return(NA_character_)
+      }
+      return(paste(list_val, collapse = ", "))
+    }
+    
+    return(NA_character_)
+  }
+  
+  # Function to parse metadata from QMD files
+  parse_qmd_metadata <- function(qmd_contents) {
     # Initialize empty data frame
     meta_df <- data.frame(
       Title = character(),
@@ -374,85 +349,130 @@ server <- function(input, output, session) {
       LastUpdated = character(),
       Abstract = character(),
       Filename = character(),
-      URL = character(),
       stringsAsFactors = FALSE
     )
     
-    if (length(html_contents) == 0) {
+    if (length(qmd_contents) == 0) {
       return(meta_df)
     }
     
-    # Process each HTML file
-    meta_list <- lapply(names(html_contents), function(filename) {
-      content <- html_contents[[filename]]
+    # Process each QMD file
+    meta_list <- lapply(names(qmd_contents), function(filename) {
+      content <- qmd_contents[[filename]]
       
       tryCatch({
-        # Parse HTML content
-        html_doc <- read_html(content)
+        # Split content into lines
+        lines <- strsplit(content, "\n")[[1]]
         
-        # Extract title
-        title_node <- html_doc %>% html_node("title")
-        title <- if (!is.na(title_node)) {
-          title_text <- html_text(title_node, trim = TRUE)
-          # Remove the site suffix if present
-          gsub(" \\| Active Monitoring of Oxytocin Research Evidence$", "", title_text)
-        } else {
-          "Untitled"
+        # Extract YAML front matter
+        yaml_start <- which(lines == "---")[1]
+        yaml_end <- which(lines == "---")[2]
+        
+        if (is.na(yaml_start) || is.na(yaml_end)) {
+          warning(paste("Could not find YAML section in", filename))
+          return(NULL)
         }
         
-        # Function to extract metadata from meta tags
-        get_meta_content <- function(name) {
-          meta_tags <- html_doc %>% html_nodes(sprintf("meta[name='%s']", name))
-          if (length(meta_tags) > 0) {
-            return(html_attr(meta_tags[[1]], "content"))
-          }
-          return(NA_character_)
-        }
+        # Get YAML metadata
+        yaml_text <- lines[(yaml_start + 1):(yaml_end - 1)]
+        meta <- yaml::yaml.load(paste(yaml_text, collapse = "\n"))
         
-        # Extract abstract from the content
-        abstract <- NA_character_
-        abstract_section <- html_doc %>% html_nodes(".abstract-section p, #abstract p")
+        # Extract abstract section
+        abstract_section <- grep("## Abstract", lines)
+        abstract <- ""
         if (length(abstract_section) > 0) {
-          abstract <- paste(html_text(abstract_section, trim = TRUE), collapse = " ")
-        } else {
-          # Try finding by heading
-          abstract_heading <- html_doc %>% 
-            html_nodes("h2, h3") %>% 
-            .[grepl("Abstract", html_text(., trim = TRUE))]
+          # Get all lines after Abstract heading
+          abstract_lines <- lines[(abstract_section[1] + 1):length(lines)]
           
-          if (length(abstract_heading) > 0) {
-            # Get the next paragraph
-            next_p <- html_doc %>% 
-              html_node(paste0("h2:contains('Abstract') + p, h3:contains('Abstract') + p"))
-            
-            if (!is.na(next_p)) {
-              abstract <- html_text(next_p, trim = TRUE)
+          # Find the next heading
+          next_heading <- grep("^##", abstract_lines)
+          if (length(next_heading) > 0) {
+            abstract_end <- next_heading[1] - 1
+          } else {
+            # If no next heading, use all content
+            abstract_end <- length(abstract_lines)
+          }
+          
+          # Get abstract content
+          abstract_text <- abstract_lines[1:abstract_end]
+          
+          # Clean up abstract text
+          abstract_text <- abstract_text[!grepl("^:::", abstract_text)]
+          abstract_text <- abstract_text[nzchar(trimws(abstract_text))]
+          
+          abstract <- paste(abstract_text, collapse = "\n")
+        }
+        
+        # Find last update date from timeline section
+        last_updated <- NA_character_
+        timeline_section <- grep("Timeline", lines)
+        if (length(timeline_section) > 0) {
+          # Look for Last update line
+          last_update_indices <- grep("Last update", lines)
+          if (length(last_update_indices) > 0) {
+            for (idx in last_update_indices) {
+              if (idx > timeline_section[1]) {
+                last_update_line <- lines[idx]
+                date_match <- regexpr("\\d{4}-\\d{2}-\\d{2}", last_update_line)
+                if (date_match > 0) {
+                  last_updated <- regmatches(last_update_line, date_match)
+                  break
+                } else {
+                  # Try XX.XX.XXXX format
+                  date_match <- regexpr("\\d{2}\\.\\d{2}\\.\\d{4}", last_update_line)
+                  if (date_match > 0) {
+                    last_updated <- regmatches(last_update_line, date_match)
+                    break
+                  }
+                }
+              }
             }
           }
         }
         
-        # Base URL for links
-        base_url <- "https://amore-project.org/LMAs/"
-        url <- paste0(base_url, filename)
+        # Extract biological outcomes - handle as separate items for filtering
+        biological_outcomes <- safe_extract(meta, c("biobehavioral_outcomes", "biological"))
+        biological_outcomes_str <- extract_list_as_string(biological_outcomes)
         
-        # Create entry with extracted metadata
+        # Extract behavioral outcomes - excluding nested social outcomes
+        behavioral_outcomes <- safe_extract(meta, c("biobehavioral_outcomes", "behavioral"))
+        # Remove social outcomes if it's a list
+        if (is.list(behavioral_outcomes) && "social" %in% names(behavioral_outcomes)) {
+          social_outcomes <- behavioral_outcomes$social
+          behavioral_outcomes$social <- NULL
+        } else {
+          social_outcomes <- NULL
+        }
+        
+        # Convert remaining behavioral outcomes to string
+        behavioral_items <- list()
+        for (name in names(behavioral_outcomes)) {
+          if (is.character(name) && name != "social") {
+            behavioral_items <- c(behavioral_items, behavioral_outcomes[[name]])
+          }
+        }
+        behavioral_outcomes_str <- extract_list_as_string(behavioral_items)
+        
+        # Convert social outcomes to string
+        social_outcomes_str <- extract_list_as_string(social_outcomes)
+        
+        # Extract data into a structured format
         entry <- list(
-          Title = title,
-          Status = get_meta_content("status"),
-          Framework = get_meta_content("framework"),
-          AssessmentMethod = get_meta_content("oxytocin_assessment_method"),
-          OxytocinRoute = get_meta_content("oxytocin_route"),
-          PopulationStatus = get_meta_content("population_status"),
-          PopulationAge = get_meta_content("population_age_group"),
-          PopulationClinicalType = get_meta_content("population_clinical_type"),
-          BiologicalOutcomes = get_meta_content("biobehavioral_outcomes_biological"),
-          BehavioralOutcomes = get_meta_content("biobehavioral_outcomes_behavioral"),
-          SocialOutcomes = get_meta_content("biobehavioral_outcomes_social"),
-          UpdateFrequency = get_meta_content("update-frequency"),
-          LastUpdated = get_meta_content("last-updated"),
+          Title = meta$title %||% "Untitled",
+          Status = meta$status %||% NA_character_,
+          Framework = meta$framework %||% NA_character_,
+          AssessmentMethod = safe_extract(meta, c("oxytocin", "assessment_method")),
+          OxytocinRoute = safe_extract(meta, c("oxytocin", "route")),
+          PopulationStatus = safe_extract(meta, c("population", "status")),
+          PopulationAge = safe_extract(meta, c("population", "age_group")),
+          PopulationClinicalType = safe_extract(meta, c("population", "clinical_type")),
+          BiologicalOutcomes = biological_outcomes_str,
+          BehavioralOutcomes = behavioral_outcomes_str,
+          SocialOutcomes = social_outcomes_str,
+          UpdateFrequency = meta$`update-frequency` %||% NA_character_,
+          LastUpdated = last_updated,
           Abstract = abstract,
-          Filename = filename,
-          URL = url
+          Filename = filename
         )
         
         return(entry)
@@ -484,7 +504,6 @@ server <- function(input, output, session) {
           LastUpdated = x$LastUpdated,
           Abstract = x$Abstract,
           Filename = x$Filename,
-          URL = x$URL,
           stringsAsFactors = FALSE
         )
       }))
@@ -493,17 +512,17 @@ server <- function(input, output, session) {
     return(meta_df)
   }
   
-  # Reactive expression to get and parse metadata from HTML
+  # Reactive expression to get and parse metadata from GitHub
   meta_data <- reactive({
-    # Fetch HTML files from the deployed site
-    html_contents <- fetch_site_html_files()
+    # Fetch QMD files from GitHub
+    qmd_contents <- fetch_github_qmd_files()
     
-    # Parse metadata from HTML files
-    meta_df <- parse_html_metadata(html_contents)
+    # Parse metadata from QMD files
+    meta_df <- parse_qmd_metadata(qmd_contents)
     
     return(meta_df)
   })
-
+  
   # Helper function to check if any term in a list matches a pattern
   contains_any <- function(terms, pattern) {
     if (is.na(terms)) return(FALSE)
@@ -642,7 +661,7 @@ server <- function(input, output, session) {
         lapply(1:nrow(data), function(i) {
           div(class = "lma-entry",
               tags$a(
-                href = data$URL[i],
+                href = paste0("https://github.com/iaiversen/AMORE-webpage/blob/main/LMAs/", data$Filename[i]),
                 target = "_blank",  # Open in new tab
                 class = "lma-title",
                 data$Title[i]
