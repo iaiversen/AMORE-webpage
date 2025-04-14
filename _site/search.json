@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\nPublish your Living Meta Analysis\n\n\n\nAims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "Aims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.\n\nContact Form\n\n\n\n\nIf you’re interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:\n\nReview our Guidelines on how to get your living meta analysis published on the AMORE platform\nCheck our Standardization Goals for specific requirements\nReview the Checklist for creating a Living Meta-Analysis Protocol\nUse the contact form to submit your initial proposal"
+  },
+  {
+    "objectID": "contact.html#connect-with-us",
+    "href": "contact.html#connect-with-us",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.\n\nContact Form"
+  },
+  {
+    "objectID": "contact.html#publishing-your-meta-analysis",
+    "href": "contact.html#publishing-your-meta-analysis",
+    "title": "| Active Monitoring of Oxytocin Research Evidence",
+    "section": "",
+    "text": "If you’re interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:\n\nReview our Guidelines on how to get your living meta analysis published on the AMORE platform\nCheck our Standardization Goals for specific requirements\nReview the Checklist for creating a Living Meta-Analysis Protocol\nUse the contact form to submit your initial proposal"
+  },
+  {
     "objectID": "Standardization.html",
     "href": "Standardization.html",
     "title": "Standardization Framework for Living Meta-Analysis on AMORE",
@@ -14,11 +49,39 @@
     "text": "⚠️ Protocol Checklist Tool is currently under development"
   },
   {
-    "objectID": "LMA_directory.html",
-    "href": "LMA_directory.html",
-    "title": "Living Meta-Analysis Directory",
+    "objectID": "LMAs/lma-template.html",
+    "href": "LMAs/lma-template.html",
+    "title": "Title of your Living meta analysis",
     "section": "",
-    "text": "Browse and filter our collection of living meta-analyses on oxytocin research.\n        Use the filters on the left to narrow down the results based on your specific interests.\n      \n    \n  \n\n\n\n\n\n\n&lt;div class=\"col-md-12\"&gt;\n  &lt;div class=\"card bg-light\"&gt;\n    &lt;div class=\"card-body\"&gt;\n      &lt;h5 class=\"card-title\"&gt;Interested in Contributing?&lt;/h5&gt;\n      &lt;p class=\"card-text\"&gt;If you're interested in publishing your own living meta-analysis on the AMORE platform, please review our guidelines and contact us.&lt;/p&gt;\n      &lt;a href=\"guidelines.html\" class=\"btn btn-primary\"&gt;Review Guidelines&lt;/a&gt;\n      &lt;a href=\"contact.html\" class=\"btn btn-primary\"&gt;Contact Us&lt;/a&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;"
+    "text": "Project Information\n\n\n\n\n\n\nAuthor Name\nSecond Author\nThird Author\n\n\n\nInstitution\nInstitution\nInstitution\n\n\n\nPublished: XX.XX.XXXX\nLast update: XX.XX.XXXX\nNext update: XX.XX.XXXX\n\n\n\nDOI: 10.XXXX/66666\nKeywords: keyword1, keyword2, keyword3"
+  },
+  {
+    "objectID": "LMAs/lma-template.html#resources-and-data-links",
+    "href": "LMAs/lma-template.html#resources-and-data-links",
+    "title": "Title of your Living meta analysis",
+    "section": "1 Resources and data links",
+    "text": "1 Resources and data links\nPre-registration\nLink to pre-registration Pre-print\nWhen pre-print is published you will find link here Published Article\nLink to PubMed When DOI is published you will find link here Deviation report\nWhen deviation report is published you will find link here"
+  },
+  {
+    "objectID": "LMAs/lma-template.html#abstract",
+    "href": "LMAs/lma-template.html#abstract",
+    "title": "Title of your Living meta analysis",
+    "section": "2 Abstract",
+    "text": "2 Abstract\nThis living meta-analysis examines the relationship between intranasal oxytocin administration and prosocial behavior across a spectrum of social contexts. Current evidence from 37 randomized controlled trials (N = 2,842) suggests a complex relationship between oxytocin and human sociality, with significant heterogeneity in effect sizes.\nOur Bayesian framework analysis reveals a small-to-moderate effect (Hedges’ g = 0.31, 95% CI [0.18, 0.44]) of oxytocin on prosocial outcomes overall, with notable differences emerging across experimental contexts. Subgroup analyses indicate stronger effects in tasks involving emotional recognition (g = 0.42) compared to economic decision-making (g = 0.23).\nWe find preliminary evidence that administration protocol moderates outcomes, with effects varying by dosage and administration-to-task timing. Publication bias analyses suggest a modest inflation of reported effects, though the core findings remain robust after correction.\nThis living meta-analysis will be updated every 6 months to incorporate emerging evidence in this rapidly evolving field."
+  },
+  {
+    "objectID": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
+    "href": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
+    "title": "Title of your Living meta analysis",
+    "section": "3 Inclusion and Exclusion Criteria",
+    "text": "3 Inclusion and Exclusion Criteria\n\n3.1 Inclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract\n\n\n\n3.2 Exclusion Criteria\n\nParticipants: Studies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nMeasurment: Studies using endogenous oxytocin measurement only\nStudy design: Case studies and non-experimental designs\nEffect sizes: Studies without available effect size data or sufficient information to calculate effect sizes"
+  },
+  {
+    "objectID": "LMAs/lma-template.html#search-strategy",
+    "href": "LMAs/lma-template.html#search-strategy",
+    "title": "Title of your Living meta analysis",
+    "section": "4 Search Strategy",
+    "text": "4 Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
   },
   {
     "objectID": "LMAs/Mai-Linn_Moxnes_preprint.html",
@@ -54,6 +117,13 @@
     "title": "Assessing the likelihood of neurodevelopmental conditions after birth with oxytocin: A living systematic review and meta-analysis protocol",
     "section": "4 Search Strategy",
     "text": "4 Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
+  },
+  {
+    "objectID": "LMA_directory.html",
+    "href": "LMA_directory.html",
+    "title": "Living Meta-Analysis Directory",
+    "section": "",
+    "text": "Browse and filter our collection of living meta-analyses on oxytocin research.\n        Use the filters on the left to narrow down the results based on your specific interests.\n      \n    \n  \n\n\n\n\n\n\n&lt;div class=\"col-md-12\"&gt;\n  &lt;div class=\"card bg-light\"&gt;\n    &lt;div class=\"card-body\"&gt;\n      &lt;h5 class=\"card-title\"&gt;Interested in Contributing?&lt;/h5&gt;\n      &lt;p class=\"card-text\"&gt;If you're interested in publishing your own living meta-analysis on the AMORE platform, please review our guidelines and contact us.&lt;/p&gt;\n      &lt;a href=\"guidelines.html\" class=\"btn btn-primary\"&gt;Review Guidelines&lt;/a&gt;\n      &lt;a href=\"contact.html\" class=\"btn btn-primary\"&gt;Contact Us&lt;/a&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;"
   },
   {
     "objectID": "LMAs/example-hugging.oxytocin-lma.html#resources-and-data-links",
@@ -103,97 +173,6 @@
     "title": "Effects of Intranasal Oxytocin on Hugging Behavior",
     "section": "Search Strategy",
     "text": "Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“hug”[tiab] OR “hugging”[tiab] OR “physical touch”[tiab] OR “physical contact”[tiab] OR “social touch”[tiab])\nWeb of Science:\nTS=(oxytocin AND (intranasal OR nasal) AND (“physical touch” OR hug OR hugging OR “physical contact” OR “social touch”))"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "| Active Monitoring of Oxytocin Research Evidence",
-    "section": "",
-    "text": "Active Monitoring of Oxytocin Research Evidence\n\nAMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.\nLiving meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field.\n\nPublish your Living Meta Analysis\n\n\n\nAims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
-  },
-  {
-    "objectID": "index.html#section",
-    "href": "index.html#section",
-    "title": "| Active Monitoring of Oxytocin Research Evidence",
-    "section": "",
-    "text": "Aims of AMORE\n\n\n\nAMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices.\n\n\n\nLiving meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.\n\n\n\nLiving meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts."
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "| Active Monitoring of Oxytocin Research Evidence",
-    "section": "",
-    "text": "If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.\n\nContact Form\n\n\n\n\nIf you’re interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:\n\nReview our Guidelines on how to get your living meta analysis published on the AMORE platform\nCheck our Standardization Goals for specific requirements\nReview the Checklist for creating a Living Meta-Analysis Protocol\nUse the contact form to submit your initial proposal"
-  },
-  {
-    "objectID": "contact.html#connect-with-us",
-    "href": "contact.html#connect-with-us",
-    "title": "| Active Monitoring of Oxytocin Research Evidence",
-    "section": "",
-    "text": "If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.\n\nContact Form"
-  },
-  {
-    "objectID": "contact.html#publishing-your-meta-analysis",
-    "href": "contact.html#publishing-your-meta-analysis",
-    "title": "| Active Monitoring of Oxytocin Research Evidence",
-    "section": "",
-    "text": "If you’re interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:\n\nReview our Guidelines on how to get your living meta analysis published on the AMORE platform\nCheck our Standardization Goals for specific requirements\nReview the Checklist for creating a Living Meta-Analysis Protocol\nUse the contact form to submit your initial proposal"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Our mission",
-    "section": "",
-    "text": "What is the AMORE initiative about?\nThe Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of indivdiual studies and place them in a bigger evidence picture. Wheras traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.\n\n\nExpert Steering Committee\nThe AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:\n\nApproves project proposals\nProvides methodological guidance\nEnsures computational reproducibility\nMaintains platform standards\n\n\n\nExpert Steering Committee Members\n\nProf. Daniel Quintana\nUniversity of Oslo, Department of Psychology\nProf. Mariam Bakermans-Kranenburg\nUniversity Institute of Psychological, Social and Life Sciences, Lisbon, Portugal\nProf. Jessica J. Connelly\nUniversity of Virginia, Department of Psychology\nMPhil Heemin Kang\nUniversity of Oslo, Department of psychology\nProf. Jennifer Bartz\nMcGill University, Department of Psychology\nProf. Natalie Ebner\nUniversity of Florida, Department of Psychology\nProf. Dirk Scheele\nRuhr University Bochum, Research Department of Neuroscience\nProf. Benjamin Becker\nUniversity of Hong Kong, Department of Psychology\nProf. Kaat Alaerts\nUniversity of Ku Leuven, Department of Rehabilitation Sciences\nDr. Matthijs Moerkerke\nGhent University, Department of Rehabilitation Sciences and Physiotherapy\nDr. Elisabeth A. Lawson\nAssoc. Prof. of Medicine, Harvard Medical School\nAssoc. Prof. Endocrine Division, Mass General Research Institute\nPhysician, Neuroendocrine, Massachusetts General Hospital\nDr. Tanya Procyshyn\nUniversity of Cambridge, Department of Psychiatry\nDr. Marilyn Horta\nUniversity of Florida, Department of Psychology\nProf. Hidenori Yamasue\nHamamatsu University, Department of Psychiatry\nConstantina Theofanopoulou\nHerbert and Nell Singer Research Assistant Professor, Rockefeller University\nDr. Peeled Avron\nBar Ilan University, Department of Psychology\nSenior Scientist Nicole Løndtfelt\nUniversity of Copenhagen, Department of Mental Health Services\nDr. Ekaterina Schneider\nUniversity hospital Heidelberg, Institute of Medical Psychology\nAnna-Rosa Cecilie Mora-Jensen\nUniversity of Copenhagen, Department of Clinical Medicine\nProf. Christian Montag\nUniversity of Macau, Center of Cognitive and Brain Sciences\nProf. Robert James Blair\nUniversity of Copenhagen, Child and Adolescent Mental Health Center, Mental Health Services\nMSc Alina Sartorious\nUniversity of Oslo, Department of Psychology"
-  },
-  {
-    "objectID": "guidelines.html",
-    "href": "guidelines.html",
-    "title": "How to Publish Your Living Meta-Analysis on AMORE",
-    "section": "",
-    "text": "AMORE workflow \n    \n    \n      \n        1\n        Propose Your Topic\n      \n      \n        2\n        Steering Committee Review\n      \n      \n        3\n        Pre-registration\n      \n      \n        4\n        Conduct Review\n      \n      \n        5\n        Data Deposit\n      \n      \n        6\n        Quality Check\n      \n      \n        7\n        Publication\n      \n      \n        8\n        Regular Updates\n      \n    \n  \n\n\n  \n    \n      Step 1: Propose Your Topic\n      \n        Contact us\n        \n        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about condutcing analysis, our standradization framework and preparing protocols. The contact form will also be used for proposing your topic for your living meta analyses.  \n        \n        What to include:\n        \n          An oxytocin intervention study OR evaluation of oxytocin concentrations between or within populations related to a biobehavioral outcome\n          Living meta-analysis update frequency (maximum 24 months between updates)\n          Proposal of analytical approach within our standradization framework (if using frequentist approach)\n        \n      \n    \n\n\n\n  Step 2: Steering Committee Review\n  \n    Review Process\n    \n      Evaluation that living meta-analysis is within platform remit\n      Confirmation that topic is suitable for inclusion\n      Verification that all mandatory requirements from checklist are met\n      Methodological review and advice if needed\n    \n  \n\n\n\n\n  Step 3: Pre-registration\n  \n    Registration Requirements\n    \n      \n      Pre-register on PROSPERO if there is a clear health outcome\n      OR pre-register on Open Science Framework for other outcomes\n      Project will be added to AMORE homepage with its own project page\n      Project page will include:\n        \n          Links to Pre-registration\n          Brief overview of inclusion/exclusion criteria\n          Search strings used\n        \n      \n    \n  \n\n    \n\n\n  Step 4: Conduct Review\n  \n    Perform systematic review\n    \n      Conduct review based on pre-registered protocol\n      Analyses must be performed on free software for reproducibility\n      Track any deviations from protocol and document in devation report\n    \n  \n\n\n\n\n  Step 5: Data Deposit\n  \n    Data Requirements\n    \n      Deposit complete dataset in recognized repository (e.g. Open Science Framework or Zenodo) \n      Deposit free software script in recognised repository\n      Provide deviation report as supplementary material to analysis script\n        \n      \n    \n  \n\n\n\n\n\n  Step 6: Quality Check\n  \n    Optional Review Process\n    \n      AMORE steering committee can:\n        \n          Cross-check analyses and pre-registration\n          Verify computational reproducibility\n          Review protocol adherence\n          Check reported deviations\n        \n      \n      Committee provides feedback if needed\n      Verification ensures transparency and quality\n    \n  \n\n\n\n\n  Step 7: Publication\n  \n    Publication Process\n    \n      Publish manuscript on recognized pre-print server (e.g., Open Science Framework)\n      Submit to peer-reviewed journal\n      Project page will be updated with links to:\n        \n          Pre-print\n          Published paper\n          Deviation report\n        \n      \n      Ensure all documentation remains accessible\n    \n  \n\n\n\n\n  Step 8: Regular Updates\n  \n    Update Requirements\n    \n      Conduct new searches according to update plan\n      Maximum time between updates: 24 months\n      For each update:\n        \n          Document all changes\n          Remove any retracted papers\n          Update all relevant materials\n          Maintain accessibility of all documents\n        \n      \n      Follow original protocol for consistency\n    \n  \n\n\n\n    \n      Previous\n      Next"
-  },
-  {
-    "objectID": "LMA.html",
-    "href": "LMA.html",
-    "title": "Oxytocin Living Meta-Analysis Directory",
-    "section": "",
-    "text": "Explore our collection of living meta-analyses on oxytocin research and biobehavioral outcomes.\n        All analyses are regularly updated to reflect the current state of evidence.\n      \n    \n  \n\n  \n    \n      \n        \n          Interactive Directory\n          Use our interactive app to explore and filter living meta-analyses based on your interests:\n          Open Interactive Directory\n        \n      \n    \n  \n\n  \n    \n      Featured Meta-Analyses\n    \n  \n\n  \n    \n    \n      \n        \n          Effects of Intranasal Oxytocin on Social Trust\n          Bayesian Framework | Updated: March 2024\n          This living meta-analysis examines the effects of intranasal oxytocin administration on social trust in healthy adult populations.\n          View Analysis\n        \n      \n    \n\n    \n      \n        \n          Oxytocin and Autism Spectrum Symptoms\n          Frequentist Framework | Updated: February 2024\n          A comprehensive review of studies investigating the effects of oxytocin interventions on core symptoms of autism spectrum disorder.\n          View Analysis\n        \n      \n    \n\n    \n      \n        \n          Oxytocin and Pain Perception\n          Mixed Methods | Updated: January 2024\n          This living meta-analysis explores how oxytocin modulates pain perception in both clinical and non-clinical populations.\n          View Analysis\n        \n      \n    \n  \n\n  \n    \n      Recent Updates\n      \n        \n          Oxytocin and Pain Perception\n          Updated Jan 15, 2024\n        \n        \n          Intranasal Oxytocin for Social Anxiety\n          Updated Dec 10, 2023\n        \n        \n          Oxytocin Effects on Parental Behavior\n          Updated Nov 22, 2023\n        \n      \n    \n  \n\n  \n    \n      \n        \n          Interested in Contributing?\n          If you're interested in publishing your own living meta-analysis on the AMORE platform, please review our guidelines and contact us.\n          Review Guidelines\n          Contact Us"
-  },
-  {
-    "objectID": "LMAs/lma-template.html",
-    "href": "LMAs/lma-template.html",
-    "title": "Title of your Living meta analysis",
-    "section": "",
-    "text": "Project Information\n\n\n\n\n\n\nAuthor Name\nSecond Author\nThird Author\n\n\n\nInstitution\nInstitution\nInstitution\n\n\n\nPublished: XX.XX.XXXX\nLast update: XX.XX.XXXX\nNext update: XX.XX.XXXX\n\n\n\nDOI: 10.XXXX/66666\nKeywords: keyword1, keyword2, keyword3"
-  },
-  {
-    "objectID": "LMAs/lma-template.html#resources-and-data-links",
-    "href": "LMAs/lma-template.html#resources-and-data-links",
-    "title": "Title of your Living meta analysis",
-    "section": "1 Resources and data links",
-    "text": "1 Resources and data links\nPre-registration\nLink to pre-registration Pre-print\nWhen pre-print is published you will find link here Published Article\nLink to PubMed When DOI is published you will find link here Deviation report\nWhen deviation report is published you will find link here"
-  },
-  {
-    "objectID": "LMAs/lma-template.html#abstract",
-    "href": "LMAs/lma-template.html#abstract",
-    "title": "Title of your Living meta analysis",
-    "section": "2 Abstract",
-    "text": "2 Abstract\nThis living meta-analysis examines the relationship between intranasal oxytocin administration and prosocial behavior across a spectrum of social contexts. Current evidence from 37 randomized controlled trials (N = 2,842) suggests a complex relationship between oxytocin and human sociality, with significant heterogeneity in effect sizes.\nOur Bayesian framework analysis reveals a small-to-moderate effect (Hedges’ g = 0.31, 95% CI [0.18, 0.44]) of oxytocin on prosocial outcomes overall, with notable differences emerging across experimental contexts. Subgroup analyses indicate stronger effects in tasks involving emotional recognition (g = 0.42) compared to economic decision-making (g = 0.23).\nWe find preliminary evidence that administration protocol moderates outcomes, with effects varying by dosage and administration-to-task timing. Publication bias analyses suggest a modest inflation of reported effects, though the core findings remain robust after correction.\nThis living meta-analysis will be updated every 6 months to incorporate emerging evidence in this rapidly evolving field."
-  },
-  {
-    "objectID": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
-    "href": "LMAs/lma-template.html#inclusion-and-exclusion-criteria",
-    "title": "Title of your Living meta analysis",
-    "section": "3 Inclusion and Exclusion Criteria",
-    "text": "3 Inclusion and Exclusion Criteria\n\n3.1 Inclusion Criteria\n\nParticipants: Healthy adults (18-65 years)\nIntervention: Intranasal oxytocin administration (single dose 24-40 IU)\nComparator: Placebo-controlled\nOutcomes: Standardized measures of prosocial behavior or trust\nStudy Design: Randomized controlled trials with between-subjects design\nPublication Type: Peer-reviewed articles and preprints\nLanguage: Any language with English abstract\n\n\n\n3.2 Exclusion Criteria\n\nParticipants: Studies with clinical populations (psychiatric or neurological disorders)\nAnimal studies\nMeasurment: Studies using endogenous oxytocin measurement only\nStudy design: Case studies and non-experimental designs\nEffect sizes: Studies without available effect size data or sufficient information to calculate effect sizes"
-  },
-  {
-    "objectID": "LMAs/lma-template.html#search-strategy",
-    "href": "LMAs/lma-template.html#search-strategy",
-    "title": "Title of your Living meta analysis",
-    "section": "4 Search Strategy",
-    "text": "4 Search Strategy\nDatabase Search Strings PubMed:\n(oxytocin[MeSH] OR oxytocin[tiab]) AND (“intranasal”[tiab] OR “nasal”[tiab]) AND (“prosocial”[tiab] OR “trust”[tiab] OR “cooperation”[tiab] OR “social behavior”[tiab])"
   },
   {
     "objectID": "LMAs/technology-oxytocin-lma.html#resources-and-data-links",
@@ -264,5 +243,26 @@
     "title": "Research tools and resources",
     "section": "Additional Resources",
     "text": "Additional Resources\n\n\nPRISMA for Living Systematic Reviews\nPRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.\nVisit PRISMA-Statement.org Website\n\n\nPROSPERO\nPROSPERO is specifically designed for registering systematic review protocols focused on health related research It provides a standardized format for documenting review methods before they begin.\nVisit PROSPERO\n\n\nOpen Science Framework (OSF)\nThe Open Science Framework (OSF) is a free and open-source platform that supports researchers in managing their projects, sharing their data, and collaborating with others. It provides tools for pre-registration, data sharing, and project management, making it easier for researchers to conduct and share their work transparently. It is developed by the Center for Open Science (COS).\nVisit OSF\n\n\nRetraction Watch\nTracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.\nVisit Retraction Watch\n\n\nZotero\nReference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.\nVisit Zotero"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Our mission",
+    "section": "",
+    "text": "What is the AMORE initiative about?\nThe Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of indivdiual studies and place them in a bigger evidence picture. Wheras traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.\n\n\nExpert Steering Committee\nThe AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:\n\nApproves project proposals\nProvides methodological guidance\nEnsures computational reproducibility\nMaintains platform standards\n\n\n\nExpert Steering Committee Members\n\nProf. Daniel Quintana\nUniversity of Oslo, Department of Psychology\nProf. Mariam Bakermans-Kranenburg\nUniversity Institute of Psychological, Social and Life Sciences, Lisbon, Portugal\nProf. Jessica J. Connelly\nUniversity of Virginia, Department of Psychology\nMPhil Heemin Kang\nUniversity of Oslo, Department of psychology\nProf. Jennifer Bartz\nMcGill University, Department of Psychology\nProf. Natalie Ebner\nUniversity of Florida, Department of Psychology\nProf. Dirk Scheele\nRuhr University Bochum, Research Department of Neuroscience\nProf. Benjamin Becker\nUniversity of Hong Kong, Department of Psychology\nProf. Kaat Alaerts\nUniversity of Ku Leuven, Department of Rehabilitation Sciences\nDr. Matthijs Moerkerke\nGhent University, Department of Rehabilitation Sciences and Physiotherapy\nDr. Elisabeth A. Lawson\nAssoc. Prof. of Medicine, Harvard Medical School\nAssoc. Prof. Endocrine Division, Mass General Research Institute\nPhysician, Neuroendocrine, Massachusetts General Hospital\nDr. Tanya Procyshyn\nUniversity of Cambridge, Department of Psychiatry\nDr. Marilyn Horta\nUniversity of Florida, Department of Psychology\nProf. Hidenori Yamasue\nHamamatsu University, Department of Psychiatry\nConstantina Theofanopoulou\nHerbert and Nell Singer Research Assistant Professor, Rockefeller University\nDr. Peeled Avron\nBar Ilan University, Department of Psychology\nSenior Scientist Nicole Løndtfelt\nUniversity of Copenhagen, Department of Mental Health Services\nDr. Ekaterina Schneider\nUniversity hospital Heidelberg, Institute of Medical Psychology\nAnna-Rosa Cecilie Mora-Jensen\nUniversity of Copenhagen, Department of Clinical Medicine\nProf. Christian Montag\nUniversity of Macau, Center of Cognitive and Brain Sciences\nProf. Robert James Blair\nUniversity of Copenhagen, Child and Adolescent Mental Health Center, Mental Health Services\nMSc Alina Sartorious\nUniversity of Oslo, Department of Psychology"
+  },
+  {
+    "objectID": "guidelines.html",
+    "href": "guidelines.html",
+    "title": "How to Publish Your Living Meta-Analysis on AMORE",
+    "section": "",
+    "text": "AMORE workflow \n    \n    \n      \n        1\n        Propose Your Topic\n      \n      \n        2\n        Steering Committee Review\n      \n      \n        3\n        Pre-registration\n      \n      \n        4\n        Conduct Review\n      \n      \n        5\n        Data Deposit\n      \n      \n        6\n        Quality Check\n      \n      \n        7\n        Publication\n      \n      \n        8\n        Regular Updates\n      \n    \n  \n\n\n  \n    \n      Step 1: Propose Your Topic\n      \n        Contact us\n        \n        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about condutcing analysis, our standradization framework and preparing protocols. The contact form will also be used for proposing your topic for your living meta analyses.  \n        \n        What to include:\n        \n          An oxytocin intervention study OR evaluation of oxytocin concentrations between or within populations related to a biobehavioral outcome\n          Living meta-analysis update frequency (maximum 24 months between updates)\n          Proposal of analytical approach within our standradization framework (if using frequentist approach)\n        \n      \n    \n\n\n\n  Step 2: Steering Committee Review\n  \n    Review Process\n    \n      Evaluation that living meta-analysis is within platform remit\n      Confirmation that topic is suitable for inclusion\n      Verification that all mandatory requirements from checklist are met\n      Methodological review and advice if needed\n    \n  \n\n\n\n\n  Step 3: Pre-registration\n  \n    Registration Requirements\n    \n      \n      Pre-register on PROSPERO if there is a clear health outcome\n      OR pre-register on Open Science Framework for other outcomes\n      Project will be added to AMORE homepage with its own project page\n      Project page will include:\n        \n          Links to Pre-registration\n          Brief overview of inclusion/exclusion criteria\n          Search strings used\n        \n      \n    \n  \n\n    \n\n\n  Step 4: Conduct Review\n  \n    Perform systematic review\n    \n      Conduct review based on pre-registered protocol\n      Analyses must be performed on free software for reproducibility\n      Track any deviations from protocol and document in devation report\n    \n  \n\n\n\n\n  Step 5: Data Deposit\n  \n    Data Requirements\n    \n      Deposit complete dataset in recognized repository (e.g. Open Science Framework or Zenodo) \n      Deposit free software script in recognised repository\n      Provide deviation report as supplementary material to analysis script\n        \n      \n    \n  \n\n\n\n\n\n  Step 6: Quality Check\n  \n    Optional Review Process\n    \n      AMORE steering committee can:\n        \n          Cross-check analyses and pre-registration\n          Verify computational reproducibility\n          Review protocol adherence\n          Check reported deviations\n        \n      \n      Committee provides feedback if needed\n      Verification ensures transparency and quality\n    \n  \n\n\n\n\n  Step 7: Publication\n  \n    Publication Process\n    \n      Publish manuscript on recognized pre-print server (e.g., Open Science Framework)\n      Submit to peer-reviewed journal\n      Project page will be updated with links to:\n        \n          Pre-print\n          Published paper\n          Deviation report\n        \n      \n      Ensure all documentation remains accessible\n    \n  \n\n\n\n\n  Step 8: Regular Updates\n  \n    Update Requirements\n    \n      Conduct new searches according to update plan\n      Maximum time between updates: 24 months\n      For each update:\n        \n          Document all changes\n          Remove any retracted papers\n          Update all relevant materials\n          Maintain accessibility of all documents\n        \n      \n      Follow original protocol for consistency\n    \n  \n\n\n\n    \n      Previous\n      Next"
+  },
+  {
+    "objectID": "LMA_placeholder.html",
+    "href": "LMA_placeholder.html",
+    "title": "Living Meta-Analysis Directory",
+    "section": "",
+    "text": "Browse and filter our collection of living meta-analyses on oxytocin research.\n        Use the filters on the left to narrow down the results based on your specific interests.\n      \n    \n  \n\n\n\n\n\n\n&lt;div class=\"col-md-12\"&gt;\n  &lt;div class=\"card bg-light\"&gt;\n    &lt;div class=\"card-body\"&gt;\n      &lt;h5 class=\"card-title\"&gt;Interested in Contributing?&lt;/h5&gt;\n      &lt;p class=\"card-text\"&gt;If you're interested in publishing your own living meta-analysis on the AMORE platform, please review our guidelines and contact us.&lt;/p&gt;\n      &lt;a href=\"guidelines.html\" class=\"btn btn-primary\"&gt;Review Guidelines&lt;/a&gt;\n      &lt;a href=\"contact.html\" class=\"btn btn-primary\"&gt;Contact Us&lt;/a&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;"
   }
 ]

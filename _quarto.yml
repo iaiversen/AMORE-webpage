@@ -21,7 +21,7 @@ website:
     logo: "logo.unfinished.jpg"
     right:
       - text: "Living Meta-Analysis"
-        href: LMA_directory.qmd 
+        href: LMA_placeholder.qmd 
       - text: "Contact"
         href: contact.qmd
       - text: "Guidelines"
