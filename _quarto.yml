@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
+    - "!_*.qmd"  # Exclude files starting with underscore
+    - "LMAs/*.qmd"  # Explicitly include LMA files
 
 website:
   title: "| Active Monitoring of Oxytocin Research Evidence"

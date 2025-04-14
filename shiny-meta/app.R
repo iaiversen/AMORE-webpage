@@ -646,7 +646,6 @@ server <- function(input, output, session) {
     return(meta_df)
   })
   
-  # Custom HTML output for LMA list with clickable titles and abstracts
   output$lma_list <- renderUI({
     data <- filtered_data()
     
@@ -659,42 +658,25 @@ server <- function(input, output, session) {
     
     div(class = "lma-container",
         lapply(1:nrow(data), function(i) {
+          # Convert filename from .qmd to .html
+          html_filename <- gsub("\\.qmd$", ".html", data$Filename[i])
+          
+          # Link to the rendered HTML page
+          lma_url <- paste0("/LMAs/", html_filename)
+          
           div(class = "lma-entry",
               tags$a(
-                href = paste0("https://github.com/iaiversen/AMORE-webpage/blob/main/LMAs/", data$Filename[i]),
-                target = "_blank",  # Open in new tab
+                href = lma_url,
+                target = "_blank",
                 class = "lma-title",
                 data$Title[i]
               ),
-              div(class = "lma-meta",
-                  # Only show non-NA values
-                  if (!is.na(data$Status[i])) span("Status: ", data$Status[i], br()) else NULL,
-                  if (!is.na(data$Framework[i])) span("Framework: ", data$Framework[i], br()) else NULL,
-                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i], br()) else NULL,
-                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i], br()) else NULL,
-                  
-                  # Outcomes - only show if they exist
-                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i], br()) else NULL,
-                  if (!is.na(data$BehavioralOutcomes[i])) span("Behavioral Outcomes: ", data$BehavioralOutcomes[i], br()) else NULL,
-                  if (!is.na(data$SocialOutcomes[i])) span("Social Outcomes: ", data$SocialOutcomes[i], br()) else NULL,
-                  
-                  # Population info - only show if they exist
-                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i], br()) else NULL,
-                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i], br()) else NULL,
-                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i], br()) else NULL,
-                  
-                  # Other metadata
-                  if (!is.na(data$UpdateFrequency[i])) span("Update Frequency: ", data$UpdateFrequency[i], br()) else NULL,
-                  if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i], br()) else NULL
-              ),
-              div(class = "lma-abstract",
-                  data$Abstract[i]
-              )
+              # Rest of your UI code
           )
         })
     )
   })
-}
-
+} 
+  
 # Run the application
 shinyApp(ui = ui, server = server)
