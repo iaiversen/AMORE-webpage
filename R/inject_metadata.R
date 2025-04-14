@@ -1,32 +1,26 @@
-# Script to extract YAML metadata from QMD files and inject it into HTML as meta tags
+# Load necessary libraries
+library(yaml)
+library(xml2)
+library(fs)
+library(purrr)
+library(jsonlite)
 
-install_and_load <- function(package) {
-  if (!require(package, character.only = TRUE)) {
-    install.packages(package)
-    library(package, character.only = TRUE)
-  }
-}
-
-install_and_load("yaml")
-install_and_load("xml2")
-install_and_load("fs")
-install_and_load("purrr")
-install_and_load("jsonlite")
-
-
-# Paths
+# Define directories
 QMD_DIR <- "LMAs"
 HTML_DIR <- "_site/LMAs"
 
-# Ensure output directory exists
+# Ensure the output directory exists
 dir_create(HTML_DIR, recurse = TRUE)
+
+# Collect all .qmd files in the QMD_DIR
+qmd_files <- dir_ls(QMD_DIR, glob = "*.qmd")
 
 # Helper function for NULL handling
 `%||%` <- function(x, y) {
   if (is.null(x)) y else x
 }
 
-# Process a single QMD file
+# Process each QMD file
 process_file <- function(qmd_file) {
   # Extract filename without extension
   base_filename <- path_file(qmd_file) %>% path_ext_remove()
@@ -99,8 +93,6 @@ process_file <- function(qmd_file) {
   # Apply metadata to HTML
   head_node <- xml_find_first(html_content, "//head")
   
-  # Delete any existing metadata tags we might have added before
-  # Fix the XPath query - this was generating a warning
   existing_meta <- xml_find_all(head_node, 
                                 xpath = "//meta[starts-with(@name, 'biobehavioral_outcomes') or @name='framework' or @name='status' or starts-with(@name, 'oxytocin_') or starts-with(@name, 'population_') or @name='update-frequency']")
   
@@ -108,7 +100,7 @@ process_file <- function(qmd_file) {
     xml_remove(existing_meta)
   }
   
-  # Add our metadata tags
+  # Add metadata tags
   head_node <- add_meta_tags(head_node, meta)
   
   # Optional: Add JSON-LD for structured data
@@ -144,7 +136,6 @@ process_file <- function(qmd_file) {
 }
 
 # Process all QMD files
-# Use safely to continue processing even if one file fails
 safe_process <- safely(process_file)
 results <- map(qmd_files, safe_process)
 
@@ -154,6 +145,8 @@ if (any(errors)) {
   error_files <- qmd_files[errors]
   cat("Errors occurred while processing the following files:\n")
   walk(error_files, ~cat(" - ", .x, "\n"))
+} else {
+  cat("All files processed successfully!\n")
 }
 
 cat("Metadata injection complete!\n")
