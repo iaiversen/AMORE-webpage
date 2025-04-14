@@ -28,7 +28,6 @@ format:
     number-sections: true
     page-layout: full
 bibliography: references.bib
-csl: apa.csl
 ---
 
 
