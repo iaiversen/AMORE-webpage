@@ -750,6 +750,121 @@ margin-bottom: 3rem;
   color: #0A2A5E;
 }
 
+
+/* Resource accordion styles */
+.resource-accordion {
+  margin-bottom: 20px;
+}
+
+.resource-header {
+  background-color: #f8f9fa;
+  color: #0A2A5E;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.resource-header:hover {
+  background-color: #e9ecef;
+}
+
+.resource-header:after {
+  content: '\002B';
+  color: #0A2A5E;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.resource-header.active:after {
+  content: "\2212";
+}
+
+.resource-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+  padding: 0 15px;
+}
+
+.resource-link {
+  display: block;
+  padding: 10px 0;
+  color: #1E50A0;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.resource-link:hover {
+  color: #0A2A5E;
+  text-decoration: underline;
+}
+
+.resource-title {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #0A2A5E;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Criteria box styles */
+.criteria-box {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.criteria-box h3 {
+  color: #0A2A5E;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.criteria-box ul, .criteria-box ol {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.criteria-box li {
+  margin-bottom: 5px;
+}
+
+/* Search strategy box styles */
+.search-strategy-box {
+  background-color: #f8f9fa;
+  border-left: 4px solid #0A2A5E;
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+}
+
+.search-db {
+  font-weight: 600;
+  color: #0A2A5E;
+  display: block;
+  margin-bottom: 5px;
+}
 /*=============================================
 =            Resources Page                 =
 ===============================================*/

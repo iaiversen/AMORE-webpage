@@ -114,7 +114,7 @@ ui <- fluidPage(
           
           # Biological Outcomes
           div(class = "subcategory",
-              div(class = "subcategory-title", "Biological Outcomes"),
+              div(class = "subcategory-title", "Biological Assessment Outcomes"),
               checkboxGroupInput("biological_outcomes", NULL,
                                  choices = c("HRV", 
                                              "Cortisol levels", 
@@ -125,14 +125,17 @@ ui <- fluidPage(
                                              "Blood pressure",
                                              "Immune function",
                                              "Sleep physiology",
-                                             "Endocrine function"),
+                                             "Endocrine function",
+                                             "Brain development",
+                                             "Neurological functions",
+                                             "Cognitive function"),
                                  selected = NULL
               )
           ),
           
           # Behavioral Outcomes (with Social Outcomes as a subcategory)
           div(class = "subcategory",
-              div(class = "subcategory-title", "Behavioral Outcomes"),
+              div(class = "subcategory-title", "Behavioral Assessment Outcomes"),
               checkboxGroupInput("behavioral_outcomes", NULL,
                                  choices = c("Mood", 
                                              "Aggression", 
@@ -147,7 +150,7 @@ ui <- fluidPage(
               
               # Social Outcomes as a nested subcategory of Behavioral Outcomes
               div(class = "subcategory", style = "margin-left: 20px;",
-                  div(class = "subcategory-title", "Social Outcomes"),
+                  div(class = "subcategory-title", "Social Assessment Outcomes"),
                   checkboxGroupInput("social_outcomes", NULL,
                                      choices = c("Trust and cooperation", 
                                                  "Empathy", 
@@ -159,6 +162,23 @@ ui <- fluidPage(
                                      selected = NULL
                   )
               )
+          ), 
+          
+          # Disorder-Specific Outcomes (New Category)
+          div(class = "subcategory",
+              div(class = "subcategory-title", "Disorder-Specific Outcomes"),
+              checkboxGroupInput("disorder_outcomes", NULL,
+                                 choices = c("Autism", 
+                                             "ADHD", 
+                                             "Anxiety disorders",
+                                             "Depression",
+                                             "Eating disorders",
+                                             "Schizophrenia",
+                                             "Obsessive-compulsive disorder",
+                                             "Substance use disorders",
+                                             "Neurodevelopmental disorders"),
+                                 selected = NULL
+              )
           )
       ),
       
@@ -169,7 +189,8 @@ ui <- fluidPage(
                              choices = c("Intranasal oxytocin", 
                                          "Intravenous oxytocin", 
                                          "Endogenous oxytocin measurement", 
-                                         "Genetic studies"),
+                                         "Genetic studies", 
+                                         "Perinatal oxytocin exposure"),
                              selected = NULL
           )
       ),
@@ -180,7 +201,23 @@ ui <- fluidPage(
           checkboxGroupInput("oxytocin_route", NULL,
                              choices = c("Central", 
                                          "Peripheral", 
-                                         "Both"),
+                                         "Various administration routes", 
+                                         "Administration method unspecified"),
+                             selected = NULL
+          )
+      ),
+      
+      # Oxytocin Dosage
+      div(class = "filter-section",
+          h4("Oxytocin Dosage", class = "filter-title"),
+          checkboxGroupInput("oxytocin_dosage", NULL,
+                             choices = c("8 IU", 
+                                         "16 IU", 
+                                         "24 IU",
+                                         "32 IU",
+                                         "40 IU",
+                                         "Variable dosage",
+                                         "Dose-response analysis"),
                              selected = NULL
           )
       ),

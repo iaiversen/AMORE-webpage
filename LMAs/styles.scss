@@ -7,17 +7,16 @@
 ===============================================*/
 
 /* Color Palette */
-$indigo-dye: #094074ff;      /* Main blue - headers and primary elements */
+$indigo-dye: #0A2A5E;        /* Dark blue for headers */
+$royal-blue: #1E50A0;        /* Royal blue for accents and hovers */
 $lapis-lazuli: #3c6997ff;    /* Secondary blue - hovers and accents */
 $vivid-sky-blue: #5adbffff;  /* Bright blue - use sparingly for highlights */
-$mustard: #ffdd4aff;         /* Yellow - important elements */
-$princeton-orange: #fe9000ff; /* Orange - warnings/attention */
 
 /*-- scss:defaults --*/
 /* Basic Setup */
 $body-bg: #FFFFFF;           /* Main background color */
 $body-color: #01161E;        /* Main text color */
-$link-color: #094074ff;      /* Default link color */
+$link-color: #0A2A5E;        /* Default link color */
 $font-family-sans-serif: "Source Sans Pro", -apple-system, "system-ui", 
                         "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 $font-size-root: 17px;       /* Base font size */
@@ -27,7 +26,7 @@ $font-size-root: 17px;       /* Base font size */
 /* Root Variables - accessible throughout the site */
 :root {
   --primary-color: #{$indigo-dye};    
-  --secondary-color: #{$lapis-lazuli};  
+  --secondary-color: #{$royal-blue};  
   --background-main: #{$body-bg};  
   --background-alt: #{$body-bg};   
   --accent-1: #{$body-color};      
@@ -43,19 +42,36 @@ $font-size-root: 17px;       /* Base font size */
 ===============================================*/
 
 h1, h2, h3, h4, h5, h6 {
-  color: #094074ff;  /* Your main brand blue */
+  color: #0A2A5E;  /* Dark blue for all headers */
 }
 
+.title {
+  font-size: 1.8rem;
+  color: #0A2A5E;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
 
 h2 {
-  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 650;
 }
 
 h3 {
+  font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 550;
 }
 
 ul {
@@ -70,11 +86,45 @@ ul {
 
 a {
   text-decoration: none;
-  color: #094074ff;
+  color: #0A2A5E;
   
   &:hover {
     text-decoration: underline;
     color: var(--secondary-color);
+  }
+}
+
+/* Global Button Styles */
+.btn, .primary-button, .secondary-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary, .primary-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  
+  &:hover {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+  }
+}
+
+.btn-secondary, .secondary-button {
+  background-color: #f8f9fa;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  
+  &:hover {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -133,11 +183,14 @@ a {
 
 /*=============================================
 =                                           =
-=            Homepage Styling               =
+=            Homepage/index Styling         =
 =                                           =
 = Styling specific to the homepage,         =
 = including header and feature boxes        =
 ===============================================*/
+.spacer-index {
+margin-bottom: 3rem;
+}
 
 /* Header Content */
 .header-content {
@@ -154,11 +207,11 @@ a {
 }
 
 .subtitle-text {
-  text-align: center;
-  font-size: 1.5rem;
-  color: #333;
-  margin: 1.5rem 0 3rem 0;  /* top right bottom left */
-  font-weight: normal;
+  text-align: center !important;
+  font-size: 1.5rem !important;
+  color: #0A2A5E !important;
+  margin: 1.5rem 0 3rem 0 !important;  /* top right bottom left */
+  font-weight: 700 !important;
 }
 
 .header-links {
@@ -211,54 +264,27 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-/* Main Action Buttons (View Guidelines & About Us) */
-.action-buttons {
-  margin: 2rem 0;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  
-  .btn {
-    width: 200px;     /* Set fixed width for main buttons */
-    text-align: center;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    
-    &:hover {
-      background-color: var(--secondary-color);
-    }
-  }
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-/* External Link Buttons (Github & Lab) */
-.external-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem auto;
-  
-  .btn-sm {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.8rem;
-    background-color: #D3D3D3;
-    color: #01161E;
-    
-    &:hover {
-      background-color: #FFFFFF;
-      text-decoration: none;
-    }
-  }
+/* Center the headings inside feature boxes */
+.feature-box h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
+
+/* Heading above boxes homepage */
+.feature-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0A2A5E;
+  margin: 3rem 0 1.5rem 0;
+  font-weight: 700;
+}
+
 
 /*=============================================
 =                                           =
@@ -445,13 +471,11 @@ a {
   }
 
   h2 {
-    color: var(--primary-color);
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
 
   h3 {
-    color: var(--secondary-color);
     font-size: 1.4rem;
     margin: 2rem 0 1rem 0;
   }
@@ -475,6 +499,7 @@ a {
   }
 }
 
+
 /* References styling */
 #references {
   margin-top: 4rem;
@@ -482,7 +507,6 @@ a {
   border-top: 2px solid #eee;
 
   h5 {
-    color: var(--primary-color);
     margin-bottom: 1.5rem;
   }
 }
@@ -517,7 +541,6 @@ a {
   margin: 0 auto;
   
   h2 {
-    color: var(--primary-color);
     margin-top: 2.5rem;
     margin-bottom: 1.5rem;
   }
@@ -547,89 +570,378 @@ a {
   margin: 2rem 0;
   align-items: center;
 
-  .primary-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-weight: 500;
+  .primary-button, .secondary-button {
     width: 250px;
-    text-align: center;
-    
-    &:hover {
-      background-color: var(--secondary-color);
-      text-decoration: none;
-    }
-  }
-
-  .secondary-button {
-    background-color: #f8f9fa;
-    color: var(--primary-color);
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    border: 1px solid var(--primary-color);
-    width: 250px;
-    text-align: center;
-    
-    &:hover {
-      background-color: var(--primary-color);
-      color: white;
-      text-decoration: none;
-    }
-  }
-}
-
-
-/*=============================================
-=                                           =
-=            Media Queries                  =
-=                                           =
-= Responsive design adjustments for         =
-= different screen sizes                    =
-===============================================*/
-
-@media (max-width: 768px) {
-  .wizard-container {
-    flex-direction: column;
-  }
-
-  .wizard-nav {
-    flex: none;
-    width: 100%;
-  }
-  
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .header-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .content-section {
-    padding: 0 1rem;
   }
 }
 
 /*=============================================
 =                                           =
-=      Living meta analyses template        =
+=            template LMA                   =
 =                                           =
-=        Styling for page for LMAs          =
-=                                           =
+=                                           =  
 ===============================================*/
-.lma-template {
-  .quarto-title-metadata .doi-display {
-    display: block;
-    font-size: 0.60rem !important;
-    margin-top: -0.5rem;
+/* Meta Information Container */
+.meta-info-container {
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.meta-info-container .callout-header {
+  background-color: #0A2A5E !important;
+  color: white !important;
+  padding: 0.4rem 0.8rem !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.meta-info-container .callout-title-container {
+  display: block !important;
+}
+
+.meta-info-container .callout-title {
+  color: white !important;
+  font-size: 1rem !important;
+  margin: 0 !important;
+  font-weight: 600 !important;
+}
+
+.meta-info-container .callout-icon {
+  display: none !important;
+}
+
+.meta-info-container .callout-body {
+  padding: 0 !important;
+}
+
+/* Grid layout for metadata */
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+.meta-column {
+  padding: 0.4rem 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+.meta-column:nth-child(odd) {
+  border-right: 1px solid #eee;
+}
+
+.meta-column:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.meta-column h4 {
+  color: #0A2A5E;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+.meta-column strong {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Resources Panel */
+.resources-panel {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin-right: 1rem;
+}
+
+.resources-panel .panel-title {
+  color: #0A2A5E;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+.resources-panel strong {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: #0A2A5E;
+}
+
+/* Abstract Section */
+.abstract-section {
+  padding: 1rem;
+}
+
+.abstract-section h2 {
+  color: #0A2A5E;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Inclusion/Exclusion Section */
+.inclusion-exclusion-section {
+  padding: 1rem;
+  margin-top: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.inclusion-exclusion-section h2 {
+  color: #0A2A5E;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.inclusion-exclusion-section h3 {
+  color: #1E50A0;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.inclusion-exclusion-section ul {
+  margin-bottom: 1.5rem;
+}
+
+.inclusion-exclusion-section li {
+  margin-bottom: 0.5rem;
+}
+
+.inclusion-exclusion-section strong {
+  color: #3c6997ff;
+}
+
+/* Search String Box */
+.search-string-box {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.search-string-box .panel-title {
+  color: #0A2A5E;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+.search-string-box strong {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  color: #0A2A5E;
+}
+
+
+/* Resource accordion styles */
+.resource-accordion {
+  margin-bottom: 20px;
+}
+
+.resource-header {
+  background-color: #f8f9fa;
+  color: #0A2A5E;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.resource-header:hover {
+  background-color: #e9ecef;
+}
+
+.resource-header:after {
+  content: '\002B';
+  color: #0A2A5E;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.resource-header.active:after {
+  content: "\2212";
+}
+
+.resource-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: white;
+  padding: 0 15px;
+}
+
+.resource-link {
+  display: block;
+  padding: 10px 0;
+  color: #1E50A0;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.resource-link:hover {
+  color: #0A2A5E;
+  text-decoration: underline;
+}
+
+.resource-title {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #0A2A5E;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Criteria box styles */
+.criteria-box {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.criteria-box h3 {
+  color: #0A2A5E;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.criteria-box ul, .criteria-box ol {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.criteria-box li {
+  margin-bottom: 5px;
+}
+
+/* Search strategy box styles */
+.search-strategy-box {
+  background-color: #f8f9fa;
+  border-left: 4px solid #0A2A5E;
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+}
+
+.search-db {
+  font-weight: 600;
+  color: #0A2A5E;
+  display: block;
+  margin-bottom: 5px;
+}
+/*=============================================
+=            Resources Page                 =
+===============================================*/
+/* Resources page styling */
+
+.title-space {
+  margin-top: 4rem;
+}
+
+/* Clean spacing for section headers */
+h2 {
+  color: #0A2A5E;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* Resource link formatting */
+.resource-link {
+  display: inline-block;
+  color: #1E50A0;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  
+  &:hover {
+    color: #0A2A5E;
+    border-bottom-color: #0A2A5E;
+    text-decoration: none;
+  }
+}
+
+/* Resource list formatting */
+.resource-list {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Individual resource items */
+.resource-item {
+  background: #f9f9f9;
+  border-left: 4px solid #0A2A5E;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  
+  h3 {
+    color: #0A2A5E;
+    margin-top: 0;
     margin-bottom: 1rem;
-    font-style: italic;
+    font-size: 1.3rem;
   }
+  
+  p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
+}
+
+/*=============================================
+=            Protocol checklist               =
+=                                             =
+= Styling for the protocol checklist page     =
+===============================================*/
+
+/* Development notice banner */
+.development-notice {
+  background-color: #fff3cd;
+  color: #664d03;
+  border-left: 4px solid #ffda6a;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+  display: inline-block;
+  font-weight: 500;
 }
