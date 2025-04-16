@@ -9,7 +9,7 @@ oxytocin:
 population:
   status: "Mixed" # Options: Healthy, Clinical, Mixed
   age_group: "Children" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
-  clinical_type: "Neurodevelopmental disorders" # If applicable for clinical populations
+  clinical_type: null # If applicable for clinical populations
 biobehavioral_outcomes:
   biological: # 
     - "Neurological functions" 

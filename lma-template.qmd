@@ -112,29 +112,26 @@ Our latest analysis (k = [number of studies]) indicates a [small/moderate/large]
 <div class="resource-accordion">
   <button class="resource-header">Pre-registration & Publication</button>
   <div class="resource-content">
-    <a href="https://www.crd.york.ac.uk/PROSPERO/" class="resource-link">Pre-registration on PROSPERO</a>
-    <a href="https://osf.io/" class="resource-link">Pre-print on OSF</a>
-    <a href="https://doi.org/YOUR-DOI-HERE" class="resource-link">Published Article (DOI)</a>
+    <a href="#" class="resource-link" target="_blank">Pre-registration on OSF (pending)</a>
+    <a href="#" class="resource-link" target="_blank">Published Article (pending)</a>
   </div>
 </div>
-
 <div class="resource-accordion">
   <button class="resource-header">Data & Analysis Resources</button>
   <div class="resource-content">
-    <a href="https://repository-url.com" class="resource-link">Complete Dataset (Repository)</a>
-    <a href="https://github.com/username/repository" class="resource-link">Analysis Scripts (GitHub)</a>
-    <a href="https://repository-url.com/deviation-report" class="resource-link">Deviation Report</a>
-    <a href="https://repository-url.com/prisma-checklist" class="resource-link">PRISMA Checklist</a>
+    <a href="#" class="resource-link" target="_blank">Complete Dataset (pending)</a>
+    <a href="#" class="resource-link" target="_blank">Analysis Scripts (pending)</a>
+    <a href="#" class="resource-link" target="_blank">Deviation Report (pending)</a>
+    <a href="#" class="resource-link" target="_blank">PRISMA Checklist (pending)</a>
   </div>
 </div>
-
 <div class="resource-accordion">
   <button class="resource-header">Related Resources</button>
   <div class="resource-content">
-    <a href="https://pubmed.ncbi.nlm.nih.gov/" class="resource-link">Related Study 1</a>
+    <a href="https://doi.org/10.1017/S0033291718003021" class="resource-link" target="_blank">Lønfeldt et al. (2019) - Previous meta-analysis</a>
+    <a href="https://doi.org/10.1093/ije/dyaa076" class="resource-link" target="_blank">Stokholm et al. (2021) - Related study</a>
   </div>
 </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var acc = document.getElementsByClassName("resource-header");
