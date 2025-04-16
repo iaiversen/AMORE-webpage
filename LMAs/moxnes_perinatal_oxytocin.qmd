@@ -44,12 +44,12 @@ format:
   <div id="visible-authors">
     Mai-Linn Moxnes (University of Oslo)<br>
     Kjersti M. Walle (University of Oslo)<br>
-    Anne Kaasen (Department of Nursing and Health Promotion, Faculty of Health Sciences, Oslo Metropolitan University)<br>
     Daniel S. Quintana (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)
     
   </div>
   
-  <div id="hidden-authors" style="display:none">
+  <div id="hidden-authors" style="display:none"> 
+  Anne Kaasen (Department of Nursing and Health Promotion, Faculty of Health Sciences, Oslo Metropolitan University)<br>
   Elisabeth Braithwaite ( Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
     Nicky Wright ( Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
     Ingebjørg Iversen (Department of Psychology, University of Oslo)<br>
@@ -92,6 +92,7 @@ format:
 ::: {.meta-column}
 #### Identifiers
 **DOI:** <a href="https://osf.io/preprints/osf/9gx6s_v1" target="_blank">https://osf.io/preprints/osf/9gx6s_v1</a>
+
 **Keywords:** autism, ADHD, oxytocin, meta-analysis, systematic review
 :::
 ::: {.meta-column}
