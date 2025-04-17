@@ -8,6 +8,7 @@ project:
 
 website:
   title: "| Active Monitoring of Oxytocin Research Evidence"
+  favicon: "amore.favicon.ico"
   open-graph: true
   page-footer: 
     center: 
