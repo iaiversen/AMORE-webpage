@@ -11,7 +11,7 @@ library(base64enc)  # For decoding base64 content from GitHub API
 #============================= UI section ==============================# 
 ui <- fluidPage(
   tags$head(
-    tags$link(rel = "icon", type = "image/x-icon", href = "favicon.ico"),
+    tags$link(rel = "icon", type = "image/x-icon", href = "amore.favicon.ico"),
     tags$style(HTML("
       /* Main colors from your SCSS */
       :root {
