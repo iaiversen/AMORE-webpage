@@ -34,7 +34,7 @@ AMORE aims to facilitate living meta analysis in the oxytocin research field thr
 
 ::: {.feature-box}
 ### Living Meta Analysis
-Living meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims too ensure that the evidence remains current, preventing meta-analyses from becoming outdated.  
+Living meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims to ensure that the evidence remains current, preventing meta-analyses from becoming outdated.  
 :::
 
 ::: {.feature-box}

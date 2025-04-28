@@ -117,45 +117,41 @@ A previous meta-analysis by Lønfeldt and colleagues (2019) concluded that there
 ## Resources {#resources}
 
 ```{=html}
-<div class="resource-accordion">
-  <button class="resource-header">Pre-registration & Publication</button>
-  <div class="resource-content">
+<details class="resource-details">
+  <summary class="resource-summary">Pre-registration & Publication</summary>
+  <div class="link-wrapper">
     <a href="https://osf.io/preprints/osf/9gx6s_v1" class="resource-link" target="_blank">Pre-registration on OSF</a>
-    <a href="#" class="resource-link" target="_blank">Published Article (pending)</a>
   </div>
-</div>
-<div class="resource-accordion">
-  <button class="resource-header">Data & Analysis Resources</button>
-  <div class="resource-content">
-    <a href="#" class="resource-link" target="_blank">Complete Dataset (pending)</a>
-    <a href="#" class="resource-link" target="_blank">Analysis Scripts (pending)</a>
-    <a href="#" class="resource-link" target="_blank">Deviation Report (pending)</a>
-    <a href="#" class="resource-link" target="_blank">PRISMA Checklist (pending)</a>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Published Article (pending)</a>
   </div>
-</div>
-<div class="resource-accordion">
-  <button class="resource-header">Related Resources</button>
-  <div class="resource-content">
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Data & Analysis Resources</summary>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Complete Dataset (pending)</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Analysis Scripts (pending)</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Deviation Report (pending)</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">PRISMA Checklist (pending)</a>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Related Resources</summary>
+  <div class="link-wrapper">
     <a href="https://doi.org/10.1017/S0033291718003021" class="resource-link" target="_blank">Lønfeldt et al. (2019) - Previous meta-analysis</a>
+  </div>
+  <div class="link-wrapper">
     <a href="https://doi.org/10.1093/ije/dyaa076" class="resource-link" target="_blank">Stokholm et al. (2021) - Related study</a>
   </div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var acc = document.getElementsByClassName("resource-header");
-  for (var i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      } 
-    });
-  }
-});
-</script>
+</details>
 ```
 
 ## Inclusion and Exclusion Criteria {#criteria}
