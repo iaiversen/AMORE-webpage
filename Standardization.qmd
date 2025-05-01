@@ -13,42 +13,52 @@ format:
 ## Mandatory Requirements {.tab-header}
 
 ::: {.requirements-box}
-- **Update Frequency**  
-  Maximum 24 months between analysis updates
+- **Update Frequency**
+Maximum 24 months between analysis updates  
+  
 
-- **Pre-registration**  
-  Meta-analysis must be pre-registered
+- **Pre-registration**
+Meta-analysis must be pre-registered
 
-- **Pre-print Publication**  
-  Initial results must be published on recognized pre-print server (e.g., Open Science Framework)
+- **Pre-print Publication**
+Initial results must be published on recognized pre-print server (e.g., Open Science Framework)  
+  
 
-- **Guidelines Adherence**  
-  Must follow PRISMA or equivalent guidelines (MOOSE, MARS)
+- **Guidelines Adherence**
+Must follow PRISMA or equivalent guidelines (MOOSE, MARS)  
+  
 
-- **Data Repository**  
-  Meta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)
+- **Data Repository**
+Meta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)  
+  
 
-- **Analysis Scripts**  
-  Free software scripts must be deposited in recognized repository
+- **Analysis Scripts**
+Free software scripts must be deposited in recognized repository  
+  
 
-- **Deviation Reporting**  
-  Supply deviation report with meta-analysis manuscript
+- **Deviation Reporting**
+Supply deviation report with meta-analysis manuscript  
+  
 :::
 
 ## Recommended Practices {.tab-header}
 
 ::: {.requirements-box}
-- **Accumulation Bias**  
-  Develop plan to address accumulation bias in frequentist framework
+- **Accumulation Bias**
+Develop plan to address accumulation bias in frequentist framework
+  
 
-- **Effect Determination**  
-  Use Bayes factor of 10 to conclude presence/absence of effects
+- **Effect Determination**
+Use Bayes factor of 10 to conclude presence/absence of effects  
+  
 
-- **Null Hypothesis**  
-  Create plan to evaluate evidence for null hypothesis
+- **Null Hypothesis**
+Create plan to evaluate evidence for null hypothesis  
+  
 
-- **Visualizations**  
-  Include forest plots and funnel plots
+- **Visualizations**
+Include forest plots and funnel plots  
+  
 :::
 
 :::
