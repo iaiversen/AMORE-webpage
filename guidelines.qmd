@@ -58,13 +58,13 @@ format:
       <div class="content-box">
         <h3>Contact us</h3>
         <p>
-        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about condutcing analysis, our standradization framework and preparing protocols. The contact form will also be used for proposing your topic for your living meta analyses.  
+        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about condutcing analysis, our standardization framework and preparing protocols. The contact form will also be used for proposing your topic for your living meta analyses.  
         </p>
         <h3>What to include:</h3>
         <ul>
           <li>An oxytocin intervention study OR evaluation of oxytocin concentrations between or within populations related to a biobehavioral outcome</li>
           <li>Living meta-analysis update frequency (maximum 24 months between updates)</li>
-          <li>Proposal of analytical approach within our standradization framework (if using frequentist approach)</li>
+          <li>Proposal of protocol within our standardization framework</li>
         </ul>
       </div>
     </div>

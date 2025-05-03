@@ -304,6 +304,7 @@ margin-bottom: 3rem;
   max-width: 1200px;
 }
 
+
 /* Requirements box styling to match guidelines content-box */
 .requirements-box {
   background: #f8f9fa;
@@ -321,7 +322,7 @@ margin-bottom: 3rem;
   
   strong {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.25rem;  /* Reduced from 0.5rem to 0.25rem */
     color: var(--primary-color);
     font-size: 1.1rem;
   }
