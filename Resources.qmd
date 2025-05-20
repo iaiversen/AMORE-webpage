@@ -13,7 +13,7 @@ format:
 
 ## Checklist for creating Living Meta-Analysis project proposal for AMORE
 
-This checklist is designed to help researchers create a comprehensive project proposal for their living meta-analysis. By following this checklist, researchers can ensure that their protocol is well-structured and adhere the necessary requirements for a living meta-analysis on the AMORE platform. 
+This protocol checklist tool serves to help ensure all necessary information in the project proposal form is included. When planning your project use this checklist to see what information we require. This will streamline the process of entering the required details to the “propose your project” form when you are ready to submit
 
 [Access the Protocol Checklist Tool](Protocol_checklist.html){.resource-link}
 

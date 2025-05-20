@@ -1009,19 +1009,107 @@ h2 {
 }
 
 /*=============================================
-=            Protocol checklist               =
-=                                             =
-= Styling for the protocol checklist page     =
+=            Protocol Checklist              =
+=                                           =
+= Styling for the protocol checklist        =
 ===============================================*/
 
-/* Development notice banner */
-.development-notice {
-  background-color: #fff3cd;
-  color: #664d03;
-  border-left: 4px solid #ffda6a;
+/* Checklist container styling */
+.checklist-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+/* Checklist item styling */
+.checklist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1rem;
-  margin: 1rem 0;
-  border-radius: 0 4px 4px 0;
-  display: inline-block;
+  margin-bottom: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.checklist-item-title {
   font-weight: 500;
+  color: var(--accent-1);
+}
+
+/* Optional description text that appears below title */
+.checklist-item-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+  font-style: italic;
+  max-width: 90%;
+}
+
+/* Improved checkbox styling */
+.checklist-item-checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px; /* Ensure minimum width */
+  border: 2px solid #0A2A5E;
+  border-radius: 2px; /* Less rounded corners for a cleaner look */
+  display: inline-block;
+  position: relative;
+  background: white;
+  margin-top: 3px; /* Align with first line of text */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Checked state styling */
+.checklist-item-checkbox.checked:after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid #0A2A5E;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Download button styling */
+.download-button-container {
+  margin: 2rem 0;
+}
+
+#downloadPDF {
+  display: inline-block;
+  color: #1E50A0;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  
+  &:hover {
+    color: #0A2A5E;
+    border-bottom-color: #0A2A5E;
+    text-decoration: none;
+  }
+}
+
+/* Section headers in checklist */
+.checklist-container h3 {
+  color: #0A2A5E;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Make the first h3 have less top margin since it comes right after the download button */
+.checklist-container h3:first-of-type {
+  margin-top: 0.5rem;
 }
