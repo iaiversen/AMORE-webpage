@@ -182,6 +182,181 @@ a {
 }
 
 /*=============================================
+=                                            =
+=            Responsive Adjustments          =
+=                                            =
+===============================================*/
+/* These media queries only affect smaller screens and won't change desktop appearance */
+
+/* Default (desktop) - 3 columns */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* For tablets and smaller desktops */
+@media (max-width: 1199px) {
+  /* Only adjust what's necessary to maintain readability */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Ensure title doesn't get cut off */
+  .navbar-title {
+    font-size: 0.95rem;
+    padding-left: 5px;
+    white-space: normal; /* Allow wrapping if needed */
+    max-width: 350px;
+  }
+  
+  /* Slightly reduce navigation padding */
+  .navbar .nav-link {
+    padding: 0.5rem 0.7rem;
+  }
+}
+
+/* For smaller tablets */
+@media (max-width: 991px) {
+  /* Further reduce sizing */
+  .navbar-title {
+    font-size: 0.85rem;
+    max-width: 280px;
+  }
+  
+  /* Slightly reduce logo size */
+  .navbar .navbar-brand img {
+    max-height: 45px;
+  }
+  
+  /* Stack the navigation items with better spacing */
+  .navbar-nav {
+    gap: 0.3rem;
+  }
+}
+
+/* Tablets (medium screens) - 2 columns */
+@media (max-width: 991px) and (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Small tablets and large phones - 2 columns but smaller */
+@media (max-width: 767px) and (min-width: 576px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .feature-box {
+    padding: 1rem;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 767px) {
+  /* Mobile optimizations */
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Allow title to wrap on mobile */
+  .navbar-title {
+    font-size: 0.8rem;
+    max-width: 200px;
+  }
+  
+  /* Ensure the logo is proportional */
+  .navbar .navbar-brand img {
+    max-height: 40px;
+  }
+  
+  /* Ensure dropdown menu works well on mobile */
+  .navbar-collapse {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* Content adjustments for mobile */
+  .content-section {
+    padding: 0 1rem;
+  }
+  
+  /* Adjust heading sizes for mobile */
+  h1, .title {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  /* Make content use full available width */
+  .content-section, 
+  .container-fluid, 
+  .container,
+  .quarto-title-block,
+  .page-columns,
+  .page-full {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Fix the paragraph text display */
+  p {
+    width: 100% !important;
+    word-wrap: break-word;
+  }
+  
+  /* Fix headers and title that appear stacked */
+  h1, .title, h2, h3 {
+    word-break: normal;
+    white-space: normal;
+    width: 100%;
+    text-align: left;
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Fix for the main content in index.qmd */
+  #quarto-content {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Fix title display on mobile */
+  #title-block-header h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    word-break: break-word;
+    hyphens: manual;
+  }
+}
+
+/* Phones (small screens) - 1 column (vertical) */
+@media (max-width: 575px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .feature-box {
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+}
+
+/*=============================================
 =                                           =
 =            Homepage/index Styling         =
 =                                           =

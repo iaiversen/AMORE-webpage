@@ -46,7 +46,7 @@ format:
       text: |
         <meta name="description" content="Active Monitoring of Oxytocin Research Evidence (AMORE) is a platform for living meta-analyses in oxytocin research.">
         <meta name="keywords" content="oxytocin, living meta-analysis, systematic review, behavioral outcomes, biobehavioral, AMORE">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 # Uncomment when deploying Shiny:
 # resources:
 #   - shiny
