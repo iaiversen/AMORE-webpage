@@ -29,72 +29,96 @@ The AMORE platform is overseen by a steering committee of experts in the oxytoci
 #### Expert Steering Committee Members
 
 - **Prof. Daniel Quintana**  
-  University of Oslo, Department of Psychology
+  Department of Psychology, University of Oslo, Oslo, Norway
+  
+  KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo, Oslo, Norway
+  
+  NevSom, Department of Rare Disorders, Oslo University Hospital, Oslo, Norway
 
-- **Prof. Mariam Bakermans-Kranenburg**  
-  University Institute of Psychological, Social and Life Sciences, Lisbon, Portugal 
+- **Prof. Marian Bakermans-Kranenburg**  
+  William James Center for Research, ISPA – University Institute of Psychological, Social and Life Sciences, Lisbon, Portugal 
 
 - **Prof. Jessica J. Connelly**  
-  University of Virginia, Department of Psychology
+  Department of Psychology, Program in Fundamental Neuroscience, University of Virginia, Charlottesville, USA
 
 - **MPhil Heemin Kang**  
-  University of Oslo, Department of psychology
+  Department of Psychology, University of Oslo, Oslo, Norway
 
-- **Prof. Jennifer Bartz**  
-  McGill University, Department of Psychology
+- **Prof. Jennifer A. Bartz**  
+  Department of Psychology, McGill University, Montréal, Québec, Canada
 
-- **Prof. Natalie Ebner**  
-  University of Florida, Department of Psychology
+- **Prof. Natalie C. Ebner**  
+  Department of Psychology, University of Florida, Gainesville, FL, USA
+  
+  Cognitive Aging and Memory Center, McKnight Brain Institute, University of Florida, Gainesville, FL, USA
 
 - **Prof. Dirk Scheele**  
-  Ruhr University Bochum, Research Department of Neuroscience 
+  Department of Social Neuroscience, Faculty of Medicine, Ruhr University Bochum, Germany
+  
+  Research Center One Health Ruhr of the University Alliance Ruhr, Ruhr University Bochum, Germany
 
 - **Prof. Benjamin Becker**  
-  University of Hong Kong, Department of Psychology
+  State Key Laboratory of Brain and Cognitive Sciences, The University of Hong Kong, Hong Kong, China
+  
+  Department of Psychology, The University of Hong Kong, Hong Kong, China
 
 - **Prof. Kaat Alaerts**  
-  University of Ku Leuven, Department of Rehabilitation Sciences
+  Department of Rehabilitation Sciences, KU Leuven, Neuromotor Rehabilitation Research
 
 - **Dr. Matthijs Moerkerke**  
-  Ghent University, Department of Rehabilitation Sciences and Physiotherapy
+  Department of Rehabilitation Sciences and Physiotherapy, Ghent University, Ghent, Belgium  
 
-- **Dr. Elisabeth A. Lawson**  
-  Assoc. Prof. of Medicine, Harvard Medical School  
-  Assoc. Prof. Endocrine Division, Mass General Research Institute  
-  Physician, Neuroendocrine, Massachusetts General Hospital
+- **Dr. Elizabeth A. Lawson**  
+  Neuroendocrine Unit, Department of Medicine, Massachusetts General Hospital, Massachusetts, USA
+  
+  Department of Medicine, Harvard Medical School, Boston, USA
 
-- **Dr. Tanya Procyshyn**  
-  University of Cambridge, Department of Psychiatry 
+- **Dr. Tanya L. Procyshyn**  
+  Department of Biological Sciences, Simon Fraser University, Burnaby, Canada
+  
+  Autism Research Centre, Department of Psychiatry, University of Cambridge, Cambridge, UK
 
 - **Dr. Marilyn Horta**  
-  University of Florida, Department of Psychology
+  Department of Health Outcomes and Behavior, Moffitt Cancer Center, Florida, USA 
 
 - **Prof. Hidenori Yamasue**  
-  Hamamatsu University, Department of Psychiatry 
+  Departments of Psychiatry, Hamamatsu University School of Medicine, Hamamatsu City, Japan
 
 - **Constantina Theofanopoulou**  
-  Herbert and Nell Singer Research Assistant Professor, Rockefeller University
+  The Rockefeller University, New York, NY, USA
+  
+  New York University, New York, NY, USA
+  
+  Emory University, Atlanta, GA, USA
 
-- **Dr. Peeled Avron**  
-  Bar Ilan University, Department of Psychology
+- **Dr. Leehe Peeled Avron**  
+  Department of Psychology, Bar-Ilan University, Ramat-Gan, Israel
 
-- **Senior Scientist Nicole Løndtfelt**  
-  University of Copenhagen, Department of Mental Health Services
+- **Senior Scientist Nicole Nadine Løndtfelt**  
+  Center for Social Data Science, Faculty of Social Sciences, University of Copenhagen
+  
+  Child and Adolescent Mental Health Center, Copenhagen University Hospital - Mental Health Services CPH, Copenhagen, Denmark
 
 - **Dr. Ekaterina Schneider**  
-  University hospital Heidelberg, Institute of Medical Psychology
-
+  Institute of Medical Psychology, Center for Psychosocial Medicine, Heidelberg University Hospital, Heidelberg, Germany
+  
 - **Anna-Rosa Cecilie Mora-Jensen**  
-  University of Copenhagen, Department of Clinical Medicine 
-
+  Child and Adolescent Mental Health Center, Copenhagen University Hospital - Mental Health Services CPH, Copenhagen, Denmark
+  
+  Department of Clinical Medicine, Faculty of Health and Medical Sciences, University of Copenhagen
+  
 - **Prof. Christian Montag**  
-  University of Macau, Center of Cognitive and Brain Sciences 
+  Centre for Cognitive and Brain Sciences, Institute of Collaborative Innovation, University of Macau, Macau SAR, China
+  
+  Department of Psychology, Faculty of Social Sciences, University of Macau, Macau SAR, China
+  
+  Department of Computer and Information Science, Faculty of Science and Technology, University of Macau, Macau SAR, China
 
 - **Prof. Robert James Blair**  
-  University of Copenhagen, Child and Adolescent Mental Health Center, Mental Health Services 
+  Department of Clinical Medicine, Child and Adolescent Psychiatry, University of Copenhagen, Copenhagen, Denmark
 
-- **MSc Alina Sartorious**  
-  University of Oslo, Department of Psychology
+- **MSc Alina I. Sartorious**  
+  Department of Psychology, University of Oslo, Oslo, Norway
 :::
 
 :::
