@@ -18,6 +18,10 @@ outcomes:
   clinical:
     - "Neurodevelopmental" # Autism, ADHD, developmental delays (maps to "Autism", "ADHD", "Neurodevelopmental disorders")
 update-frequency: "24 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
+dois:
+  preregistration: "10.XXXX/33333"
+  preprint: "10.XXXX/XXXXX"
+  publication: "10.XXXX/66666"
 format:
   html:
     theme: 

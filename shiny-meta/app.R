@@ -219,9 +219,9 @@ ui <- fluidPage(
           )
       ),
       
-      # Analysis Framework
+      # Analytical Framework
       div(class = "filter-section",
-          h4("Analysis Framework", class = "filter-title"),
+          h4("Analytical Framework", class = "filter-title"),
           checkboxGroupInput("analysis_framework", NULL,
                              choices = c("Bayesian", 
                                          "Frequentist", 
@@ -477,7 +477,7 @@ server <- function(input, output, session) {
     }
     
     if (is.list(list_val)) {
-      # Handle nested lists (for social outcomes)
+      # Handle nested lists
       flat_list <- unlist(list_val)
       if (length(flat_list) == 0) {
         return(NA_character_)
@@ -502,12 +502,13 @@ server <- function(input, output, session) {
       Framework = character(),
       AssessmentMethod = character(),
       OxytocinRoute = character(),
+      OxytocinDosage = character(),
       PopulationStatus = character(),
       PopulationAge = character(),
       PopulationClinicalType = character(),
       BiologicalOutcomes = character(),
-      BehavioralOutcomes = character(),
-      SocialOutcomes = character(),
+      PsychologicalBehavioralOutcomes = character(),
+      ClinicalOutcomes = character(),
       UpdateFrequency = character(),
       LastUpdated = character(),
       Abstract = character(),
@@ -593,45 +594,43 @@ server <- function(input, output, session) {
           }
         }
         
-        # Extract biological outcomes - handle as separate items for filtering
-        biological_outcomes <- safe_extract(meta, c("biobehavioral_outcomes", "biological"))
+        # Extract outcomes from new structure
+        biological_outcomes <- safe_extract(meta, c("outcomes", "biological"))
         biological_outcomes_str <- extract_list_as_string(biological_outcomes)
         
-        # Extract behavioral outcomes - excluding nested social outcomes
-        behavioral_outcomes <- safe_extract(meta, c("biobehavioral_outcomes", "behavioral"))
-        # Remove social outcomes if it's a list
-        if (is.list(behavioral_outcomes) && "social" %in% names(behavioral_outcomes)) {
-          social_outcomes <- behavioral_outcomes$social
-          behavioral_outcomes$social <- NULL
-        } else {
-          social_outcomes <- NULL
+        psychological_behavioral_outcomes <- safe_extract(meta, c("outcomes", "psychological_behavioral"))
+        psychological_behavioral_outcomes_str <- extract_list_as_string(psychological_behavioral_outcomes)
+        
+        clinical_outcomes <- safe_extract(meta, c("outcomes", "clinical"))
+        clinical_outcomes_str <- extract_list_as_string(clinical_outcomes)
+        
+        # Handle legacy structure as fallback
+        if (is.na(biological_outcomes_str)) {
+          legacy_biological <- safe_extract(meta, c("biobehavioral_outcomes", "biological"))
+          biological_outcomes_str <- extract_list_as_string(legacy_biological)
         }
         
-        # Convert remaining behavioral outcomes to string
-        behavioral_items <- list()
-        for (name in names(behavioral_outcomes)) {
-          if (is.character(name) && name != "social") {
-            behavioral_items <- c(behavioral_items, behavioral_outcomes[[name]])
-          }
+        if (is.na(psychological_behavioral_outcomes_str)) {
+          legacy_behavioral <- safe_extract(meta, c("biobehavioral_outcomes", "behavioral"))
+          legacy_social <- safe_extract(meta, c("biobehavioral_outcomes", "social"))
+          combined_legacy <- c(legacy_behavioral, legacy_social)
+          psychological_behavioral_outcomes_str <- extract_list_as_string(combined_legacy)
         }
-        behavioral_outcomes_str <- extract_list_as_string(behavioral_items)
-        
-        # Convert social outcomes to string
-        social_outcomes_str <- extract_list_as_string(social_outcomes)
         
         # Extract data into a structured format
         entry <- list(
           Title = meta$title %||% "Untitled",
           Status = meta$status %||% NA_character_,
-          Framework = meta$analytical_framework %||% NA_character_,
+          Framework = meta$analytical_framework %||% meta$framework %||% NA_character_,
           AssessmentMethod = safe_extract(meta, c("oxytocin", "assessment_method")),
           OxytocinRoute = safe_extract(meta, c("oxytocin", "route")),
+          OxytocinDosage = safe_extract(meta, c("oxytocin", "dosage")),
           PopulationStatus = safe_extract(meta, c("population", "status")),
           PopulationAge = safe_extract(meta, c("population", "age_group")),
           PopulationClinicalType = safe_extract(meta, c("population", "clinical_type")),
           BiologicalOutcomes = biological_outcomes_str,
-          BehavioralOutcomes = behavioral_outcomes_str,
-          SocialOutcomes = social_outcomes_str,
+          PsychologicalBehavioralOutcomes = psychological_behavioral_outcomes_str,
+          ClinicalOutcomes = clinical_outcomes_str,
           UpdateFrequency = meta$`update-frequency` %||% NA_character_,
           LastUpdated = last_updated,
           Abstract = abstract,
@@ -657,12 +656,13 @@ server <- function(input, output, session) {
           Framework = x$Framework,
           AssessmentMethod = x$AssessmentMethod,
           OxytocinRoute = x$OxytocinRoute,
+          OxytocinDosage = x$OxytocinDosage,
           PopulationStatus = x$PopulationStatus,
           PopulationAge = x$PopulationAge,
           PopulationClinicalType = x$PopulationClinicalType,
           BiologicalOutcomes = x$BiologicalOutcomes,
-          BehavioralOutcomes = x$BehavioralOutcomes,
-          SocialOutcomes = x$SocialOutcomes,
+          PsychologicalBehavioralOutcomes = x$PsychologicalBehavioralOutcomes,
+          ClinicalOutcomes = x$ClinicalOutcomes,
           UpdateFrequency = x$UpdateFrequency,
           LastUpdated = x$LastUpdated,
           Abstract = x$Abstract,
@@ -695,8 +695,11 @@ server <- function(input, output, session) {
     }
     
     # Hide template entry unless specifically searching for it
+    template_files <- c("lma-template.qmd", "template.qmd", "Template.qmd")
     if (!grepl("template", tolower(input$search_text %||% ""))) {
-      meta_df <- meta_df[!grepl("Template", meta_df$Title), ]
+      meta_df <- meta_df[!meta_df$Filename %in% template_files, ]
+      # Also check title for template patterns
+      meta_df <- meta_df[!grepl("Template|template", meta_df$Title), ]
     }
     
     # Create a logical vector for all rows initially TRUE
@@ -705,7 +708,7 @@ server <- function(input, output, session) {
     # Apply biological outcomes filter
     if (length(input$biological_outcomes) > 0) {
       bio_matches <- sapply(1:nrow(meta_df), function(i) {
-        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$BehavioralOutcomes[i], meta_df$SocialOutcomes[i], sep = " ")
+        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$PsychologicalBehavioralOutcomes[i], meta_df$ClinicalOutcomes[i], sep = " ")
         any(sapply(input$biological_outcomes, function(category) {
           categorize_outcome(all_outcomes, category)
         }))
@@ -716,7 +719,7 @@ server <- function(input, output, session) {
     # Apply psychological & behavioral outcomes filter
     if (length(input$psychological_behavioral_outcomes) > 0) {
       psych_behav_matches <- sapply(1:nrow(meta_df), function(i) {
-        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$BehavioralOutcomes[i], meta_df$SocialOutcomes[i], sep = " ")
+        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$PsychologicalBehavioralOutcomes[i], meta_df$ClinicalOutcomes[i], sep = " ")
         any(sapply(input$psychological_behavioral_outcomes, function(category) {
           categorize_outcome(all_outcomes, category)
         }))
@@ -725,4 +728,143 @@ server <- function(input, output, session) {
     }
     
     # Apply clinical outcomes filter
-    if (length(input$clinical_outcomes)
+    if (length(input$clinical_outcomes) > 0) {
+      clinical_matches <- sapply(1:nrow(meta_df), function(i) {
+        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$PsychologicalBehavioralOutcomes[i], meta_df$ClinicalOutcomes[i], sep = " ")
+        any(sapply(input$clinical_outcomes, function(category) {
+          categorize_outcome(all_outcomes, category)
+        }))
+      })
+      keep_rows <- keep_rows & clinical_matches
+    }
+    
+    # Apply filter for assessment method
+    if (length(input$assessment_method) > 0) {
+      assessment_matches <- !is.na(meta_df$AssessmentMethod) & meta_df$AssessmentMethod %in% input$assessment_method
+      keep_rows <- keep_rows & assessment_matches
+    }
+    
+    # Apply filter for oxytocin route
+    if (length(input$oxytocin_route) > 0) {
+      route_matches <- !is.na(meta_df$OxytocinRoute) & meta_df$OxytocinRoute %in% input$oxytocin_route
+      keep_rows <- keep_rows & route_matches
+    }
+    
+    # Apply filter for oxytocin dosage
+    if (length(input$oxytocin_dosage) > 0) {
+      dosage_matches <- !is.na(meta_df$OxytocinDosage) & meta_df$OxytocinDosage %in% input$oxytocin_dosage
+      keep_rows <- keep_rows & dosage_matches
+    }
+    
+    # Apply filter for population status
+    if (length(input$population_status) > 0) {
+      pop_status_matches <- !is.na(meta_df$PopulationStatus) & meta_df$PopulationStatus %in% input$population_status
+      keep_rows <- keep_rows & pop_status_matches
+    }
+    
+    # Apply filter for population age
+    if (length(input$population_age) > 0) {
+      pop_age_matches <- !is.na(meta_df$PopulationAge) & meta_df$PopulationAge %in% input$population_age
+      keep_rows <- keep_rows & pop_age_matches
+    }
+    
+    # Apply filter for analysis framework
+    if (length(input$analysis_framework) > 0) {
+      framework_matches <- !is.na(meta_df$Framework) & meta_df$Framework %in% input$analysis_framework
+      keep_rows <- keep_rows & framework_matches
+    }
+    
+    # Apply filter for status
+    if (length(input$status_filter) > 0) {
+      status_matches <- !is.na(meta_df$Status) & meta_df$Status %in% input$status_filter
+      keep_rows <- keep_rows & status_matches
+    }
+    
+    # Apply filter for update frequency
+    if (length(input$update_freq) > 0) {
+      freq_matches <- !is.na(meta_df$UpdateFrequency) & meta_df$UpdateFrequency %in% input$update_freq
+      keep_rows <- keep_rows & freq_matches
+    }
+    
+    # Apply enhanced text search across all fields
+    if (!is.null(input$search_text) && input$search_text != "") {
+      search_text_combined <- paste(
+        meta_df$Title, 
+        meta_df$Abstract,
+        meta_df$BiologicalOutcomes,
+        meta_df$PsychologicalBehavioralOutcomes,
+        meta_df$ClinicalOutcomes,
+        meta_df$AssessmentMethod,
+        meta_df$OxytocinRoute,
+        meta_df$OxytocinDosage,
+        meta_df$PopulationStatus,
+        meta_df$PopulationAge,
+        meta_df$PopulationClinicalType,
+        meta_df$Framework,
+        meta_df$Status,
+        meta_df$UpdateFrequency,
+        sep = " "
+      )
+      
+      search_matches <- enhanced_search(input$search_text, search_text_combined)
+      keep_rows <- keep_rows & search_matches
+    }
+    
+    # Apply the combined filter
+    meta_df <- meta_df[keep_rows, ]
+    
+    return(meta_df)
+  })
+  
+  # Custom HTML output for LMA list with clickable titles and abstracts
+  output$lma_list <- renderUI({
+    data <- filtered_data()
+    
+    if (nrow(data) == 0) {
+      return(div(
+        class = "no-results",
+        "No meta-analyses match your current filter criteria. Please adjust your filters."
+      ))
+    }
+    
+    div(class = "lma-container",
+        lapply(1:nrow(data), function(i) {
+          # Get the base filename without extension
+          base_filename <- tools::file_path_sans_ext(data$Filename[i])
+          
+          # Construct the URL to the live website LMA page
+          lma_url <- paste0("https://amore-project.org/lmas/", base_filename)
+          
+          div(class = "lma-entry",
+              tags$a(
+                href = lma_url,
+                target = "_blank",
+                class = "lma-title",
+                data$Title[i]
+              ),
+              div(class = "lma-meta",
+                  if (!is.na(data$Status[i])) span("Status: ", data$Status[i], br()) else NULL,
+                  if (!is.na(data$Framework[i])) span("Analytical Framework: ", data$Framework[i], br()) else NULL,
+                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i], br()) else NULL,
+                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i], br()) else NULL,
+                  if (!is.na(data$OxytocinDosage[i])) span("Oxytocin Dosage: ", data$OxytocinDosage[i], br()) else NULL,
+                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i], br()) else NULL,
+                  if (!is.na(data$PsychologicalBehavioralOutcomes[i])) span("Psychological & Behavioral Outcomes: ", data$PsychologicalBehavioralOutcomes[i], br()) else NULL,
+                  if (!is.na(data$ClinicalOutcomes[i])) span("Clinical Outcomes: ", data$ClinicalOutcomes[i], br()) else NULL,
+                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i], br()) else NULL,
+                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i], br()) else NULL,
+                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i], br()) else NULL,
+                  if (!is.na(data$UpdateFrequency[i])) span("Update Frequency: ", data$UpdateFrequency[i], br()) else NULL,
+                  if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i], br()) else NULL
+              ),
+              div(class = "lma-abstract",
+                  data$Abstract[i]
+              )
+          )
+        })
+    )
+  })
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)

@@ -1,14 +1,14 @@
 ---
 title: "Title of your Living meta analysis" 
-status: "Pre-registered" # Pre-registered, Pre-print, Published
-analytical_framework: "Bayesian" # Bayesian, Frequentist, Mixed Methods
+status: "Pre-registered" # Options: Pre-registered, Pre-print, Published
+analytical_framework: "Bayesian" # Options: Bayesian, Frequentist, Mixed Methods
 oxytocin:
-  assessment_method: "Intranasal oxytocin" # Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Perinatal oxytocin exposure
-  route: "Central" # Central, Peripheral, Various administration routes, Administration method unspecified
-  dosage: "24 IU" # 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage, Dose-response analysis
+  assessment_method: "Intranasal oxytocin" # Options: Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Perinatal oxytocin exposure
+  route: "Central" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
+  dosage: "24 IU" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage, Dose-response analysis
 population:
-  status: "Healthy" # Healthy, Clinical, Mixed
-  age_group: "Adults" # Children, Adolescents, Adults, Older Adults, Mixed Age Groups
+  status: "Healthy" # Options: Healthy, Clinical, Mixed
+  age_group: "Adults" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
   clinical_type: "Autism" # Only include if status is Clinical - for Clinical Outcomes filtering
 outcomes:
   biological:
@@ -40,7 +40,7 @@ outcomes:
     # - "Addiction & Substance Use"
     # - "Eating Disorders"
     # - "Other Clinical Conditions"
-update-frequency: "6 months" # 3 months, 6 months, 12 months, 18 months, 24 months
+update-frequency: "6 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
 dois:
   preregistration: "10.XXXX/33333"
   preprint: "10.XXXX/XXXXX"
