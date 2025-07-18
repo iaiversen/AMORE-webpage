@@ -1,43 +1,45 @@
 ---
 title: "Title of your Living meta analysis" 
 status: "Pre-registered" # Pre-registered, Pre-print, Published
-framework: "Bayesian" # Bayesian, Frequentist, Mixed Methods
+analytical_framework: "Bayesian" # Bayesian, Frequentist, Mixed Methods
 oxytocin:
-  assessment_method: "Intranasal oxytocin" # Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies
-  route: "Central" # Central, Peripheral, Both
+  assessment_method: "Intranasal oxytocin" # Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Perinatal oxytocin exposure
+  route: "Central" # Central, Peripheral, Various administration routes, Administration method unspecified
+  dosage: "24 IU" # 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage, Dose-response analysis
 population:
   status: "Healthy" # Healthy, Clinical, Mixed
-  age_group: "Adults" # Children, Adults, Older Adults, Mixed Age Groups
-  clinical_type: "Autism" # Only include if status is Clinical
-biobehavioral_outcomes:
+  age_group: "Adults" # Children, Adolescents, Adults, Older Adults, Mixed Age Groups
+  clinical_type: "Autism" # Only include if status is Clinical - for Clinical Outcomes filtering
+outcomes:
   biological:
-    - "Cortisol levels"
-    # - "HRV"
-    # - "Pain perception"
-    # - "Anti-inflammatory effects"
-    # - "Insulin-sensitivity"
-    # - "Neural activation"
-    # - "Blood pressure"
-    # - "Immune function"
-    # - "Sleep physiology"
-    # - "Endocrine function"
-  behavioral:
-    - "Stress response"
-    # - "Mood"
-    # - "Aggression"
-    # - "Eating behavior"
-    # - "Fear and anxiety"
-    # - "Memory and learning"
-    # - "Risk-taking"
-    # - "Parental care/behavior"
-  social: # Social outcomes as subcategory
-    - "Trust and cooperation"
-    # - "Empathy"
-    # - "Sexual behavior"
-    # - "Social flexibility"
-    # - "Social bonding"
-    # - "Social recognition"
-    # - "Conflict resolution"
+    # Select relevant categories - these map to your new Biological Outcomes filters
+    - "Neuroendocrine" # Cortisol, hormones, stress markers
+    # - "Cardiovascular" # HRV, blood pressure, heart rate
+    # - "Neurological" # Brain activity, neural networks, connectivity
+    # - "Metabolic" # Insulin, glucose, metabolism
+    # - "Immune & Inflammatory" # Immune markers, inflammation
+    # - "Pain & Sensory" # Pain perception, sensory processing
+    # - "Sleep & Circadian" # Sleep architecture, REM/NREM, circadian rhythms
+  psychological_behavioral:
+    # Select relevant categories - these map to your new Psychological & Behavioral Outcomes filters
+    - "Stress & Coping" # Stress response, resilience, adaptation
+    - "Bonding & Attachment" # Parent-child, romantic, social bonds
+    - "Trust & Cooperation" # Prosocial behavior, altruism
+    # - "Mood & Emotion" # Depression, anxiety, emotional regulation
+    # - "Cognition & Memory" # Learning, attention, executive function
+    # - "Eating & Appetite" # Food intake, eating patterns
+    # - "Risk & Decision-Making" # Impulsivity, risk assessment
+    # - "Sleep Behavior & Quality" # Sleep duration, sleep quality, sleep hygiene
+    # - "Communication & Empathy" # Social cognition, perspective-taking
+    # - "Aggression & Conflict" # Aggressive behavior, conflict resolution
+  clinical:
+    # Select relevant categories - these map to your new Clinical Outcomes filters
+    - "Neurodevelopmental" # Autism, ADHD, developmental delays
+    # - "Mood Disorders" # Depression, anxiety disorders, bipolar
+    # - "Psychotic Disorders" # Schizophrenia, psychosis
+    # - "Addiction & Substance Use"
+    # - "Eating Disorders"
+    # - "Other Clinical Conditions"
 update-frequency: "6 months" # 3 months, 6 months, 12 months, 18 months, 24 months
 dois:
   preregistration: "10.XXXX/33333"
@@ -52,7 +54,7 @@ format:
     css: ../styles.scss 
     classes:
       - lma-template
---- 
+---
 ::: {.callout-note .meta-info-container}
 ## Project Information
 ::: {.meta-grid}

@@ -6,8 +6,8 @@ library(fs)    # For file operations
 library(httr)  # For GitHub API requests
 library(jsonlite)  # For JSON parsing
 library(base64enc)  # For decoding base64 content from GitHub API
+library(stringdist)  # For fuzzy search matching
 
-#============================= UI section ==============================# 
 #============================= UI section ==============================# 
 ui <- fluidPage(
   tags$head(
@@ -108,77 +108,50 @@ ui <- fluidPage(
           textInput("search_text", NULL, placeholder = "Search across all fields...")
       ),
       
-      # Biobehavioral Outcomes
+      # Biological Outcomes
       div(class = "filter-section",
-          h4("Biobehavioral Outcomes", class = "filter-title"),
-          
-          # Biological Outcomes
-          div(class = "subcategory",
-              div(class = "subcategory-title", "Biological Assessment Outcomes"),
-              checkboxGroupInput("biological_outcomes", NULL,
-                                 choices = c("HRV", 
-                                             "Cortisol levels", 
-                                             "Pain perception", 
-                                             "Anti-inflammatory effects", 
-                                             "Insulin-sensitivity",
-                                             "Neural activation",
-                                             "Blood pressure",
-                                             "Immune function",
-                                             "Sleep physiology",
-                                             "Endocrine function",
-                                             "Brain development",
-                                             "Neurological functions",
-                                             "Cognitive function"),
-                                 selected = NULL
-              )
-          ),
-          
-          # Behavioral Outcomes (with Social Outcomes as a subcategory)
-          div(class = "subcategory",
-              div(class = "subcategory-title", "Behavioral Assessment Outcomes"),
-              checkboxGroupInput("behavioral_outcomes", NULL,
-                                 choices = c("Mood", 
-                                             "Aggression", 
-                                             "Stress response", 
-                                             "Eating behavior", 
-                                             "Fear and anxiety",
-                                             "Memory and learning",
-                                             "Risk-taking",
-                                             "Parental care/behavior"),
-                                 selected = NULL
-              ),
-              
-              # Social Outcomes as a nested subcategory of Behavioral Outcomes
-              div(class = "subcategory", style = "margin-left: 20px;",
-                  div(class = "subcategory-title", "Social Assessment Outcomes"),
-                  checkboxGroupInput("social_outcomes", NULL,
-                                     choices = c("Trust and cooperation", 
-                                                 "Empathy", 
-                                                 "Sexual behavior", 
-                                                 "Social flexibility", 
-                                                 "Social bonding",
-                                                 "Social recognition",
-                                                 "Conflict resolution"),
-                                     selected = NULL
-                  )
-              )
-          ), 
-          
-          # Disorder-Specific Outcomes (New Category)
-          div(class = "subcategory",
-              div(class = "subcategory-title", "Disorder-Specific Outcomes"),
-              checkboxGroupInput("disorder_outcomes", NULL,
-                                 choices = c("Autism", 
-                                             "ADHD", 
-                                             "Anxiety disorders",
-                                             "Depression",
-                                             "Eating disorders",
-                                             "Schizophrenia",
-                                             "Obsessive-compulsive disorder",
-                                             "Substance use disorders",
-                                             "Neurodevelopmental disorders"),
-                                 selected = NULL
-              )
+          h4("Biological Outcomes", class = "filter-title"),
+          checkboxGroupInput("biological_outcomes", NULL,
+                             choices = c("Cardiovascular" = "cardiovascular", 
+                                         "Neuroendocrine" = "neuroendocrine", 
+                                         "Neurological" = "neurological", 
+                                         "Metabolic" = "metabolic", 
+                                         "Immune & Inflammatory" = "immune_inflammatory",
+                                         "Pain & Sensory" = "pain_sensory",
+                                         "Sleep & Circadian" = "sleep_circadian"),
+                             selected = NULL
+          )
+      ),
+      
+      # Psychological & Behavioral Outcomes  
+      div(class = "filter-section",
+          h4("Psychological & Behavioral Outcomes", class = "filter-title"),
+          checkboxGroupInput("psychological_behavioral_outcomes", NULL,
+                             choices = c("Mood & Emotion" = "mood_emotion",
+                                         "Cognition & Memory" = "cognition_memory", 
+                                         "Stress & Coping" = "stress_coping", 
+                                         "Eating & Appetite" = "eating_appetite", 
+                                         "Risk & Decision-Making" = "risk_decision",
+                                         "Sleep Behavior & Quality" = "sleep_behavior_quality",
+                                         "Bonding & Attachment" = "bonding_attachment",
+                                         "Trust & Cooperation" = "trust_cooperation",
+                                         "Communication & Empathy" = "communication_empathy",
+                                         "Aggression & Conflict" = "aggression_conflict"),
+                             selected = NULL
+          )
+      ),
+      
+      # Clinical Outcomes
+      div(class = "filter-section",
+          h4("Clinical Outcomes", class = "filter-title"),
+          checkboxGroupInput("clinical_outcomes", NULL,
+                             choices = c("Neurodevelopmental" = "neurodevelopmental", 
+                                         "Mood Disorders" = "mood_disorders", 
+                                         "Psychotic Disorders" = "psychotic_disorders",
+                                         "Addiction & Substance Use" = "addiction_substance",
+                                         "Eating Disorders" = "eating_disorders",
+                                         "Other Clinical Conditions" = "other_clinical"),
+                             selected = NULL
           )
       ),
       
@@ -288,8 +261,6 @@ ui <- fluidPage(
   ),
   
   # JavaScript to handle iframe height adjustment
-  # This script will send the height of the iframe to the parent window
-  # so that it can adjust its size accordingly.
   tags$script("
     // Send height to parent frame
     function sendHeight() {
@@ -327,6 +298,138 @@ server <- function(input, output, session) {
       current <- current[[key]]
     }
     return(current)
+  }
+  
+  # Enhanced search function with fuzzy matching and synonyms
+  enhanced_search <- function(search_term, text_fields) {
+    if (is.null(search_term) || search_term == "") return(rep(TRUE, length(text_fields)))
+    
+    search_term <- tolower(trimws(search_term))
+    
+    # Synonym dictionary for common terms
+    synonyms <- list(
+      "stress" = c("anxiety", "tension", "pressure", "cortisol"),
+      "bonding" = c("attachment", "connection", "relationship"),
+      "trust" = c("cooperation", "prosocial", "altruism"),
+      "mood" = c("emotion", "affect", "depression", "happiness"),
+      "brain" = c("neural", "neurological", "cognitive", "cerebral"),
+      "heart" = c("cardiac", "cardiovascular", "hrv"),
+      "pain" = c("nociception", "analgesia", "discomfort"),
+      "sleep" = c("circadian", "insomnia", "rest", "slumber"),
+      "memory" = c("learning", "cognition", "recall", "recognition"),
+      "eating" = c("appetite", "food", "hunger", "nutrition"),
+      "social" = c("interpersonal", "relationship", "communication")
+    )
+    
+    # Expand search terms with synonyms
+    expanded_terms <- c(search_term)
+    for (key in names(synonyms)) {
+      if (grepl(key, search_term) || any(sapply(synonyms[[key]], function(syn) grepl(syn, search_term)))) {
+        expanded_terms <- c(expanded_terms, synonyms[[key]])
+      }
+    }
+    
+    # Check for matches (exact, partial, and fuzzy)
+    matches <- sapply(text_fields, function(text) {
+      if (is.na(text)) return(FALSE)
+      text_lower <- tolower(text)
+      
+      # Exact or partial matches
+      if (any(sapply(expanded_terms, function(term) grepl(term, text_lower)))) {
+        return(TRUE)
+      }
+      
+      # Fuzzy matching for spelling mistakes (distance <= 2)
+      words_in_text <- unlist(strsplit(text_lower, "\\W+"))
+      words_in_text <- words_in_text[nchar(words_in_text) >= 4]  # Only check words with 4+ chars
+      
+      any(sapply(expanded_terms, function(term) {
+        if (nchar(term) < 4) return(FALSE)  # Skip short search terms for fuzzy matching
+        any(stringdist(term, words_in_text, method = "lv") <= 2)
+      }))
+    })
+    
+    return(matches)
+  }
+  
+  # Function to categorize outcomes based on content
+  categorize_outcome <- function(outcome_text, category_type) {
+    if (is.na(outcome_text)) return(FALSE)
+    
+    outcome_lower <- tolower(outcome_text)
+    
+    if (category_type == "cardiovascular") {
+      return(any(sapply(c("hrv", "heart rate", "blood pressure", "cardiac", "cardiovascular"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "neuroendocrine") {
+      return(any(sapply(c("cortisol", "hormone", "endocrine", "stress marker", "testosterone", "estrogen"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "neurological") {
+      return(any(sapply(c("brain", "neural", "neurological", "connectivity", "activation", "fmri", "eeg"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "metabolic") {
+      return(any(sapply(c("insulin", "glucose", "metabolic", "metabolism", "diabetes"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "immune_inflammatory") {
+      return(any(sapply(c("immune", "inflammatory", "inflammation", "cytokine", "antibody"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "pain_sensory") {
+      return(any(sapply(c("pain", "sensory", "nociception", "analgesia", "threshold"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "sleep_circadian") {
+      return(any(sapply(c("sleep", "circadian", "rem", "nrem", "sleep architecture", "melatonin"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "mood_emotion") {
+      return(any(sapply(c("mood", "emotion", "depression", "anxiety", "affect", "emotional regulation"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "cognition_memory") {
+      return(any(sapply(c("cognition", "memory", "learning", "attention", "executive", "cognitive"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "stress_coping") {
+      return(any(sapply(c("stress", "coping", "resilience", "adaptation", "response"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "eating_appetite") {
+      return(any(sapply(c("eating", "appetite", "food", "hunger", "nutrition", "feeding"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "risk_decision") {
+      return(any(sapply(c("risk", "decision", "impulsivity", "choice", "gambling"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "sleep_behavior_quality") {
+      return(any(sapply(c("sleep quality", "sleep duration", "sleep hygiene", "insomnia", "sleep behavior"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "bonding_attachment") {
+      return(any(sapply(c("bonding", "attachment", "parent", "child", "romantic", "relationship"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "trust_cooperation") {
+      return(any(sapply(c("trust", "cooperation", "prosocial", "altruism", "helping"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "communication_empathy") {
+      return(any(sapply(c("empathy", "communication", "social cognition", "perspective", "theory of mind"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "aggression_conflict") {
+      return(any(sapply(c("aggression", "conflict", "violence", "hostility", "anger"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "neurodevelopmental") {
+      return(any(sapply(c("autism", "adhd", "developmental", "neurodevelopmental"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "mood_disorders") {
+      return(any(sapply(c("depression", "anxiety disorder", "bipolar", "mood disorder"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "psychotic_disorders") {
+      return(any(sapply(c("schizophrenia", "psychosis", "psychotic"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "addiction_substance") {
+      return(any(sapply(c("addiction", "substance", "drug", "alcohol", "dependence"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "eating_disorders") {
+      return(any(sapply(c("anorexia", "bulimia", "eating disorder", "binge"), 
+                        function(term) grepl(term, outcome_lower))))
+    } else if (category_type == "other_clinical") {
+      return(any(sapply(c("clinical", "disorder", "syndrome", "condition", "pathology"), 
+                        function(term) grepl(term, outcome_lower))))
+    }
+    
+    return(FALSE)
   }
   
   # Function to fetch QMD files from GitHub repository
@@ -520,7 +623,7 @@ server <- function(input, output, session) {
         entry <- list(
           Title = meta$title %||% "Untitled",
           Status = meta$status %||% NA_character_,
-          Framework = meta$framework %||% NA_character_,
+          Framework = meta$analytical_framework %||% NA_character_,
           AssessmentMethod = safe_extract(meta, c("oxytocin", "assessment_method")),
           OxytocinRoute = safe_extract(meta, c("oxytocin", "route")),
           PopulationStatus = safe_extract(meta, c("population", "status")),
@@ -583,15 +686,7 @@ server <- function(input, output, session) {
     return(meta_df)
   })
   
-  # Helper function to check if any term in a list matches a pattern
-  contains_any <- function(terms, pattern) {
-    if (is.na(terms)) return(FALSE)
-    
-    term_list <- trimws(unlist(strsplit(as.character(terms), ",")))
-    return(any(sapply(term_list, function(term) grepl(pattern, term, ignore.case = TRUE))))
-  }
-  
-  # Reactive expression for filtered data
+  # Reactive expression for filtered data with combined filtering
   filtered_data <- reactive({
     meta_df <- meta_data()
     
@@ -604,164 +699,30 @@ server <- function(input, output, session) {
       meta_df <- meta_df[!grepl("Template", meta_df$Title), ]
     }
     
-    # Apply filters for biological outcomes
+    # Create a logical vector for all rows initially TRUE
+    keep_rows <- rep(TRUE, nrow(meta_df))
+    
+    # Apply biological outcomes filter
     if (length(input$biological_outcomes) > 0) {
-      matching_rows <- sapply(1:nrow(meta_df), function(i) {
-        outcomes <- meta_df$BiologicalOutcomes[i]
-        if (is.na(outcomes)) return(FALSE)
-        
-        any(sapply(input$biological_outcomes, function(pattern) {
-          contains_any(outcomes, pattern)
+      bio_matches <- sapply(1:nrow(meta_df), function(i) {
+        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$BehavioralOutcomes[i], meta_df$SocialOutcomes[i], sep = " ")
+        any(sapply(input$biological_outcomes, function(category) {
+          categorize_outcome(all_outcomes, category)
         }))
       })
-      
-      meta_df <- meta_df[matching_rows, ]
+      keep_rows <- keep_rows & bio_matches
     }
     
-    # Apply filters for behavioral outcomes
-    if (length(input$behavioral_outcomes) > 0) {
-      matching_rows <- sapply(1:nrow(meta_df), function(i) {
-        outcomes <- meta_df$BehavioralOutcomes[i]
-        if (is.na(outcomes)) return(FALSE)
-        
-        any(sapply(input$behavioral_outcomes, function(pattern) {
-          contains_any(outcomes, pattern)
+    # Apply psychological & behavioral outcomes filter
+    if (length(input$psychological_behavioral_outcomes) > 0) {
+      psych_behav_matches <- sapply(1:nrow(meta_df), function(i) {
+        all_outcomes <- paste(meta_df$BiologicalOutcomes[i], meta_df$BehavioralOutcomes[i], meta_df$SocialOutcomes[i], sep = " ")
+        any(sapply(input$psychological_behavioral_outcomes, function(category) {
+          categorize_outcome(all_outcomes, category)
         }))
       })
-      
-      meta_df <- meta_df[matching_rows, ]
+      keep_rows <- keep_rows & psych_behav_matches
     }
     
-    # Apply filters for social outcomes
-    if (length(input$social_outcomes) > 0) {
-      matching_rows <- sapply(1:nrow(meta_df), function(i) {
-        outcomes <- meta_df$SocialOutcomes[i]
-        if (is.na(outcomes)) return(FALSE)
-        
-        any(sapply(input$social_outcomes, function(pattern) {
-          contains_any(outcomes, pattern)
-        }))
-      })
-      
-      meta_df <- meta_df[matching_rows, ]
-    }
-    
-    # Apply filter for assessment method
-    if (length(input$assessment_method) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$AssessmentMethod) & meta_df$AssessmentMethod %in% input$assessment_method, ]
-    }
-    
-    # Apply filter for oxytocin route
-    if (length(input$oxytocin_route) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$OxytocinRoute) & meta_df$OxytocinRoute %in% input$oxytocin_route, ]
-    }
-    
-    # Apply filter for population status
-    if (length(input$population_status) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$PopulationStatus) & meta_df$PopulationStatus %in% input$population_status, ]
-    }
-    
-    # Apply filter for population age
-    if (length(input$population_age) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$PopulationAge) & meta_df$PopulationAge %in% input$population_age, ]
-    }
-    
-    # Apply filter for analysis framework
-    if (length(input$analysis_framework) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$Framework) & meta_df$Framework %in% input$analysis_framework, ]
-    }
-    
-    # Apply filter for status
-    if (length(input$status_filter) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$Status) & meta_df$Status %in% input$status_filter, ]
-    }
-    
-    # Apply filter for update frequency
-    if (length(input$update_freq) > 0) {
-      meta_df <- meta_df[!is.na(meta_df$UpdateFrequency) & meta_df$UpdateFrequency %in% input$update_freq, ]
-    }
-    
-    # Apply text search across all fields
-    if (!is.null(input$search_text) && input$search_text != "") {
-      search_pattern <- tolower(input$search_text)
-      meta_df <- meta_df[grep(search_pattern, 
-                              tolower(paste(
-                                meta_df$Title, 
-                                meta_df$Abstract,
-                                meta_df$BiologicalOutcomes,
-                                meta_df$BehavioralOutcomes,
-                                meta_df$SocialOutcomes,
-                                meta_df$AssessmentMethod,
-                                meta_df$OxytocinRoute,
-                                meta_df$PopulationStatus,
-                                meta_df$PopulationAge,
-                                meta_df$PopulationClinicalType,
-                                meta_df$Framework,
-                                meta_df$Status,
-                                meta_df$UpdateFrequency,
-                                sep = " "
-                              ))), ]
-    }
-    
-    return(meta_df)
-  })
-  
-  # Custom HTML output for LMA list with clickable titles and abstracts
-  output$lma_list <- renderUI({
-    data <- filtered_data()
-    
-    if (nrow(data) == 0) {
-      return(div(
-        class = "no-results",
-        "No meta-analyses match your current filter criteria. Please adjust your filters."
-      ))
-    }
-    
-    div(class = "lma-container",
-        lapply(1:nrow(data), function(i) {
-          # Get the base filename without extension
-          base_filename <- tools::file_path_sans_ext(data$Filename[i])
-          
-          # Construct the URL to the live website LMA page
-          # Format: https://amore-project.org/lmas/[filename-without-extension]
-          lma_url <- paste0("https://amore-project.org/lmas/", base_filename)
-          
-          div(class = "lma-entry",
-              tags$a(
-                href = lma_url,
-                target = "_blank",  # Open in new tab
-                class = "lma-title",
-                data$Title[i]
-              ),
-              div(class = "lma-meta",
-                  # Only show non-NA values
-                  if (!is.na(data$Status[i])) span("Status: ", data$Status[i], br()) else NULL,
-                  if (!is.na(data$Framework[i])) span("Framework: ", data$Framework[i], br()) else NULL,
-                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i], br()) else NULL,
-                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i], br()) else NULL,
-                  
-                  # Outcomes - only show if they exist
-                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i], br()) else NULL,
-                  if (!is.na(data$BehavioralOutcomes[i])) span("Behavioral Outcomes: ", data$BehavioralOutcomes[i], br()) else NULL,
-                  if (!is.na(data$SocialOutcomes[i])) span("Social Outcomes: ", data$SocialOutcomes[i], br()) else NULL,
-                  
-                  # Population info - only show if they exist
-                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i], br()) else NULL,
-                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i], br()) else NULL,
-                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i], br()) else NULL,
-                  
-                  # Other metadata
-                  if (!is.na(data$UpdateFrequency[i])) span("Update Frequency: ", data$UpdateFrequency[i], br()) else NULL,
-                  if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i], br()) else NULL
-              ),
-              div(class = "lma-abstract",
-                  data$Abstract[i]
-              )
-          )
-        })
-    )
-  })
-}
-
-# Run the application
-shinyApp(ui = ui, server = server)
+    # Apply clinical outcomes filter
+    if (length(input$clinical_outcomes)

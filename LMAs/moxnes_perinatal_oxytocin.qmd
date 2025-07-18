@@ -1,25 +1,23 @@
 ---
 title: "Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxytocin: A Living Systematic Review and Meta-Analysis" 
 status: "Pre-registered" # Options: Pre-registered, Pre-print, Published
-framework: "Mixed Methods" # Options: Frequentist, Bayesian, Mixed Methods
+analytical_framework: "Mixed Methods" # Options: Frequentist, Bayesian, Mixed Methods
 oxytocin:
-  assessment_method: "Perinatal Oxytocin Exposure" # Options: Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Perinatal Oxytocin Exposure
-  route: # Options: Central, Peripheral, Both
-  dosage: "Variable dosage" 
+  assessment_method: "Perinatal oxytocin exposure" # Options: Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Perinatal oxytocin exposure
+  route: "Administration method unspecified" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
+  dosage: "Variable dosage" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage, Dose-response analysis
 population:
   status: "Mixed" # Options: Healthy, Clinical, Mixed
   age_group: "Children" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
   clinical_type: null # If applicable for clinical populations
-biobehavioral_outcomes:
-  biological: # 
-    - "Neurological functions" 
-    - "Brain development" 
-    - "Cognitive function" 
-  disorder:   
-    - "Autism" 
-    - "ADHD"
-    - "Neurodevelopmental disorders" 
-update-frequency: "24 months" # Maximum 24 months between updates
+outcomes:
+  biological:
+    - "Neurological" # Brain activity, neural networks, connectivity (maps to "Neurological functions", "Brain development")
+  psychological_behavioral:
+    - "Cognition & Memory" # Learning, attention, executive function (maps to "Cognitive function")
+  clinical:
+    - "Neurodevelopmental" # Autism, ADHD, developmental delays (maps to "Autism", "ADHD", "Neurodevelopmental disorders")
+update-frequency: "24 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
 format:
   html:
     theme: 
