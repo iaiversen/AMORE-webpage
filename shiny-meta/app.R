@@ -188,7 +188,88 @@ ui <- fluidPage(
         accent-color: var(--primary-blue);
       }
       
-      /* Results styling */
+      /* Selected filters display */
+      .selected-filters-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 1rem auto;
+        max-width: 1200px;
+        padding: 1rem 1.5rem;
+        border: 2px solid var(--primary-blue); /* Visible border for debugging */
+      }
+      
+      .selected-filters-container.hidden {
+        display: none;
+      }
+      
+      .selected-filters-title {
+        color: var(--primary-blue);
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+        border-bottom: 1px solid var(--gray-200);
+        padding-bottom: 0.5rem;
+      }
+      
+      .selected-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      
+      .filter-tag {
+        background: var(--primary-blue);
+        color: white;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      
+      .filter-tag:hover {
+        background: var(--secondary-blue);
+        transform: translateY(-1px);
+      }
+      
+      .filter-tag .remove-btn {
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 12px;
+        color: white;
+        transition: background 0.2s ease;
+      }
+      
+      .filter-tag .remove-btn:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      
+      .clear-all-btn {
+        background: var(--gray-200);
+        color: var(--gray-700);
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      
+      .clear-all-btn:hover {
+        background: var(--gray-300);
+      }
       .results-section {
         max-width: 1200px;
         margin: 2rem auto;
@@ -385,12 +466,22 @@ ui <- fluidPage(
               # Oxytocin Assessment Panel
               div(class = "filter-panel", id = "oxytocin-panel",
                   div(class = "filter-section",
+                      h4("Oxytocin Intervention", class = "filter-title"),
+                      checkboxGroupInput("oxytocin_intervention", NULL,
+                                         choices = c("Intranasal oxytocin administration", 
+                                                     "Peripheral oxytocin intervention (Intravenous/injection)", 
+                                                     "Environmental/behavioral oxytocin manipulation"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
                       h4("Oxytocin Assessment Method", class = "filter-title"),
                       checkboxGroupInput("assessment_method", NULL,
-                                         choices = c("Exogenous oxytocin", 
-                                                     "Endogenous oxytocin measurement", 
-                                                     "Genetic studies", 
-                                                     "Perinatal oxytocin exposure"),
+                                         choices = c("Biological sample collection", 
+                                                     "Behavioral assessment", 
+                                                     "Physiological response",
+                                                     "Genetic assessment", 
+                                                     "Neural/imaging measurement"),
                                          selected = NULL
                       )
                   ),
@@ -421,26 +512,23 @@ ui <- fluidPage(
               # Study Population Panel
               div(class = "filter-panel", id = "population-panel",
                   div(class = "filter-section",
-                      h4("Study Population", class = "filter-title"),
-                      div(class = "subcategory",
-                          div(class = "subcategory-title", "Health Status"),
-                          checkboxGroupInput("population_status", NULL,
-                                             choices = c("Healthy", 
-                                                         "Clinical", 
-                                                         "Mixed"),
-                                             selected = NULL
-                          )
-                      ),
-                      div(class = "subcategory",
-                          div(class = "subcategory-title", "Age Group"),
-                          checkboxGroupInput("population_age", NULL,
-                                             choices = c("Children", 
-                                                         "Adolescents",
-                                                         "Adults", 
-                                                         "Older Adults",
-                                                         "Mixed Age Groups"),
-                                             selected = NULL
-                          )
+                      h4("Health Status", class = "filter-title"),
+                      checkboxGroupInput("population_status", NULL,
+                                         choices = c("Healthy", 
+                                                     "Clinical", 
+                                                     "Mixed"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Age Group", class = "filter-title"),
+                      checkboxGroupInput("population_age", NULL,
+                                         choices = c("Children", 
+                                                     "Adolescents",
+                                                     "Adults", 
+                                                     "Older Adults",
+                                                     "Mixed Age Groups"),
+                                         selected = NULL
                       )
                   )
               ),
@@ -475,25 +563,78 @@ ui <- fluidPage(
       )
   ),
   
-  # Simple JavaScript for tab functionality
+  # Simplified JavaScript for testing
   tags$script(HTML("
     $(document).ready(function() {
-      // Simple click handler using jQuery which Shiny includes
+      console.log('JavaScript loaded');
+      
+      // Test if container is visible
+      var $container = $('#selected-filters-container');
+      console.log('Container found:', $container.length);
+      console.log('Container visible:', $container.is(':visible'));
+      
+      // Simple test function
+      window.testFunction = function() {
+        $('#selected-filters-list').html('<div class=\"filter-tag\">JavaScript Works! <button class=\"remove-btn\">&times;</button></div>');
+      };
+      
+      // Monitor search input
+      $('#search_text').on('input', function() {
+        var searchValue = $(this).val();
+        console.log('Search input changed:', searchValue);
+        
+        var $filtersList = $('#selected-filters-list');
+        $filtersList.html(''); // Clear existing
+        
+        if (searchValue && searchValue.trim() !== '') {
+          var searchTag = '<div class=\"filter-tag\">Search: \"' + searchValue + '\" <button class=\"remove-btn\">&times;</button></div>';
+          $filtersList.html(searchTag);
+          console.log('Added search tag');
+        } else {
+          $filtersList.html('<div style=\"color: #666;\">No active filters</div>');
+        }
+      });
+      
+      // Monitor checkbox changes
+      $(document).on('change', 'input[type=\"checkbox\"]', function() {
+        console.log('Checkbox changed:', $(this).val(), $(this).is(':checked'));
+        
+        var $filtersList = $('#selected-filters-list');
+        var tags = [];
+        
+        // Add search if present
+        var searchText = $('#search_text').val();
+        if (searchText && searchText.trim() !== '') {
+          tags.push('<div class=\"filter-tag\">Search: \"' + searchText + '\" <button class=\"remove-btn\">&times;</button></div>');
+        }
+        
+        // Add checked filters
+        $('input[type=\"checkbox\"]:checked').each(function() {
+          var value = $(this).val();
+          var label = $(this).next('span').text() || value;
+          tags.push('<div class=\"filter-tag\">' + label + ' <button class=\"remove-btn\">&times;</button></div>');
+        });
+        
+        if (tags.length > 0) {
+          tags.push('<button class=\"clear-all-btn\">Clear All</button>');
+          $filtersList.html(tags.join(''));
+        } else {
+          $filtersList.html('<div style=\"color: #666;\">No active filters</div>');
+        }
+      });
+      
+      // Tab functionality (simplified)
       $('.filter-tab').on('click', function(e) {
         e.preventDefault();
-        
         var target = $(this).data('target');
         var $filterPanels = $('.filter-panels');
         var $clickedTab = $(this);
         
-        // Toggle panels visibility
         if ($clickedTab.hasClass('active') && $filterPanels.hasClass('show')) {
-          // Hide panels
           $filterPanels.removeClass('show');
           $('.filter-tab').removeClass('active');
           $('.filter-panel').removeClass('active');
         } else {
-          // Show panels and activate clicked tab
           $filterPanels.addClass('show');
           $('.filter-tab').removeClass('active');
           $clickedTab.addClass('active');
