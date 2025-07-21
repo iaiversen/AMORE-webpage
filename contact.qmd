@@ -17,7 +17,7 @@ If you are interested in publishing your living meta-analysis on our platform, y
 
 We have three options for you to choose from:
 
-- **Publish a new living meta-analysis**: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.
+- **Propose your project**: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.
 - **Update an existing living meta-analysis**: If you have an existing living meta-analysis that you would like to update, please select this option.
 - **General inquiry**: If you have any other questions or inquiries, please select this option.
 
