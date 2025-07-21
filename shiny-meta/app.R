@@ -8,260 +8,504 @@ library(jsonlite)  # For JSON parsing
 library(base64enc)  # For decoding base64 content from GitHub API
 library(stringdist)  # For fuzzy search matching
 
+
 #============================= UI section ==============================# 
 ui <- fluidPage(
   tags$head(
     tags$link(rel = "icon", type = "image/x-icon", href = "amore.favicon.ico"),
     tags$style(HTML("
-      /* Main colors from your SCSS */
+      /* Import modern fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      /* Main colors - modernized palette */
       :root {
-        --main-blue: #094074ff;
-        --secondary-blue: #3c6997ff;
+  --primary-blue: #0A2A5E;        
+  --secondary-blue: #1E50A0;      
+  --accent-blue: #3c6997ff;       
+  --light-blue: #f0f6ff;          
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --success-green: #10b981;
+  --warning-orange: #f59e0b;
+}
+
+      
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #FFFFFF; /* White background */
+        min-height: 100vh;
+        font-size: 12px; 
       }
+      
       .title {
-        font-size: 2.2rem;
-        color: #0A2A5E;
-        margin-top: 1.8rem;
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        margin: 2rem 0 1rem 0;
         font-weight: 700;
+        text-align: center;
+        letter-spacing: -0.025em;
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-      /* Filter section styling */
+      
+      /* Main search section */
+      .search-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin: 2rem auto;
+        max-width: 1200px;
+      }
+      
+      .search-input {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        font-size: 1.5rem;
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        background: var(--gray-50);
+      }
+      
+      .search-input:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        background: white;
+      }
+      
+      /* Horizontal filter tabs */
+      .filter-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+        justify-content: center;
+      }
+      
+      .filter-tab {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 25px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: var(--gray-700);
+        user-select: none;
+      }
+      
+      .filter-tab:hover {
+        border-color: var(--accent-blue);
+        background: var(--light-blue);
+      }
+      
+      .filter-tab.active {
+        background: var(--primary-blue);
+        border-color: var(--primary-blue);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+      }
+      
+      /* Filter panels */
+      .filter-panels {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+      }
+      
+      .filter-panels.show {
+        max-height: 2000px; /* Large enough to show all content */
+      }
+      
+      .filter-panel {
+        display: none;
+        padding: 1.5rem;
+        border-top: 3px solid var(--accent-blue);
+      }
+      
+      .filter-panel.active {
+        display: block;
+      }
+      
       .filter-section {
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 4px;
-        margin-bottom: 15px;
+        background: var(--gray-50);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--accent-blue);
       }
       
       .filter-title {
-        color: var(--main-blue);
-        font-weight: bold;
-        margin-bottom: 15px;
+        color: var(--primary-blue);
+        font-weight: 600;
+        margin-bottom: 1.8rem;
+        font-size: 1.5rem;
+      }
+      
+      .subcategory {
+        margin-left: 1rem;
+        margin-top: 0.75rem;
+      }
+      
+      .subcategory-title {
+        font-weight: 500;
+        margin-bottom: 1rem;
+        color: var(--gray-700);
+        font-size: 1.5rem;
+      }
+      
+      /* Checkbox styling */
+      .shiny-input-checkboxgroup label {
+        font-weight: 400;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      
+      .shiny-input-checkboxgroup label:hover {
+        color: var(--primary-blue);
+      }
+      
+      .shiny-input-checkboxgroup input[type='checkbox'] {
+        margin-right: 0.5rem;
+        transform: scale(1.1);
+        accent-color: var(--primary-blue);
       }
       
       /* Results styling */
+      .results-section {
+        max-width: 1200px;
+        margin: 2rem auto;
+      }
+      
       .lma-container {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 1.5rem;
       }
       
       .lma-entry {
-        background: #FFFFFF;
-        padding: 20px;
-        border: 1px solid #eee;
-        border-radius: 4px;
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid var(--accent-blue);
+        transition: all 0.3s ease;
+      }
+      
+      .lma-entry:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       }
       
       .lma-title {
-        color: var(--main-blue);
-        font-size: 1.2em;
-        margin-bottom: 10px;
+        color: var(--primary-blue);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
         text-decoration: none;
         cursor: pointer;
+        line-height: 1.4;
       }
 
       .lma-title:hover {
+        color: var(--secondary-blue);
         text-decoration: underline;
       }
       
       .lma-meta {
-        color: #666;
-        font-size: 0.9em;
-        margin-bottom: 10px;
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      
+      .lma-meta span {
+        display: inline-block;
+        margin-right: 1rem;
+        margin-bottom: 0.25rem;
       }
 
       .lma-abstract {
-        font-size: 0.95em;
-        line-height: 1.5;
-        margin-top: 10px;
-        color: #333;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: var(--gray-700);
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--gray-200);
       }
       
       .no-results {
-        padding: 30px;
+        padding: 3rem;
         text-align: center;
-        color: #666;
-        background: #f8f9fa;
-        border-radius: 4px;
+        color: var(--gray-600);
+        background: white;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       }
       
-      /* Subcategory styling */
-      .subcategory {
-        margin-left: 20px;
-        margin-top: 10px;
-      }
-      
-      .subcategory-title {
-        font-weight: bold;
-        margin-bottom: 5px;
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .title {
+          font-size: 2rem;
+        }
+        
+        .filter-tabs {
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding-bottom: 0.5rem;
+        }
+        
+        .search-section {
+          margin: 1rem;
+          padding: 1.5rem;
+        }
+        
+        .lma-entry {
+          padding: 1.5rem;
+        }
       }
     "))
   ),
   
-  titlePanel(tags$h1("Living Meta-Analysis Directory", class = "title")),
-  
-  sidebarLayout(
-    sidebarPanel(
-      div(class = "filter-section",
-          h4("Search", class = "filter-title"),
-          textInput("search_text", NULL, placeholder = "Search across all fields...")
-      ),
+  div(class = "container-fluid",
+      titlePanel(tags$h1("Living Meta-Analysis Directory", class = "title")),
       
-      # Biological Outcomes
-      div(class = "filter-section",
-          h4("Biological Outcomes", class = "filter-title"),
-          checkboxGroupInput("biological_outcomes", NULL,
-                             choices = c("Cardiovascular" = "cardiovascular", 
-                                         "Neuroendocrine" = "neuroendocrine", 
-                                         "Neurological" = "neurological", 
-                                         "Metabolic" = "metabolic", 
-                                         "Immune & Inflammatory" = "immune_inflammatory",
-                                         "Pain & Sensory" = "pain_sensory",
-                                         "Sleep & Circadian" = "sleep_circadian"),
-                             selected = NULL
+      # Main search section
+      div(class = "search-section",
+          div(class = "row",
+              div(class = "col-12",
+                  tags$input(type = "text", 
+                             id = "search_text", 
+                             class = "form-control search-input", 
+                             placeholder = "Search across all fields...")
+              )
+          ),
+          
+          # Filter tabs with simpler approach
+          div(class = "filter-tabs",
+              tags$button("Biological Outcomes", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "biological"),
+              tags$button("Psychological and Behavioral", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "psychological"),
+              tags$button("Clinical Outcomes", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "clinical"),
+              tags$button("Oxytocin Assessment", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "oxytocin"),
+              tags$button("Study Population", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "population"),
+              tags$button("Study Details", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "details")
+          ),
+          
+          # Filter panels
+          div(class = "filter-panels",
+              # Biological Outcomes Panel
+              div(class = "filter-panel", id = "biological-panel",
+                  div(class = "filter-section",
+                      h4("Biological Outcomes", class = "filter-title"),
+                      checkboxGroupInput("biological_outcomes", NULL,
+                                         choices = c("Cardiovascular" = "cardiovascular", 
+                                                     "Neuroendocrine" = "neuroendocrine", 
+                                                     "Neurological" = "neurological", 
+                                                     "Metabolic" = "metabolic", 
+                                                     "Immune and Inflammatory" = "immune_inflammatory",
+                                                     "Pain and Sensory" = "pain_sensory",
+                                                     "Sleep and Circadian" = "sleep_circadian"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+              
+              # Psychological & Behavioral Panel
+              div(class = "filter-panel", id = "psychological-panel",
+                  div(class = "filter-section",
+                      h4("Psychological and Behavioral Outcomes", class = "filter-title"),
+                      checkboxGroupInput("psychological_behavioral_outcomes", NULL,
+                                         choices = c("Mood and Emotion" = "mood_emotion",
+                                                     "Cognition and Memory" = "cognition_memory", 
+                                                     "Stress and Coping" = "stress_coping", 
+                                                     "Eating and Appetite" = "eating_appetite", 
+                                                     "Risk and Decision-Making" = "risk_decision",
+                                                     "Sleep Behavior and Quality" = "sleep_behavior_quality",
+                                                     "Bonding and Attachment" = "bonding_attachment",
+                                                     "Trust and Cooperation" = "trust_cooperation",
+                                                     "Communication and Empathy" = "communication_empathy",
+                                                     "Aggression and Conflict" = "aggression_conflict"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+              
+              # Clinical Outcomes Panel
+              div(class = "filter-panel", id = "clinical-panel",
+                  div(class = "filter-section",
+                      h4("Clinical Outcomes", class = "filter-title"),
+                      checkboxGroupInput("clinical_outcomes", NULL,
+                                         choices = c("Neurodevelopmental" = "neurodevelopmental", 
+                                                     "Mood Disorders" = "mood_disorders", 
+                                                     "Psychotic Disorders" = "psychotic_disorders",
+                                                     "Addiction and Substance Use" = "addiction_substance",
+                                                     "Eating Disorders" = "eating_disorders",
+                                                     "Other Clinical Conditions" = "other_clinical"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+              
+              # Oxytocin Assessment Panel
+              div(class = "filter-panel", id = "oxytocin-panel",
+                  div(class = "filter-section",
+                      h4("Oxytocin Assessment Method", class = "filter-title"),
+                      checkboxGroupInput("assessment_method", NULL,
+                                         choices = c("Exogenous oxytocin", 
+                                                     "Endogenous oxytocin measurement", 
+                                                     "Genetic studies", 
+                                                     "Perinatal oxytocin exposure"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Oxytocin Route", class = "filter-title"),
+                      checkboxGroupInput("oxytocin_route", NULL,
+                                         choices = c("Central", 
+                                                     "Peripheral", 
+                                                     "Various administration routes", 
+                                                     "Administration method unspecified"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Oxytocin Dosage", class = "filter-title"),
+                      checkboxGroupInput("oxytocin_dosage", NULL,
+                                         choices = c("8 IU", 
+                                                     "16 IU", 
+                                                     "24 IU",
+                                                     "32 IU",
+                                                     "40 IU",
+                                                     "Variable dosage"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+              
+              # Study Population Panel
+              div(class = "filter-panel", id = "population-panel",
+                  div(class = "filter-section",
+                      h4("Study Population", class = "filter-title"),
+                      div(class = "subcategory",
+                          div(class = "subcategory-title", "Health Status"),
+                          checkboxGroupInput("population_status", NULL,
+                                             choices = c("Healthy", 
+                                                         "Clinical", 
+                                                         "Mixed"),
+                                             selected = NULL
+                          )
+                      ),
+                      div(class = "subcategory",
+                          div(class = "subcategory-title", "Age Group"),
+                          checkboxGroupInput("population_age", NULL,
+                                             choices = c("Children", 
+                                                         "Adolescents",
+                                                         "Adults", 
+                                                         "Older Adults",
+                                                         "Mixed Age Groups"),
+                                             selected = NULL
+                          )
+                      )
+                  )
+              ),
+              
+              # Study Details Panel
+              div(class = "filter-panel", id = "details-panel",
+                  div(class = "filter-section",
+                      h4("Analytical Framework", class = "filter-title"),
+                      checkboxGroupInput("analysis_framework", NULL,
+                                         choices = c("Bayesian", 
+                                                     "Frequentist", 
+                                                     "Mixed Methods"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Publication Status", class = "filter-title"),
+                      checkboxGroupInput("status_filter", NULL,
+                                         choices = c("Preregistered", 
+                                                     "Published", 
+                                                     "Retired"),
+                                         selected = NULL
+                      )
+                  )
+              )
           )
       ),
       
-      # Psychological & Behavioral Outcomes  
-      div(class = "filter-section",
-          h4("Psychological & Behavioral Outcomes", class = "filter-title"),
-          checkboxGroupInput("psychological_behavioral_outcomes", NULL,
-                             choices = c("Mood & Emotion" = "mood_emotion",
-                                         "Cognition & Memory" = "cognition_memory", 
-                                         "Stress & Coping" = "stress_coping", 
-                                         "Eating & Appetite" = "eating_appetite", 
-                                         "Risk & Decision-Making" = "risk_decision",
-                                         "Sleep Behavior & Quality" = "sleep_behavior_quality",
-                                         "Bonding & Attachment" = "bonding_attachment",
-                                         "Trust & Cooperation" = "trust_cooperation",
-                                         "Communication & Empathy" = "communication_empathy",
-                                         "Aggression & Conflict" = "aggression_conflict"),
-                             selected = NULL
-          )
-      ),
-      
-      # Clinical Outcomes
-      div(class = "filter-section",
-          h4("Clinical Outcomes", class = "filter-title"),
-          checkboxGroupInput("clinical_outcomes", NULL,
-                             choices = c("Neurodevelopmental" = "neurodevelopmental", 
-                                         "Mood Disorders" = "mood_disorders", 
-                                         "Psychotic Disorders" = "psychotic_disorders",
-                                         "Addiction & Substance Use" = "addiction_substance",
-                                         "Eating Disorders" = "eating_disorders",
-                                         "Other Clinical Conditions" = "other_clinical"),
-                             selected = NULL
-          )
-      ),
-      
-      # Oxytocin Assessment Method
-      div(class = "filter-section",
-          h4("Oxytocin Assessment Method", class = "filter-title"),
-          checkboxGroupInput("assessment_method", NULL,
-                             choices = c("Intranasal oxytocin", 
-                                         "Intravenous oxytocin", 
-                                         "Endogenous oxytocin measurement", 
-                                         "Genetic studies", 
-                                         "Perinatal oxytocin exposure"),
-                             selected = NULL
-          )
-      ),
-      
-      # Oxytocin Route
-      div(class = "filter-section",
-          h4("Oxytocin Route", class = "filter-title"),
-          checkboxGroupInput("oxytocin_route", NULL,
-                             choices = c("Central", 
-                                         "Peripheral", 
-                                         "Various administration routes", 
-                                         "Administration method unspecified"),
-                             selected = NULL
-          )
-      ),
-      
-      # Oxytocin Dosage
-      div(class = "filter-section",
-          h4("Oxytocin Dosage", class = "filter-title"),
-          checkboxGroupInput("oxytocin_dosage", NULL,
-                             choices = c("8 IU", 
-                                         "16 IU", 
-                                         "24 IU",
-                                         "32 IU",
-                                         "40 IU",
-                                         "Variable dosage",
-                                         "Dose-response analysis"),
-                             selected = NULL
-          )
-      ),
-      
-      # Population Health Status
-      div(class = "filter-section",
-          h4("Population Health Status", class = "filter-title"),
-          checkboxGroupInput("population_status", NULL,
-                             choices = c("Healthy", 
-                                         "Clinical", 
-                                         "Mixed"),
-                             selected = NULL
-          )
-      ),
-      
-      # Population Age Group
-      div(class = "filter-section",
-          h4("Population Age Group", class = "filter-title"),
-          checkboxGroupInput("population_age", NULL,
-                             choices = c("Children", 
-                                         "Adolescents",
-                                         "Adults", 
-                                         "Older Adults",
-                                         "Mixed Age Groups"),
-                             selected = NULL
-          )
-      ),
-      
-      # Analytical Framework
-      div(class = "filter-section",
-          h4("Analytical Framework", class = "filter-title"),
-          checkboxGroupInput("analysis_framework", NULL,
-                             choices = c("Bayesian", 
-                                         "Frequentist", 
-                                         "Mixed Methods"),
-                             selected = NULL
-          )
-      ),
-      
-      # Status
-      div(class = "filter-section",
-          h4("Status", class = "filter-title"),
-          checkboxGroupInput("status_filter", NULL,
-                             choices = c("Pre-registered", 
-                                         "Pre-print", 
-                                         "Published"),
-                             selected = NULL
-          )
-      ),
-      
-      # Update Frequency
-      div(class = "filter-section",
-          h4("Update Frequency", class = "filter-title"),
-          checkboxGroupInput("update_freq", NULL,
-                             choices = c("3 months", 
-                                         "6 months", 
-                                         "12 months", 
-                                         "18 months", 
-                                         "24 months"),
-                             selected = NULL
-          )
+      # Results section
+      div(class = "results-section",
+          uiOutput("lma_list")
       )
-    ),
-    
-    mainPanel(
-      uiOutput("lma_list")
-    )
   ),
   
-  # JavaScript to handle iframe height adjustment
-  tags$script("
+  # Simple JavaScript for tab functionality
+  tags$script(HTML("
+    $(document).ready(function() {
+      // Simple click handler using jQuery which Shiny includes
+      $('.filter-tab').on('click', function(e) {
+        e.preventDefault();
+        
+        var target = $(this).data('target');
+        var $filterPanels = $('.filter-panels');
+        var $clickedTab = $(this);
+        
+        // Toggle panels visibility
+        if ($clickedTab.hasClass('active') && $filterPanels.hasClass('show')) {
+          // Hide panels
+          $filterPanels.removeClass('show');
+          $('.filter-tab').removeClass('active');
+          $('.filter-panel').removeClass('active');
+        } else {
+          // Show panels and activate clicked tab
+          $filterPanels.addClass('show');
+          $('.filter-tab').removeClass('active');
+          $clickedTab.addClass('active');
+          $('.filter-panel').removeClass('active');
+          $('#' + target + '-panel').addClass('active');
+        }
+      });
+    });
+  ")),
+  
+  # Height tracking script
+  tags$script(HTML("
     // Send height to parent frame
     function sendHeight() {
       const height = document.body.scrollHeight;
@@ -271,15 +515,14 @@ ui <- fluidPage(
     // Send initial height and then periodically update
     window.addEventListener('load', function() {
       sendHeight();
-      // Set up monitoring for changes in content height
       setInterval(sendHeight, 300);
       
-      // Also send height when UI changes (filtering, etc.)
       const observer = new MutationObserver(sendHeight);
       observer.observe(document.body, {childList: true, subtree: true});
     });
-  ")
+  "))
 )
+
 
 #====== Server section ==============================# 
 server <- function(input, output, session) {
@@ -509,7 +752,6 @@ server <- function(input, output, session) {
       BiologicalOutcomes = character(),
       PsychologicalBehavioralOutcomes = character(),
       ClinicalOutcomes = character(),
-      UpdateFrequency = character(),
       LastUpdated = character(),
       Abstract = character(),
       Filename = character(),
@@ -617,12 +859,28 @@ server <- function(input, output, session) {
           psychological_behavioral_outcomes_str <- extract_list_as_string(combined_legacy)
         }
         
+        # Handle exogenous oxytocin mapping
+        assessment_method <- safe_extract(meta, c("oxytocin", "assessment_method"))
+        if (!is.na(assessment_method)) {
+          if (assessment_method %in% c("Intranasal oxytocin", "Intravenous oxytocin")) {
+            assessment_method <- "Exogenous oxytocin"
+          }
+        }
+        
+        # Handle status mapping
+        status <- meta$status %||% NA_character_
+        if (!is.na(status)) {
+          if (status == "Pre-registered") {
+            status <- "Preregistered"
+          }
+        }
+        
         # Extract data into a structured format
         entry <- list(
           Title = meta$title %||% "Untitled",
-          Status = meta$status %||% NA_character_,
+          Status = status,
           Framework = meta$analytical_framework %||% meta$framework %||% NA_character_,
-          AssessmentMethod = safe_extract(meta, c("oxytocin", "assessment_method")),
+          AssessmentMethod = assessment_method,
           OxytocinRoute = safe_extract(meta, c("oxytocin", "route")),
           OxytocinDosage = safe_extract(meta, c("oxytocin", "dosage")),
           PopulationStatus = safe_extract(meta, c("population", "status")),
@@ -631,7 +889,6 @@ server <- function(input, output, session) {
           BiologicalOutcomes = biological_outcomes_str,
           PsychologicalBehavioralOutcomes = psychological_behavioral_outcomes_str,
           ClinicalOutcomes = clinical_outcomes_str,
-          UpdateFrequency = meta$`update-frequency` %||% NA_character_,
           LastUpdated = last_updated,
           Abstract = abstract,
           Filename = filename
@@ -663,7 +920,6 @@ server <- function(input, output, session) {
           BiologicalOutcomes = x$BiologicalOutcomes,
           PsychologicalBehavioralOutcomes = x$PsychologicalBehavioralOutcomes,
           ClinicalOutcomes = x$ClinicalOutcomes,
-          UpdateFrequency = x$UpdateFrequency,
           LastUpdated = x$LastUpdated,
           Abstract = x$Abstract,
           Filename = x$Filename,
@@ -780,12 +1036,6 @@ server <- function(input, output, session) {
       keep_rows <- keep_rows & status_matches
     }
     
-    # Apply filter for update frequency
-    if (length(input$update_freq) > 0) {
-      freq_matches <- !is.na(meta_df$UpdateFrequency) & meta_df$UpdateFrequency %in% input$update_freq
-      keep_rows <- keep_rows & freq_matches
-    }
-    
     # Apply enhanced text search across all fields
     if (!is.null(input$search_text) && input$search_text != "") {
       search_text_combined <- paste(
@@ -802,7 +1052,6 @@ server <- function(input, output, session) {
         meta_df$PopulationClinicalType,
         meta_df$Framework,
         meta_df$Status,
-        meta_df$UpdateFrequency,
         sep = " "
       )
       
@@ -843,19 +1092,18 @@ server <- function(input, output, session) {
                 data$Title[i]
               ),
               div(class = "lma-meta",
-                  if (!is.na(data$Status[i])) span("Status: ", data$Status[i], br()) else NULL,
-                  if (!is.na(data$Framework[i])) span("Analytical Framework: ", data$Framework[i], br()) else NULL,
-                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i], br()) else NULL,
-                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i], br()) else NULL,
-                  if (!is.na(data$OxytocinDosage[i])) span("Oxytocin Dosage: ", data$OxytocinDosage[i], br()) else NULL,
-                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i], br()) else NULL,
-                  if (!is.na(data$PsychologicalBehavioralOutcomes[i])) span("Psychological & Behavioral Outcomes: ", data$PsychologicalBehavioralOutcomes[i], br()) else NULL,
-                  if (!is.na(data$ClinicalOutcomes[i])) span("Clinical Outcomes: ", data$ClinicalOutcomes[i], br()) else NULL,
-                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i], br()) else NULL,
-                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i], br()) else NULL,
-                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i], br()) else NULL,
-                  if (!is.na(data$UpdateFrequency[i])) span("Update Frequency: ", data$UpdateFrequency[i], br()) else NULL,
-                  if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i], br()) else NULL
+                  if (!is.na(data$Status[i])) span("Publication Status: ", data$Status[i]) else NULL,
+                  if (!is.na(data$Framework[i])) span("Analytical Framework: ", data$Framework[i]) else NULL,
+                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i]) else NULL,
+                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i]) else NULL,
+                  if (!is.na(data$OxytocinDosage[i])) span("Oxytocin Dosage: ", data$OxytocinDosage[i]) else NULL,
+                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i]) else NULL,
+                  if (!is.na(data$PsychologicalBehavioralOutcomes[i])) span("Psychological and Behavioral Outcomes: ", data$PsychologicalBehavioralOutcomes[i]) else NULL,
+                  if (!is.na(data$ClinicalOutcomes[i])) span("Clinical Outcomes: ", data$ClinicalOutcomes[i]) else NULL,
+                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i]) else NULL,
+                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i]) else NULL,
+                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i]) else NULL,
+                  if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i]) else NULL
               ),
               div(class = "lma-abstract",
                   data$Abstract[i]

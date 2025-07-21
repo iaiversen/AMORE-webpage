@@ -13,19 +13,23 @@ format:
 
 ::: {.contact-section}
 ## Connect With Us 
-If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. Whether you have questions about conducting your analysis within our standardized framework, want to discuss potential plans or protocols, or have any other inquiries - feel free to reach out. There is no commitment required.
+If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. 
+
+We have three options for you to choose from:
+
+- **Publish a new living meta-analysis**: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.
+- **Update an existing living meta-analysis**: If you have an existing living meta-analysis that you would like to update, please select this option.
+- **General inquiry**: If you have any other questions or inquiries, please select this option.
+
+By clicking the contact button, you will be redirected to our three forms. 
+
+We will get back to you as soon as possible to discuss the details and answer any questions you may have.
+
 
 ::: {.contact-buttons}
 [Contact Form](https://nettskjema.no/a/492183){.primary-button target="_blank"}
 :::
 
-## Publishing Your Meta-Analysis
-If you're interested in publishing your Living Meta-Analysis on AMORE, we encourage you to:
-
-- Review our [Guidelines](/guidelines.qmd) on how to get your living meta analysis published on the AMORE platform
-- Check our [Standardization Goals](/Standardization.qmd) for specific requirements
-- Review the [Checklist](/Protocol_checklist.html) for creating a Living Meta-Analysis Protocol
-- [Use the contact form](https://nettskjema.no/a/492183){target="_blank"} to submit your initial proposal
 
 
 :::

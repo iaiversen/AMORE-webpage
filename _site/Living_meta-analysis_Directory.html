@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>contact – | Active Monitoring of Oxytocin Research Evidence</title>
+<title>living_meta-analysis_directory – | Active Monitoring of Oxytocin Research Evidence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bc1a108ff52ce78051f80cea109a3b52.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9931c18df14e52eb4e589712d6c8ae17.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +73,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.scss">
-<link rel="stylesheet" href="../styles.scss">
 <meta property="og:title" content="| Active Monitoring of Oxytocin Research Evidence">
 <meta property="og:site_name" content="| Active Monitoring of Oxytocin Research Evidence">
 </head>
@@ -99,11 +98,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./Living_meta-analysis_Directory.html"> 
+    <a class="nav-link active" href="./Living_meta-analysis_Directory.html" aria-current="page"> 
 <span class="menu-text">Living Meta-Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./contact.html" aria-current="page"> 
+    <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
   <li class="nav-item">
@@ -144,23 +143,41 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="contact-container">
-<section id="connect-with-us" class="level2 contact-section">
-<h2 class="anchored" data-anchor-id="connect-with-us">Connect With Us</h2>
-<p>If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form.</p>
-<p>We have three options for you to choose from:</p>
-<ul>
-<li><strong>Publish a new living meta-analysis</strong>: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.</li>
-<li><strong>Update an existing living meta-analysis</strong>: If you have an existing living meta-analysis that you would like to update, please select this option.</li>
-<li><strong>General inquiry</strong>: If you have any other questions or inquiries, please select this option.</li>
-</ul>
-<p>By clicking the contact button, you will be redirected to our three forms, addressing your specific needs.</p>
-<p>We will get back to you as soon as possible to discuss the details and answer any questions you may have.</p>
-<div class="contact-buttons">
-<p><a href="https://nettskjema.no/a/492183" class="primary-button" target="_blank">Contact Form</a></p>
+<div class="shiny-container">
+<p><iframe id="shiny-iframe" src="https://meta-oxytocin.shinyapps.io/shiny-meta/" style="width:100%; height:800px; border:none; overflow:hidden;" scrolling="no"></iframe></p>
 </div>
-</section>
-</div>
+<script>
+// Function to resize iframe based on content
+function resizeIframe() {
+  const iframe = document.getElementById('shiny-iframe');
+  
+  // Add message listener to receive height from Shiny app
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.hasOwnProperty('frameHeight')) {
+      // Add a small buffer to avoid any potential scrollbar
+      iframe.style.height = (e.data.frameHeight + 20) + 'px';
+      console.log("Iframe resized to: " + iframe.style.height);
+    }
+  });
+}
+
+// Initialize resize functionality
+window.addEventListener('load', resizeIframe);
+</script>
+<style>
+.shiny-container {
+  margin-top: 20px;
+  width: 100%;
+  overflow: visible; /* This is important - don't clip or scroll */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Remove any margins that might create space */
+body, html {
+  overflow-x: hidden;
+}
+</style>
 
 
 
