@@ -470,7 +470,8 @@ ui <- fluidPage(
                       checkboxGroupInput("oxytocin_intervention", NULL,
                                          choices = c("Intranasal oxytocin administration", 
                                                      "Peripheral oxytocin intervention (Intravenous/injection)", 
-                                                     "Environmental/behavioral oxytocin manipulation"),
+                                                     "Environmental/behavioral oxytocin manipulation",
+                                                     "Perinatal oxytocin exposure"),
                                          selected = NULL
                       )
                   ),
@@ -480,7 +481,7 @@ ui <- fluidPage(
                                          choices = c("Biological sample collection", 
                                                      "Behavioral assessment", 
                                                      "Physiological response",
-                                                     "Genetic assessment", 
+                                                     "Genetic studies", 
                                                      "Neural/imaging measurement"),
                                          selected = NULL
                       )

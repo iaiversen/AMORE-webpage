@@ -1,134 +1,262 @@
 ---
-title: "Title of your Living meta analysis" 
-status: "Pre-registered" # Options: Pre-registered, Pre-print, Published
-analytical_framework: "Bayesian" # Options: Bayesian, Frequentist, Mixed Methods
+title: "Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxytocin: A Living Systematic Review and Meta-Analysis" 
+status: "Preregistered" # Options: Preregistered, Published, Retired
+analytical_framework: "Mixed Methods" # Options: Frequentist, Bayesian, Mixed Methods
 oxytocin:
-  assessment_method: "Intranasal oxytocin" # Options: Intranasal oxytocin, Intravenous oxytocin, Endogenous oxytocin measurement, Genetic studies, Perinatal oxytocin exposure
-  route: "Central" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
-  dosage: "24 IU" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage, Dose-response analysis
+  intervention: "Perinatal oxytocin exposure" # Options: Intranasal oxytocin administration, Peripheral oxytocin intervention (Intravenous/injection), Environmental/behavioral oxytocin manipulation, Perinatal oxytocin exposure
+  assessment_method: "Biological sample collection" # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
+  route: "Administration method unspecified" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
+  dosage: "Variable dosage" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage
 population:
-  status: "Healthy" # Options: Healthy, Clinical, Mixed
-  age_group: "Adults" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
-  clinical_type: "Autism" # Only include if status is Clinical - for Clinical Outcomes filtering
+  status: "Mixed" # Options: Healthy, Clinical, Mixed
+  age_group: "Children" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
+  clinical_type: null # If applicable for clinical populations
 outcomes:
   biological:
-    # Select relevant categories - these map to your new Biological Outcomes filters
-    - "Neuroendocrine" # Cortisol, hormones, stress markers
-    # - "Cardiovascular" # HRV, blood pressure, heart rate
-    # - "Neurological" # Brain activity, neural networks, connectivity
-    # - "Metabolic" # Insulin, glucose, metabolism
-    # - "Immune & Inflammatory" # Immune markers, inflammation
-    # - "Pain & Sensory" # Pain perception, sensory processing
-    # - "Sleep & Circadian" # Sleep architecture, REM/NREM, circadian rhythms
+    - "Neurological" # Brain activity, neural networks, connectivity (maps to "Neurological functions", "Brain development")
   psychological_behavioral:
-    # Select relevant categories - these map to your new Psychological & Behavioral Outcomes filters
-    - "Stress & Coping" # Stress response, resilience, adaptation
-    - "Bonding & Attachment" # Parent-child, romantic, social bonds
-    - "Trust & Cooperation" # Prosocial behavior, altruism
-    # - "Mood & Emotion" # Depression, anxiety, emotional regulation
-    # - "Cognition & Memory" # Learning, attention, executive function
-    # - "Eating & Appetite" # Food intake, eating patterns
-    # - "Risk & Decision-Making" # Impulsivity, risk assessment
-    # - "Sleep Behavior & Quality" # Sleep duration, sleep quality, sleep hygiene
-    # - "Communication & Empathy" # Social cognition, perspective-taking
-    # - "Aggression & Conflict" # Aggressive behavior, conflict resolution
+    - "Cognition & Memory" # Learning, attention, executive function (maps to "Cognitive function")
   clinical:
-    # Select relevant categories - these map to your new Clinical Outcomes filters
-    - "Neurodevelopmental" # Autism, ADHD, developmental delays
-    # - "Mood Disorders" # Depression, anxiety disorders, bipolar
-    # - "Psychotic Disorders" # Schizophrenia, psychosis
-    # - "Addiction & Substance Use"
-    # - "Eating Disorders"
-    # - "Other Clinical Conditions"
-update-frequency: "6 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
+    - "Neurodevelopmental" # Autism, ADHD, developmental delays (maps to "Autism", "ADHD", "Neurodevelopmental disorders")
+update-frequency: "24 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
 dois:
   preregistration: "10.XXXX/33333"
   preprint: "10.XXXX/XXXXX"
   publication: "10.XXXX/66666"
-page-layout: custom
 format:
   html:
     theme: 
       - yeti
       - ../styles.scss
-    css: ../styles.scss 
-    classes:
-      - lma-template
+    css: styles.scss
+    page-layout: full
+    toc: true
+    toc-title: "On this page"
+    toc-location: right
+    toc-depth: 3
 ---
+
 ::: {.callout-note .meta-info-container}
 ## Project Information
 ::: {.meta-grid}
 ::: {.meta-column}
 #### Authors
-Author Name  
-Second Author  
-Third Author
-:::
-::: {.meta-column}
-#### Affiliation
-Institution  
-Institution  
-Institution
+```{=html}
+<div id="author-list">
+  <div id="visible-authors">
+    Mai-Linn Moxnes (University of Oslo)<br>
+    Kjersti M. Walle (University of Oslo)<br>
+    Daniel S. Quintana (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)
+    
+  </div>
+  
+  <div id="hidden-authors" style="display:none"> 
+  Anne Kaasen (Department of Nursing and Health Promotion, Faculty of Health Sciences, Oslo Metropolitan University)<br>
+  Elisabeth Braithwaite ( Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
+    Nicky Wright ( Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
+    Ingebjørg Iversen (Department of Psychology, University of Oslo)<br>
+    Elisabeth Deilhaug (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)<br>
+    Alina I. Sartorius (Department of Psychology, University of Oslo)<br>
+    Heemin Kang (Department of Psychology, University of Oslo)<br>
+    Terje Nærland (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo | NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)<br>
+    Ole A. Andreassen (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  Centre for Precision Psychiatry, Division of Mental Health and Addiction, University of Oslo and Oslo University Hospital)<br>
+    Lars T. Westlye (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo)<br>
+    Mona Bekkhus (PROMENTA Research Center, Department of Psychology, University of Oslo)<br>
+    Nicole N. Lønfeldt ( Child and Adolescent Mental Health Center, Copenhagen University Hospital)<br>
+    
+  </div>
+  
+  <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
+  
+  <script>
+  function toggleAuthors() {
+    var hiddenAuthors = document.getElementById("hidden-authors");
+    var toggleButton = document.getElementById("author-toggle");
+    
+    if (hiddenAuthors.style.display === "none") {
+      hiddenAuthors.style.display = "block";
+      toggleButton.textContent = "Show fewer authors";
+    } else {
+      hiddenAuthors.style.display = "none";
+      toggleButton.textContent = "Show more authors";
+    }
+  }
+  </script>
+</div>
+```
 :::
 ::: {.meta-column}
 #### Timeline
-**Published:** XX.XX.XXXX  
-**Last update:** XX.XX.XXXX  
-**Next update:** XX.XX.XXXX
+**Pre-registered:** February 04, 2025  
+**Last update:** First analysis not yet conducted  
+**Next update:** To be determined (24-month update cycle)
 :::
 ::: {.meta-column}
 #### Identifiers
-**DOI:** 10.XXXX/66666  
-**Keywords:** keyword1, keyword2, keyword3
-:::
-:::
-:::
-::: {.grid}
-::: {.g-col-3 .resources-panel}
-## Resources and data links {.panel-title}
-**Pre-registration**  
-[Link to pre-registration](https://www.cos.io/initiatives/prereg)
-**Pre-print**  
-[When pre-print is published you will find link here]({{< meta dois.preprint >}})
-**Published Article**  
-[Link to PubMed](https://www.ncbi.nlm.nih.gov/)
-[When DOI is published you will find link here]({{< meta dois.publication >}})
-**Deviation report**  
-[When deviation report is published you will find link here](#) 
-:::
-::: {.g-col-9 .abstract-section}
-## Abstract
-This living meta-analysis examines the relationship between intranasal oxytocin administration and prosocial behavior across a spectrum of social contexts. Current evidence from 37 randomized controlled trials (N = 2,842) suggests a complex relationship between oxytocin and human sociality, with significant heterogeneity in effect sizes.
+**DOI:** <a href="https://osf.io/preprints/osf/9gx6s_v1" target="_blank">https://osf.io/preprints/osf/9gx6s_v1</a>
 
-Our Bayesian framework analysis reveals a small-to-moderate effect (Hedges' g = 0.31, 95% CI [0.18, 0.44]) of oxytocin on prosocial outcomes overall, with notable differences emerging across experimental contexts. Subgroup analyses indicate stronger effects in tasks involving emotional recognition (g = 0.42) compared to economic decision-making (g = 0.23).
-
-We find preliminary evidence that administration protocol moderates outcomes, with effects varying by dosage and administration-to-task timing. Publication bias analyses suggest a modest inflation of reported effects, though the core findings remain robust after correction.
-
-This living meta-analysis will be updated every 6 months to incorporate emerging evidence in this rapidly evolving field.
+**Keywords:** autism, ADHD, oxytocin, meta-analysis, systematic review
 :::
-::: {.g-col-9 .inclusion.exclusion-section}
-## Inclusion and Exclusion Criteria
+::: {.meta-column}
+#### Contact
+**Principal Investigator:** Daniel S. Quintana  
+**Email:** daniel.quintana@psykologi.uio.no
+:::
+:::
+:::
 
+## Abstract {#abstract}
+
+This living meta-analysis investigates the relationship between perinatal exposure to exogenous oxytocin and the likelihood of neurodevelopmental conditions such as attention-deficit/hyperactivity disorder (ADHD) and autism in children. Oxytocin is commonly used to induce and augment labor, with up to 50% of births in developed countries and varying rates (0.7% to 97.0%) in low- and lower-middle-income countries associated with synthetic oxytocin use.
+
+The analysis employs a frequentist approach, utilizing random effects models with the Paule-Mandel estimator to synthesize findings across the literature. The project addresses whether perinatal exposure to exogenous oxytocin increases the likelihood of neurodevelopmental conditions in children. This living meta-analysis will be updated every 24 months, ensuring the incorporation of emerging evidence.
+
+## Current Results {#current-results}
+
+This is a pre-registered protocol. Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.
+
+A previous meta-analysis by Lønfeldt and colleagues (2019) concluded that there was no evidence for an association between perinatal exogenous oxytocin exposure and the later diagnosis of ADHD and only marginal evidence for an association with autism. This living meta-analysis will update those findings with new research.
+
+## Resources {#resources}
+
+```{=html}
+<details class="resource-details">
+  <summary class="resource-summary">Pre-registration & Publication</summary>
+  <div class="link-wrapper">
+    <a href="https://osf.io/preprints/osf/9gx6s_v1" class="resource-link" target="_blank">Pre-registration on OSF</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Published Article (pending)</a>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Data & Analysis Resources</summary>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Complete Dataset (pending)</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Analysis Scripts (pending)</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">Deviation Report (pending)</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="#" class="resource-link pending" target="_blank">PRISMA Checklist (pending)</a>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Related Resources</summary>
+  <div class="link-wrapper">
+    <a href="https://doi.org/10.1017/S0033291718003021" class="resource-link" target="_blank">Lønfeldt et al. (2019) - Previous meta-analysis</a>
+  </div>
+  <div class="link-wrapper">
+    <a href="https://doi.org/10.1093/ije/dyaa076" class="resource-link" target="_blank">Stokholm et al. (2021) - Related study</a>
+  </div>
+</details>
+```
+
+## Inclusion and Exclusion Criteria {#criteria}
+
+::: {.criteria-box}
 ### Inclusion Criteria
-- **Participants:** Healthy adults (18-65 years)
-- **Intervention:** Intranasal oxytocin administration (single dose 24-40 IU)
-- **Comparator:** Placebo-controlled 
-- **Outcomes:** Standardized measures of prosocial behavior or trust
-- **Study Design:** Randomized controlled trials with between-subjects design
-- **Publication Type:** Peer-reviewed articles and preprints
-- **Language:** Any language with English abstract
 
+- **Type of Studies:** Original research written in English
+- **Exposure:** Perinatal synthetic oxytocin exposure
+- **Outcomes:** Any childhood neurodevelopmental outcome listed in DSM-5 or ICD-10 (including F-diagnoses and supplementary somatic diagnoses for delayed development: R41.8, R62, R62.0, R62.9)
+- **Outcomes:** Dimensional measures of psychiatric symptom severity
+- **Data Requirements:** Must report a risk estimate or data that would enable calculation of a risk estimate (e.g., frequencies or percentages)
+:::
+
+::: {.criteria-box}
 ### Exclusion Criteria
-- **Participants:** Studies with clinical populations (psychiatric or neurological disorders)
-- **Animal studies**
-- **Measurment:** Studies using endogenous oxytocin measurement only
-- **Study design:** Case studies and non-experimental designs
-- **Effect sizes:** Studies without available effect size data or sufficient information to calculate effect sizes
+
+- Studies that describe pharmacological induction without specifying the use of synthetic oxytocin
+- In cases of publications using the same sample and outcomes, later publications will be excluded
 :::
 
-::: {.g-col-3 .search-string-box}
-## Search Strategy {.panel-title}
-**Database Search Strings**
-**PubMed:**  
-(oxytocin[MeSH] OR oxytocin[tiab]) AND ("intranasal"[tiab] OR "nasal"[tiab]) AND ("prosocial"[tiab] OR "trust"[tiab] OR "cooperation"[tiab] OR "social behavior"[tiab])
+## Methodology Summary {#methodology}
+
+This living meta-analysis follows the PRISMA guidelines for systematic reviews. Our methodology is pre-registered and will incorporate data from the previous meta-analysis by Lønfeldt and colleagues (2019) as well as relevant data published since then.
+
+The quality of included studies will be assessed using the modified Newcastle-Ottawa Quality Assessment Scales (NOS) for case-control and cohort studies. Studies will be independently rated by two reviewers within three categories: selection, comparability, and exposure/outcome, with scores categorized as low (0–3), moderate (4–7), or high (8–11) quality.
+
+Statistical analyses will be conducted using R statistical software with the metafor, meta, and RoBMA packages. Random effects models will be used with the Paule-Mandel estimator for τ². Heterogeneity will be evaluated by calculating I² and τ². Publication bias will be assessed using Robust Bayesian Meta-Analysis (RoBMA) and by constructing contour-enhanced funnel plot visualization and performing Egger's regression test.
+
+## Search Strategy {#search-strategy}
+
+::: {.search-strategy-box}
+<span class="search-db">EMBASE:</span>
+'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric'
+
+<span class="search-db">Web of Science:</span>
+('Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric') AND ('delivery' AND 'augment*' OR 'induc*')
+
+<span class="search-db">MEDLINE:</span>
+'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric' AND 'antepartum'
 :::
+
+## Update Protocol {#update-protocol}
+
+This is a living meta-analysis that will be updated every 24 months for a minimum of six years (three updates after initial publication). Updates will include:
+
+1. New database searches using the original search strategy
+2. Screening of new studies using identical inclusion/exclusion criteria
+3. Data extraction and quality assessment following pre-registered protocols
+4. Updated analysis incorporating all eligible studies
+5. Application of a conservative Bonferroni correction for four tests (p = 0.01 threshold for statistical significance)
+
+#### Updates Log {#updates-log}
+
+- Initial pre-registration: 2023
+- First analysis and publication: Pending
+
+#### Next Update {#next-update}
+Scheduled for: 24 months after initial publication  
+Contact: daniel.quintana@psykologi.uio.no
+
+### References {#references}
+
+```{=html}
+<div id="reference-list" style="font-size: 0.85rem;">
+  <div id="visible-references">
+    Bartoš, F., Maier, M., Quintana, D. S., & Wagenmakers, E.-J. (2022). Adjusting for Publication Bias in JASP and R: Selection Models, PET-PEESE, and Robust Bayesian Meta-Analysis. <i>Advances in Methods and Practices in Psychological Science, 5</i>(3), 25152459221109259. https://doi.org/10.1177/25152459221109259<br><br>
+    
+    Egger, M., Smith, G. D., Schneider, M., & Minder, C. (1997). Bias in meta-analysis detected by a simple, graphical test. <i>BMJ (Clinical Research Ed.), 315</i>, 629–634. https://doi.org/10.1136/bmj.315.7109.629<br><br>
+    
+    Elliott, J. H., Synnot, A., Turner, T., Simmonds, M., Akl, E. A., McDonald, S., Salanti, G., Meerpohl, J., MacLehose, H., Hilton, J., Tovey, D., Shemilt, I., Thomas, J., Agoritsas, T., Hilton, J., Perron, C., Akl, E., Hodder, R., Pestridge, C., … Pearson, L. (2017). Living systematic review: 1. Introduction—the why, what, when, and how. <i>Journal of Clinical Epidemiology, 91</i>, 23–30. https://doi.org/10.1016/j.jclinepi.2017.08.010<br><br>
+  </div>
+  
+  <div id="hidden-references" style="display:none">
+    Goffinet, F, Dreyfus, M, Carbonne, B, Magnin, G and Cabrol, D (2003). [Survey of the practice of cervical ripening and labor induction in France]. <i>Journal de Gynécologie Obstétrique et Biologie de la Reproduction, 32</i>, 638–646. https://europepmc.org/article/med/14699333<br><br>
+    
+    Kujabi, M. L., Mikkelsen, E., Housseine, N., Obel, J., Sequeira D'Mello, B., Meyrowitsch, D. W., Hussein, K., Schroll, J. B., Konradsen, F., van Roosmalen, J. , van den Akker, T., & Maaløe, N. (2022). Labor augmentation with oxytocin in low- and lower-middle-income countries: A systematic review and meta-analysis. <i>AJOG Global Reports, 2</i>(4), 100123. https://doi.org/10.1016/j.xagr.2022.100123<br><br>
+    
+    Lønfeldt, N. N., Verhulst, F. C., Strandberg-Larsen, K., Plessen, K. J., & Lebowitz, E. R. (2019). Assessing risk of neurodevelopmental disorders after birth with oxytocin: A systematic review and meta-analysis. <i>Psychological Medicine, 49</i>(6), 881–890. https://doi.org/10.1017/S0033291718003021<br><br>
+    
+    Peters, J. L., Sutton, A. J., Jones, D. R., Abrams, K. R., & Rushton, L. (2008). Contour-enhanced meta-analysis funnel plots help distinguish publication bias from other causes of asymmetry. <i>Journal of Clinical Epidemiology, 61</i>, 991–996. https://doi.org/10.1016/j.jclinepi.2007.11.010<br><br>
+    
+    Stokholm, L., Juhl, M., Talge, N. M., Gissler, M., Obel, C., & Strandberg-Larsen, K. (2021). Obstetric oxytocin exposure and ADHD and ASD among Danish and Finnish children. <i>International Journal of Epidemiology, 50</i>(2), 446–456. https://doi.org/10.1093/ije/dyaa076<br><br>
+    
+    Viechtbauer, W. (2010). Conducting Meta-Analyses in R with the metafor Package. <i>Journal of Statistical Software, 36</i>, 1–48. https://doi.org/10.18637/jss.v036.i03
+  </div>
+  
+  <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
+  
+  <script>
+  function toggleReferences() {
+    var hiddenReferences = document.getElementById("hidden-references");
+    var toggleButton = document.getElementById("reference-toggle");
+    
+    if (hiddenReferences.style.display === "none") {
+      hiddenReferences.style.display = "block";
+      toggleButton.textContent = "Show fewer references";
+    } else {
+      hiddenReferences.style.display = "none";
+      toggleButton.textContent = "Show more references";
+    }
+  }
+  </script>
+</div>
+```
