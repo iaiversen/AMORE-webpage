@@ -129,6 +129,27 @@ a {
   }
 }
 
+/* Hide anchor section links */
+a.anchor-section::before,
+a.anchor-section::after {
+  display: none !important;
+}
+
+/* Hide anchor sections entirely */
+.anchor-section {
+  display: none !important;
+}
+
+/* Hide any heading anchors */
+h1 > a[href^="#"],
+h2 > a[href^="#"],
+h3 > a[href^="#"],
+h4 > a[href^="#"],
+h5 > a[href^="#"],
+h6 > a[href^="#"] {
+  display: none !important;
+}
+
 /*=============================================
 =                                           =
 =            Navigation Bar                 =
