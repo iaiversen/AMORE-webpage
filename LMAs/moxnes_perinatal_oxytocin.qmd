@@ -36,37 +36,43 @@ format:
     toc-depth: 3
 ---
 
-::: {.callout-note .meta-info-container}
-## Project Information
-::: {.meta-grid}
-::: {.meta-column}
-#### Authors
+::: {.project-hero-section}
+::: {.project-hero-content}
+Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxytocin: A Living Systematic Review and Meta-Analysis
+
+
+:::
+:::
+
+::: {.project-info-panel}
+::: {.project-info-grid}
+
+::: {.info-card .authors-card}
+### Authors
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
-    Mai-Linn Moxnes (University of Oslo)<br>
-    Kjersti M. Walle (University of Oslo)<br>
-    Daniel S. Quintana (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)
-    
+    <strong>Mai-Linn Moxnes</strong> (University of Oslo)<br>
+    <strong>Kjersti M. Walle</strong> (University of Oslo)<br>
+    <strong>Daniel S. Quintana</strong> (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo | NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)
   </div>
   
   <div id="hidden-authors" style="display:none"> 
-  Anne Kaasen (Department of Nursing and Health Promotion, Faculty of Health Sciences, Oslo Metropolitan University)<br>
-  Elisabeth Braithwaite ( Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
-    Nicky Wright ( Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
-    Ingebjørg Iversen (Department of Psychology, University of Oslo)<br>
-    Elisabeth Deilhaug (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)<br>
-    Alina I. Sartorius (Department of Psychology, University of Oslo)<br>
-    Heemin Kang (Department of Psychology, University of Oslo)<br>
-    Terje Nærland (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo | NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)<br>
-    Ole A. Andreassen (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo |  Centre for Precision Psychiatry, Division of Mental Health and Addiction, University of Oslo and Oslo University Hospital)<br>
-    Lars T. Westlye (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo)<br>
-    Mona Bekkhus (PROMENTA Research Center, Department of Psychology, University of Oslo)<br>
-    Nicole N. Lønfeldt ( Child and Adolescent Mental Health Center, Copenhagen University Hospital)<br>
-    
+    <strong>Anne Kaasen</strong> (Department of Nursing and Health Promotion, Faculty of Health Sciences, Oslo Metropolitan University)<br>
+    <strong>Elisabeth Braithwaite</strong> (Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
+    <strong>Nicky Wright</strong> (Department of Psychology, Faculty of Health and Education, Manchester Metropolitan University)<br>
+    <strong>Ingebjørg Iversen</strong> (Department of Psychology, University of Oslo)<br>
+    <strong>Elisabeth Deilhaug</strong> (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo | NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)<br>
+    <strong>Alina I. Sartorius</strong> (Department of Psychology, University of Oslo)<br>
+    <strong>Heemin Kang</strong> (Department of Psychology, University of Oslo)<br>
+    <strong>Terje Nærland</strong> (Department of Psychology, University of Oslo | KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo | NevSom, Department of Rare Disorders and Disabilities, Oslo University Hospital)<br>
+    <strong>Ole A. Andreassen</strong> (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo | Centre for Precision Psychiatry, Division of Mental Health and Addiction, University of Oslo and Oslo University Hospital)<br>
+    <strong>Lars T. Westlye</strong> (KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo)<br>
+    <strong>Mona Bekkhus</strong> (PROMENTA Research Center, Department of Psychology, University of Oslo)<br>
+    <strong>Nicole N. Lønfeldt</strong> (Child and Adolescent Mental Health Center, Copenhagen University Hospital)<br>
   </div>
   
-  <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
+  <a href="#" id="author-toggle" class="toggle-link" onclick="toggleAuthors(); return false;">+ Show more authors</a>
   
   <script>
   function toggleAuthors() {
@@ -75,47 +81,41 @@ format:
     
     if (hiddenAuthors.style.display === "none") {
       hiddenAuthors.style.display = "block";
-      toggleButton.textContent = "Show fewer authors";
+      toggleButton.textContent = "- Show fewer authors";
     } else {
       hiddenAuthors.style.display = "none";
-      toggleButton.textContent = "Show more authors";
+      toggleButton.textContent = "+ Show more authors";
     }
   }
   </script>
 </div>
 ```
 :::
-::: {.meta-column}
-#### Timeline
+
+::: {.info-card .timeline-card}
+### Timeline
 **Pre-registered:** February 04, 2025  
 **Last update:** First analysis not yet conducted  
 **Next update:** To be determined (24-month update cycle)
 :::
-::: {.meta-column}
-#### Identifiers
-**DOI:** <a href="https://osf.io/preprints/osf/9gx6s_v1" target="_blank">https://osf.io/preprints/osf/9gx6s_v1</a>
+
+::: {.info-card .identifiers-card}
+### Identifiers
+**DOI:** [https://osf.io/preprints/osf/9gx6s_v1](https://osf.io/preprints/osf/9gx6s_v1)
 
 **Keywords:** autism, ADHD, oxytocin, meta-analysis, systematic review
 :::
-::: {.meta-column}
-#### Contact
+
+::: {.info-card .contact-card}
+### Contact
 **Principal Investigator:** Daniel S. Quintana  
-**Email:** daniel.quintana@psykologi.uio.no
-:::
-:::
+**Email:** [daniel.quintana@psykologi.uio.no](mailto:daniel.quintana@psykologi.uio.no)
 :::
 
-## Abstract {#abstract}
+:::
+:::
 
-This living meta-analysis investigates the relationship between perinatal exposure to exogenous oxytocin and the likelihood of neurodevelopmental conditions such as attention-deficit/hyperactivity disorder (ADHD) and autism in children. Oxytocin is commonly used to induce and augment labor, with up to 50% of births in developed countries and varying rates (0.7% to 97.0%) in low- and lower-middle-income countries associated with synthetic oxytocin use.
-
-The analysis employs a frequentist approach, utilizing random effects models with the Paule-Mandel estimator to synthesize findings across the literature. The project addresses whether perinatal exposure to exogenous oxytocin increases the likelihood of neurodevelopmental conditions in children. This living meta-analysis will be updated every 24 months, ensuring the incorporation of emerging evidence.
-
-## Current Results {#current-results}
-
-This is a pre-registered protocol. Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.
-
-A previous meta-analysis by Lønfeldt and colleagues (2019) concluded that there was no evidence for an association between perinatal exogenous oxytocin exposure and the later diagnosis of ADHD and only marginal evidence for an association with autism. This living meta-analysis will update those findings with new research.
+::: {.main-content-container}
 
 ## Resources {#resources}
 
@@ -156,6 +156,18 @@ A previous meta-analysis by Lønfeldt and colleagues (2019) concluded that there
   </div>
 </details>
 ```
+
+## Abstract {#abstract}
+
+This living meta-analysis investigates the relationship between perinatal exposure to exogenous oxytocin and the likelihood of neurodevelopmental conditions such as attention-deficit/hyperactivity disorder (ADHD) and autism in children. Oxytocin is commonly used to induce and augment labor, with up to 50% of births in developed countries and varying rates (0.7% to 97.0%) in low- and lower-middle-income countries associated with synthetic oxytocin use.
+
+The analysis employs a frequentist approach, utilizing random effects models with the Paule-Mandel estimator to synthesize findings across the literature. The project addresses whether perinatal exposure to exogenous oxytocin increases the likelihood of neurodevelopmental conditions in children. This living meta-analysis will be updated every 24 months, ensuring the incorporation of emerging evidence.
+
+## Current Results {#current-results}
+
+This is a pre-registered protocol. Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.
+
+A previous meta-analysis by Lønfeldt and colleagues (2019) concluded that there was no evidence for an association between perinatal exogenous oxytocin exposure and the later diagnosis of ADHD and only marginal evidence for an association with autism. This living meta-analysis will update those findings with new research.
 
 ## Inclusion and Exclusion Criteria {#criteria}
 
@@ -207,16 +219,16 @@ This is a living meta-analysis that will be updated every 24 months for a minimu
 4. Updated analysis incorporating all eligible studies
 5. Application of a conservative Bonferroni correction for four tests (p = 0.01 threshold for statistical significance)
 
-#### Updates Log {#updates-log}
+### Updates Log {#updates-log}
 
-- Initial pre-registration: 2023
+- Initial pre-registration: 2025
 - First analysis and publication: Pending
 
-#### Next Update {#next-update}
+### Next Update {#next-update}
 Scheduled for: 24 months after initial publication  
 Contact: daniel.quintana@psykologi.uio.no
 
-### References {#references}
+## References {#references}
 
 ```{=html}
 <div id="reference-list" style="font-size: 0.85rem;">
@@ -242,7 +254,7 @@ Contact: daniel.quintana@psykologi.uio.no
     Viechtbauer, W. (2010). Conducting Meta-Analyses in R with the metafor Package. <i>Journal of Statistical Software, 36</i>, 1–48. https://doi.org/10.18637/jss.v036.i03
   </div>
   
-  <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
+  <a href="#" id="reference-toggle" class="toggle-link" onclick="toggleReferences(); return false;">+ Show more references</a>
   
   <script>
   function toggleReferences() {
@@ -251,12 +263,14 @@ Contact: daniel.quintana@psykologi.uio.no
     
     if (hiddenReferences.style.display === "none") {
       hiddenReferences.style.display = "block";
-      toggleButton.textContent = "Show fewer references";
+      toggleButton.textContent = "- Show fewer references";
     } else {
       hiddenReferences.style.display = "none";
-      toggleButton.textContent = "Show more references";
+      toggleButton.textContent = "+ Show more references";
     }
   }
   </script>
 </div>
 ```
+
+:::
