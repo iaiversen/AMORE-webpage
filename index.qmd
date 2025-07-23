@@ -23,26 +23,3 @@ Living meta-analysis published on AMORE must adhere to our standardization frame
 [Publish your Living Meta Analysis](https://nettskjema.no/a/492183){.primary-button target="_blank"}
 :::
 
-## {.feature-heading}
-Aims of AMORE  
-
-::: {.feature-grid}
-::: {.feature-box}
-### Standardization
-AMORE aims to facilitate living meta analysis in the oxytocin research field through standardized practices. 
-:::
-
-::: {.feature-box}
-### Living Meta Analysis
-Living meta-analysis is a regularly updated evidence synthesis that reflects the current state of research. AMORE aims to ensure that the evidence remains current, preventing meta-analyses from becoming outdated.  
-:::
-
-::: {.feature-box}
-### Open Science
-Living meta-analysis published on AMORE commit to transparency through pre-registration, open data, and publicly available analysis scripts.
-:::
-:::
-
-::: {.spacer-index}
-:::
-:::

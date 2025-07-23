@@ -1,5 +1,4 @@
 ---
-title: "Our mission" 
 format:
   html:
     theme: 
@@ -8,120 +7,219 @@ format:
     page-layout: full
 ---
 
-::: {.about-container}
+::: {.hero-section}
+::: {.hero-content}
+Advancing Oxytocin Research Together
 
-::: {.about-section}
-#### What is the AMORE initiative about? 
-The Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of indivdiual studies and place them in a bigger evidence picture. Wheras traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis. 
+::: {.hero-tagline}
+
+Building the future of evidence-based research through collaborative living meta-analysis and transparent science
 :::
 
-::: {.about-section}
-#### Expert Steering Committee
+:::
+:::
+
+::: {.about-tabs-container}
+::: {.tab-navigation}
+<button class="tab-button active" onclick="showTab('mission')">Our Mission</button>
+<button class="tab-button" onclick="showTab('team')">Expert Steering Committee</button>
+:::
+
+::: {.tab-content}
+::: {#mission .tab-pane .active}
+## What is the AMORE initiative about?
+
+The Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of individual studies and place them in a bigger evidence picture. Whereas traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.
+
+### Aims of AMORE
+
+::: {.process-steps}
+::: {.process-step}
+::: {.step-icon}
+1
+:::
+#### Real-time insights 
+Researchers get access to the most current understanding of oxytocin research findings. Unlike traditional meta-analyses that become outdated, our platform continuously incorporates new research findings.
+:::
+
+::: {.process-step}
+::: {.step-icon}
+2
+:::
+#### Quality Control
+The expert steering committe oversees the projects ensuring platform standards. Retracted papers are promptly removed, ensuring only reliable evidence informs our conclusions.
+:::
+
+::: {.process-step}
+::: {.step-icon}
+3
+:::
+#### Transparent Science 
+Living meta-analysis published on AMORE commit to transparency through pre-registration, pre-prints, open data, deviation reports, and publicly available analysis scripts. Transparent research foster collaboration and repoducibility efforts. 
+:::
+:::
+:::
+
+::: {#team .tab-pane}
+## Expert Steering Committee
+
 The AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:
 
 - Approves project proposals
 - Provides methodological guidance
 - Ensures computational reproducibility
 - Maintains platform standards
+
+### Committee Members
+
+::: {.committee-grid}
+
+::: {.committee-card}
+**Prof. Daniel S. Quintana**
+Department of Psychology, University of Oslo, Oslo, Norway  
+KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo, Oslo, Norway  
+NevSom, Department of Rare Disorders, Oslo University Hospital, Oslo, Norway
 :::
 
-::: {.about-section}
-#### Expert Steering Committee Members
+::: {.committee-card}
+**Prof. Marian Bakermans-Kranenburg**
+William James Center for Research, ISPA – University Institute of Psychological, Social and Life Sciences, Lisbon, Portugal
+:::
 
-- **Prof. Daniel S. Quintana**  
-  Department of Psychology, University of Oslo, Oslo, Norway
-  
-  KG Jebsen Centre for Neurodevelopmental Disorders, University of Oslo, Oslo, Norway
-  
-  NevSom, Department of Rare Disorders, Oslo University Hospital, Oslo, Norway
+::: {.committee-card}
+**Prof. Jessica J. Connelly**
+Department of Psychology, Program in Fundamental Neuroscience, University of Virginia, Charlottesville, USA
+:::
 
-- **Prof. Marian Bakermans-Kranenburg**  
-  William James Center for Research, ISPA – University Institute of Psychological, Social and Life Sciences, Lisbon, Portugal 
+::: {.committee-card}
+**MPhil Heemin Kang**
+Department of Psychology, University of Oslo, Oslo, Norway
+:::
 
-- **Prof. Jessica J. Connelly**  
-  Department of Psychology, Program in Fundamental Neuroscience, University of Virginia, Charlottesville, USA
+::: {.committee-card}
+**Prof. Jennifer A. Bartz**
+Department of Psychology, McGill University, Montréal, Québec, Canada
+:::
 
-- **MPhil Heemin Kang**  
-  Department of Psychology, University of Oslo, Oslo, Norway
+::: {.committee-card}
+**Prof. Natalie C. Ebner**
+Department of Psychology, University of Florida, Gainesville, FL, USA  
+Cognitive Aging and Memory Center, McKnight Brain Institute, University of Florida, Gainesville, FL, USA
+:::
 
-- **Prof. Jennifer A. Bartz**  
-  Department of Psychology, McGill University, Montréal, Québec, Canada
+::: {.committee-card}
+**Prof. Dirk Scheele**
+Department of Social Neuroscience, Faculty of Medicine, Ruhr University Bochum, Germany  
+Research Center One Health Ruhr of the University Alliance Ruhr, Ruhr University Bochum, Germany
+:::
 
-- **Prof. Natalie C. Ebner**  
-  Department of Psychology, University of Florida, Gainesville, FL, USA
-  
-  Cognitive Aging and Memory Center, McKnight Brain Institute, University of Florida, Gainesville, FL, USA
+::: {.committee-card}
+**Prof. Benjamin Becker**
+State Key Laboratory of Brain and Cognitive Sciences, The University of Hong Kong, Hong Kong, China  
+Department of Psychology, The University of Hong Kong, Hong Kong, China
+:::
 
-- **Prof. Dirk Scheele**  
-  Department of Social Neuroscience, Faculty of Medicine, Ruhr University Bochum, Germany
-  
-  Research Center One Health Ruhr of the University Alliance Ruhr, Ruhr University Bochum, Germany
+::: {.committee-card}
+**Prof. Kaat Alaerts**
+Department of Rehabilitation Sciences, KU Leuven, Neuromotor Rehabilitation Research
+:::
 
-- **Prof. Benjamin Becker**  
-  State Key Laboratory of Brain and Cognitive Sciences, The University of Hong Kong, Hong Kong, China
-  
-  Department of Psychology, The University of Hong Kong, Hong Kong, China
+::: {.committee-card}
+**Dr. Matthijs Moerkerke**
+Department of Rehabilitation Sciences and Physiotherapy, Ghent University, Ghent, Belgium
+:::
 
-- **Prof. Kaat Alaerts**  
-  Department of Rehabilitation Sciences, KU Leuven, Neuromotor Rehabilitation Research
+::: {.committee-card}
+**Dr. Elizabeth A. Lawson**
+Neuroendocrine Unit, Department of Medicine, Massachusetts General Hospital, Massachusetts, USA  
+Department of Medicine, Harvard Medical School, Boston, USA
+:::
 
-- **Dr. Matthijs Moerkerke**  
-  Department of Rehabilitation Sciences and Physiotherapy, Ghent University, Ghent, Belgium  
+::: {.committee-card}
+**Dr. Tanya L. Procyshyn**
+Department of Biological Sciences, Simon Fraser University, Burnaby, Canada  
+Autism Research Centre, Department of Psychiatry, University of Cambridge, Cambridge, UK
+:::
 
-- **Dr. Elizabeth A. Lawson**  
-  Neuroendocrine Unit, Department of Medicine, Massachusetts General Hospital, Massachusetts, USA
-  
-  Department of Medicine, Harvard Medical School, Boston, USA
+::: {.committee-card}
+**Dr. Marilyn Horta**
+Department of Health Outcomes and Behavior, Moffitt Cancer Center, Florida, USA
+:::
 
-- **Dr. Tanya L. Procyshyn**  
-  Department of Biological Sciences, Simon Fraser University, Burnaby, Canada
-  
-  Autism Research Centre, Department of Psychiatry, University of Cambridge, Cambridge, UK
+::: {.committee-card}
+**Prof. Hidenori Yamasue**
+Departments of Psychiatry, Hamamatsu University School of Medicine, Hamamatsu City, Japan
+:::
 
-- **Dr. Marilyn Horta**  
-  Department of Health Outcomes and Behavior, Moffitt Cancer Center, Florida, USA 
+::: {.committee-card}
+**Constantina Theofanopoulou**
+The Rockefeller University, New York, NY, USA  
+New York University, New York, NY, USA  
+Emory University, Atlanta, GA, USA
+:::
 
-- **Prof. Hidenori Yamasue**  
-  Departments of Psychiatry, Hamamatsu University School of Medicine, Hamamatsu City, Japan
+::: {.committee-card}
+**Dr. Leehe Peeled Avron**
+Department of Psychology, Bar-Ilan University, Ramat-Gan, Israel
+:::
 
-- **Constantina Theofanopoulou**  
-  The Rockefeller University, New York, NY, USA
-  
-  New York University, New York, NY, USA
-  
-  Emory University, Atlanta, GA, USA
+::: {.committee-card}
+**Senior Scientist Nicole Nadine Løndtfelt**
+Center for Social Data Science, Faculty of Social Sciences, University of Copenhagen  
+Child and Adolescent Mental Health Center, Copenhagen University Hospital - Mental Health Services CPH, Copenhagen, Denmark
+:::
 
-- **Dr. Leehe Peeled Avron**  
-  Department of Psychology, Bar-Ilan University, Ramat-Gan, Israel
+::: {.committee-card}
+**Dr. Ekaterina Schneider**
+Institute of Medical Psychology, Center for Psychosocial Medicine, Heidelberg University Hospital, Heidelberg, Germany
+:::
 
-- **Senior Scientist Nicole Nadine Løndtfelt**  
-  Center for Social Data Science, Faculty of Social Sciences, University of Copenhagen
-  
-  Child and Adolescent Mental Health Center, Copenhagen University Hospital - Mental Health Services CPH, Copenhagen, Denmark
+::: {.committee-card}
+**Prof. Beate Ditzen**
+Institute of Medical Psychology, Center for Psychosocial Medicine, Heidelberg University Hospital, Heidelberg, Germany
+:::
 
-- **Dr. Ekaterina Schneider**  
-  Institute of Medical Psychology, Center for Psychosocial Medicine, Heidelberg University Hospital, Heidelberg, Germany
-  
-- **Prof. Beate Ditzen**
-  Institute of Medical Psychology, Center for Psychosocial Medicine, Heidelberg University Hospital, Heidelberg, Germany
-  
-- **Anna-Rosa Cecilie Mora-Jensen**  
-  Child and Adolescent Mental Health Center, Copenhagen University Hospital - Mental Health Services CPH, Copenhagen, Denmark
-  
-  Department of Clinical Medicine, Faculty of Health and Medical Sciences, University of Copenhagen
-  
-- **Prof. Christian Montag**  
-  Centre for Cognitive and Brain Sciences, Institute of Collaborative Innovation, University of Macau, Macau SAR, China
-  
-  Department of Psychology, Faculty of Social Sciences, University of Macau, Macau SAR, China
-  
-  Department of Computer and Information Science, Faculty of Science and Technology, University of Macau, Macau SAR, China
+::: {.committee-card}
+**Anna-Rosa Cecilie Mora-Jensen**
+Child and Adolescent Mental Health Center, Copenhagen University Hospital - Mental Health Services CPH, Copenhagen, Denmark  
+Department of Clinical Medicine, Faculty of Health and Medical Sciences, University of Copenhagen
+:::
 
-- **Prof. Robert James Blair**  
-  Department of Clinical Medicine, Child and Adolescent Psychiatry, University of Copenhagen, Copenhagen, Denmark
+::: {.committee-card}
+**Prof. Christian Montag**
+Centre for Cognitive and Brain Sciences, Institute of Collaborative Innovation, University of Macau, Macau SAR, China  
+Department of Psychology, Faculty of Social Sciences, University of Macau, Macau SAR, China  
+Department of Computer and Information Science, Faculty of Science and Technology, University of Macau, Macau SAR, China
+:::
 
-- **MSc Alina I. Sartorious**  
-  Department of Psychology, University of Oslo, Oslo, Norway
+::: {.committee-card}
+**Prof. Robert James Blair**
+Department of Clinical Medicine, Child and Adolescent Psychiatry, University of Copenhagen, Copenhagen, Denmark
+:::
+
+::: {.committee-card}
+**MSc Alina I. Sartorious**
+Department of Psychology, University of Oslo, Oslo, Norway
 :::
 
 :::
+:::
+:::
+::: 
+
+<script>
+function showTab(tabName) {
+  const panes = document.querySelectorAll('.tab-pane');
+  panes.forEach(pane => {
+    pane.classList.remove('active');
+  });
+  
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  });
+  
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
