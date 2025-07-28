@@ -227,7 +227,10 @@ The meta-analysis found no overall significant effect of oxytocin administration
 
 The Robust Bayesian Meta-Analysis provided moderate support for the absence of an overall effect (BF₁₀ = 0.10) and moderate evidence against publication bias (BF_PB = 0.32). Statistical power analyses indicated that individual studies were generally underpowered (5-10% power) to detect the observed summary effect size.
 
-### Statistical Power Analysis
+
+::: {style="margin-top: 3rem;"}
+### Statistical Power Analysis 
+::: 
 
 ![Firepower Plot](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png)
 

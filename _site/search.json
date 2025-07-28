@@ -460,5 +460,68 @@
     "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
     "section": "References",
     "text": "References\n\n  \n    Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., Nærland, T., ... & Quintana, D.S. (2025). Effects of oxytocin administration on non-social executive functions in humans: a preregistered systematic review and meta-analysis. Molecular Psychiatry, 30, 2239–2251. https://doi.org/10.1038/s41380-024-02871-4\n    \n    Quintana, D.S., & Guastella, A.J. (2020). An allostatic theory of oxytocin. Trends in Cognitive Sciences, 24(6), 515-528. https://doi.org/10.1016/j.tics.2020.03.008\n    \n    Chini, B., Leonzino, M., Braida, D., & Sala, M. (2014). Learning about oxytocin: pharmacologic and behavioral issues. Biological Psychiatry, 76(5), 360-366. https://doi.org/10.1016/j.biopsych.2013.08.029\n  \n  \n  \n    Miyake, A., & Friedman, N.P. (2012). The nature and organization of individual differences in executive functions: four general conclusions. Current Directions in Psychological Science, 21(1), 8-14.\n    \n    Kapetaniou, G.E., Reinhard, M.A., Christian, P., Jobst, A., Tobler, P.N., Padberg, F., ... & Hurlemann, R. (2021). The role of oxytocin in delay of gratification and flexibility in non-social decision making. eLife, 10, e61844.\n    \n    Quintana, D.S., Lischke, A., Grace, S., Scheele, D., Ma, Y., & Becker, B. (2021). Advances in the field of intranasal oxytocin research: lessons learned and future directions for clinical research. Molecular Psychiatry, 26(1), 80-91.\n    \n    Bartoš, F., Maier, M., Quintana, D.S., & Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. Advances in Methods and Practices in Psychological Science, 5(3), 25152459221109259.\n  \n  \n  Show more references"
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html",
+    "href": "LMAs/Kang_non-social_executive_function.html",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "",
+    "text": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis"
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#abstract",
+    "href": "LMAs/Kang_non-social_executive_function.html#abstract",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Abstract",
+    "text": "Abstract\nThis preregistered systematic review and meta-analysis investigates the effects of oxytocin administration on non-social executive functions in humans. While oxytocin has received considerable attention for its role in social behaviors, emerging evidence suggests broader cognitive effects beyond social contexts.\nThe analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies."
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#resources",
+    "href": "LMAs/Kang_non-social_executive_function.html#resources",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Resources",
+    "text": "Resources\n\nInitial PublicationUpdate 1Update 2\n\n\n\n  Pre-registration & Publication\n  \n    \n      Pre-registration on OSF\n    \n    \n      Published Article in Molecular Psychiatry\n    \n  \n\n\n\n  Data & Analysis Resources\n  \n    \n      Complete Dataset and R Scripts\n    \n    \n      Interactive Web Application\n    \n    \n      Preprint Version\n    \n  \n\n\n\n  Related Resources\n  \n    \n      Quintana & Guastella (2020) - Allostatic theory of oxytocin\n    \n    \n      Quintana et al. (2021) - Intranasal oxytocin research advances\n    \n  \n\n\n\n\n  Coming Soon: First update (24-month cycle)\n\n\n\n  Updated Analysis\n  \n    \n      Updated Dataset\n    \n    \n      Updated Analysis Scripts\n    \n    \n      Deviation Report\n    \n  \n\n\n\n  Publication Materials\n  \n    \n      Update 1 Preprint\n    \n    \n      Update 1 Published Article\n    \n  \n\n\n\n\n  Future Update: Second update\n\n\n\n  Future Materials\n  \n    \n      Update 2 Materials"
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#current-results",
+    "href": "LMAs/Kang_non-social_executive_function.html#current-results",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Current Results",
+    "text": "Current Results\nThe meta-analysis found no overall significant effect of oxytocin administration on non-social executive functions (Hedges’ g = 0.07, 95% CI [-0.07, 0.22], p = 0.30). However, subgroup analyses revealed significant heterogeneity across different executive function domains.\nKey Findings:\n\nCognitive Flexibility: Significant positive effect (Hedges’ g = 0.20, p = 0.02)\nWorking Memory: No significant effect (Hedges’ g = 0.05)\nInhibitory Control: No significant effect (Hedges’ g = -0.04)\n\nThe Robust Bayesian Meta-Analysis provided moderate support for the absence of an overall effect (BF₁₀ = 0.10) and moderate evidence against publication bias (BF_PB = 0.32). Statistical power analyses indicated that individual studies were generally underpowered (5-10% power) to detect the observed summary effect size.\n\nStatistical Power Analysis\n\n\n\n\nFirepower Plot\n\n\nFigure 2: Firepower plot. Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges’ g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size."
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#criteria",
+    "href": "LMAs/Kang_non-social_executive_function.html#criteria",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Inclusion and Exclusion Criteria",
+    "text": "Inclusion and Exclusion Criteria\n\nInclusion Criteria\n\nType of Studies: Human studies measuring effects of oxytocin administration on executive function using non-social stimuli\nIntervention: Oxytocin administered intranasally, orally, or intravenously regardless of dosage\nPopulation: Both clinical and neurotypical participants (no age restrictions)\nOutcomes: Executive function measures (working memory, inhibitory control, cognitive flexibility) using non-social stimuli such as abstract shapes\nDesign: Placebo-controlled studies\nLanguage: Publications in English language\nData Requirements: Sufficient statistical information to calculate effect sizes\n\n\n\nExclusion Criteria\n\nNon-human animal studies\nStudies investigating only endogenous oxytocin levels (no administration)\nStudies measuring only somatic functions\nExecutive function tasks using social stimuli (e.g., emotional faces, social scenarios)\nStudies without placebo control conditions\nInsufficient statistical data for meta-analysis"
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#methodology",
+    "href": "LMAs/Kang_non-social_executive_function.html#methodology",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Methodology Summary",
+    "text": "Methodology Summary\nThis preregistered systematic review followed PRISMA guidelines. Searches were conducted in PubMed, Europe PubMed Central, and Bielefeld Academic Search Engine (BASE) on July 29, 2022, with an updated search on August 1, 2023.\nQuality assessment was conducted using the RoB 2.0 tool for assessing risk of bias in randomized trials. Two reviewers independently extracted data and assessed study quality, with disagreements resolved through discussion.\nStatistical analyses were implemented in R Studio 4.2.2 using the metafor package for frequentist meta-analysis and RoBMA for Robust Bayesian Meta-Analysis. A multilevel random-effects model was used to account for multiple dependent outcomes from the same studies. Between-measurement correlation was set at r = 0.3 based on available raw data from one included study."
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#search-strategy",
+    "href": "LMAs/Kang_non-social_executive_function.html#search-strategy",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Search Strategy",
+    "text": "Search Strategy\n\nPubMed: Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes\nEurope PubMed Central: Customized search terms adapted for database specifications\nBielefeld Academic Search Engine (BASE): Comprehensive search strategy including grey literature and preprints"
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#study-characteristics",
+    "href": "LMAs/Kang_non-social_executive_function.html#study-characteristics",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "Study Characteristics",
+    "text": "Study Characteristics\n\nIncluded studies: The final meta-analysis included 13 studies with 20 effect estimates\nTotal participants: 729 (284 in within-participant studies, 445 in between-group studies)\nMean age: 31.64 years (within-participant studies), 25.68 years (between-group studies)\nOxytocin dosage: Predominantly 24 IU intranasal (76.92% of studies)\nAdministration routes: Intranasal (92.3%), oral (7.7%)\nPublication status: 76.92% peer-reviewed articles, 23.07% letters to editor\nStudy designs: 6 within-participant, 7 between-group studies"
+  },
+  {
+    "objectID": "LMAs/Kang_non-social_executive_function.html#references",
+    "href": "LMAs/Kang_non-social_executive_function.html#references",
+    "title": "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis",
+    "section": "References",
+    "text": "References\n\n  \n    Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., Nærland, T., ... & Quintana, D.S. (2025). Effects of oxytocin administration on non-social executive functions in humans: a preregistered systematic review and meta-analysis. Molecular Psychiatry, 30, 2239–2251. https://doi.org/10.1038/s41380-024-02871-4\n    \n    Quintana, D.S., & Guastella, A.J. (2020). An allostatic theory of oxytocin. Trends in Cognitive Sciences, 24(6), 515-528. https://doi.org/10.1016/j.tics.2020.03.008\n    \n    Chini, B., Leonzino, M., Braida, D., & Sala, M. (2014). Learning about oxytocin: pharmacologic and behavioral issues. Biological Psychiatry, 76(5), 360-366. https://doi.org/10.1016/j.biopsych.2013.08.029\n  \n  \n  \n    Miyake, A., & Friedman, N.P. (2012). The nature and organization of individual differences in executive functions: four general conclusions. Current Directions in Psychological Science, 21(1), 8-14.\n    \n    Kapetaniou, G.E., Reinhard, M.A., Christian, P., Jobst, A., Tobler, P.N., Padberg, F., ... & Hurlemann, R. (2021). The role of oxytocin in delay of gratification and flexibility in non-social decision making. eLife, 10, e61844.\n    \n    Quintana, D.S., Lischke, A., Grace, S., Scheele, D., Ma, Y., & Becker, B. (2021). Advances in the field of intranasal oxytocin research: lessons learned and future directions for clinical research. Molecular Psychiatry, 26(1), 80-91.\n    \n    Bartoš, F., Maier, M., Quintana, D.S., & Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. Advances in Methods and Practices in Psychological Science, 5(3), 25152459221109259.\n  \n  \n  Show more references"
   }
 ]
