@@ -2,6 +2,7 @@
 title: "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis" 
 status: "Published"
 analytical_framework: "Mixed Methods"
+oxytocin:
   intervention: "Intranasal oxytocin administration"
   assessment_method: "Behavioral assessment"
   route: "Central"
@@ -84,21 +85,21 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
 ::: 
 
 ::: {.info-card .timeline-card}
-#### Timeline
+### Timeline
 **Pre-registered:** July 29, 2022  
 **Published:** January 18, 2025  
 **Protocol transforming from traditional to living meta-analysis:** In progress
 :::
 
 ::: {.info-card .identifiers-card}
-#### Identifiers
+### Identifiers
 **DOI:** <a href="https://doi.org/10.1038/s41380-024-02871-4" target="_blank">10.1038/s41380-024-02871-4</a>
 
 **Keywords:** oxytocin, executive function, meta-analysis, cognitive flexibility, working memory, inhibitory control
 :::
 
 ::: {.info-card .contact-card}
-#### Contact
+### Contact
 **Principal Investigator:** Daniel S. Quintana  
 **Email:** daniel.quintana@psykologi.uio.no
 :::
@@ -114,118 +115,50 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
 
 ### Initial Publication
 
-```{=html}
-<details class="resource-details">
-  <summary class="resource-summary">Pre-registration & Publication</summary>
-  <div class="link-wrapper">
-    <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">Pre-registration on OSF</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">Published Article in Molecular Psychiatry</a>
-  </div>
-</details>
+::: {.resource-grid}
+**Pre-registration & Publication**
 
-<details class="resource-details">
-  <summary class="resource-summary">Data & Analysis Resources</summary>
-  <div class="link-wrapper">
-    <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">Complete Dataset and R Scripts</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">Interactive Web Application</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">Preprint Version</a>
-  </div>
-</details>
+- [Pre-registration on OSF](https://osf.io/8fzdy)  
+- [Published Article](https://doi.org/10.1038/s41380-024-02871-4)
 
-<details class="resource-details">
-  <summary class="resource-summary">Quality & Reporting</summary>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">PRISMA Checklist ⏳</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Risk of Bias Assessment ⏳</a>
-  </div>
-</details>
+**Data & Analysis**  
 
+- [Dataset & R Scripts](https://osf.io/7eg5u/)  
+- [Interactive Web App](https://dsquintana.shinyapps.io/ot_meta_exec/)  
+- [Preprint Version](https://osf.io/cbjxd)
 
-<div class="development-notice">
-  <strong>Coming Soon:</strong> First update scheduled for early 2027 (24-month cycle)
-</div>
+**Related Work**
 
-<details class="resource-details">
-  <summary class="resource-summary">Updated Analysis</summary>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Updated Dataset ⏳</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Updated Analysis Scripts ⏳</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Deviation Report ⏳</a>
-  </div>
-</details>
+- [Allostatic theory of oxytocin](https://doi.org/10.1016/j.tics.2020.03.008)  
+- [Intranasal oxytocin research advances](https://doi.org/10.1038/s41380-020-0751-x)
+:::
 
-<details class="resource-details">
-  <summary class="resource-summary">Publication Materials</summary>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Update 1 Preprint ⏳</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Update 1 Published Article ⏳</a>
-  </div>
-</details>
+### Update 1
 
-<div class="development-notice">
-  <strong>Future Update:</strong> Second update scheduled for early 2029
-</div>
+::: {.resource-grid}
+**Coming Soon** (Early 2027)
 
-<details class="resource-details">
-  <summary class="resource-summary">Future Materials</summary>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Update 2 Materials ⏳</a>
-  </div>
-</details>
+**Updated Analysis**  
 
-```
+- Updated Dataset ⏳  
+- Updated Scripts ⏳  
+- Deviation Report ⏳
 
-## Resources {#resources}
+**Publication**  
 
-```{=html}
-<details class="resource-details">
-  <summary class="resource-summary">Pre-registration & Publication</summary>
-  <div class="link-wrapper">
-    <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">Pre-registration on OSF</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">Published Article in Molecular Psychiatry</a>
-  </div>
-</details>
+- Update 1 Preprint ⏳  
+- Update 1 Article ⏳
+:::
 
-<details class="resource-details">
-  <summary class="resource-summary">Data & Analysis Resources</summary>
-  <div class="link-wrapper">
-    <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">Complete Dataset and R Scripts</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">Interactive Web Application</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">Preprint Version</a>
-  </div>
-</details>
+### Update 2
 
-<details class="resource-details">
-  <summary class="resource-summary">Related Resources</summary>
-  <div class="link-wrapper">
-    <a href="https://doi.org/10.1016/j.tics.2020.03.008" class="resource-link" target="_blank">Quintana & Guastella (2020) - Allostatic theory of oxytocin</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://doi.org/10.1038/s41380-020-0751-x" class="resource-link" target="_blank">Quintana et al. (2021) - Intranasal oxytocin research advances</a>
-  </div>
-</details>
-```
+::: {.resource-grid}
+**Future Update** (Early 2029)
 
+- Update 2 Materials ⏳
+:::
+
+:::
 
 ## Abstract {#abstract}
 
@@ -245,7 +178,7 @@ The meta-analysis found no overall significant effect of oxytocin administration
 
 The Robust Bayesian Meta-Analysis provided moderate support for the absence of an overall effect (BF₁₀ = 0.10) and moderate evidence against publication bias (BF_PB = 0.32). Statistical power analyses indicated that individual studies were generally underpowered (5-10% power) to detect the observed summary effect size.
 
-#### Statistical Power Analysis
+### Statistical Power Analysis
 
 ![Firepower Plot](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png)
 
@@ -307,8 +240,6 @@ Comprehensive search strategy including grey literature and preprints
 - **Publication status:** 76.92% peer-reviewed articles, 23.07% letters to editor
 - **Study designs:** 6 within-participant, 7 between-group studies
 
-
-
 ## References {#references}
 
 ```{=html}
@@ -349,3 +280,5 @@ Comprehensive search strategy including grey literature and preprints
   </script>
 </div>
 ```
+
+:::

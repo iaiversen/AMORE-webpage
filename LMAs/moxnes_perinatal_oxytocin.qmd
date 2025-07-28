@@ -117,7 +117,18 @@ Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxyto
 
 ::: {.main-content-container}
 
+## Abstract {#abstract}
+
+This living meta-analysis investigates the relationship between perinatal exposure to exogenous oxytocin and the likelihood of neurodevelopmental conditions such as attention-deficit/hyperactivity disorder (ADHD) and autism in children. Oxytocin is commonly used to induce and augment labor, with up to 50% of births in developed countries and varying rates (0.7% to 97.0%) in low- and lower-middle-income countries associated with synthetic oxytocin use.
+
+The analysis employs a frequentist approach, utilizing random effects models with the Paule-Mandel estimator to synthesize findings across the literature. The project addresses whether perinatal exposure to exogenous oxytocin increases the likelihood of neurodevelopmental conditions in children. This living meta-analysis will be updated every 24 months, ensuring the incorporation of emerging evidence.
+
+
 ## Resources {#resources}
+
+::: {.panel-tabset}
+
+### Initial Publication
 
 ```{=html}
 <details class="resource-details">
@@ -157,11 +168,59 @@ Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxyto
 </details>
 ```
 
-## Abstract {#abstract}
+### Update 1
 
-This living meta-analysis investigates the relationship between perinatal exposure to exogenous oxytocin and the likelihood of neurodevelopmental conditions such as attention-deficit/hyperactivity disorder (ADHD) and autism in children. Oxytocin is commonly used to induce and augment labor, with up to 50% of births in developed countries and varying rates (0.7% to 97.0%) in low- and lower-middle-income countries associated with synthetic oxytocin use.
+```{=html}
+<div class="development-notice">
+  <strong>Coming Soon:</strong> First update (24-month cycle)
+</div>
 
-The analysis employs a frequentist approach, utilizing random effects models with the Paule-Mandel estimator to synthesize findings across the literature. The project addresses whether perinatal exposure to exogenous oxytocin increases the likelihood of neurodevelopmental conditions in children. This living meta-analysis will be updated every 24 months, ensuring the incorporation of emerging evidence.
+<details class="resource-details">
+  <summary class="resource-summary">Updated Analysis</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Updated Dataset</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Updated Analysis Scripts</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Deviation Report</a>
+    </div>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Publication Materials</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Update 1 Preprint</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Update 1 Published Article</a>
+    </div>
+  </div>
+</details>
+```
+
+### Update 2
+
+```{=html}
+<div class="development-notice">
+  <strong>Future Update:</strong> Second update
+</div>
+
+<details class="resource-details">
+  <summary class="resource-summary">Future Materials</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Update 2 Materials</a>
+    </div>
+  </div>
+</details>
+```
+:::
+
 
 ## Current Results {#current-results}
 

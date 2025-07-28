@@ -1,0 +1,333 @@
+---
+title: "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis" 
+status: "Published"
+analytical_framework: "Mixed Methods"
+oxytocin:
+  intervention: "Intranasal oxytocin administration"
+  assessment_method: "Behavioral assessment"
+  route: "Central"
+  dosage: "24 IU"
+population:
+  status: "Mixed"
+  age_group: "Adults"
+  clinical_type: "Various clinical conditions"
+outcomes:
+  psychological_behavioral:
+    - "Executive Function"
+    - "Working Memory"
+    - "Cognitive Flexibility"
+    - "Inhibitory Control"
+update-frequency: "24 months"
+dois:
+  preregistration: "https://osf.io/8fzdy"
+  preprint: "https://osf.io/cbjxd"
+  publication: "10.1038/s41380-024-02871-4"
+format:
+  html:
+    theme: 
+      - yeti
+      - ../styles.scss
+    css: styles.scss
+    page-layout: full
+    toc-title: "On this page"
+    toc-location: right
+---
+
+::: {.project-hero-section}
+::: {.project-hero-content}
+Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis
+
+:::
+:::
+
+::: {.project-info-panel}
+::: {.project-info-grid}
+
+::: {.info-card .authors-card}
+### Authors
+```{=html}
+<div id="author-list">
+  <div id="visible-authors">
+    <strong>Heemin Kang</strong> (University of Oslo)<br>
+    <strong>Bernt D. Glaser</strong> (University of Oslo)<br>
+    <strong>Alina I. Sartorius</strong> (University of Oslo)
+  </div>
+  
+  <div id="hidden-authors" style="display:none"> 
+    <strong>Kristin Audunsdottir</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
+    <strong>Emilie Smith-Meyer Kildal</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
+    <strong>Terje Nærland</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital | Centre for Precision Psychiatry)<br>
+    <strong>Ole A. Andreassen</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | Centre for Precision Psychiatry)<br>
+    <strong>Lars T. Westlye</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
+    <strong>Daniel S. Quintana</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital)
+  </div>
+  
+  <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
+  
+  <script>
+  function toggleAuthors() {
+    var hiddenAuthors = document.getElementById("hidden-authors");
+    var toggleButton = document.getElementById("author-toggle");
+    
+    if (hiddenAuthors.style.display === "none") {
+      hiddenAuthors.style.display = "block";
+      toggleButton.textContent = "Show fewer authors";
+    } else {
+      hiddenAuthors.style.display = "none";
+      toggleButton.textContent = "Show more authors";
+    }
+  }
+  </script>
+</div>
+```
+::: 
+
+::: {.info-card .timeline-card}
+### Timeline
+**Pre-registered:** July 29, 2022  
+**Published:** January 18, 2025  
+**Next update:** Transforming meta-analysis protocol into living meta-analysis protocol in progress
+:::
+
+::: {.info-card .identifiers-card}
+### Identifiers
+**DOI:** <a href="https://doi.org/10.1038/s41380-024-02871-4" target="_blank">10.1038/s41380-024-02871-4</a>
+
+**Keywords:** oxytocin, executive function, meta-analysis, cognitive flexibility, working memory, inhibitory control
+:::
+
+::: {.info-card .contact-card}
+### Contact
+**Principal Investigator:** Daniel S. Quintana  
+**Email:** daniel.quintana@psykologi.uio.no
+:::
+
+:::
+:::
+
+::: {.main-content-container}
+
+## Abstract {#abstract}
+
+This preregistered systematic review and meta-analysis investigates the effects of oxytocin administration on non-social executive functions in humans. While oxytocin has received considerable attention for its role in social behaviors, emerging evidence suggests broader cognitive effects beyond social contexts.
+
+The analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies.
+
+## Resources {#resources}
+
+::: {.panel-tabset}
+
+### Initial Publication
+
+```{=html}
+<details class="resource-details">
+  <summary class="resource-summary">Pre-registration & Publication</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">Pre-registration on OSF</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">Published Article in Molecular Psychiatry</a>
+    </div>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Data & Analysis Resources</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">Complete Dataset and R Scripts</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">Interactive Web Application</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">Preprint Version</a>
+    </div>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Related Resources</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="https://doi.org/10.1016/j.tics.2020.03.008" class="resource-link" target="_blank">Quintana & Guastella (2020) - Allostatic theory of oxytocin</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="https://doi.org/10.1038/s41380-020-0751-x" class="resource-link" target="_blank">Quintana et al. (2021) - Intranasal oxytocin research advances</a>
+    </div>
+  </div>
+</details>
+```
+
+### Update 1
+
+```{=html}
+<div class="development-notice">
+  <strong>Coming Soon:</strong> First update (24-month cycle)
+</div>
+
+<details class="resource-details">
+  <summary class="resource-summary">Updated Analysis</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Updated Dataset</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Updated Analysis Scripts</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Deviation Report</a>
+    </div>
+  </div>
+</details>
+
+<details class="resource-details">
+  <summary class="resource-summary">Publication Materials</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Update 1 Preprint</a>
+    </div>
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Update 1 Published Article</a>
+    </div>
+  </div>
+</details>
+```
+
+### Update 2
+
+```{=html}
+<div class="development-notice">
+  <strong>Future Update:</strong> Second update
+</div>
+
+<details class="resource-details">
+  <summary class="resource-summary">Future Materials</summary>
+  <div class="resource-content">
+    <div class="link-wrapper">
+      <a href="#" class="resource-link pending" target="_blank">Update 2 Materials</a>
+    </div>
+  </div>
+</details>
+```
+
+:::
+
+
+## Current Results {#current-results}
+
+The meta-analysis found no overall significant effect of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30). However, subgroup analyses revealed significant heterogeneity across different executive function domains.
+
+**Key Findings:**
+
+- **Cognitive Flexibility:** Significant positive effect (Hedges' g = 0.20, p = 0.02)
+- **Working Memory:** No significant effect (Hedges' g = 0.05)
+- **Inhibitory Control:** No significant effect (Hedges' g = -0.04)
+
+The Robust Bayesian Meta-Analysis provided moderate support for the absence of an overall effect (BF₁₀ = 0.10) and moderate evidence against publication bias (BF_PB = 0.32). Statistical power analyses indicated that individual studies were generally underpowered (5-10% power) to detect the observed summary effect size.
+
+### Statistical Power Analysis
+
+![Firepower Plot](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png)
+
+**Figure 2: Firepower plot.** Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
+
+## Inclusion and Exclusion Criteria {#criteria}
+
+::: {.criteria-box}
+### Inclusion Criteria
+
+- **Type of Studies:** Human studies measuring effects of oxytocin administration on executive function using non-social stimuli
+- **Intervention:** Oxytocin administered intranasally, orally, or intravenously regardless of dosage
+- **Population:** Both clinical and neurotypical participants (no age restrictions)
+- **Outcomes:** Executive function measures (working memory, inhibitory control, cognitive flexibility) using non-social stimuli such as abstract shapes
+- **Design:** Placebo-controlled studies
+- **Language:** Publications in English language
+- **Data Requirements:** Sufficient statistical information to calculate effect sizes
+:::
+
+::: {.criteria-box}
+### Exclusion Criteria
+
+- Non-human animal studies
+- Studies investigating only endogenous oxytocin levels (no administration)
+- Studies measuring only somatic functions
+- Executive function tasks using social stimuli (e.g., emotional faces, social scenarios)
+- Studies without placebo control conditions
+- Insufficient statistical data for meta-analysis
+:::
+
+## Methodology Summary {#methodology}
+
+This preregistered systematic review followed PRISMA guidelines. Searches were conducted in PubMed, Europe PubMed Central, and Bielefeld Academic Search Engine (BASE) on July 29, 2022, with an updated search on August 1, 2023.
+
+Quality assessment was conducted using the RoB 2.0 tool for assessing risk of bias in randomized trials. Two reviewers independently extracted data and assessed study quality, with disagreements resolved through discussion.
+
+Statistical analyses were implemented in R Studio 4.2.2 using the metafor package for frequentist meta-analysis and RoBMA for Robust Bayesian Meta-Analysis. A multilevel random-effects model was used to account for multiple dependent outcomes from the same studies. Between-measurement correlation was set at r = 0.3 based on available raw data from one included study.
+
+## Search Strategy {#search-strategy}
+
+::: {.search-strategy-box}
+<span class="search-db">PubMed:</span>
+Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes
+
+<span class="search-db">Europe PubMed Central:</span>
+Customized search terms adapted for database specifications
+
+<span class="search-db">Bielefeld Academic Search Engine (BASE):</span>
+Comprehensive search strategy including grey literature and preprints
+:::
+
+## Study Characteristics {#study-characteristics}
+
+- **Included studies:** The final meta-analysis included 13 studies with 20 effect estimates
+- **Total participants:** 729 (284 in within-participant studies, 445 in between-group studies)
+- **Mean age:** 31.64 years (within-participant studies), 25.68 years (between-group studies)
+- **Oxytocin dosage:** Predominantly 24 IU intranasal (76.92% of studies)
+- **Administration routes:** Intranasal (92.3%), oral (7.7%)
+- **Publication status:** 76.92% peer-reviewed articles, 23.07% letters to editor
+- **Study designs:** 6 within-participant, 7 between-group studies
+
+## References {#references}
+
+```{=html}
+<div id="reference-list" style="font-size: 0.85rem;">
+  <div id="visible-references">
+    Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., Nærland, T., ... & Quintana, D.S. (2025). Effects of oxytocin administration on non-social executive functions in humans: a preregistered systematic review and meta-analysis. <i>Molecular Psychiatry, 30</i>, 2239–2251. <a href="https://doi.org/10.1038/s41380-024-02871-4">https://doi.org/10.1038/s41380-024-02871-4</a><br><br>
+    
+    Quintana, D.S., & Guastella, A.J. (2020). An allostatic theory of oxytocin. <i>Trends in Cognitive Sciences, 24</i>(6), 515-528. <a href="https://doi.org/10.1016/j.tics.2020.03.008">https://doi.org/10.1016/j.tics.2020.03.008</a><br><br>
+    
+    Chini, B., Leonzino, M., Braida, D., & Sala, M. (2014). Learning about oxytocin: pharmacologic and behavioral issues. <i>Biological Psychiatry, 76</i>(5), 360-366. <a href="https://doi.org/10.1016/j.biopsych.2013.08.029">https://doi.org/10.1016/j.biopsych.2013.08.029</a><br><br>
+  </div>
+  
+  <div id="hidden-references" style="display:none">
+    Miyake, A., & Friedman, N.P. (2012). The nature and organization of individual differences in executive functions: four general conclusions. <i>Current Directions in Psychological Science, 21</i>(1), 8-14.<br><br>
+    
+    Kapetaniou, G.E., Reinhard, M.A., Christian, P., Jobst, A., Tobler, P.N., Padberg, F., ... & Hurlemann, R. (2021). The role of oxytocin in delay of gratification and flexibility in non-social decision making. <i>eLife, 10</i>, e61844.<br><br>
+    
+    Quintana, D.S., Lischke, A., Grace, S., Scheele, D., Ma, Y., & Becker, B. (2021). Advances in the field of intranasal oxytocin research: lessons learned and future directions for clinical research. <i>Molecular Psychiatry, 26</i>(1), 80-91.<br><br>
+    
+    Bartoš, F., Maier, M., Quintana, D.S., & Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. <i>Advances in Methods and Practices in Psychological Science, 5</i>(3), 25152459221109259.<br><br>
+  </div>
+  
+  <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
+  
+  <script>
+  function toggleReferences() {
+    var hiddenReferences = document.getElementById("hidden-references");
+    var toggleButton = document.getElementById("reference-toggle");
+    
+    if (hiddenReferences.style.display === "none") {
+      hiddenReferences.style.display = "block";
+      toggleButton.textContent = "Show fewer references";
+    } else {
+      hiddenReferences.style.display = "none";
+      toggleButton.textContent = "Show more references";
+    }
+  }
+  </script>
+</div>
+```
+
+:::
