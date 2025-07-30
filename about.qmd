@@ -61,7 +61,7 @@ Living meta-analysis published on AMORE commit to transparency through pre-regis
 :::
 
 ::: {#team .tab-pane}
-## Expert Steering Committee
+## Expert Steering Committee 
 
 The AMORE platform is overseen by a steering committee of experts in the oxytocin research field. The committee:
 
@@ -70,7 +70,7 @@ The AMORE platform is overseen by a steering committee of experts in the oxytoci
 - Ensures computational reproducibility
 - Maintains platform standards
 
-### Committee Members
+### Committee Members {#committee-members}
 
 ::: {.committee-grid}
 

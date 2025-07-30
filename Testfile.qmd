@@ -1,284 +1,379 @@
 ---
-title: "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis" 
-status: "Published"
-analytical_framework: "Mixed Methods"
-oxytocin:
-  intervention: "Intranasal oxytocin administration"
-  assessment_method: "Behavioral assessment"
-  route: "Central"
-  dosage: "24 IU"
-population:
-  status: "Mixed"
-  age_group: "Adults"
-  clinical_type: "Various clinical conditions"
-outcomes:
-  psychological_behavioral:
-    - "Executive Function"
-    - "Working Memory"
-    - "Cognitive Flexibility"
-    - "Inhibitory Control"
-update-frequency: "24 months"
-dois:
-  preregistration: "https://osf.io/8fzdy"
-  preprint: "https://osf.io/cbjxd"
-  publication: "10.1038/s41380-024-02871-4"
+title: "How to Publish Your Living Meta-Analysis on AMORE"
 format:
   html:
     theme: 
       - yeti
       - ../styles.scss
-    css: styles.scss
+    css: ../styles.scss
     page-layout: full
-    toc: true
-    toc-title: "On this page"
-    toc-location: right
-    toc-depth: 3
 ---
 
-::: {.project-hero-section}
-::: {.project-hero-content}
-Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis
-
-:::
-:::
-
-::: {.project-info-panel}
-::: {.project-info-grid}
-
-::: {.info-card .authors-card}
-### Authors
 ```{=html}
-<div id="author-list">
-  <div id="visible-authors">
-    <strong>Heemin Kang</strong> (University of Oslo)<br>
-    <strong>Bernt D. Glaser</strong> (University of Oslo)<br>
-    <strong>Alina I. Sartorius</strong> (University of Oslo)
+<div class="wizard-container">
+  <div class="wizard-nav">
+    <div class="nav-header">
+      AMORE workflow 
+    </div>
+    <ul class="step-list">
+      <li class="step-item active" data-step="1">
+        <span class="step-number">1</span>
+        <span class="step-text">Propose Your Topic</span>
+      </li>
+      <li class="step-item" data-step="2">
+        <span class="step-number">2</span>
+        <span class="step-text">Steering Committee Review</span>
+      </li>
+      <li class="step-item" data-step="3">
+        <span class="step-number">3</span>
+        <span class="step-text">Pre-registration</span>
+      </li>
+      <li class="step-item" data-step="4">
+        <span class="step-number">4</span>
+        <span class="step-text">Conduct Review</span>
+      </li>
+      <li class="step-item" data-step="5">
+        <span class="step-number">5</span>
+        <span class="step-text">Data Deposit</span>
+      </li>
+      <li class="step-item" data-step="6">
+        <span class="step-number">6</span>
+        <span class="step-text">Publication</span>
+      </li>
+      <li class="step-item" data-step="7">
+        <span class="step-number">7</span>
+        <span class="step-text">Regular Updates</span>
+      </li>
+    </ul>
   </div>
-  
-  <div id="hidden-authors" style="display:none"> 
-    <strong>Kristin Audunsdottir</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
-    <strong>Emilie Smith-Meyer Kildal</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
-    <strong>Terje Nærland</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital | Centre for Precision Psychiatry)<br>
-    <strong>Ole A. Andreassen</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | Centre for Precision Psychiatry)<br>
-    <strong>Lars T. Westlye</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
-    <strong>Daniel S. Quintana</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital)
-  </div>
-  
-  <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
-  
-  <script>
-  function toggleAuthors() {
-    var hiddenAuthors = document.getElementById("hidden-authors");
-    var toggleButton = document.getElementById("author-toggle");
+
+  <div class="wizard-content">
+    <!-- Step 1: Propose Your Topic -->
+    <div class="step-content active" id="step1">
+      <h2>Step 1: Propose Your Topic</h2>
+      <div class="content-box">
+        <h3>Contact us</h3>
+        <p>
+        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about conducting analysis, our standardization framework or preparing protocols. The contact form will redirect you to the right form for project proposal or questions. 
+        </p>
+        <h3>What to include:</h3>
+        <ul>
+          <li>A meta-analysis investigating oxytocin related to a biobehavioral outcome</li>
+          <li>Living meta-analysis update frequency (maximum 24 months between updates)</li>
+          <li>Proposal of protocol within our standardization framework. The necessary information we need for evaluating if your meta-analysis project can be implemented on AMORE is found as a checklist on the resources page</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 2: Steering Committee Review -->
+    <div class="step-content" id="step2">
+      <h2>Step 2: Steering Committee Review</h2>
+      <div class="content-box">
+        <h3>Review Process</h3>
+        <ul>
+          <li>Evaluation that living meta-analysis is within platform remit</li>
+          <li>Confirmation that topic is suitable for inclusion</li>
+          <li>Verification that all mandatory requirements from checklist are met</li>
+          <li>Methodological review and advice if needed</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 3: Pre-registration -->
+    <div class="step-content" id="step3">
+      <h2>Step 3: Pre-registration</h2>
+      <div class="content-box">
+        <h3>Registration Requirements</h3>
+        <ul>
+          <li>Pre-register in recognised repository (e.g. Open Science Framework, PROSPERO)</li>
+          <li>Project will be added to AMORE homepage with its own project page</li>
+        </ul>
+      </div>
+    </div>
     
-    if (hiddenAuthors.style.display === "none") {
-      hiddenAuthors.style.display = "block";
-      toggleButton.textContent = "Show fewer authors";
-    } else {
-      hiddenAuthors.style.display = "none";
-      toggleButton.textContent = "Show more authors";
-    }
-  }
-  </script>
+    <!-- Step 4: Conduct Review -->
+    <div class="step-content" id="step4">
+      <h2>Step 4: Conduct Review</h2>
+      <div class="content-box">
+        <h3>Perform systematic review</h3>
+        <ul>
+          <li>Conduct review based on pre-registered protocol</li>
+          <li>Analyses must be performed on free software for reproducibility</li>
+          <li>Track any deviations from protocol and document in deviation report</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 5: Data Deposit -->
+    <div class="step-content" id="step5">
+      <h2>Step 5: Data Deposit</h2>
+      <div class="content-box">
+        <h3>Data Requirements</h3>
+        <ul>
+          <li>Deposit complete dataset in recognized repository (e.g. Open Science Framework or Zenodo)</li> 
+          <li>Deposit free software script in recognised repository</li>
+          <li>Provide deviation report as supplementary material to analysis script</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 6: Publication -->
+    <div class="step-content" id="step6">
+      <h2>Step 6: Publication</h2>
+      <div class="content-box">
+        <h3>Publication Process</h3>
+        <ul>
+          <li>Publish manuscript on recognized pre-print server (e.g., Open Science Framework)</li>
+          <li>Submit to peer-reviewed journal</li>
+          <li>Project page will be updated with links to:</li>
+          <ul>
+            <li>Pre-print</li>
+            <li>Published paper</li>
+            <li>Deviation report</li>
+          </ul>
+          <li>Ensure all documentation remains accessible</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 7: Regular Updates -->
+    <div class="step-content" id="step7">
+      <h2>Step 7: Regular Updates</h2>
+      <div class="content-box">
+        <h3>Update Requirements</h3>
+        <ul>
+          <li>Conduct new searches according to update plan</li>
+          <li>Maximum time between updates: 24 months</li>
+          <li>For each update:</li>
+          <ul>
+            <li>Document all changes</li>
+            <li>Remove any retracted papers</li>
+            <li>Update all relevant materials</li>
+            <li>Maintain accessibility of all documents</li>
+          </ul>
+          <li>Follow original protocol for consistency</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wizard-navigation">
+      <button class="nav-button prev-button" disabled>Previous</button>
+      <button class="nav-button next-button">Next</button>
+    </div>
+  </div>
 </div>
-```
-::: 
 
-::: {.info-card .timeline-card}
-### Timeline
-**Pre-registered:** July 29, 2022  
-**Published:** January 18, 2025  
-**Protocol transforming from traditional to living meta-analysis:** In progress
-:::
+<style>
+.wizard-container {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  min-height: 600px;
+  align-items: stretch; /* Make both containers same height */
+}
 
-::: {.info-card .identifiers-card}
-### Identifiers
-**DOI:** <a href="https://doi.org/10.1038/s41380-024-02871-4" target="_blank">10.1038/s41380-024-02871-4</a>
+.wizard-nav {
+  flex: 0 0 300px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
 
-**Keywords:** oxytocin, executive function, meta-analysis, cognitive flexibility, working memory, inhibitory control
-:::
+.nav-header {
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid #dee2e6;
+}
 
-::: {.info-card .contact-card}
-### Contact
-**Principal Investigator:** Daniel S. Quintana  
-**Email:** daniel.quintana@psykologi.uio.no
-:::
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* Take up remaining space in nav */
+}
 
-:::
-:::
+.step-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
 
-::: {.main-content-container}
+.step-item:hover {
+  background: rgba(92, 105, 151, 0.1);
+}
 
-## Resources {#resources}
+.step-item.active {
+  background: rgba(9, 64, 116, 0.1);
+  border-left-color: var(--primary-color);
+}
 
-::: {.panel-tabset}
+.step-item.active .step-number {
+  background: var(--primary-color);
+  color: white;
+}
 
-### Initial Publication
+.step-number {
+  width: 28px;
+  height: 28px;
+  background: #dee2e6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
 
-::: {.resource-grid}
-**Pre-registration & Publication**
+.step-text {
+  font-size: 0.95rem;
+}
 
-- [Pre-registration on OSF](https://osf.io/8fzdy)  
-- [Published Article](https://doi.org/10.1038/s41380-024-02871-4)
+.wizard-content {
+  flex: 1;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
 
-**Data & Analysis**  
+.step-content {
+  display: none;
+  flex: 1; /* Take up available space */
+}
 
-- [Dataset & R Scripts](https://osf.io/7eg5u/)  
-- [Interactive Web App](https://dsquintana.shinyapps.io/ot_meta_exec/)  
-- [Preprint Version](https://osf.io/cbjxd)
+.step-content.active {
+  display: block;
+}
 
-**Related Work**
+/* Move h2 higher up in the box */
+.step-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-top: 0;
+}
 
-- [Allostatic theory of oxytocin](https://doi.org/10.1016/j.tics.2020.03.008)  
-- [Intranasal oxytocin research advances](https://doi.org/10.1038/s41380-020-0751-x)
-:::
+.content-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  flex: 1; /* Take up remaining space */
+}
 
-### Update 1
+.wizard-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; /* Push to bottom */
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
 
-::: {.resource-grid}
-**Coming Soon** (Early 2027)
+.nav-button {
+  padding: 0.5rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-**Updated Analysis**  
+.nav-button:hover:not(:disabled) {
+  background: var(--secondary-color);
+}
 
-- Updated Dataset ⏳  
-- Updated Scripts ⏳  
-- Deviation Report ⏳
+.nav-button:disabled {
+  background: #dee2e6;
+  cursor: not-allowed;
+}
 
-**Publication**  
-
-- Update 1 Preprint ⏳  
-- Update 1 Article ⏳
-:::
-
-### Update 2
-
-::: {.resource-grid}
-**Future Update** (Early 2029)
-
-- Update 2 Materials ⏳
-:::
-
-:::
-
-## Abstract {#abstract}
-
-This preregistered systematic review and meta-analysis investigates the effects of oxytocin administration on non-social executive functions in humans. While oxytocin has received considerable attention for its role in social behaviors, emerging evidence suggests broader cognitive effects beyond social contexts.
-
-The analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies.
-
-## Current Results {#current-results}
-
-The meta-analysis found no overall significant effect of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30). However, subgroup analyses revealed significant heterogeneity across different executive function domains.
-
-**Key Findings:**
-
-- **Cognitive Flexibility:** Significant positive effect (Hedges' g = 0.20, p = 0.02)
-- **Working Memory:** No significant effect (Hedges' g = 0.05)
-- **Inhibitory Control:** No significant effect (Hedges' g = -0.04)
-
-The Robust Bayesian Meta-Analysis provided moderate support for the absence of an overall effect (BF₁₀ = 0.10) and moderate evidence against publication bias (BF_PB = 0.32). Statistical power analyses indicated that individual studies were generally underpowered (5-10% power) to detect the observed summary effect size.
-
-### Statistical Power Analysis
-
-![Firepower Plot](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png)
-
-**Figure 2: Firepower plot.** Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
-
-## Inclusion and Exclusion Criteria {#criteria}
-
-::: {.criteria-box}
-### Inclusion Criteria
-
-- **Type of Studies:** Human studies measuring effects of oxytocin administration on executive function using non-social stimuli
-- **Intervention:** Oxytocin administered intranasally, orally, or intravenously regardless of dosage
-- **Population:** Both clinical and neurotypical participants (no age restrictions)
-- **Outcomes:** Executive function measures (working memory, inhibitory control, cognitive flexibility) using non-social stimuli such as abstract shapes
-- **Design:** Placebo-controlled studies
-- **Language:** Publications in English language
-- **Data Requirements:** Sufficient statistical information to calculate effect sizes
-:::
-
-::: {.criteria-box}
-### Exclusion Criteria
-
-- Non-human animal studies
-- Studies investigating only endogenous oxytocin levels (no administration)
-- Studies measuring only somatic functions
-- Executive function tasks using social stimuli (e.g., emotional faces, social scenarios)
-- Studies without placebo control conditions
-- Insufficient statistical data for meta-analysis
-:::
-
-## Methodology Summary {#methodology}
-
-This preregistered systematic review followed PRISMA guidelines. Searches were conducted in PubMed, Europe PubMed Central, and Bielefeld Academic Search Engine (BASE) on July 29, 2022, with an updated search on August 1, 2023.
-
-Quality assessment was conducted using the RoB 2.0 tool for assessing risk of bias in randomized trials. Two reviewers independently extracted data and assessed study quality, with disagreements resolved through discussion.
-
-Statistical analyses were implemented in R Studio 4.2.2 using the metafor package for frequentist meta-analysis and RoBMA for Robust Bayesian Meta-Analysis. A multilevel random-effects model was used to account for multiple dependent outcomes from the same studies. Between-measurement correlation was set at r = 0.3 based on available raw data from one included study.
-
-## Search Strategy {#search-strategy}
-
-::: {.search-strategy-box}
-<span class="search-db">PubMed:</span>
-Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes
-
-<span class="search-db">Europe PubMed Central:</span>
-Customized search terms adapted for database specifications
-
-<span class="search-db">Bielefeld Academic Search Engine (BASE):</span>
-Comprehensive search strategy including grey literature and preprints
-:::
-
-## Study Characteristics {#study-characteristics}
-
-- **Included studies:** The final meta-analysis included 13 studies with 20 effect estimates
-- **Total participants:** 729 (284 in within-participant studies, 445 in between-group studies)
-- **Mean age:** 31.64 years (within-participant studies), 25.68 years (between-group studies)
-- **Oxytocin dosage:** Predominantly 24 IU intranasal (76.92% of studies)
-- **Administration routes:** Intranasal (92.3%), oral (7.7%)
-- **Publication status:** 76.92% peer-reviewed articles, 23.07% letters to editor
-- **Study designs:** 6 within-participant, 7 between-group studies
-
-## References {#references}
-
-```{=html}
-<div id="reference-list" style="font-size: 0.85rem;">
-  <div id="visible-references">
-    Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., Nærland, T., ... & Quintana, D.S. (2025). Effects of oxytocin administration on non-social executive functions in humans: a preregistered systematic review and meta-analysis. <i>Molecular Psychiatry, 30</i>, 2239–2251. <a href="https://doi.org/10.1038/s41380-024-02871-4">https://doi.org/10.1038/s41380-024-02871-4</a><br><br>
-    
-    Quintana, D.S., & Guastella, A.J. (2020). An allostatic theory of oxytocin. <i>Trends in Cognitive Sciences, 24</i>(6), 515-528. <a href="https://doi.org/10.1016/j.tics.2020.03.008">https://doi.org/10.1016/j.tics.2020.03.008</a><br><br>
-    
-    Chini, B., Leonzino, M., Braida, D., & Sala, M. (2014). Learning about oxytocin: pharmacologic and behavioral issues. <i>Biological Psychiatry, 76</i>(5), 360-366. <a href="https://doi.org/10.1016/j.biopsych.2013.08.029">https://doi.org/10.1016/j.biopsych.2013.08.029</a><br><br>
-  </div>
-  
-  <div id="hidden-references" style="display:none">
-    Miyake, A., & Friedman, N.P. (2012). The nature and organization of individual differences in executive functions: four general conclusions. <i>Current Directions in Psychological Science, 21</i>(1), 8-14.<br><br>
-    
-    Kapetaniou, G.E., Reinhard, M.A., Christian, P., Jobst, A., Tobler, P.N., Padberg, F., ... & Hurlemann, R. (2021). The role of oxytocin in delay of gratification and flexibility in non-social decision making. <i>eLife, 10</i>, e61844.<br><br>
-    
-    Quintana, D.S., Lischke, A., Grace, S., Scheele, D., Ma, Y., & Becker, B. (2021). Advances in the field of intranasal oxytocin research: lessons learned and future directions for clinical research. <i>Molecular Psychiatry, 26</i>(1), 80-91.<br><br>
-    
-    Bartoš, F., Maier, M., Quintana, D.S., & Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. <i>Advances in Methods and Practices in Psychological Science, 5</i>(3), 25152459221109259.<br><br>
-  </div>
-  
-  <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
-  
-  <script>
-  function toggleReferences() {
-    var hiddenReferences = document.getElementById("hidden-references");
-    var toggleButton = document.getElementById("reference-toggle");
-    
-    if (hiddenReferences.style.display === "none") {
-      hiddenReferences.style.display = "block";
-      toggleButton.textContent = "Show fewer references";
-    } else {
-      hiddenReferences.style.display = "none";
-      toggleButton.textContent = "Show more references";
-    }
+@media (max-width: 768px) {
+  .wizard-container {
+    flex-direction: column;
   }
-  </script>
-</div>
-```
 
-:::
+  .wizard-nav {
+    flex: none;
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+  
+  .wizard-content {
+    min-height: 400px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const stepItems = document.querySelectorAll('.step-item');
+    const stepContents = document.querySelectorAll('.step-content');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    let currentStep = 1;
+    
+    function setActiveStep(stepNumber) {
+        // Update navigation items
+        stepItems.forEach(item => {
+            if (parseInt(item.dataset.step) === stepNumber) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        
+        // Update content sections
+        stepContents.forEach(content => {
+            if (content.id === `step${stepNumber}`) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+        
+        // Update button states
+        prevButton.disabled = stepNumber === 1;
+        nextButton.disabled = stepNumber === 7; // Changed from 8 to 7
+        
+        currentStep = stepNumber;
+    }
+    
+    // Add click handlers for step items
+    stepItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const stepNumber = parseInt(item.dataset.step);
+            setActiveStep(stepNumber);
+        });
+    });
+    
+    // Add click handlers for navigation buttons
+    prevButton.addEventListener('click', () => {
+        if (currentStep > 1) {
+            setActiveStep(currentStep - 1);
+        }
+    });
+    
+    nextButton.addEventListener('click', () => {
+        if (currentStep < 7) { // Changed from 8 to 7
+            setActiveStep(currentStep + 1);
+        }
+    });
+
+    // Initialize the first step
+    setActiveStep(1);
+});
+</script>
+```

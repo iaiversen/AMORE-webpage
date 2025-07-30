@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-aeabafa6cb0e920d01f57a257865a24a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-43eb38c1203c6afcafc9144426ee4f00.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -159,34 +159,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="tabset-margin-container"></div><div class="panel-tabset mt-4">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Mandatory Requirements</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Recommended Practices</a></li></ul>
-<div class="tab-content mt-4">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="requirements-box">
+<div class="hero-section">
+<div class="hero-content">
+<p>Standardization Framework for AMORE</p>
+<div class="hero-tagline">
+<p>Consensus built standardization framework for collaborative living meta-analysis and transparent science</p>
+</div>
+</div>
+</div>
+<div class="about-tabs-container">
+<div class="tab-navigation">
+<button class="tab-button active" onclick="showTab('Requirements')">
+Our Requirements
+</button>
+<button class="tab-button" onclick="showTab('Recommended')">
+Recommended Practices
+</button>
+</div>
+<div class="tab-content">
+<div id="Requirements" class="tab-pane active">
+<section id="mandatory-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="mandatory-requirements">Mandatory Requirements</h2>
 <ul>
-<li><p><strong>Update Frequency</strong> Maximum 24 months between analysis updates</p></li>
-<li><p><strong>Pre-registration</strong> Meta-analysis must be pre-registered</p></li>
-<li><p><strong>Pre-print Publication</strong> Initial results must be published on recognized pre-print server (e.g., Open Science Framework)</p></li>
-<li><p><strong>Guidelines Adherence</strong> Must follow PRISMA or equivalent guidelines (MOOSE, MARS)</p></li>
-<li><p><strong>Data Repository</strong> Meta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)</p></li>
-<li><p><strong>Analysis Scripts</strong> Free software scripts must be deposited in recognized repository</p></li>
-<li><p><strong>Deviation Reporting</strong> Supply deviation report with meta-analysis manuscript</p></li>
+<li><p><strong>Update Frequency</strong><br>
+Maximum 24 months between analysis updates</p></li>
+<li><p><strong>Pre-registration</strong><br>
+Meta-analysis must be pre-registered</p></li>
+<li><p><strong>Pre-print Publication</strong><br>
+Initial results must be published on recognized pre-print server (e.g., Open Science Framework)</p></li>
+<li><p><strong>Guidelines Adherence</strong><br>
+Must follow PRISMA or equivalent guidelines (MOOSE, MARS)</p></li>
+<li><p><strong>Data Repository</strong><br>
+Meta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)</p></li>
+<li><p><strong>Analysis Scripts</strong><br>
+Free software scripts must be deposited in recognized repository</p></li>
+<li><p><strong>Deviation Reporting</strong><br>
+Supply deviation report with meta-analysis manuscript<br>
+</p></li>
 </ul>
+</section>
 </div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="requirements-box">
+<div id="Recommended" class="tab-pane">
+<section id="recommended-practices" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-practices">Recommended Practices</h2>
 <ul>
-<li><p><strong>Accumulation Bias</strong> Develop plan to address accumulation bias in frequentist framework</p></li>
-<li><p><strong>Effect Determination</strong> Use Bayes factor of 10 to conclude presence/absence of effects</p></li>
-<li><p><strong>Null Hypothesis</strong> Create plan to evaluate evidence for null hypothesis</p></li>
-<li><p><strong>Visualizations</strong> Include forest plots and funnel plots</p></li>
+<li><p><strong>Accumulation Bias</strong><br>
+Develop plan to address accumulation bias in frequentist framework</p></li>
+<li><p><strong>Effect Determination</strong><br>
+Use Bayes factor of 10 to conclude presence/absence of effects</p></li>
+<li><p><strong>Null Hypothesis</strong><br>
+Create plan to evaluate evidence for null hypothesis</p></li>
+<li><p><strong>Visualizations</strong><br>
+Include forest plots and funnel plots</p></li>
 </ul>
+</section>
 </div>
 </div>
 </div>
-</div>
+<script>
+function showTab(tabName) {
+  const panes = document.querySelectorAll('.tab-pane');
+  panes.forEach(pane => {
+    pane.classList.remove('active');
+  });
+  
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  });
+  
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 
 
 

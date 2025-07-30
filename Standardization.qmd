@@ -8,57 +8,80 @@ format:
     css: styles.scss
 ---
 
-::: {.panel-tabset .mt-4}
+::: {.hero-section}
+::: {.hero-content}
 
-## Mandatory Requirements {.tab-header}
+Standardization Framework for AMORE 
 
-::: {.requirements-box}
-- **Update Frequency**
+::: {.hero-tagline}
+
+Consensus built standardization framework for collaborative living meta-analysis and transparent science 
+
+:::
+:::
+:::
+
+::: {.about-tabs-container}
+::: {.tab-navigation}
+<button class="tab-button active" onclick="showTab('Requirements')">Our Requirements</button>
+<button class="tab-button" onclick="showTab('Recommended')">Recommended Practices</button>
+:::
+
+::: {.tab-content}
+::: {#Requirements .tab-pane .active}
+## Mandatory Requirements
+- **Update Frequency**  
 Maximum 24 months between analysis updates  
   
-
-- **Pre-registration**
+- **Pre-registration**  
 Meta-analysis must be pre-registered
 
-- **Pre-print Publication**
+- **Pre-print Publication**  
 Initial results must be published on recognized pre-print server (e.g., Open Science Framework)  
   
-
-- **Guidelines Adherence**
+- **Guidelines Adherence**  
 Must follow PRISMA or equivalent guidelines (MOOSE, MARS)  
   
-
-- **Data Repository**
+- **Data Repository**  
 Meta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)  
   
-
-- **Analysis Scripts**
+- **Analysis Scripts**  
 Free software scripts must be deposited in recognized repository  
   
-
-- **Deviation Reporting**
+- **Deviation Reporting**  
 Supply deviation report with meta-analysis manuscript  
-  
 :::
 
-## Recommended Practices {.tab-header}
-
-::: {.requirements-box}
-- **Accumulation Bias**
+::: {#Recommended .tab-pane}
+## Recommended Practices
+- **Accumulation Bias**  
 Develop plan to address accumulation bias in frequentist framework
   
-
-- **Effect Determination**
+- **Effect Determination**  
 Use Bayes factor of 10 to conclude presence/absence of effects  
   
-
-- **Null Hypothesis**
+- **Null Hypothesis**  
 Create plan to evaluate evidence for null hypothesis  
   
+- **Visualizations**  
+Include forest plots and funnel plots
+:::
+:::
+:::
 
-- **Visualizations**
-Include forest plots and funnel plots  
+<script>
+function showTab(tabName) {
+  const panes = document.querySelectorAll('.tab-pane');
+  panes.forEach(pane => {
+    pane.classList.remove('active');
+  });
   
-:::
-
-:::
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  });
+  
+  document.getElementById(tabName).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>

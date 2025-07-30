@@ -9,9 +9,10 @@ format:
 ---
 
 
+::: {.white-text}
 This protocol checklist tool serves to help ensure all necessary information in the project proposal form is included. When planning your project use this checklist to see what information we require. This will streamline the process of entering the required details to the "propose your project" form when you are ready to submit
-
-
+your project proposal.
+::: 
 
 ```{=html}
 <div class="checklist-container">

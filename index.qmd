@@ -9,7 +9,7 @@ format:
 
 
 ::: {.content-section}
-![](logo.unfinished.jpg){.header-logo}
+![](white_no_bak.png){.header-logo}
 
 ::: {.subtitle-text}
 Active Monitoring of Oxytocin Research Evidence
