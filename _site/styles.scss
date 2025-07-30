@@ -1185,21 +1185,21 @@ details[open] .resource-summary::after {
 
 .contact-container {
   background: white;
-  border-radius: 0;
+  border-radius: 12px;
   padding: 0;
-  margin: 0;
-  max-width: 100vw;
-  width: 100vw;
-  box-shadow: none;
+  margin: 0.3rem auto; /* Center the container */
+  max-width: 2000px; /* Reduced from 100vw */
+  width: 85%; /* Responsive width */
+  height: 600px; /* Reduced from calc(100vh - 80px) */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: calc(100vh - 80px);
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .contact-section {
-  padding: 1.5rem 2.5rem 1.5rem 3rem;
+  padding: 2rem 2.5rem 2rem 3rem; /* Restore original padding */
   background: white;
   display: flex;
   flex-direction: column;
@@ -1209,7 +1209,7 @@ details[open] .resource-summary::after {
   height: 100%;
   
   h2 {
-    font-size: 2.2rem;
+    font-size: 2.2rem; /* Back to original size */
     color: #0A2A5E;
     margin-bottom: 1.2rem;
     text-align: left;
@@ -1248,24 +1248,20 @@ details[open] .resource-summary::after {
   }
 }
 
-.contact-container::after {
+/* Alternative: Add a separate pseudo-element for the white logo overlay */
+.contact-container::before {
   content: '';
   position: absolute;
   right: -15%;
   top: 0;
   width: 65%;
   height: 100%;
-  background: 
-    linear-gradient(90deg, 
-      rgba(255, 255, 255, 1) 0%, 
-      rgba(255, 255, 255, 0.8) 20%, 
-      rgba(255, 255, 255, 0.3) 60%, 
-      rgba(255, 255, 255, 0) 100%
-    ),
-    url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished.jpg') no-repeat center center;
+  background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center;
   background-size: contain;
   background-position: center;
-  z-index: 1;
+  filter: brightness(0) invert(1) opacity(0.3); /* White logo with low opacity */
+  z-index: 2;
+  pointer-events: none;
 }
 
 .contact-buttons {
@@ -1683,38 +1679,27 @@ h2[data-anchor-id="resourcepage"] {
     margin-left: calc(-47.5vw + 50%);
   }
   
-  /* Contact page adjustments */
+  /* Contact page adjustments - updated to match new design */
   .contact-container {
+    max-width: calc(100vw - 2rem);
+    width: calc(100vw - 2rem);
+    height: 500px;
+    margin: 1rem auto;
     grid-template-columns: 1fr;
-    height: calc(100vh - 60px);
-    
-    &::after {
-      width: 100%;
-      height: 40%;
-      bottom: 0;
-      top: auto;
-      right: 0;
-      background: 
-        linear-gradient(180deg, 
-          rgba(255, 255, 255, 1) 0%, 
-          rgba(255, 255, 255, 0.9) 40%, 
-          rgba(255, 255, 255, 0.3) 80%, 
-          rgba(255, 255, 255, 0) 100%
-        ),
-        url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished.jpg') no-repeat center bottom;
-      background-size: contain;
-      background-position: center bottom;
-    }
   }
   
   .contact-section {
     padding: 2rem 1.5rem;
-    height: 60%;
+    height: auto;
   }
   
-  .contact-buttons {
-    display: flex;
-    justify-content: center;
+  .contact-container::before {
+    right: -10%;
+    top: auto;
+    bottom: -10%;
+    width: 60%;
+    height: 60%;
+    opacity: 0.2;
   }
 }
 
@@ -1879,10 +1864,107 @@ h2[data-anchor-id="resourcepage"] {
     margin-top: 3rem;
   }
   
-  /* Contact page button centering */
-  .contact-buttons {
-    display: flex;
-    justify-content: center;
+  /* Smaller tablets */
+@media (max-width: 991px) {
+  /* ... other existing styles ... */
+  
+  /* Contact page adjustments - keep the grid layout */
+  .contact-container {
+    max-width: calc(100vw - 2rem);
+    width: calc(100vw - 2rem);
+    height: 450px; /* Slightly smaller height */
+    margin: 1rem auto;
+    /* Keep grid-template-columns: 1fr 1fr; */
+  }
+  
+  .contact-section {
+    padding: 1.5rem 2rem 1.5rem 2.5rem; /* Maintain left/right padding ratio */
+  }
+  
+  /* Adjust logo for smaller screens */
+  .contact-container::before {
+    right: -12%;
+    width: 55%;
+    height: 100%;
+    opacity: 0.25;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 767px) {
+  /* ... other existing styles ... */
+  
+ 
+  /* Contact page - now switch to single column */
+  .contact-container {
+    max-width: calc(100vw - 1rem);
+    width: calc(100vw - 1rem);
+    height: auto; /* Let content determine height */
+    min-height: 400px;
+    margin: 0.5rem auto;
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+  
+  .contact-section {
+    padding: 2rem 1.5rem;
+    height: auto;
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Position logo at bottom right for mobile */
+  .contact-container::before {
+    right: -10%;
+    top: auto;
+    bottom: -5%;
+    width: 40%;
+    height: 30%;
+    opacity: 0.2;
+  }
+}
+
+/* Small phones */
+@media (max-width: 575px) {
+  /* ... other existing styles ... */
+  
+  .contact-container {
+    max-width: calc(100vw - 0.5rem);
+    width: calc(100vw - 0.5rem);
+    min-height: 350px;
+    margin: 0.25rem auto;
+  }
+  
+  .contact-section {
+    padding: 1.5rem 1rem;
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    p {
+      font-size: 0.9rem;
+    }
+    
+    li {
+      font-size: 0.85rem;
+      margin: 0.6rem 0;
+    }
+  }
+} 
+  
+  .contact-buttons .primary-button {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact-container::before {
+    right: -5%;
+    bottom: -5%;
+    width: 35%;
+    height: 25%;
+    opacity: 0.15;
   }
 }
 
@@ -1963,9 +2045,32 @@ h2[data-anchor-id="resourcepage"] {
     }
   }
   
-  /* Contact page button centering */
-  .contact-buttons {
-    display: flex;
-    justify-content: center;
+  /* Contact page phone adjustments */
+  .contact-container {
+    max-width: calc(100vw - 0.5rem);
+    width: calc(100vw - 0.5rem);
+    height: 400px;
+    margin: 0.25rem auto;
+  }
+  
+  .contact-section {
+    padding: 1rem;
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    p {
+      font-size: 0.85rem;
+    }
+    
+    li {
+      font-size: 0.8rem;
+    }
+  }
+  
+  .contact-buttons .primary-button {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
   }
 }

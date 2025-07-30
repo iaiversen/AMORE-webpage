@@ -9,20 +9,15 @@ format:
     title-block-style: none 
 ---
 
-
 ::: {.contact-container}
 
 ::: {.contact-section}
 ## Connect With Us 
-If you are interested in publishing your living meta-analysis on our platform, you can connect with us through our contact form. 
-
-We have three options for you to choose from:
+We have three form options for you to choose from. By clicking the contact button, you will be redirected to our three forms.
 
 - **Propose your project**: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.
 - **Update an existing living meta-analysis**: If you have an existing living meta-analysis that you would like to update, please select this option.
 - **General inquiry**: If you have any other questions or inquiries, please select this option.
-
-By clicking the contact button, you will be redirected to our three forms. 
 
 We will get back to you as soon as possible to discuss the details and answer any questions you may have.
 

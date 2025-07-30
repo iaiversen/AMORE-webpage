@@ -19,7 +19,7 @@ website:
         href: https://www.sv.uio.no/psi/english/research/groups/bnl/index.html
   navbar:
     search: true
-    logo: "logo.unfinished.jpg"
+    logo: "logo.unfinished_nowhite- Copy.png"
     right:
       - text: "Living Meta-Analysis"
         href: Living_meta-analysis_Directory.qmd 
