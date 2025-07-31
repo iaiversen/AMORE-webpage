@@ -45,16 +45,32 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--accent-1);
-  background: linear-gradient(135deg, #fafbfc 0%, #f8f9fa 100%);
+  /* background: linear-gradient(135deg, #fafbfc 0%, #f8f9fa 100 */ 
   letter-spacing: 0.01em;
 }
 
 .main-content,
 .quarto-title-block,
 .page-columns {
-  background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: transparent !important; /* Remove white background */
+  box-shadow: none !important; /* Remove box shadow */
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */ 
 }
+
+/* Make sure the main content area is transparent =========================*/
+
+/* Also make sure the body content shows through */
+.page-layout-full .page-columns {
+  background: transparent !important;
+}
+
+/* Remove any white backgrounds from content wrappers */
+.column-page,
+.column-body {
+  background: transparent !important;
+}
+
+/* ==============0remove if not needed ===================================== */ 
 
 h1, h2, h3, h4, h5, h6 {
   color: #0A2A5E;
@@ -96,7 +112,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 550;
@@ -183,7 +199,7 @@ h6 > a[href^="#"] {
 ===============================================*/
 
 .navbar {
-  background: white;  
+  background: white important;  
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   backdrop-filter: brightness(1.02);
   
@@ -307,7 +323,7 @@ h6 > a[href^="#"] {
 .subtitle-text {
   text-align: center !important;
   font-size: 1.5rem !important;
-  color: #0A2A5E !important;
+  color: white !important;
   margin: 1.5rem 0 3rem 0 !important;
   font-weight: 700 !important;
 }
@@ -336,14 +352,106 @@ h6 > a[href^="#"] {
   }
 }
 
+
 .content-section {
+  background: transparent !important; /* Remove the white background */
+  /* Keep your existing properties */
   margin-top: 0 !important;
   padding: 0 3rem;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   width: 99%;
+  color: white !important;
 }
+
+/* Color bakground section ===================================*/ 
+
+
+/* Also make other major containers transparent */
+.feature-box {
+  background: rgba(255, 255, 255, 0.85) !important; /* Semi-transparent instead of solid */
+  backdrop-filter: blur(5px);
+}
+
+.wizard-container, .about-container, .contact-container,
+.panel-tabset, .requirements-box, .content-box {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Keep navbar semi-transparent */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+
+/* Global body background */
+body {
+  background: linear-gradient(-45deg, 
+    #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 10%;
+    left: 15%;
+    width: 120px;
+    height: 90px;
+    background-image: url('logo.unfinished_nowhite- Copy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    filter: brightness(0) invert(1);
+    animation: float 6s ease-in-out infinite;
+    z-index: 0;
+  }
+  
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: 15%;
+    right: 10%;
+    width: 100px;
+    height: 75px;
+    background-image: url('logo.unfinished_nowhite- Copy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.12;
+    filter: brightness(0) invert(1);
+    animation: float 8s ease-in-out infinite reverse;
+    z-index: 0;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* Make content areas semi-transparent */
+.wizard-container, 
+.about-container, .contact-container {
+  background: rgba(255, 255, 255, 0.95) !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* color bakgrund section, remove if not needed ===================*/ 
 
 /* Feature Grid */
 .feature-grid {
@@ -647,6 +755,10 @@ h6 > a[href^="#"] {
   }
 }
 
+#committee-members {
+  margin-top: 4rem !important;
+}
+
 /*=============================================
 =                                           =
 =            Project Pages                  =
@@ -781,12 +893,12 @@ h6 > a[href^="#"] {
 .main-content-container {
   max-width: 80%;
   margin: 0 auto;
-  background: transparent;
+  background: white !important;
 }
 
 .abstract-section {
   padding: 0;
-  background: transparent;
+  background: white !important;
   border-radius: 0;
   box-shadow: none;
   margin: 2rem 0;
@@ -801,7 +913,7 @@ h6 > a[href^="#"] {
 .inclusion-exclusion-section {
   padding: 0;
   margin-top: 2rem;
-  background: transparent;
+  background: white !important;
   border-radius: 0;
   box-shadow: none;
   
@@ -1073,21 +1185,21 @@ details[open] .resource-summary::after {
 
 .contact-container {
   background: white;
-  border-radius: 0;
+  border-radius: 12px;
   padding: 0;
-  margin: 0;
-  max-width: 100vw;
-  width: 100vw;
-  box-shadow: none;
+  margin: 0.3rem auto; /* Center the container */
+  max-width: 2000px; /* Reduced from 100vw */
+  width: 85%; /* Responsive width */
+  height: 600px; /* Reduced from calc(100vh - 80px) */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: calc(100vh - 80px);
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .contact-section {
-  padding: 1.5rem 2.5rem 1.5rem 3rem;
+  padding: 2rem 2.5rem 2rem 3rem; /* Restore original padding */
   background: white;
   display: flex;
   flex-direction: column;
@@ -1097,7 +1209,7 @@ details[open] .resource-summary::after {
   height: 100%;
   
   h2 {
-    font-size: 2.2rem;
+    font-size: 2.2rem; /* Back to original size */
     color: #0A2A5E;
     margin-bottom: 1.2rem;
     text-align: left;
@@ -1136,24 +1248,20 @@ details[open] .resource-summary::after {
   }
 }
 
-.contact-container::after {
+/* Alternative: Add a separate pseudo-element for the white logo overlay */
+.contact-container::before {
   content: '';
   position: absolute;
   right: -15%;
   top: 0;
   width: 65%;
   height: 100%;
-  background: 
-    linear-gradient(90deg, 
-      rgba(255, 255, 255, 1) 0%, 
-      rgba(255, 255, 255, 0.8) 20%, 
-      rgba(255, 255, 255, 0.3) 60%, 
-      rgba(255, 255, 255, 0) 100%
-    ),
-    url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished.jpg') no-repeat center center;
+  background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center;
   background-size: contain;
   background-position: center;
-  z-index: 1;
+  filter: brightness(0) invert(1) opacity(0.3); /* White logo with low opacity */
+  z-index: 2;
+  pointer-events: none;
 }
 
 .contact-buttons {
@@ -1336,9 +1444,18 @@ details[open] .resource-summary::after {
   }
 }
 
-/* Resources Page */
+/* =============Resources Page==================== */
 .title-space {
-  margin-top: 4rem;
+  margin-top: 2rem;
+}
+
+/* Target h2 elements with data-anchor-id="resourcepage" */
+h2[data-anchor-id="resourcepage"] {
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px 8px 0 0 !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
 }
 
 .resource-list {
@@ -1353,13 +1470,6 @@ details[open] .resource-summary::after {
   margin-bottom: 2rem;
   border-radius: 0 8px 8px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background: rgba(240, 246, 255, 0.5);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
   
   h3 {
     color: #0A2A5E;
@@ -1375,6 +1485,11 @@ details[open] .resource-summary::after {
 }
 
 /* Protocol Checklist */
+.white-text {
+  color: white !important;
+}
+
+
 .checklist-container {
   background: white;
   border-radius: 8px;
@@ -1564,38 +1679,23 @@ details[open] .resource-summary::after {
     margin-left: calc(-47.5vw + 50%);
   }
   
-  /* Contact page adjustments */
+  /* Contact page adjustments - keep grid layout */
   .contact-container {
-    grid-template-columns: 1fr;
-    height: calc(100vh - 60px);
-    
-    &::after {
-      width: 100%;
-      height: 40%;
-      bottom: 0;
-      top: auto;
-      right: 0;
-      background: 
-        linear-gradient(180deg, 
-          rgba(255, 255, 255, 1) 0%, 
-          rgba(255, 255, 255, 0.9) 40%, 
-          rgba(255, 255, 255, 0.3) 80%, 
-          rgba(255, 255, 255, 0) 100%
-        ),
-        url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished.jpg') no-repeat center bottom;
-      background-size: contain;
-      background-position: center bottom;
-    }
+    max-width: calc(100vw - 3rem);
+    width: calc(100vw - 3rem);
+    height: calc(100vh - 10rem);
+    margin: 1.5rem auto;
+    /* Keep two-column grid */
   }
   
   .contact-section {
-    padding: 2rem 1.5rem;
-    height: 60%;
+    padding: 1.5rem 2rem 1.5rem 2.5rem;
   }
   
-  .contact-buttons {
-    display: flex;
-    justify-content: center;
+  .contact-container::before {
+    right: -12%;
+    width: 55%;
+    opacity: 0.25;
   }
 }
 
@@ -1760,10 +1860,38 @@ details[open] .resource-summary::after {
     margin-top: 3rem;
   }
   
-  /* Contact page button centering */
+  /* Contact page mobile - switch to single column */
+  .contact-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 500px;
+    max-width: calc(100vw - 2rem);
+    width: calc(100vw - 2rem);
+    margin: 1rem auto;
+  }
+  
+  .contact-section {
+    padding: 2rem 1.5rem;
+    height: auto;
+    justify-content: flex-start;
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  .contact-container::before {
+    bottom: -10%;
+    right: -10%;
+    top: auto;
+    width: 50%;
+    height: 40%;
+    filter: brightness(0) invert(1) opacity(0.2);
+  }
+  
   .contact-buttons {
-    display: flex;
-    justify-content: center;
+    margin-top: 2rem;
+    z-index: 10;
   }
 }
 
@@ -1844,9 +1972,45 @@ details[open] .resource-summary::after {
     }
   }
   
-  /* Contact page button centering */
+  /* Contact page phone adjustments */
+  .contact-container {
+    max-width: calc(100vw - 1rem);
+    width: calc(100vw - 1rem);
+    min-height: 450px;
+    margin: 0.5rem auto;
+  }
+  
+  .contact-section {
+    padding: 1.5rem 1rem;
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    p {
+      font-size: 0.9rem;
+    }
+    
+    li {
+      font-size: 0.85rem;
+      margin: 0.6rem 0;
+    }
+  }
+  
   .contact-buttons {
-    display: flex;
-    justify-content: center;
+    margin-top: 1.5rem;
+    
+    .primary-button {
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .contact-container::before {
+    width: 40%;
+    height: 30%;
+    bottom: -5%;
+    right: -5%;
+    filter: brightness(0) invert(1) opacity(0.15);
   }
 }
