@@ -92,9 +92,8 @@ body {
   }
 }
 
-/* White background override for project pages */
-body:has(.project-hero-section),
-.project-page body {
+/* White background override for project pages ONLY */
+body:has(.project-hero-section):not(:has(.contact-container)) {
   background: white !important;
   animation: none;
   
@@ -290,7 +289,7 @@ h6 > a[href^="#"] {
 }
 
 /* Project pages get solid white navbar */
-body:has(.project-hero-section) .navbar {
+body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   background: white !important;
   backdrop-filter: none;
 }
@@ -867,10 +866,10 @@ body:has(.project-hero-section) .navbar {
 }
 
 /* Project page content sections get white background */
-body:has(.project-hero-section) .main-content,
-body:has(.project-hero-section) .page-columns,
-body:has(.project-hero-section) .column-page,
-body:has(.project-hero-section) .column-body {
+body:has(.project-hero-section):not(:has(.contact-container)) .main-content,
+body:has(.project-hero-section):not(:has(.contact-container)) .page-columns,
+body:has(.project-hero-section):not(:has(.contact-container)) .column-page,
+body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
   background: white !important;
 }
 
