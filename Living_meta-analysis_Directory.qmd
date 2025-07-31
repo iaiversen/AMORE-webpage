@@ -33,7 +33,7 @@ window.addEventListener('load', resizeIframe);
 
 <style>
 .shiny-container {
-  margin-top: 20px;
+  margin-top: 5px;
   width: 100%;
   overflow: visible; /* This is important - don't clip or scroll */
   border: 1px solid #ddd;
