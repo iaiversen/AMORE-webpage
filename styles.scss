@@ -53,9 +53,9 @@ body {
 body {
   background: linear-gradient(-45deg, 
     #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: gradientShift 15s ease infinite !important;
   min-height: 100vh;
   position: relative;
   
@@ -95,11 +95,11 @@ body {
 /* White background override for project pages ONLY */
 body:has(.project-hero-section):not(:has(.contact-container)) {
   background: white !important;
-  animation: none;
+  animation: none !important;
   
   &::before,
   &::after {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -1172,16 +1172,33 @@ details[open] .resource-summary::after {
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
+  
+  /* Force the contact page logo to always appear */
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    right: -15% !important;
+    top: 0 !important;
+    width: 65% !important;
+    height: 100% !important;
+    background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
+    background-size: contain !important;
+    background-position: center !important;
+    filter: brightness(0) invert(1) opacity(0.3) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    display: block !important;
+  }
 }
 
 .contact-section {
   padding: 2rem 2.5rem 2rem 3rem;
-  background: white;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   height: 100%;
   
   h2 {
@@ -1224,20 +1241,7 @@ details[open] .resource-summary::after {
   }
 }
 
-.contact-container::before {
-  content: '';
-  position: absolute;
-  right: -15%;
-  top: 0;
-  width: 65%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center;
-  background-size: contain;
-  background-position: center;
-  filter: brightness(0) invert(1) opacity(0.3);
-  z-index: 1;
-  pointer-events: none;
-}
+
 
 .contact-buttons {
   margin-top: 1.5rem;

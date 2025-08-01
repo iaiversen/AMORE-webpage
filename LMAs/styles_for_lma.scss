@@ -36,13 +36,19 @@ $font-size-root: 16px;
 =                                           =
 ===============================================*/
 
-body {
+/* Only apply white background to pages with project hero sections */
+body:has(.project-hero-section) {
   font-size: 16px;
   line-height: 1.6;
   color: var(--accent-1);
   background: white !important; /* White background for project pages */
   letter-spacing: 0.01em;
   font-family: $font-family-sans-serif;
+}
+
+/* Fallback for browsers that don't support :has() */
+.project-page body {
+  background: white !important;
 }
 
 .main-content,
