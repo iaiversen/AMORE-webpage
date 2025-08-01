@@ -1193,7 +1193,7 @@ details[open] .resource-summary::after {
 
 .contact-section {
   padding: 2rem 2.5rem 2rem 3rem;
-  background: transparent;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1971,4 +1971,29 @@ h2[data-anchor-id="resourcepage"] {
     right: -5%;
     filter: brightness(0) invert(1) opacity(0.15);
   }
+}
+
+/*==================================================================
+=
+=
+=
+=                       Big problem solver 
+= 
+=
+==================================================================*/ 
+
+/* Fallback for contact page logo - add at the very end */
+.contact-container::before {
+  content: '' !important;
+  position: absolute !important;
+  right: -15% !important;
+  top: 0 !important;
+  width: 65% !important;
+  height: 100% !important;
+  background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
+  background-size: contain !important;
+  filter: brightness(0) invert(1) opacity(0.3) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  display: block !important;
 }
