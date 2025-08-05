@@ -15,9 +15,7 @@ format:
 
 ::: {.resource-list}
 ::: {.resource-item}
-When creating a project proposal for a Living Meta-Analysis in AMORE, it is essential to include all necessary information to ensure a smooth review and approval process. The following checklist outlines the key components that should be included in your project proposal:
-
-This protocol checklist tool serves to help ensure all necessary information in the project proposal form is included. When planning your project use this checklist to see what information we require. This will streamline the process of entering the required details to the “propose your project” form when you are ready to submit
+When creating a project proposal for a Living Meta-Analysis in AMORE, it is essential to include all necessary information to ensure a smooth review and approval process. The following checklist outlines the key components that should be included in your project proposal. 
 
 [Access the Protocol Checklist Tool](Protocol_checklist.html){.resource-link}
 :::
