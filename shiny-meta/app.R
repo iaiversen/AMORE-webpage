@@ -1,5 +1,6 @@
 #====== Load required libraries =========# 
 library(shiny)
+library(shinyjs)  # Added for enable/disable functionality
 library(DT)
 library(yaml)  # For reading YAML headers from qmd files
 library(fs)    # For file operations
@@ -11,6 +12,9 @@ library(stringdist)  # For fuzzy search matching
 
 #============================= UI section ==============================# 
 ui <- fluidPage(
+  # Initialize shinyjs
+  useShinyjs(),
+  
   tags$head(
     tags$link(rel = "icon", type = "image/x-icon", href = "amore.favicon.ico"),
     tags$style(HTML("
@@ -40,7 +44,66 @@ ui <- fluidPage(
         background: #FFFFFF; /* White background */
         min-height: 100vh;
         font-size: 12px; 
+      
+      /* Pagination styling */
+      .pagination-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        margin: 1rem 0;
+        border-bottom: 1px solid var(--gray-200);
       }
+      
+      .pagination-container.bottom {
+        border-bottom: none;
+        border-top: 1px solid var(--gray-200);
+      }
+      
+      .pagination-info {
+        color: var(--gray-600);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      
+      .pagination-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .pagination-btn {
+        background: var(--primary-blue);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+      
+      .pagination-btn:hover:not(:disabled) {
+        background: var(--secondary-blue);
+        transform: translateY(-1px);
+      }
+      
+      .pagination-btn:disabled {
+        background: var(--gray-300);
+        color: var(--gray-600);
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .page-indicator {
+        color: var(--gray-700);
+        font-weight: 600;
+        font-size: 0.9rem;
+        min-width: 100px;
+        text-align: center;
+      }
+      
       
       .title {
         font-size: 2.5rem;
@@ -558,9 +621,35 @@ ui <- fluidPage(
           )
       ),
       
-      # Results section
+      # Results section with pagination
       div(class = "results-section",
-          uiOutput("lma_list")
+          # Pagination controls (top)
+          div(class = "pagination-container",
+              div(class = "pagination-info",
+                  textOutput("results_info", inline = TRUE)
+              ),
+              div(class = "pagination-controls",
+                  actionButton("prev_page", "← Previous", class = "pagination-btn"),
+                  span(class = "page-indicator",
+                       textOutput("page_info", inline = TRUE)
+                  ),
+                  actionButton("next_page", "Next →", class = "pagination-btn")
+              )
+          ),
+          
+          # Results list
+          uiOutput("lma_list"),
+          
+          # Pagination controls (bottom)
+          div(class = "pagination-container bottom",
+              div(class = "pagination-controls",
+                  actionButton("prev_page_bottom", "← Previous", class = "pagination-btn"),
+                  span(class = "page-indicator",
+                       textOutput("page_info_bottom", inline = TRUE)
+                  ),
+                  actionButton("next_page_bottom", "Next →", class = "pagination-btn")
+              )
+          )
       )
   ),
   
@@ -672,6 +761,58 @@ server <- function(input, output, session) {
   `%||%` <- function(x, y) {
     if (is.null(x)) y else x
   }
+  
+  # Pagination settings
+  ITEMS_PER_PAGE <- 5  # You can adjust this number
+  
+  # Reactive value for current page
+  current_page <- reactiveVal(1)
+  
+  # Reset to page 1 when filters change
+  observeEvent(list(
+    input$search_text,
+    input$biological_outcomes,
+    input$psychological_behavioral_outcomes,
+    input$clinical_outcomes,
+    input$oxytocin_intervention,
+    input$assessment_method,
+    input$oxytocin_route,
+    input$oxytocin_dosage,
+    input$population_status,
+    input$population_age,
+    input$analysis_framework,
+    input$status_filter
+  ), {
+    current_page(1)
+  })
+  
+  # Pagination button handlers
+  observeEvent(input$prev_page, {
+    if (current_page() > 1) {
+      current_page(current_page() - 1)
+    }
+  })
+  
+  observeEvent(input$next_page, {
+    total_pages <- ceiling(nrow(filtered_data()) / ITEMS_PER_PAGE)
+    if (current_page() < total_pages) {
+      current_page(current_page() + 1)
+    }
+  })
+  
+  # Bottom pagination handlers (same as top)
+  observeEvent(input$prev_page_bottom, {
+    if (current_page() > 1) {
+      current_page(current_page() - 1)
+    }
+  })
+  
+  observeEvent(input$next_page_bottom, {
+    total_pages <- ceiling(nrow(filtered_data()) / ITEMS_PER_PAGE)
+    if (current_page() < total_pages) {
+      current_page(current_page() + 1)
+    }
+  })
   
   # Helper function to safely extract nested YAML values
   safe_extract <- function(list, path, default = NA_character_) {
@@ -857,9 +998,16 @@ server <- function(input, output, session) {
   
   # Function to fetch QMD files from GitHub repository
   fetch_github_qmd_files <- function(repo = "iaiversen/AMORE-webpage", path = "LMAs") {
-    # Get the contents of the LMAs directory
+    # Get the contents of the LMAs directory with cache-busting
     url <- paste0("https://api.github.com/repos/", repo, "/contents/", path)
-    response <- GET(url)
+    
+    # Add cache-busting and headers
+    response <- GET(url, 
+                    add_headers(
+                      "Cache-Control" = "no-cache",
+                      "User-Agent" = paste("R-shiny-app", Sys.time())
+                    ),
+                    query = list(ref = "main", t = as.numeric(Sys.time())))
     
     if (http_error(response)) {
       warning("Error fetching files from GitHub: ", http_status(response)$message)
@@ -962,7 +1110,15 @@ server <- function(input, output, session) {
         
         # Get YAML metadata
         yaml_text <- lines[(yaml_start + 1):(yaml_end - 1)]
-        meta <- yaml::yaml.load(paste(yaml_text, collapse = "\n"))
+        yaml_string <- paste(yaml_text, collapse = "\n")
+        
+        # Debug: Print YAML for problematic files
+        if (grepl("Neurodevelopmental", filename, ignore.case = TRUE)) {
+          cat("Debug - Processing file:", filename, "\n")
+          cat("YAML content:\n", yaml_string, "\n")
+        }
+        
+        meta <- yaml::yaml.load(yaml_string)
         
         # Extract abstract section
         abstract_section <- grep("## Abstract", lines)
@@ -1050,6 +1206,13 @@ server <- function(input, output, session) {
         oxytocin_route <- safe_extract(meta, c("oxytocin", "route"))
         oxytocin_route_str <- extract_array_as_string(oxytocin_route)
         
+        # Debug: Print route processing for problematic files
+        if (grepl("Neurodevelopmental", filename, ignore.case = TRUE)) {
+          cat("Debug - Route extracted:", class(oxytocin_route), "\n")
+          cat("Debug - Route value:", paste(oxytocin_route, collapse = ", "), "\n")
+          cat("Debug - Route string:", oxytocin_route_str, "\n")
+        }
+        
         oxytocin_dosage <- safe_extract(meta, c("oxytocin", "dosage"))
         oxytocin_dosage_str <- extract_array_as_string(oxytocin_dosage)
         
@@ -1070,7 +1233,7 @@ server <- function(input, output, session) {
         framework <- meta$analytical_framework %||% meta$framework %||% NA_character_
         framework_str <- extract_array_as_string(framework)
         
-        # Extract data into a structured format
+        # Extract data into a structured format - CREATE ONLY ONE ENTRY PER FILE
         entry <- list(
           Title = meta$title %||% "Untitled",
           Status = status,
@@ -1100,7 +1263,7 @@ server <- function(input, output, session) {
     # Remove NULL entries
     meta_list <- meta_list[!sapply(meta_list, is.null)]
     
-    # Convert list to data frame
+    # Convert list to data frame - ENSURE NO DUPLICATES
     if (length(meta_list) > 0) {
       meta_df <- do.call(rbind, lapply(meta_list, function(x) {
         data.frame(
@@ -1123,6 +1286,9 @@ server <- function(input, output, session) {
           stringsAsFactors = FALSE
         )
       }))
+      
+      # Remove any potential duplicate rows based on Title and Filename
+      meta_df <- meta_df[!duplicated(meta_df[c("Title", "Filename")]), ]
     }
     
     return(meta_df)
@@ -1144,11 +1310,43 @@ server <- function(input, output, session) {
   
   # Reactive expression to get and parse metadata from GitHub
   meta_data <- reactive({
+    # Force refresh every time by invalidating cache
+    invalidateLater(1000, session) # Refresh every second for testing
+    
     # Fetch QMD files from GitHub
     qmd_contents <- fetch_github_qmd_files()
     
+    # Debug: Print all fetched filenames
+    cat("Debug - Fetched files at", Sys.time(), ":\n")
+    for(filename in names(qmd_contents)) {
+      cat("  -", filename, "\n")
+    }
+    
     # Parse metadata from QMD files
     meta_df <- parse_qmd_metadata(qmd_contents)
+    
+    # Debug: Print final dataframe info
+    cat("Debug - Final dataframe:\n")
+    cat("  - Total rows:", nrow(meta_df), "\n")
+    if(nrow(meta_df) > 0) {
+      for(i in 1:nrow(meta_df)) {
+        cat("  - Row", i, ":", meta_df$Title[i], "(", meta_df$Filename[i], ")\n")
+        cat("    Route:", meta_df$OxytocinRoute[i], "\n")
+      }
+      
+      # Check for duplicates
+      duplicated_titles <- meta_df$Title[duplicated(meta_df$Title)]
+      if(length(duplicated_titles) > 0) {
+        cat("Debug - Found duplicate titles:\n")
+        for(dup_title in unique(duplicated_titles)) {
+          matching_rows <- which(meta_df$Title == dup_title)
+          cat("  - Title:", dup_title, "\n")
+          for(row in matching_rows) {
+            cat("    File:", meta_df$Filename[row], "Route:", meta_df$OxytocinRoute[row], "\n")
+          }
+        }
+      }
+    }
     
     return(meta_df)
   })
@@ -1299,9 +1497,105 @@ server <- function(input, output, session) {
     return(meta_df)
   })
   
-  # Custom HTML output for LMA list with clickable titles and abstracts
-  output$lma_list <- renderUI({
+  # Paginated data reactive
+  paginated_data <- reactive({
     data <- filtered_data()
+    
+    if (nrow(data) == 0) {
+      return(data)
+    }
+    
+    # Calculate pagination
+    total_items <- nrow(data)
+    total_pages <- ceiling(total_items / ITEMS_PER_PAGE)
+    page <- current_page()
+    
+    # Ensure page is within bounds
+    if (page > total_pages) {
+      current_page(total_pages)
+      page <- total_pages
+    }
+    if (page < 1) {
+      current_page(1)
+      page <- 1
+    }
+    
+    # Calculate start and end indices
+    start_idx <- (page - 1) * ITEMS_PER_PAGE + 1
+    end_idx <- min(page * ITEMS_PER_PAGE, total_items)
+    
+    # Return paginated data
+    data[start_idx:end_idx, ]
+  })
+  
+  # Results info output
+  output$results_info <- renderText({
+    data <- filtered_data()
+    paginated <- paginated_data()
+    
+    if (nrow(data) == 0) {
+      return("No results found")
+    }
+    
+    total_items <- nrow(data)
+    start_idx <- (current_page() - 1) * ITEMS_PER_PAGE + 1
+    end_idx <- min(current_page() * ITEMS_PER_PAGE, total_items)
+    
+    paste("Showing", start_idx, "-", end_idx, "of", total_items, "results")
+  })
+  
+  # Page info outputs (for both top and bottom)
+  output$page_info <- renderText({
+    data <- filtered_data()
+    if (nrow(data) == 0) return("Page 0 of 0")
+    
+    total_pages <- ceiling(nrow(data) / ITEMS_PER_PAGE)
+    paste("Page", current_page(), "of", total_pages)
+  })
+  
+  output$page_info_bottom <- renderText({
+    data <- filtered_data()
+    if (nrow(data) == 0) return("Page 0 of 0")
+    
+    total_pages <- ceiling(nrow(data) / ITEMS_PER_PAGE)
+    paste("Page", current_page(), "of", total_pages)
+  })
+  
+  # Enable/disable pagination buttons
+  observe({
+    data <- filtered_data()
+    total_pages <- ceiling(nrow(data) / ITEMS_PER_PAGE)
+    page <- current_page()
+    
+    # Top buttons
+    if (page <= 1) {
+      shinyjs::disable("prev_page")
+    } else {
+      shinyjs::enable("prev_page")
+    }
+    
+    if (page >= total_pages || total_pages == 0) {
+      shinyjs::disable("next_page")
+    } else {
+      shinyjs::enable("next_page")
+    }
+    
+    # Bottom buttons
+    if (page <= 1) {
+      shinyjs::disable("prev_page_bottom")
+    } else {
+      shinyjs::enable("prev_page_bottom")
+    }
+    
+    if (page >= total_pages || total_pages == 0) {
+      shinyjs::disable("next_page_bottom")
+    } else {
+      shinyjs::enable("next_page_bottom")
+    }
+  })
+  # Custom HTML output for LMA list with clickable titles and abstracts (now paginated)
+  output$lma_list <- renderUI({
+    data <- paginated_data()  # Use paginated data instead of filtered data
     
     if (nrow(data) == 0) {
       return(div(
