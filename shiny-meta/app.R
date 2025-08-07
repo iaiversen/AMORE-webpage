@@ -1310,8 +1310,6 @@ server <- function(input, output, session) {
   
   # Reactive expression to get and parse metadata from GitHub
   meta_data <- reactive({
-    # Force refresh every time by invalidating cache
-    invalidateLater(1000, session) # Refresh every second for testing
     
     # Fetch QMD files from GitHub
     qmd_contents <- fetch_github_qmd_files()
