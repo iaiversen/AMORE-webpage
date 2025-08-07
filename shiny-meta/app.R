@@ -691,22 +691,36 @@ server <- function(input, output, session) {
       return(NA_character_)
     }
     
+    # Convert to character vector first
     if (is.list(yaml_value)) {
-      # Handle nested lists - flatten and join
-      flat_list <- unlist(yaml_value, recursive = TRUE)
+      # Handle nested lists - flatten completely
+      flat_list <- unlist(yaml_value, recursive = TRUE, use.names = FALSE)
       if (length(flat_list) == 0) {
         return(NA_character_)
       }
-      return(paste(flat_list, collapse = " | "))
-    } else if (is.character(yaml_value) && length(yaml_value) > 1) {
-      # Handle character vectors
-      return(paste(yaml_value, collapse = " | "))
-    } else if (is.character(yaml_value) && length(yaml_value) == 1) {
-      # Single character value
-      return(yaml_value)
+      # Convert to character and remove any NA or empty values
+      char_values <- as.character(flat_list)
+      clean_values <- char_values[!is.na(char_values) & nzchar(trimws(char_values))]
+      if (length(clean_values) == 0) {
+        return(NA_character_)
+      }
+      return(paste(unique(clean_values), collapse = " | "))
+    } else if (is.vector(yaml_value) && length(yaml_value) > 1) {
+      # Handle vectors (including character vectors)
+      char_values <- as.character(yaml_value)
+      clean_values <- char_values[!is.na(char_values) & nzchar(trimws(char_values))]
+      if (length(clean_values) == 0) {
+        return(NA_character_)
+      }
+      return(paste(unique(clean_values), collapse = " | "))
+    } else {
+      # Single value
+      char_value <- as.character(yaml_value)
+      if (is.na(char_value) || !nzchar(trimws(char_value))) {
+        return(NA_character_)
+      }
+      return(char_value)
     }
-    
-    return(NA_character_)
   }
   
   # Enhanced search function with fuzzy matching and synonyms
