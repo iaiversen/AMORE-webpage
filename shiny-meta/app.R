@@ -685,6 +685,30 @@ server <- function(input, output, session) {
     return(current)
   }
   
+  # Helper function to handle array values in YAML
+  extract_array_as_string <- function(yaml_value) {
+    if (is.null(yaml_value)) {
+      return(NA_character_)
+    }
+    
+    if (is.list(yaml_value)) {
+      # Handle nested lists - flatten and join
+      flat_list <- unlist(yaml_value, recursive = TRUE)
+      if (length(flat_list) == 0) {
+        return(NA_character_)
+      }
+      return(paste(flat_list, collapse = " | "))
+    } else if (is.character(yaml_value) && length(yaml_value) > 1) {
+      # Handle character vectors
+      return(paste(yaml_value, collapse = " | "))
+    } else if (is.character(yaml_value) && length(yaml_value) == 1) {
+      # Single character value
+      return(yaml_value)
+    }
+    
+    return(NA_character_)
+  }
+  
   # Enhanced search function with fuzzy matching and synonyms
   enhanced_search <- function(search_term, text_fields) {
     if (is.null(search_term) || search_term == "") return(rep(TRUE, length(text_fields)))
@@ -885,6 +909,7 @@ server <- function(input, output, session) {
       Title = character(),
       Status = character(),
       Framework = character(),
+      OxytocinIntervention = character(),
       AssessmentMethod = character(),
       OxytocinRoute = character(),
       OxytocinDosage = character(),
@@ -978,7 +1003,7 @@ server <- function(input, output, session) {
           }
         }
         
-        # Extract outcomes from new structure
+        # Extract outcomes from new structure with array support
         biological_outcomes <- safe_extract(meta, c("outcomes", "biological"))
         biological_outcomes_str <- extract_list_as_string(biological_outcomes)
         
@@ -1001,13 +1026,24 @@ server <- function(input, output, session) {
           psychological_behavioral_outcomes_str <- extract_list_as_string(combined_legacy)
         }
         
-        # Handle exogenous oxytocin mapping
+        # Extract multi-value fields with array support
+        oxytocin_intervention <- safe_extract(meta, c("oxytocin", "intervention"))
+        oxytocin_intervention_str <- extract_array_as_string(oxytocin_intervention)
+        
         assessment_method <- safe_extract(meta, c("oxytocin", "assessment_method"))
-        if (!is.na(assessment_method)) {
-          if (assessment_method %in% c("Intranasal oxytocin", "Intravenous oxytocin")) {
-            assessment_method <- "Exogenous oxytocin"
-          }
-        }
+        assessment_method_str <- extract_array_as_string(assessment_method)
+        
+        oxytocin_route <- safe_extract(meta, c("oxytocin", "route"))
+        oxytocin_route_str <- extract_array_as_string(oxytocin_route)
+        
+        oxytocin_dosage <- safe_extract(meta, c("oxytocin", "dosage"))
+        oxytocin_dosage_str <- extract_array_as_string(oxytocin_dosage)
+        
+        population_status <- safe_extract(meta, c("population", "status"))
+        population_status_str <- extract_array_as_string(population_status)
+        
+        population_age <- safe_extract(meta, c("population", "age_group"))
+        population_age_str <- extract_array_as_string(population_age)
         
         # Handle status mapping
         status <- meta$status %||% NA_character_
@@ -1017,16 +1053,20 @@ server <- function(input, output, session) {
           }
         }
         
+        framework <- meta$analytical_framework %||% meta$framework %||% NA_character_
+        framework_str <- extract_array_as_string(framework)
+        
         # Extract data into a structured format
         entry <- list(
           Title = meta$title %||% "Untitled",
           Status = status,
-          Framework = meta$analytical_framework %||% meta$framework %||% NA_character_,
-          AssessmentMethod = assessment_method,
-          OxytocinRoute = safe_extract(meta, c("oxytocin", "route")),
-          OxytocinDosage = safe_extract(meta, c("oxytocin", "dosage")),
-          PopulationStatus = safe_extract(meta, c("population", "status")),
-          PopulationAge = safe_extract(meta, c("population", "age_group")),
+          Framework = framework_str,
+          OxytocinIntervention = oxytocin_intervention_str,
+          AssessmentMethod = assessment_method_str,
+          OxytocinRoute = oxytocin_route_str,
+          OxytocinDosage = oxytocin_dosage_str,
+          PopulationStatus = population_status_str,
+          PopulationAge = population_age_str,
           PopulationClinicalType = safe_extract(meta, c("population", "clinical_type")),
           BiologicalOutcomes = biological_outcomes_str,
           PsychologicalBehavioralOutcomes = psychological_behavioral_outcomes_str,
@@ -1053,6 +1093,7 @@ server <- function(input, output, session) {
           Title = x$Title,
           Status = x$Status,
           Framework = x$Framework,
+          OxytocinIntervention = x$OxytocinIntervention,
           AssessmentMethod = x$AssessmentMethod,
           OxytocinRoute = x$OxytocinRoute,
           OxytocinDosage = x$OxytocinDosage,
@@ -1071,6 +1112,20 @@ server <- function(input, output, session) {
     }
     
     return(meta_df)
+  }
+  
+  # Helper function to check if any selected values match any stored values
+  check_multi_value_match <- function(stored_value, selected_values) {
+    if (is.na(stored_value) || length(selected_values) == 0) {
+      return(FALSE)
+    }
+    
+    # Split the stored values by separator
+    stored_values <- strsplit(stored_value, " \\| ")[[1]]
+    stored_values <- trimws(stored_values)
+    
+    # Check if ANY of the selected filters match ANY of the stored values
+    return(any(selected_values %in% stored_values))
   }
   
   # Reactive expression to get and parse metadata from GitHub
@@ -1136,45 +1191,67 @@ server <- function(input, output, session) {
       keep_rows <- keep_rows & clinical_matches
     }
     
-    # Apply filter for assessment method
+    # Apply filter for oxytocin intervention (supports multiple values per entry)
+    if (length(input$oxytocin_intervention) > 0) {
+      intervention_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$OxytocinIntervention[i], input$oxytocin_intervention)
+      })
+      keep_rows <- keep_rows & intervention_matches
+    }
+    
+    # Apply filter for assessment method (supports multiple values per entry)
     if (length(input$assessment_method) > 0) {
-      assessment_matches <- !is.na(meta_df$AssessmentMethod) & meta_df$AssessmentMethod %in% input$assessment_method
+      assessment_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$AssessmentMethod[i], input$assessment_method)
+      })
       keep_rows <- keep_rows & assessment_matches
     }
     
-    # Apply filter for oxytocin route
+    # Apply filter for oxytocin route (supports multiple values per entry)
     if (length(input$oxytocin_route) > 0) {
-      route_matches <- !is.na(meta_df$OxytocinRoute) & meta_df$OxytocinRoute %in% input$oxytocin_route
+      route_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$OxytocinRoute[i], input$oxytocin_route)
+      })
       keep_rows <- keep_rows & route_matches
     }
     
-    # Apply filter for oxytocin dosage
+    # Apply filter for oxytocin dosage (supports multiple values per entry)
     if (length(input$oxytocin_dosage) > 0) {
-      dosage_matches <- !is.na(meta_df$OxytocinDosage) & meta_df$OxytocinDosage %in% input$oxytocin_dosage
+      dosage_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$OxytocinDosage[i], input$oxytocin_dosage)
+      })
       keep_rows <- keep_rows & dosage_matches
     }
     
-    # Apply filter for population status
+    # Apply filter for population status (supports multiple values per entry)
     if (length(input$population_status) > 0) {
-      pop_status_matches <- !is.na(meta_df$PopulationStatus) & meta_df$PopulationStatus %in% input$population_status
+      pop_status_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$PopulationStatus[i], input$population_status)
+      })
       keep_rows <- keep_rows & pop_status_matches
     }
     
-    # Apply filter for population age
+    # Apply filter for population age (supports multiple values per entry)
     if (length(input$population_age) > 0) {
-      pop_age_matches <- !is.na(meta_df$PopulationAge) & meta_df$PopulationAge %in% input$population_age
+      pop_age_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$PopulationAge[i], input$population_age)
+      })
       keep_rows <- keep_rows & pop_age_matches
     }
     
-    # Apply filter for analysis framework
+    # Apply filter for analysis framework (supports multiple values per entry)
     if (length(input$analysis_framework) > 0) {
-      framework_matches <- !is.na(meta_df$Framework) & meta_df$Framework %in% input$analysis_framework
+      framework_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$Framework[i], input$analysis_framework)
+      })
       keep_rows <- keep_rows & framework_matches
     }
     
-    # Apply filter for status
+    # Apply filter for status (supports multiple values per entry)
     if (length(input$status_filter) > 0) {
-      status_matches <- !is.na(meta_df$Status) & meta_df$Status %in% input$status_filter
+      status_matches <- sapply(1:nrow(meta_df), function(i) {
+        check_multi_value_match(meta_df$Status[i], input$status_filter)
+      })
       keep_rows <- keep_rows & status_matches
     }
     
@@ -1186,6 +1263,7 @@ server <- function(input, output, session) {
         meta_df$BiologicalOutcomes,
         meta_df$PsychologicalBehavioralOutcomes,
         meta_df$ClinicalOutcomes,
+        meta_df$OxytocinIntervention,
         meta_df$AssessmentMethod,
         meta_df$OxytocinRoute,
         meta_df$OxytocinDosage,
@@ -1226,6 +1304,13 @@ server <- function(input, output, session) {
           # Construct the URL to the live website LMA page
           lma_url <- paste0("https://amore-project.org/lmas/", base_filename)
           
+          # Helper function to format multi-value fields for display
+          format_display_value <- function(value) {
+            if (is.na(value)) return(NULL)
+            # Replace " | " with ", " for better display
+            gsub(" \\| ", ", ", value)
+          }
+          
           div(class = "lma-entry",
               tags$a(
                 href = lma_url,
@@ -1234,17 +1319,18 @@ server <- function(input, output, session) {
                 data$Title[i]
               ),
               div(class = "lma-meta",
-                  if (!is.na(data$Status[i])) span("Publication Status: ", data$Status[i]) else NULL,
-                  if (!is.na(data$Framework[i])) span("Analytical Framework: ", data$Framework[i]) else NULL,
-                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", data$AssessmentMethod[i]) else NULL,
-                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", data$OxytocinRoute[i]) else NULL,
-                  if (!is.na(data$OxytocinDosage[i])) span("Oxytocin Dosage: ", data$OxytocinDosage[i]) else NULL,
-                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", data$BiologicalOutcomes[i]) else NULL,
-                  if (!is.na(data$PsychologicalBehavioralOutcomes[i])) span("Psychological and Behavioral Outcomes: ", data$PsychologicalBehavioralOutcomes[i]) else NULL,
-                  if (!is.na(data$ClinicalOutcomes[i])) span("Clinical Outcomes: ", data$ClinicalOutcomes[i]) else NULL,
-                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", data$PopulationStatus[i]) else NULL,
-                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", data$PopulationAge[i]) else NULL,
-                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", data$PopulationClinicalType[i]) else NULL,
+                  if (!is.na(data$Status[i])) span("Publication Status: ", format_display_value(data$Status[i])) else NULL,
+                  if (!is.na(data$Framework[i])) span("Analytical Framework: ", format_display_value(data$Framework[i])) else NULL,
+                  if (!is.na(data$OxytocinIntervention[i])) span("Oxytocin Intervention: ", format_display_value(data$OxytocinIntervention[i])) else NULL,
+                  if (!is.na(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", format_display_value(data$AssessmentMethod[i])) else NULL,
+                  if (!is.na(data$OxytocinRoute[i])) span("Oxytocin Route: ", format_display_value(data$OxytocinRoute[i])) else NULL,
+                  if (!is.na(data$OxytocinDosage[i])) span("Oxytocin Dosage: ", format_display_value(data$OxytocinDosage[i])) else NULL,
+                  if (!is.na(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", format_display_value(data$BiologicalOutcomes[i])) else NULL,
+                  if (!is.na(data$PsychologicalBehavioralOutcomes[i])) span("Psychological and Behavioral Outcomes: ", format_display_value(data$PsychologicalBehavioralOutcomes[i])) else NULL,
+                  if (!is.na(data$ClinicalOutcomes[i])) span("Clinical Outcomes: ", format_display_value(data$ClinicalOutcomes[i])) else NULL,
+                  if (!is.na(data$PopulationStatus[i])) span("Population Status: ", format_display_value(data$PopulationStatus[i])) else NULL,
+                  if (!is.na(data$PopulationAge[i])) span("Population Age: ", format_display_value(data$PopulationAge[i])) else NULL,
+                  if (!is.na(data$PopulationClinicalType[i])) span("Clinical Type: ", format_display_value(data$PopulationClinicalType[i])) else NULL,
                   if (!is.na(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i]) else NULL
               ),
               div(class = "lma-abstract",
