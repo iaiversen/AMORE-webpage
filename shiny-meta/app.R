@@ -147,8 +147,8 @@ ui <- fluidPage(
       
       .search-input {
         width: 100%;
-        padding: 1rem 1.5rem;
-        font-size: 1.2rem;
+        padding: 1.5rem 2rem;
+        font-size: 1.6rem;
         border: 2px solid var(--gray-200);
         border-radius: 12px;
         transition: all 0.3s ease;
@@ -175,11 +175,11 @@ ui <- fluidPage(
         background: white;
         border: 2px solid var(--gray-200);
         border-radius: 25px;
-        padding: 0.4rem 0.8rem;
+        padding: 0.8rem 1.5rem;
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: var(--gray-700);
         user-select: none;
       }
