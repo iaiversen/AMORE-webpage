@@ -26,5 +26,5 @@ Living meta-analysis published on AMORE must adhere to our standardization frame
 
 <div style="margin-top: 3rem;"></div>
 
-The AMORE project is initiated by the [Behavioral Neuroendocrinology Lab](https://www.sv.uio.no/psi/english/research/groups/behavioral-neuroendocrinology-lab/){target="_blank"} at the University of Oslo.
+The AMORE project is initiated by the [Behavioral Neuroendocrinology Lab](https://www.sv.uio.no/psi/english/research/groups/bnl/){target="_blank"} at the University of Oslo.
 ::: 
