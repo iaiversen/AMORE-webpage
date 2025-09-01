@@ -433,7 +433,11 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
 }
 
 /* Center specific paragraph text with links */
-.content-section p:has(a[href*="behavioral-neuroendocrinology-lab"]) {
+.content-section p:has(a[href*="Behavioral Neuroendocrinology Lab"]) {
+  text-align: center;
+}
+
+.content-section .BNL-text {
   text-align: center;
 }
 
