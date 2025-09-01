@@ -362,6 +362,7 @@ ui <- fluidPage(
         flex-direction: column;
         min-height: 0;
         overflow: hidden;
+        background: white;
       }
       
       .lma-container {
