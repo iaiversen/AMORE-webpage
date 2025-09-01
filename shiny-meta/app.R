@@ -44,6 +44,17 @@ ui <- fluidPage(
         background: #FFFFFF; /* White background */
         min-height: 100vh;
         font-size: 12px; 
+        overflow-x: hidden;
+      }
+      
+      /* Main container with fixed height */
+      .container-fluid {
+        min-height: 100vh;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
       
       /* Pagination styling */
       .pagination-container {
@@ -51,13 +62,17 @@ ui <- fluidPage(
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0;
-        margin: 1rem 0;
+        margin: 0;
         border-bottom: 1px solid var(--gray-200);
+        flex-shrink: 0;
+        background: white;
+        z-index: 10;
       }
       
       .pagination-container.bottom {
         border-bottom: none;
         border-top: 1px solid var(--gray-200);
+        margin-top: auto;
       }
       
       .pagination-info {
@@ -108,7 +123,7 @@ ui <- fluidPage(
       .title {
         font-size: 2.5rem;
         color: var(--primary-blue);
-        margin: 2rem 0 1rem 0;
+        margin: 1rem 0;
         font-weight: 700;
         text-align: center;
         letter-spacing: -0.025em;
@@ -116,22 +131,24 @@ ui <- fluidPage(
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        flex-shrink: 0;
       }
       
       /* Main search section */
       .search-section {
         background: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 16px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        margin: 2rem auto;
+        margin: 1rem auto;
         max-width: 1200px;
+        flex-shrink: 0;
       }
       
       .search-input {
         width: 100%;
-        padding: 1.5rem 2rem;
-        font-size: 1.5rem;
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
         border: 2px solid var(--gray-200);
         border-radius: 12px;
         transition: all 0.3s ease;
@@ -150,7 +167,7 @@ ui <- fluidPage(
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin: 1.5rem 0;
+        margin: 1rem 0;
         justify-content: center;
       }
       
@@ -158,11 +175,11 @@ ui <- fluidPage(
         background: white;
         border: 2px solid var(--gray-200);
         border-radius: 25px;
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.8rem;
         cursor: pointer;
         transition: all 0.3s ease;
         font-weight: 500;
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: var(--gray-700);
         user-select: none;
       }
@@ -192,12 +209,13 @@ ui <- fluidPage(
       }
       
       .filter-panels.show {
-        max-height: 2000px; /* Large enough to show all content */
+        max-height: 500px; /* Reduced from 2000px */
+        overflow-y: auto;
       }
       
       .filter-panel {
         display: none;
-        padding: 1.5rem;
+        padding: 1rem;
         border-top: 3px solid var(--accent-blue);
       }
       
@@ -207,17 +225,17 @@ ui <- fluidPage(
       
       .filter-section {
         background: var(--gray-50);
-        padding: 1rem 1.5rem;
+        padding: 0.8rem 1rem;
         border-radius: 8px;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
         border-left: 4px solid var(--accent-blue);
       }
       
       .filter-title {
         color: var(--primary-blue);
         font-weight: 600;
-        margin-bottom: 1.8rem;
-        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
       }
       
       .subcategory {
@@ -227,18 +245,19 @@ ui <- fluidPage(
       
       .subcategory-title {
         font-weight: 500;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
         color: var(--gray-700);
-        font-size: 1.5rem;
+        font-size: 1.1rem;
       }
       
       /* Checkbox styling */
       .shiny-input-checkboxgroup label {
         font-weight: 400;
         color: var(--gray-700);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.3rem;
         cursor: pointer;
         transition: color 0.2s ease;
+        font-size: 0.9rem;
       }
       
       .shiny-input-checkboxgroup label:hover {
@@ -333,24 +352,39 @@ ui <- fluidPage(
       .clear-all-btn:hover {
         background: var(--gray-300);
       }
+      
+      /* Fixed height results section */
       .results-section {
         max-width: 1200px;
-        margin: 2rem auto;
+        margin: 1rem auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
       }
       
       .lma-container {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        padding: 1rem 0;
+        /* Ensure consistent minimum height for 5 items */
+        min-height: calc(5 * 180px + 4 * 1.5rem);
       }
       
       .lma-entry {
         background: white;
-        padding: 2.5rem;
+        padding: 2rem;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         border-left: 4px solid var(--accent-blue);
         transition: all 0.3s ease;
+        min-height: 150px;
+        flex-shrink: 0;
       }
       
       .lma-entry:hover {
@@ -360,12 +394,13 @@ ui <- fluidPage(
       
       .lma-title {
         color: var(--primary-blue);
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 600;
         margin-bottom: 1rem;
         text-decoration: none;
         cursor: pointer;
         line-height: 1.4;
+        display: block;
       }
 
       .lma-title:hover {
@@ -375,7 +410,7 @@ ui <- fluidPage(
       
       .lma-meta {
         color: var(--gray-600);
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 1rem;
         line-height: 1.6;
       }
@@ -387,7 +422,7 @@ ui <- fluidPage(
       }
 
       .lma-abstract {
-        font-size: 1.2rem;
+        font-size: 1rem;
         line-height: 1.6;
         color: var(--gray-700);
         margin-top: 1rem;
@@ -396,19 +431,24 @@ ui <- fluidPage(
       }
       
       .no-results {
-        padding: 3rem;
+        padding: 2rem;
         text-align: center;
         color: var(--gray-600);
         background: white;
         border-radius: 12px;
         font-size: 1.1rem;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        margin: 2rem auto;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       /* Responsive design */
       @media (max-width: 768px) {
         .title {
-          font-size: 2rem;
+          font-size: 1.8rem;
         }
         
         .filter-tabs {
@@ -418,12 +458,20 @@ ui <- fluidPage(
         }
         
         .search-section {
-          margin: 1rem;
-          padding: 1.5rem;
+          margin: 0.5rem;
+          padding: 1rem;
         }
         
         .lma-entry {
           padding: 1.5rem;
+        }
+        
+        .lma-container {
+          min-height: calc(3 * 160px + 2 * 1.5rem); /* Fewer items on mobile */
+        }
+        
+        .container-fluid {
+          padding: 0.5rem;
         }
       }
     "))
@@ -750,12 +798,27 @@ ui <- fluidPage(
       
       const observer = new MutationObserver(sendHeight);
       observer.observe(document.body, {childList: true, subtree: true});
-    });
-  "))
+
+   // Handle disconnections
+   $(document).on('shiny:disconnected', function(event) {
+     console.log('Shiny disconnected, attempting reconnection...');
+     setTimeout(function() {
+       if (!Shiny.shinyapp.isConnected()) {
+         location.reload();
+       }
+     }, 2000);
+   });
+  
+   // Keepalive ping
+   setInterval(function() {
+     if (Shiny.shinyapp && Shiny.shinyapp.isConnected()) {
+       Shiny.setInputValue('keepalive', new Date().getTime(), {priority: 'event'});
+     }
+   }, 25000);
+ "))
 )
 
-
-#====== Server section ==============================# 
+#====================================================== Server section ==============================# 
 server <- function(input, output, session) {
   # Helper function for NULL handling
   `%||%` <- function(x, y) {
@@ -1591,7 +1654,8 @@ server <- function(input, output, session) {
       shinyjs::enable("next_page_bottom")
     }
   })
-  # Custom HTML output for LMA list with clickable titles and abstracts (now paginated)
+  
+  # Custom HTML output for LMA list with clickable titles and abstracts
   output$lma_list <- renderUI({
     data <- paginated_data()  # Use paginated data instead of filtered data
     
@@ -1646,6 +1710,12 @@ server <- function(input, output, session) {
         })
     )
   })
+
+# Keepalive observer  
+observeEvent(input$keepalive, {
+  # Just acknowledge the ping to keep session active
+  cat("Session keepalive ping received at:", as.character(Sys.time()), "\n")
+}, ignoreNULL = TRUE, ignoreInit = TRUE)
 }
 
 # Run the application

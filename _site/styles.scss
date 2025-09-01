@@ -202,7 +202,6 @@ a {
   
   &:hover {
     color: #0A2A5E;
-    border-bottom-color: #0A2A5E;
     text-decoration: none;
   }
 }
@@ -433,6 +432,22 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   color: white !important;
 }
 
+/* Center specific paragraph text with links */
+.content-section p:has(a[href*="behavioral-neuroendocrinology-lab"]) {
+  text-align: center;
+}
+
+/* White text for index page paragraph links with white underline */
+.content-section p a {
+  color: white !important;
+  border-bottom: 1px solid white;
+  
+  &:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
 /* Feature Grid */
 .feature-grid {
   display: grid;
@@ -489,7 +504,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
 /* Hero Section */
 .hero-section {
   position: relative;
-  min-height: 35vh;
+  min-height: 22vh;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-top: 0 !important;
@@ -1979,5 +1994,12 @@ h2[data-anchor-id="resourcepage"] {
     bottom: -5%;
     right: -5%;
     filter: brightness(0) invert(1) opacity(0.15);
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+  .hero-section {
+    min-height: 20vh;
   }
 }
