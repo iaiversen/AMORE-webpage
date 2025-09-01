@@ -49,11 +49,13 @@ ui <- fluidPage(
       
       /* Main container with fixed height */
       .container-fluid {
-        min-height: 100vh;
-        max-height: 100vh;
+        min-height: 200;
+        max-height: none;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow: visible;
+        max-width: 1600px;
+        margin: 0 auto;
       }
       
       /* Pagination styling */
@@ -141,7 +143,7 @@ ui <- fluidPage(
         border-radius: 16px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         margin: 1rem auto;
-        max-width: 1200px;
+        max-width: 1600px;
         flex-shrink: 0;
       }
       
@@ -227,7 +229,7 @@ ui <- fluidPage(
         background: var(--gray-50);
         padding: 0.8rem 1rem;
         border-radius: 8px;
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
         border-left: 4px solid var(--accent-blue);
       }
       
@@ -235,7 +237,7 @@ ui <- fluidPage(
         color: var(--primary-blue);
         font-weight: 600;
         margin-bottom: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
       
       .subcategory {
@@ -257,7 +259,7 @@ ui <- fluidPage(
         margin-bottom: 0.3rem;
         cursor: pointer;
         transition: color 0.2s ease;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
       }
       
       .shiny-input-checkboxgroup label:hover {
@@ -355,7 +357,7 @@ ui <- fluidPage(
       
       /* Fixed height results section */
       .results-section {
-        max-width: 1200px;
+        max-width: 1600px;
         margin: 1rem auto;
         flex: 1;
         display: flex;
@@ -371,15 +373,14 @@ ui <- fluidPage(
         gap: 1.5rem;
         flex: 1;
         min-height: 0;
-        overflow-y: auto;
+        overflow-y: visible;
         padding: 1rem 0;
         /* Ensure consistent minimum height for 5 items */
-        min-height: calc(5 * 180px + 4 * 1.5rem);
       }
       
       .lma-entry {
         background: white;
-        padding: 2rem;
+        padding: 3rem;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         border-left: 4px solid var(--accent-blue);
@@ -395,7 +396,7 @@ ui <- fluidPage(
       
       .lma-title {
         color: var(--primary-blue);
-        font-size: 1.3rem;
+        font-size: 1.8rem;
         font-weight: 600;
         margin-bottom: 1rem;
         text-decoration: none;
@@ -411,9 +412,9 @@ ui <- fluidPage(
       
       .lma-meta {
         color: var(--gray-600);
-        font-size: 0.85rem;
+        font-size: 1rem;
         margin-bottom: 1rem;
-        line-height: 1.6;
+        line-height: 1.8;
       }
       
       .lma-meta span {
@@ -423,8 +424,8 @@ ui <- fluidPage(
       }
 
       .lma-abstract {
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 1.2rem;
+        line-height: 1.7;
         color: var(--gray-700);
         margin-top: 1rem;
         padding-top: 1rem;
