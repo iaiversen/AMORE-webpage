@@ -23,31 +23,30 @@ ui <- fluidPage(
       
       /* Main colors - modernized palette */
       :root {
-  --primary-blue: #0A2A5E;        
-  --secondary-blue: #1E50A0;      
-  --accent-blue: #3c6997ff;       
-  --light-blue: #f0f6ff;          
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --success-green: #10b981;
-  --warning-orange: #f59e0b;
-}
+        --primary-blue: #0A2A5E;        
+        --secondary-blue: #1E50A0;      
+        --accent-blue: #3c6997ff;       
+        --light-blue: #f0f6ff;          
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --success-green: #10b981;
+        --warning-orange: #f59e0b;
+      }
 
-      
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background: #FFFFFF; /* White background */
+        background: #FFFFFF;
         min-height: 100vh;
         font-size: 12px; 
         overflow-x: hidden;
       }
       
-      /* Main container with fixed height */
+      /* Main container with responsive padding */
       .container-fluid {
         min-height: 200;
         max-height: none;
@@ -56,6 +55,163 @@ ui <- fluidPage(
         overflow: visible;
         max-width: 1600px;
         margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      /* ===== SEARCH INPUT STYLING ===== */
+      .form-control, .search-input {
+        border: 2px solid var(--primary-blue) !important;
+        border-radius: 6px;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        background: white;
+      }
+
+      .form-control:focus, .search-input:focus {
+        border-color: var(--primary-blue) !important;
+        box-shadow: 0 0 0 0.2rem rgba(10, 42, 94, 0.25) !important;
+        outline: none;
+        background: white;
+      }
+
+      .form-control::placeholder, .search-input::placeholder {
+        color: #666;
+        opacity: 0.7;
+      }
+      
+      /* Title styling */
+      .title {
+        font-size: 2.5rem;
+        color: var(--primary-blue);
+        margin: 1rem 0;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: -0.025em;
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        flex-shrink: 0;
+      }
+      
+      /* Main search section - simplified */
+      .search-section {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin: 1rem auto;
+        max-width: 1600px;
+        flex-shrink: 0;
+      }
+      
+      /* Horizontal filter tabs - simplified design */
+      .filter-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+        justify-content: center;
+      }
+      
+      .filter-tab {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 25px;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 1.2rem !important;
+        color: var(--gray-700);
+        user-select: none;
+      }
+      
+      .filter-tab:hover {
+        border-color: var(--primary-blue);
+        background: var(--light-blue);
+      }
+      
+      .filter-tab.active {
+        background: var(--primary-blue);
+        border-color: var(--primary-blue);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(10, 42, 94, 0.3);
+      }
+      
+      /* Simplified filter panels */
+      .filter-panels {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 1rem;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+      }
+      
+      .filter-panels.show {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      
+      .filter-panel {
+        display: none;
+        padding: 1.5rem;
+        border-top: 2px solid var(--primary-blue);
+      }
+      
+      .filter-panel.active {
+        display: block;
+      }
+      
+      /* Remove extra nested styling */
+      .filter-section {
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        margin-bottom: 1.5rem;
+        border: none;
+      }
+      
+      .filter-title {
+        color: var(--primary-blue);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        border-bottom: 1px solid var(--gray-200);
+        padding-bottom: 0.5rem;
+      }
+      
+      /* Checkbox styling - simplified */
+      .shiny-input-checkboxgroup {
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      
+      .shiny-input-checkboxgroup label {
+        font-weight: 400;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        line-height: 1.4;
+      }
+      
+      .shiny-input-checkboxgroup label:hover {
+        color: var(--primary-blue);
+      }
+      
+      .shiny-input-checkboxgroup input[type='checkbox'] {
+        margin-right: 0.75rem;
+        transform: scale(1.1);
+        accent-color: var(--primary-blue);
       }
       
       /* Pagination styling */
@@ -121,241 +277,7 @@ ui <- fluidPage(
         text-align: center;
       }
       
-      
-      .title {
-        font-size: 2.5rem;
-        color: var(--primary-blue);
-        margin: 1rem 0;
-        font-weight: 700;
-        text-align: center;
-        letter-spacing: -0.025em;
-        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        flex-shrink: 0;
-      }
-      
-      /* Main search section */
-      .search-section {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        margin: 1rem auto;
-        max-width: 1600px;
-        flex-shrink: 0;
-      }
-      
-      .search-input {
-        width: 100%;
-        padding: 1.5rem 2rem;
-        font-size: 1.6rem;
-        border: 2px solid var(--gray-200);
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        background: var(--gray-50);
-      }
-      
-      .search-input:focus {
-        outline: none;
-        border-color: var(--accent-blue);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        background: white;
-      }
-      
-      /* Horizontal filter tabs */
-      .filter-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 1rem 0;
-        justify-content: center;
-      }
-      
-      .filter-tab {
-        background: white;
-        border: 2px solid var(--gray-200);
-        border-radius: 25px;
-        padding: 0.8rem 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        font-size: 1.2rem;
-        color: var(--gray-700);
-        user-select: none;
-      }
-      
-      .filter-tab:hover {
-        border-color: var(--accent-blue);
-        background: var(--light-blue);
-      }
-      
-      .filter-tab.active {
-        background: var(--primary-blue);
-        border-color: var(--primary-blue);
-        color: white;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
-      }
-      
-      /* Filter panels */
-      .filter-panels {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin-top: 1rem;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.3s ease-out;
-      }
-      
-      .filter-panels.show {
-        max-height: 500px; /* Reduced from 2000px */
-        overflow-y: auto;
-      }
-      
-      .filter-panel {
-        display: none;
-        padding: 1rem;
-        border-top: 3px solid var(--accent-blue);
-      }
-      
-      .filter-panel.active {
-        display: block;
-      }
-      
-      .filter-section {
-        background: var(--gray-50);
-        padding: 0.8rem 1rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        border-left: 4px solid var(--accent-blue);
-      }
-      
-      .filter-title {
-        color: var(--primary-blue);
-        font-weight: 600;
-        margin-bottom: 1rem;
-        font-size: 1.4rem;
-      }
-      
-      .subcategory {
-        margin-left: 1rem;
-        margin-top: 0.75rem;
-      }
-      
-      .subcategory-title {
-        font-weight: 500;
-        margin-bottom: 0.8rem;
-        color: var(--gray-700);
-        font-size: 1.1rem;
-      }
-      
-      /* Checkbox styling */
-      .shiny-input-checkboxgroup label {
-        font-weight: 400;
-        color: var(--gray-700);
-        margin-bottom: 0.3rem;
-        cursor: pointer;
-        transition: color 0.2s ease;
-        font-size: 1.2rem;
-      }
-      
-      .shiny-input-checkboxgroup label:hover {
-        color: var(--primary-blue);
-      }
-      
-      .shiny-input-checkboxgroup input[type='checkbox'] {
-        margin-right: 0.5rem;
-        transform: scale(1.1);
-        accent-color: var(--primary-blue);
-      }
-      
-      /* Selected filters display */
-      .selected-filters-container {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin: 1rem auto;
-        max-width: 1200px;
-        padding: 1rem 1.5rem;
-        border: 2px solid var(--primary-blue); /* Visible border for debugging */
-      }
-      
-      .selected-filters-container.hidden {
-        display: none;
-      }
-      
-      .selected-filters-title {
-        color: var(--primary-blue);
-        font-weight: 600;
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
-        border-bottom: 1px solid var(--gray-200);
-        padding-bottom: 0.5rem;
-      }
-      
-      .selected-filters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        align-items: center;
-      }
-      
-      .filter-tag {
-        background: var(--primary-blue);
-        color: white;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        transition: all 0.2s ease;
-        cursor: pointer;
-      }
-      
-      .filter-tag:hover {
-        background: var(--secondary-blue);
-        transform: translateY(-1px);
-      }
-      
-      .filter-tag .remove-btn {
-        background: rgba(255, 255, 255, 0.3);
-        border: none;
-        border-radius: 50%;
-        width: 18px;
-        height: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 12px;
-        color: white;
-        transition: background 0.2s ease;
-      }
-      
-      .filter-tag .remove-btn:hover {
-        background: rgba(255, 255, 255, 0.5);
-      }
-      
-      .clear-all-btn {
-        background: var(--gray-200);
-        color: var(--gray-700);
-        border: none;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-      
-      .clear-all-btn:hover {
-        background: var(--gray-300);
-      }
-      
-      /* Fixed height results section */
+      /* Results section styling */
       .results-section {
         max-width: 1600px;
         margin: 1rem auto;
@@ -375,12 +297,11 @@ ui <- fluidPage(
         min-height: 0;
         overflow-y: visible;
         padding: 1rem 0;
-        /* Ensure consistent minimum height for 5 items */
       }
       
       .lma-entry {
         background: white;
-        padding: 3rem;
+        padding: 2rem;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         border-left: 4px solid var(--accent-blue);
@@ -396,7 +317,7 @@ ui <- fluidPage(
       
       .lma-title {
         color: var(--primary-blue);
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 600;
         margin-bottom: 1rem;
         text-decoration: none;
@@ -412,9 +333,9 @@ ui <- fluidPage(
       
       .lma-meta {
         color: var(--gray-600);
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-bottom: 1rem;
-        line-height: 1.8;
+        line-height: 1.6;
       }
       
       .lma-meta span {
@@ -425,7 +346,7 @@ ui <- fluidPage(
 
       .lma-abstract {
         font-size: 1.2rem;
-        line-height: 1.7;
+        line-height: 1.6;
         color: var(--gray-700);
         margin-top: 1rem;
         padding-top: 1rem;
@@ -447,16 +368,96 @@ ui <- fluidPage(
         justify-content: center;
       }
       
-      /* Responsive design */
-      @media (max-width: 768px) {
+      /* ===== RESPONSIVE DESIGN ===== */
+      
+      /* Desktop screens (1200px and up) */
+      @media (min-width: 1200px) {
+        .container-fluid {
+          padding: 0 2rem;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+        
+        .search-section {
+          padding: 2rem;
+        }
+        
+        .filter-tab {
+          padding: 1rem 2rem;
+          font-size: 1.1rem;
+        }
+        
+        .filter-panel {
+          padding: 2rem;
+        }
+        
+        .lma-entry {
+          padding: 2.5rem;
+        }
+        
+        .lma-title {
+          font-size: 1.7rem;
+        }
+        
+        .lma-meta {
+          font-size: 1rem;
+        }
+        
+        .lma-abstract {
+          font-size: 1.1rem;
+        }
+        
+        .form-control, .search-input {
+          font-size: 1.1rem;
+          padding: 0.8rem 1.25rem;
+        }
+      }
+
+      /* Large tablets and small laptops (992px to 1199px) */
+      @media (min-width: 992px) and (max-width: 1199px) {
+        .container-fluid {
+          padding: 0 1.5rem;
+        }
+        
+        .filter-tab {
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+        }
+        
+        .search-section {
+          padding: 1.5rem;
+        }
+        
+        .lma-entry {
+          padding: 2rem;
+        }
+        
+        .lma-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* Tablets (768px to 991px) */
+      @media (min-width: 768px) and (max-width: 991px) {
+        .container-fluid {
+          padding: 0 1rem;
+        }
+        
         .title {
-          font-size: 1.8rem;
+          font-size: 2rem;
         }
         
         .filter-tabs {
           justify-content: flex-start;
           overflow-x: auto;
           padding-bottom: 0.5rem;
+        }
+        
+        .filter-tab {
+          padding: 0.7rem 1.2rem;
+          font-size: 0.9rem;
+          min-width: 150px;
+          text-align: center;
         }
         
         .search-section {
@@ -468,12 +469,284 @@ ui <- fluidPage(
           padding: 1.5rem;
         }
         
-        .lma-container {
-          min-height: calc(3 * 160px + 2 * 1.5rem); /* Fewer items on mobile */
+        .lma-title {
+          font-size: 1.4rem;
         }
         
+        .lma-meta {
+          font-size: 0.85rem;
+        }
+        
+        .filter-panels.show {
+          max-height: 350px;
+        }
+      }
+
+      /* Large phones (576px to 767px) */
+      @media (min-width: 576px) and (max-width: 767px) {
         .container-fluid {
+          padding: 0 0.75rem;
+        }
+        
+        .title {
+          font-size: 1.8rem;
+        }
+        
+        .filter-tabs {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        
+        .filter-tab {
+          padding: 0.8rem 1rem;
+          font-size: 0.9rem;
+          border-radius: 8px;
+          text-align: center;
+          margin: 0;
+        }
+        
+        .search-section {
+          padding: 1rem;
+          margin: 0.5rem 0;
+        }
+        
+        .form-control, .search-input {
+          font-size: 16px; /* Prevents zoom on iOS */
+          padding: 0.75rem;
+        }
+        
+        .lma-entry {
+          padding: 1.25rem;
+        }
+        
+        .lma-title {
+          font-size: 1.3rem;
+        }
+        
+        .lma-meta {
+          font-size: 0.8rem;
+        }
+        
+        .lma-abstract {
+          font-size: 0.9rem;
+        }
+        
+        .pagination-container {
+          flex-direction: column;
+          gap: 1rem;
+          align-items: stretch;
+        }
+        
+        .pagination-controls {
+          justify-content: space-between;
+        }
+        
+        .filter-panels.show {
+          max-height: 300px;
+        }
+      }
+
+      /* Small phones (up to 575px) */
+      @media (max-width: 575px) {
+        .container-fluid {
+          padding: 0 0.5rem;
+        }
+        
+        .title {
+          font-size: 1.6rem;
+          margin: 0.5rem 0;
+        }
+        
+        .filter-tabs {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        
+        .filter-tab {
+          padding: 0.75rem 1rem;
+          font-size: 0.85rem;
+          border-radius: 6px;
+          text-align: center;
+        }
+        
+        .filter-tab.active {
+          transform: none;
+        }
+        
+        .search-section {
+          padding: 0.75rem;
+          margin: 0.5rem 0;
+          border-radius: 8px;
+        }
+        
+        .form-control, .search-input {
+          font-size: 16px;
+          padding: 0.75rem;
+        }
+        
+        .filter-panel {
+          padding: 1rem;
+        }
+        
+        .filter-title {
+          font-size: 1.1rem;
+        }
+        
+        .shiny-input-checkboxgroup label {
+          font-size: 0.85rem;
+          margin-bottom: 0.75rem;
+        }
+        
+        .lma-entry {
+          padding: 1rem;
+          margin-bottom: 1rem;
+        }
+        
+        .lma-title {
+          font-size: 1.2rem;
+        }
+        
+        .lma-meta {
+          font-size: 0.75rem;
+        }
+        
+        .lma-meta span {
+          display: block;
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+        }
+        
+        .lma-abstract {
+          font-size: 0.85rem;
+        }
+        
+        .pagination-container {
+          flex-direction: column;
+          gap: 0.75rem;
+          padding: 0.75rem 0;
+        }
+        
+        .pagination-controls {
+          justify-content: center;
+          gap: 0.5rem;
+        }
+        
+        .pagination-btn {
+          padding: 0.5rem 0.75rem;
+          font-size: 0.8rem;
+        }
+        
+        .page-indicator {
+          font-size: 0.8rem;
+          min-width: 80px;
+        }
+        
+        .pagination-info {
+          font-size: 0.8rem;
+          text-align: center;
+        }
+        
+        .filter-panels.show {
+          max-height: 250px;
+        }
+      }
+
+      /* Extra small phones (up to 400px) */
+      @media (max-width: 400px) {
+        .container-fluid {
+          padding: 0 0.25rem;
+        }
+        
+        .title {
+          font-size: 1.4rem;
+        }
+        
+        .search-section {
           padding: 0.5rem;
+        }
+        
+        .filter-tab {
+          padding: 0.6rem 0.8rem;
+          font-size: 0.8rem;
+        }
+        
+        .form-control, .search-input {
+          padding: 0.6rem;
+          font-size: 16px;
+        }
+        
+        .lma-entry {
+          padding: 0.75rem;
+        }
+        
+        .lma-title {
+          font-size: 1.1rem;
+        }
+        
+        .lma-meta {
+          font-size: 0.7rem;
+        }
+        
+        .lma-abstract {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* TV screens (1400px and up) */
+      @media (min-width: 1400px) {
+        .container-fluid {
+          max-width: 1600px;
+          padding: 0 3rem;
+        }
+        
+        .search-section {
+          padding: 2.5rem;
+        }
+        
+        .filter-tab {
+          padding: 1.2rem 2.5rem;
+          font-size: 1.2rem;
+        }
+        
+        .form-control, .search-input {
+          font-size: 1.2rem;
+          padding: 1rem 1.5rem;
+        }
+        
+        .lma-entry {
+          padding: 3rem;
+        }
+        
+        .lma-title {
+          font-size: 2rem;
+        }
+        
+        .lma-meta {
+          font-size: 1.1rem;
+        }
+        
+        .lma-abstract {
+          font-size: 1.2rem;
+        }
+      }
+
+      /* Landscape orientation adjustments for mobile */
+      @media (max-width: 767px) and (orientation: landscape) {
+        .search-section {
+          padding: 0.75rem 1rem;
+        }
+        
+        .filter-tab {
+          padding: 0.5rem 1rem;
+          font-size: 0.8rem;
+        }
+        
+        .lma-entry {
+          padding: 1rem;
+        }
+        
+        .filter-panels.show {
+          max-height: 200px;
         }
       }
     "))
@@ -521,7 +794,7 @@ ui <- fluidPage(
                           `data-target` = "details")
           ),
           
-          # Filter panels
+          # Simplified filter panels
           div(class = "filter-panels",
               # Biological Outcomes Panel
               div(class = "filter-panel", id = "biological-panel",
@@ -703,65 +976,10 @@ ui <- fluidPage(
       )
   ),
   
-  # Simplified JavaScript for testing
+  # Enhanced JavaScript with responsive functionality
   tags$script(HTML("
     $(document).ready(function() {
-      console.log('JavaScript loaded');
-      
-      // Test if container is visible
-      var $container = $('#selected-filters-container');
-      console.log('Container found:', $container.length);
-      console.log('Container visible:', $container.is(':visible'));
-      
-      // Simple test function
-      window.testFunction = function() {
-        $('#selected-filters-list').html('<div class=\"filter-tag\">JavaScript Works! <button class=\"remove-btn\">&times;</button></div>');
-      };
-      
-      // Monitor search input
-      $('#search_text').on('input', function() {
-        var searchValue = $(this).val();
-        console.log('Search input changed:', searchValue);
-        
-        var $filtersList = $('#selected-filters-list');
-        $filtersList.html(''); // Clear existing
-        
-        if (searchValue && searchValue.trim() !== '') {
-          var searchTag = '<div class=\"filter-tag\">Search: \"' + searchValue + '\" <button class=\"remove-btn\">&times;</button></div>';
-          $filtersList.html(searchTag);
-          console.log('Added search tag');
-        } else {
-          $filtersList.html('<div style=\"color: #666;\">No active filters</div>');
-        }
-      });
-      
-      // Monitor checkbox changes
-      $(document).on('change', 'input[type=\"checkbox\"]', function() {
-        console.log('Checkbox changed:', $(this).val(), $(this).is(':checked'));
-        
-        var $filtersList = $('#selected-filters-list');
-        var tags = [];
-        
-        // Add search if present
-        var searchText = $('#search_text').val();
-        if (searchText && searchText.trim() !== '') {
-          tags.push('<div class=\"filter-tag\">Search: \"' + searchText + '\" <button class=\"remove-btn\">&times;</button></div>');
-        }
-        
-        // Add checked filters
-        $('input[type=\"checkbox\"]:checked').each(function() {
-          var value = $(this).val();
-          var label = $(this).next('span').text() || value;
-          tags.push('<div class=\"filter-tag\">' + label + ' <button class=\"remove-btn\">&times;</button></div>');
-        });
-        
-        if (tags.length > 0) {
-          tags.push('<button class=\"clear-all-btn\">Clear All</button>');
-          $filtersList.html(tags.join(''));
-        } else {
-          $filtersList.html('<div style=\"color: #666;\">No active filters</div>');
-        }
-      });
+      console.log('Responsive JavaScript loaded');
       
       // Tab functionality (simplified)
       $('.filter-tab').on('click', function(e) {
@@ -771,10 +989,12 @@ ui <- fluidPage(
         var $clickedTab = $(this);
         
         if ($clickedTab.hasClass('active') && $filterPanels.hasClass('show')) {
+          // Close if clicking active tab
           $filterPanels.removeClass('show');
           $('.filter-tab').removeClass('active');
           $('.filter-panel').removeClass('active');
         } else {
+          // Open selected tab
           $filterPanels.addClass('show');
           $('.filter-tab').removeClass('active');
           $clickedTab.addClass('active');
@@ -782,53 +1002,152 @@ ui <- fluidPage(
           $('#' + target + '-panel').addClass('active');
         }
       });
+      
+      // Mobile scroll optimization
+      if ($(window).width() <= 767) {
+        // Smooth scrolling for mobile tab selection
+        $('.filter-tab').on('click', function() {
+          setTimeout(function() {
+            $('.filter-panels').get(0).scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 100);
+        });
+        
+        // Optimize touch scrolling
+        $('.filter-panels').css({
+          '-webkit-overflow-scrolling': 'touch',
+          'overscroll-behavior': 'contain'
+        });
+      }
+      
+      // Prevent iOS zoom on input focus
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        $('input[type=\"text\"], input[type=\"search\"], textarea, select').attr('autocomplete', 'off');
+        
+        // Add viewport meta tag dynamically if not present
+        if (!$('meta[name=\"viewport\"]').length) {
+          $('head').append('<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">');
+        }
+      }
+      
+      // Handle window resize for responsive adjustments
+      var resizeTimer;
+      $(window).on('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          // Close filter panels on orientation change for mobile
+          if ($(window).width() <= 767) {
+            $('.filter-panels').removeClass('show');
+            $('.filter-tab').removeClass('active');
+            $('.filter-panel').removeClass('active');
+          }
+        }, 250);
+      });
+      
+      // Enhanced filter panel height management
+      function adjustFilterPanelHeight() {
+        var $activePanel = $('.filter-panel.active');
+        if ($activePanel.length) {
+          var panelHeight = $activePanel.outerHeight();
+          var maxHeight = Math.min(panelHeight + 50, $(window).height() * 0.4);
+          $('.filter-panels.show').css('max-height', maxHeight + 'px');
+        }
+      }
+      
+      // Adjust height when panels are shown/hidden
+      $('.filter-tab').on('click', function() {
+        setTimeout(adjustFilterPanelHeight, 50);
+      });
+      
+      // Keyboard navigation support
+      $('.filter-tab').on('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          $(this).click();
+        }
+      });
+      
+      // Focus management for accessibility
+      $('.filter-tab').on('focus', function() {
+        $(this).addClass('focus-visible');
+      }).on('blur', function() {
+        $(this).removeClass('focus-visible');
+      });
     });
   ")),
   
-  # Height tracking script
+  # Height tracking and connection management script
   tags$script(HTML("
-    // Send height to parent frame
-    function sendHeight() {
-      const height = document.body.scrollHeight;
-      window.parent.postMessage({frameHeight: height}, '*');
-    }
-    
-    // Send initial height and then periodically update
-    window.addEventListener('load', function() {
-      sendHeight();
-      setInterval(sendHeight, 300);
-      
-      const observer = new MutationObserver(sendHeight);
-      observer.observe(document.body, {childList: true, subtree: true});
-
-   // Handle disconnections
-   $(document).on('shiny:disconnected', function(event) {
-     console.log('Shiny disconnected, attempting reconnection...');
-     setTimeout(function() {
-       if (!Shiny.shinyapp.isConnected()) {
-         location.reload();
-       }
-     }, 2000);
-   });
+  // Send height to parent frame
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({frameHeight: height}, '*');
+  }
   
-   // Keepalive ping
-   setInterval(function() {
-     if (Shiny.shinyapp && Shiny.shinyapp.isConnected()) {
-       Shiny.setInputValue('keepalive', new Date().getTime(), {priority: 'event'});
-     }
-   }, 25000);
- "))
-)
+  // Send initial height and then periodically update
+  window.addEventListener('load', function() {
+    sendHeight();
+    setInterval(sendHeight, 300);
+    
+    const observer = new MutationObserver(sendHeight);
+    observer.observe(document.body, {childList: true, subtree: true});
+  });
 
+  // Handle disconnections
+  $(document).on('shiny:disconnected', function(event) {
+    console.log('Shiny disconnected, attempting reconnection...');
+    setTimeout(function() {
+      if (!Shiny.shinyapp.isConnected()) {
+        location.reload();
+      }
+    }, 2000);
+  });
+
+  // Enhanced keepalive and reconnection handling
+  setInterval(function() {
+    if (Shiny.shinyapp && Shiny.shinyapp.isConnected()) {
+      Shiny.setInputValue('keepalive', new Date().getTime(), {priority: 'event'});
+    } else {
+      // Try to reconnect if disconnected
+      console.log('Shiny disconnected, attempting to reconnect...');
+      try {
+        Shiny.shinyapp.reconnect();
+      } catch(e) {
+        setTimeout(function() {
+          location.reload();
+        }, 1000);
+      }
+    }
+  }, 10000); // Every 10 seconds
+
+  // Additional connection monitoring
+  $(document).on('shiny:connected', function() {
+    console.log('Shiny connected successfully');
+  });
+  
+  $(document).on('shiny:disconnected', function() {
+    console.log('Shiny disconnected - will attempt reconnection');
+    setTimeout(function() {
+      if (!Shiny.shinyapp.isConnected()) {
+        location.reload();
+      }
+    }, 3000);
+  });
+"))
+)  
+  
 #====================================================== Server section ==============================# 
 server <- function(input, output, session) {
-  # Helper function for NULL handling
+    # Extend session timeout
+    session$allowReconnect(TRUE)
   `%||%` <- function(x, y) {
     if (is.null(x)) y else x
   }
   
   # Pagination settings
-  ITEMS_PER_PAGE <- 5  # You can adjust this number
+  ITEMS_PER_PAGE <- 5 
   
   # Reactive value for current page
   current_page <- reactiveVal(1)
@@ -1712,12 +2031,12 @@ server <- function(input, output, session) {
         })
     )
   })
-
-# Keepalive observer  
-observeEvent(input$keepalive, {
-  # Just acknowledge the ping to keep session active
-  cat("Session keepalive ping received at:", as.character(Sys.time()), "\n")
-}, ignoreNULL = TRUE, ignoreInit = TRUE)
+  
+  # Keepalive observer  
+  observeEvent(input$keepalive, {
+    # Just acknowledge the ping to keep session active
+    cat("Session keepalive ping received at:", as.character(Sys.time()), "\n")
+  }, ignoreNULL = TRUE, ignoreInit = TRUE)
 }
 
 # Run the application
