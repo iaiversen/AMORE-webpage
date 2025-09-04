@@ -15,7 +15,7 @@ format:
 Active Monitoring of Oxytocin Research Evidence
 :::
 
-AMORE hosts living meta-analyses for biobehavioral oxytocin research, serving as a centralized platform that aggregates articles and materials on dedicated project pages for each meta-analysis.
+AMORE hosts living meta-analyses for biobehavioral oxytocin research, serving as a centralized platform that aggregates articles and materials on dedicated project pages. 
 
 Designed to advance oxytocin biobehavioral research, a standardized framework ensures that all living meta-analyses featured on AMORE maintain timely integration of emerging evidence with rigorous methodology and transparency throughout the research process.
 
