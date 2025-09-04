@@ -422,6 +422,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
 }
 
 .content-section {
+  text-align: center !important;
   background: transparent !important;
   margin-top: 0 !important;
   padding: 0 3rem;

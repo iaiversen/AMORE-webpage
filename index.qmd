@@ -15,7 +15,7 @@ format:
 Active Monitoring of Oxytocin Research Evidence
 :::
 
-AMORE is a online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.
+AMORE is an online platform that hosts living meta-analysis for oxytocin research investigating biobehavioral outcomes. AMORE serves as a central hub connecting documentation stored in recognized external repositories with their respective meta-analysis, making research easily accessible.
 
 Living meta-analysis published on AMORE must adhere to our standardization framework, which includes both mandatory requirements and recommended practices. A key requirement is that all analyses must be updated at least every 24 months to reflect current evidence in the field. 
 
