@@ -120,6 +120,7 @@ The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing 
 ## Current Results {#current-results}
 
 ```{=html}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -187,10 +188,12 @@ The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing 
 ## Resources {#resources}
 
 ```{=html}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMORE Resources</title>
     <style>
         * {
             margin: 0;
@@ -198,7 +201,7 @@ The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing 
             box-sizing: border-box;
         }
 
-        .resources-body {
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             background: #f8fafc;
@@ -451,7 +454,7 @@ The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing 
         }
     </style>
 </head>
-<body class="resources-body">
+<body>
     <div class="resources-container">
         <div class="tab-navigation">
             <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
@@ -655,12 +658,6 @@ Statistical analyses will be conducted using [statistical software] with the [sp
 ## Search Strategy {#search-strategy}
 
 ::: {.search-strategy-box}
-<span class="search-db">[DATABASE 1]:</span>
-[Search string for database 1]
-
-<span class="search-db">[DATABASE 2]:</span>
-[Search string for database 2]
-
 <span class="search-db">[DATABASE 3]:</span>
 [Search string for database 3]
 :::
@@ -758,35 +755,10 @@ Contact: [contact.email@institution.edu]
 - Use `.pending` class for unavailable resources
 - Author toggle functionality is already implemented
 - Reference toggle functionality is already implemented
-- All styling will be applied automatically through the SCSS file
-## INSTRUCTIONS FOR USE:
+- All styling will be applied automatically through the SCSS file 1]:</span>
+[Search string for database 1]
 
-### YAML Header Instructions:
-- **title**: Replace with your specific research question
-- **status**: Choose from "Preregistered", "Published", "Retired"
-- **analytical_framework**: Choose from "Frequentist", "Bayesian", "Mixed Methods"
-- **oxytocin.intervention**: Choose from provided options
-- **oxytocin.assessment_method**: Choose from provided options  
-- **oxytocin.route**: Choose from provided options
-- **oxytocin.dosage**: Choose from provided options or specify
-- **population.status**: Choose from "Healthy", "Clinical", "Mixed"
-- **population.age_group**: Choose from provided options
-- **outcomes**: Select relevant categories and map to app.R outcomes
-- **update-frequency**: Choose from provided options
-- **dois**: Update with actual DOIs when available
+<span class="search-db">[DATABASE 2]:</span>
+[Search string for database 2]
 
-### Content Instructions:
-- Replace all [BRACKETED PLACEHOLDERS] with actual content
-- Update author information in both visible and hidden sections
-- Provide actual URLs for resources or use "#" with "pending" class
-- Customize inclusion/exclusion criteria for your research question
-- Update methodology section with your specific approach
-- Provide actual search strategies for your databases
-- Update contact information and timeline
-- Add your actual references in the specified format
-
-### CSS Classes to Remember:
-- Use `.pending` class for unavailable resources
-- Author toggle functionality is already implemented
-- Reference toggle functionality is already implemented
-- All styling will be applied automatically through the SCSS file
+<span class="search-db">[DATABASE
