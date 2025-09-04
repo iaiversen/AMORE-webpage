@@ -40,7 +40,6 @@ format:
 ::: {.project-hero-content}
 Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxytocin: A Living Systematic Review and Meta-Analysis
 
-
 :::
 :::
 
@@ -123,110 +122,505 @@ This living meta-analysis investigates the relationship between perinatal exposu
 
 The analysis employs a frequentist approach, utilizing random effects models with the Paule-Mandel estimator to synthesize findings across the literature. The project addresses whether perinatal exposure to exogenous oxytocin increases the likelihood of neurodevelopmental conditions in children. This living meta-analysis will be updated every 24 months, ensuring the incorporation of emerging evidence.
 
+## Current Results {#current-results}
+
+```{=html}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .current-results-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .preregistered-notice {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .preregistered-notice p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .previous-research {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+        }
+
+        .previous-research-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+
+        .previous-research-content {
+            color: #78350f;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="current-results-container">
+        <div class="preregistered-notice">
+            <p><strong>This is a pre-registered protocol.</strong> Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.</p>
+            
+            <p>This living meta-analysis will provide updated evidence on the relationship between perinatal oxytocin exposure and neurodevelopmental outcomes, incorporating the latest research findings as they become available.</p>
+        </div>
+    </div>
+</body>
+</html>
+```
 
 ## Resources {#resources}
 
-::: {.panel-tabset}
-
-### Initial Publication
-
 ```{=html}
-<details class="resource-details">
-  <summary class="resource-summary">Pre-registration & Publication</summary>
-  <div class="link-wrapper">
-    <a href="https://osf.io/preprints/osf/9gx6s_v1" class="resource-link" target="_blank">Pre-registration on OSF</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Published Article (pending)</a>
-  </div>
-</details>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Data & Analysis Resources</summary>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Complete Dataset (pending)</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Analysis Scripts (pending)</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">Deviation Report (pending)</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="#" class="resource-link pending" target="_blank">PRISMA Checklist (pending)</a>
-  </div>
-</details>
+        .resources-body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background: #f8fafc;
+            padding: 20px;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Related Resources</summary>
-  <div class="link-wrapper">
-    <a href="https://doi.org/10.1017/S0033291718003021" class="resource-link" target="_blank">Lønfeldt et al. (2019) - Previous meta-analysis</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="https://doi.org/10.1093/ije/dyaa076" class="resource-link" target="_blank">Stokholm et al. (2021) - Related study</a>
-  </div>
-</details>
+        .resources-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .tab-navigation {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: #2563eb;
+            background: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #2563eb;
+        }
+
+        .tab-button:hover:not(.active) {
+            color: #374151;
+            background: #f3f4f6;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 32px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .resource-category {
+            margin-bottom: 32px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .resource-item {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .resource-header {
+            padding: 20px;
+        }
+
+        .resource-info {
+            flex-grow: 1;
+        }
+
+        .resource-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .resource-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resource-link {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .resource-link:hover {
+            border-color: #2563eb;
+            background: #f0f4ff;
+        }
+
+        .resource-link.pending {
+            color: #6b7280;
+            cursor: not-allowed;
+        }
+
+        .resource-link.pending:hover {
+            border-color: #d1d5db;
+            background: white;
+        }
+
+        .link-title {
+            font-weight: 500;
+            color: #2563eb;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .resource-link.pending .link-title {
+            color: #6b7280;
+        }
+
+        .link-doi {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .link-url {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-preregistered {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-coming-soon {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-future {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .coming-soon-notice {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .future-notice {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            color: white;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .timeline-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .resources-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="resources-body">
+    <div class="resources-container">
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
+            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
+            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
+        </div>
+
+        <div id="initial" class="tab-content active">
+            <div class="timeline-indicator">
+                <div class="status-badge status-preregistered">Preregistered</div>
+                <span>February 2025</span>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <h3 class="category-title">Protocol & Publication</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Study Protocol</div>
+                            <div class="resource-description">Pre-registered analysis plan and methodology</div>
+                            <div class="resource-links">
+                                <a href="https://osf.io/preprints/osf/9gx6s_v1" class="resource-link" target="_blank">
+                                    <div class="link-title">Pre-registration on OSF</div>
+                                    <div class="link-url">osf.io/preprints/osf/9gx6s_v1</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Published Article</div>
+                            <div class="resource-description">Peer-reviewed publication (pending)</div>
+                            <div class="resource-links">
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Published Article (Pending)</div>
+                                    <div class="link-url">DOI will be assigned upon publication</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"></path>
+                    </svg>
+                    <h3 class="category-title">Data & Analysis</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Complete Dataset & Scripts</div>
+                            <div class="resource-description">Raw data, processed data, and R analysis scripts</div>
+                            <div class="resource-links">
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Complete Dataset (Pending)</div>
+                                    <div class="link-url">Will be available upon analysis completion</div>
+                                </a>
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Analysis Scripts (Pending)</div>
+                                    <div class="link-url">Will be available upon analysis completion</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Protocol Documentation</div>
+                            <div class="resource-description">PRISMA checklist and deviation reports</div>
+                            <div class="resource-links">
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">PRISMA Checklist (Pending)</div>
+                                    <div class="link-url">Will be available upon publication</div>
+                                </a>
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Deviation Report (Pending)</div>
+                                    <div class="link-url">Will document any protocol changes</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                    </svg>
+                    <h3 class="category-title">Related Research</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Previous Meta-Analysis</div>
+                            <div class="resource-description">Key studies informing this meta-analysis</div>
+                            <div class="resource-links">
+                                <a href="https://doi.org/10.1017/S0033291718003021" class="resource-link" target="_blank">
+                                    <div class="link-title">Lønfeldt et al. (2019) - Previous meta-analysis</div>
+                                    <div class="link-doi">DOI: 10.1017/S0033291718003021</div>
+                                </a>
+                                <a href="https://doi.org/10.1093/ije/dyaa076" class="resource-link" target="_blank">
+                                    <div class="link-title">Stokholm et al. (2021) - Related study</div>
+                                    <div class="link-doi">DOI: 10.1093/ije/dyaa076</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="update1" class="tab-content">
+            <div class="coming-soon-notice">
+                <strong>Update 1 </strong> • Expected: 2027 (24-month cycle)
+            </div>
+
+            <div class="timeline-indicator">
+                <div class="status-badge status-coming-soon">In Development</div>
+                <span>Next update within 24 months</span>
+            </div>
+        </div>
+
+        <div id="update2" class="tab-content">
+            <div class="future-notice">
+                <strong>Future Update</strong>
+            </div>
+
+            <div class="timeline-indicator">
+                <div class="status-badge status-future">Future</div>
+                <span>Long-term update planning</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
 ```
-
-### Update 1
-
-```{=html}
-<div class="development-notice">
-  <strong>Coming Soon:</strong> First update (24-month cycle)
-</div>
-
-<details class="resource-details">
-  <summary class="resource-summary">Updated Analysis</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Updated Dataset</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Updated Analysis Scripts</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Deviation Report</a>
-    </div>
-  </div>
-</details>
-
-<details class="resource-details">
-  <summary class="resource-summary">Publication Materials</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 1 Preprint</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 1 Published Article</a>
-    </div>
-  </div>
-</details>
-```
-
-### Update 2
-
-```{=html}
-<div class="development-notice">
-  <strong>Future Update:</strong> Second update
-</div>
-
-<details class="resource-details">
-  <summary class="resource-summary">Future Materials</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 2 Materials</a>
-    </div>
-  </div>
-</details>
-```
-:::
-
-
-## Current Results {#current-results}
-
-This is a pre-registered protocol. Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.
-
-A previous meta-analysis by Lønfeldt and colleagues (2019) concluded that there was no evidence for an association between perinatal exogenous oxytocin exposure and the later diagnosis of ADHD and only marginal evidence for an association with autism. This living meta-analysis will update those findings with new research.
 
 ## Inclusion and Exclusion Criteria {#criteria}
 
@@ -331,5 +725,3 @@ Contact: daniel.quintana@psykologi.uio.no
   </script>
 </div>
 ```
-
-:::

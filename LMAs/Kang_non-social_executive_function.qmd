@@ -113,128 +113,721 @@ This preregistered systematic review and meta-analysis investigates the effects 
 
 The analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies.
 
-## Resources {#resources}
+```{=html}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMORE Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-::: {.panel-tabset}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background: #f8fafc;
+            padding: 20px;
+        }
 
-### Initial Publication
+        .resources-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
 
-```{=html}
-<details class="resource-details">
-  <summary class="resource-summary">Pre-registration & Publication</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">Pre-registration on OSF</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">Published Article in Molecular Psychiatry</a>
-    </div>
-  </div>
-</details>
+        .tab-navigation {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Data & Analysis Resources</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">Complete Dataset and R Scripts</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">Interactive Web Application</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">Preprint Version</a>
-    </div>
-  </div>
-</details>
+        .tab-button {
+            flex: 1;
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Related Resources</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="https://doi.org/10.1016/j.tics.2020.03.008" class="resource-link" target="_blank">Quintana & Guastella (2020) - Allostatic theory of oxytocin</a>
+        .tab-button.active {
+            color: #2563eb;
+            background: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #2563eb;
+        }
+
+        .tab-button:hover:not(.active) {
+            color: #374151;
+            background: #f3f4f6;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 32px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .resource-category {
+            margin-bottom: 32px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .resource-item {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .resource-header {
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .resource-info {
+            flex-grow: 1;
+        }
+
+        .resource-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .resource-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resource-link {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .resource-link:hover {
+            border-color: #2563eb;
+            background: #f0f4ff;
+        }
+
+        .link-title {
+            font-weight: 500;
+            color: #2563eb;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .link-doi {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .link-url {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-published {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-coming-soon {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-future {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .coming-soon-notice {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .future-notice {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            color: white;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .timeline-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .resources-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            .resource-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resources-container">
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
+            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
+            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
+        </div>
+
+        <div id="initial" class="tab-content active">
+            <div class="timeline-indicator">
+                <div class="status-badge status-published">Published</div>
+                <span>January 2025</span>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <h3 class="category-title">Protocol & Publication</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Study Protocol</div>
+                            <div class="resource-description">Pre-registered analysis plan and methodology</div>
+                            <div class="resource-links">
+                                <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">
+                                    <div class="link-title">Pre-registration on OSF</div>
+                                    <div class="link-url">osf.io/8fzdy</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Published Article</div>
+                            <div class="resource-description">Peer-reviewed publication in Molecular Psychiatry</div>
+                            <div class="resource-links">
+                                <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">
+                                    <div class="link-title">Molecular Psychiatry Article</div>
+                                    <div class="link-doi">DOI: 10.1038/s41380-024-02871-4</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"></path>
+                    </svg>
+                    <h3 class="category-title">Data & Analysis</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Complete Dataset & Scripts</div>
+                            <div class="resource-description">Raw data, processed data, and R analysis scripts</div>
+                            <div class="resource-links">
+                                <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">
+                                    <div class="link-title">OSF Data Repository</div>
+                                    <div class="link-url">osf.io/7eg5u</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Interactive Web Application</div>
+                            <div class="resource-description">Live Shiny app for exploring results and running analyses</div>
+                            <div class="resource-links">
+                                <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">
+                                    <div class="link-title">Shiny Web Application</div>
+                                    <div class="link-url">dsquintana.shinyapps.io/ot_meta_exec</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Preprint Version</div>
+                            <div class="resource-description">Open access preprint with full supplementary materials</div>
+                            <div class="resource-links">
+                                <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">
+                                    <div class="link-title">OSF Preprint</div>
+                                    <div class="link-url">osf.io/cbjxd</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                    </svg>
+                    <h3 class="category-title">Related Research</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Theoretical Background</div>
+                            <div class="resource-description">Key theoretical papers informing this meta-analysis</div>
+                            <div class="resource-links">
+                                <a href="https://doi.org/10.1016/j.tics.2020.03.008" class="resource-link" target="_blank">
+                                    <div class="link-title">Allostatic Theory of Oxytocin</div>
+                                    <div class="link-doi">DOI: 10.1016/j.tics.2020.03.008</div>
+                                </a>
+                                <a href="https://doi.org/10.1038/s41380-020-0751-x" class="resource-link" target="_blank">
+                                    <div class="link-title">Intranasal Oxytocin Research Advances</div>
+                                    <div class="link-doi">DOI: 10.1038/s41380-020-0751-x</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="update1" class="tab-content">
+            <div class="coming-soon-notice">
+                <strong>Update 1 Coming Soon</strong> • Expected: January 2027 (24-month cycle)
+            </div>
+
+            <div class="timeline-indicator">
+                <div class="status-badge status-coming-soon">In Development</div>
+                <span>Next update within 24 months</span>
+            </div>
+        </div>
+
+        <div id="update2" class="tab-content">
+            <div class="future-notice">
+                <strong>Future Update</strong> • Expected: January 2029 (48 months from initial)
+            </div>
+
+            <div class="timeline-indicator">
+                <div class="status-badge status-future">Future</div>
+                <span>Long-term update planning</span>
+            </div>
+        </div>
     </div>
-    <div class="link-wrapper">
-      <a href="https://doi.org/10.1038/s41380-020-0751-x" class="resource-link" target="_blank">Quintana et al. (2021) - Intranasal oxytocin research advances</a>
-    </div>
-  </div>
-</details>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
 ```
 
-### Update 1
 
 ```{=html}
-<div class="development-notice">
-  <strong>Coming Soon:</strong> First update (24-month cycle)
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Results Section</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #374151;
+            background: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Updated Analysis</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Updated Dataset</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Updated Analysis Scripts</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Deviation Report</a>
-    </div>
-  </div>
-</details>
+        .results-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Publication Materials</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 1 Preprint</a>
+        .results-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .results-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .overall-findings {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .overall-findings p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .key-findings-section {
+            margin: 3rem 0;
+        }
+
+        .key-findings-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1.5rem;
+        }
+
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .finding-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .finding-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .finding-card.significant {
+            border-left: 4px solid #10b981;
+            background: linear-gradient(to right, #ecfdf5, #ffffff);
+        }
+
+        .finding-card.non-significant {
+            border-left: 4px solid #6b7280;
+            background: linear-gradient(to right, #f9fafb, #ffffff);
+        }
+
+        .finding-domain {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .finding-effect {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-significance {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .significant .finding-significance {
+            color: #059669;
+        }
+
+        .non-significant .finding-significance {
+            color: #6b7280;
+        }
+
+        .bayesian-analysis {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+        }
+
+        .bayesian-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bayesian-content {
+            color: #78350f;
+            font-size: 1.05rem;
+        }
+
+        .statistical-note {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .statistical-note-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.75rem;
+        }
+
+        .statistical-note-content {
+            color: #4b5563;
+            font-size: 1rem;
+        }
+
+        .effect-size-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+
+        .positive-effect {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .neutral-effect {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        @media (max-width: 768px) {
+            .findings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .overall-findings {
+                padding: 1.5rem;
+            }
+            
+            .bayesian-analysis {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <div class="results-header">
+            <h2 id="current-results">Current Results</h2>
+        </div>
+
+        <div class="overall-findings">
+            <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30).</p>
+            
+            <p>However, subgroup analyses revealed <strong>significant heterogeneity</strong> across different executive function domains, suggesting that oxytocin's effects may be domain-specific rather than uniformly distributed across all cognitive functions.</p>
+        </div>
+
+        <div class="key-findings-section">
+            <h3 class="key-findings-title">Key Findings by Domain</h3>
+            
+            <div class="findings-grid">
+                <div class="finding-card significant">
+                    <div class="finding-domain">
+                        Cognitive Flexibility
+                        <span class="effect-size-badge positive-effect">Significant Effect</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = 0.20</div>
+                    <div class="finding-significance">p = 0.02 • Statistically significant positive effect</div>
+                </div>
+
+                <div class="finding-card non-significant">
+                    <div class="finding-domain">
+                        Working Memory
+                        <span class="effect-size-badge neutral-effect">No Effect</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = 0.05</div>
+                    <div class="finding-significance">No significant effect detected</div>
+                </div>
+
+                <div class="finding-card non-significant">
+                    <div class="finding-domain">
+                        Inhibitory Control
+                        <span class="effect-size-badge neutral-effect">No Effect</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = -0.04</div>
+                    <div class="finding-significance">No significant effect detected</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bayesian-analysis">
+            <div class="bayesian-title">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+                </svg>
+                Bayesian Meta-Analysis Results
+            </div>
+            <div class="bayesian-content">
+                The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an overall effect</strong> (BF₁₀ = 0.10) and <strong>moderate evidence against publication bias</strong> (BF_PB = 0.32). These findings strengthen confidence in the null result for the overall analysis.
+            </div>
+        </div>
+
+        <div class="statistical-note">
+            <div class="statistical-note-title">Statistical Power Analysis</div>
+            <div class="statistical-note-content">
+                Individual studies were generally <strong>underpowered</strong> (5-10% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects in oxytocin research.
+            </div>
+        </div>
+
+        <div class="figure-section" style="margin: 3rem 0; text-align: center;">
+            <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+                <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png" 
+                     alt="Firepower Plot showing statistical power analysis" 
+                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
+                    <strong>Figure 2: Firepower plot.</strong> Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 1 Published Article</a>
-    </div>
-  </div>
-</details>
+</body>
+</html>
 ```
 
-### Update 2
 
-```{=html}
-<div class="development-notice">
-  <strong>Future Update:</strong> Second update
-</div>
-
-<details class="resource-details">
-  <summary class="resource-summary">Future Materials</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 2 Materials</a>
-    </div>
-  </div>
-</details>
-```
-
-:::
-
-
-## Current Results {#current-results}
-
-The meta-analysis found no overall significant effect of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30). However, subgroup analyses revealed significant heterogeneity across different executive function domains.
-
-**Key Findings:**
-
-- **Cognitive Flexibility:** Significant positive effect (Hedges' g = 0.20, p = 0.02)
-- **Working Memory:** No significant effect (Hedges' g = 0.05)
-- **Inhibitory Control:** No significant effect (Hedges' g = -0.04)
-
-The Robust Bayesian Meta-Analysis provided moderate support for the absence of an overall effect (BF₁₀ = 0.10) and moderate evidence against publication bias (BF_PB = 0.32). Statistical power analyses indicated that individual studies were generally underpowered (5-10% power) to detect the observed summary effect size.
-
-
-::: {style="margin-top: 3rem;"}
-### Statistical Power Analysis 
-::: 
-
-![Firepower Plot](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png)
-
-**Figure 2: Firepower plot.** Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
 
 ## Inclusion and Exclusion Criteria {#criteria}
 

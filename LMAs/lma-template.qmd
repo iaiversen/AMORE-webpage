@@ -41,7 +41,6 @@ format:
 ::: {.project-hero-content}
 The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic Review and Meta-Analysis
 
-
 :::
 :::
 
@@ -118,112 +117,512 @@ This living meta-analysis investigates the relationship between [INTERVENTION DE
 
 The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing [specific statistical methods] to synthesize findings across the literature. The project addresses whether [SPECIFIC RESEARCH QUESTION]. This living meta-analysis will be updated every [XX] months, ensuring the incorporation of emerging evidence.
 
+## Current Results {#current-results}
+
+```{=html}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .current-results-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .preregistered-notice {
+            background: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .preregistered-notice p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .previous-research {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+        }
+
+        .previous-research-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+
+        .previous-research-content {
+            color: #78350f;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="current-results-container">
+        <div class="preregistered-notice">
+            <p><strong>This is a pre-registered protocol.</strong> Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.</p>
+            
+            <p>This living meta-analysis will provide updated evidence on [RESEARCH TOPIC] incorporating the latest research findings as they become available.</p>
+        </div>
+
+        <div class="previous-research">
+            <div class="previous-research-title">Previous Research Context</div>
+            <div class="previous-research-content">
+                A previous meta-analysis by [Author et al. (YEAR)] concluded that [summary of previous findings]. This living meta-analysis will update those findings with new research and provide ongoing evidence synthesis.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
 
 ## Resources {#resources}
 
-::: {.panel-tabset}
-
-### Initial Publication
-
-``` {=html}
-<details class="resource-details">
-  <summary class="resource-summary">Pre-registration & Publication</summary>
-  <div class="link-wrapper">
-    <a href="[ACTUAL PREREGISTRATION URL]" class="resource-link" target="_blank">Pre-registration on [Platform]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[PUBLICATION URL OR #]" class="resource-link [pending if not available]" target="_blank">Published Article [add "pending" class if not yet published]</a>
-  </div>
-</details>
-
-<details class="resource-details">
-  <summary class="resource-summary">Data & Analysis Resources</summary>
-  <div class="link-wrapper">
-    <a href="[DATASET URL OR #]" class="resource-link [pending if not available]" target="_blank">Complete Dataset [add "pending" class if not available]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[ANALYSIS SCRIPTS URL OR #]" class="resource-link [pending if not available]" target="_blank">Analysis Scripts [add "pending" class if not available]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[DEVIATION REPORT URL OR #]" class="resource-link [pending if not available]" target="_blank">Deviation Report [add "pending" class if not available]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[PRISMA CHECKLIST URL OR #]" class="resource-link [pending if not available]" target="_blank">PRISMA Checklist [add "pending" class if not available]</a>
-  </div>
-</details>
-
-<details class="resource-details">
-  <summary class="resource-summary">Related Resources</summary>
-  <div class="link-wrapper">
-    <a href="[RELATED STUDY 1 URL]" class="resource-link" target="_blank">[Author et al. (YEAR)] - [Brief description]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[RELATED STUDY 2 URL]" class="resource-link" target="_blank">[Author et al. (YEAR)] - [Brief description]</a>
-  </div>
-</details>
-```
-
-
-### Update 1
 ```{=html}
-<div class="development-notice">
-  <strong>Coming Soon:</strong> First update (24-month cycle)
-</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Updated Analysis</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Updated Dataset</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Updated Analysis Scripts</a>
-    </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Deviation Report</a>
-    </div>
-  </div>
-</details>
+        .resources-body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            background: #f8fafc;
+            padding: 20px;
+        }
 
-<details class="resource-details">
-  <summary class="resource-summary">Publication Materials</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 1 Preprint</a>
+        .resources-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .tab-navigation {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: #2563eb;
+            background: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #2563eb;
+        }
+
+        .tab-button:hover:not(.active) {
+            color: #374151;
+            background: #f3f4f6;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 32px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .resource-category {
+            margin-bottom: 32px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .resource-item {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .resource-header {
+            padding: 20px;
+        }
+
+        .resource-info {
+            flex-grow: 1;
+        }
+
+        .resource-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .resource-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resource-link {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .resource-link:hover {
+            border-color: #2563eb;
+            background: #f0f4ff;
+        }
+
+        .resource-link.pending {
+            color: #6b7280;
+            cursor: not-allowed;
+        }
+
+        .resource-link.pending:hover {
+            border-color: #d1d5db;
+            background: white;
+        }
+
+        .link-title {
+            font-weight: 500;
+            color: #2563eb;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .resource-link.pending .link-title {
+            color: #6b7280;
+        }
+
+        .link-doi {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .link-url {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-preregistered {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-coming-soon {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-future {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .coming-soon-notice {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .future-notice {
+            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+            color: white;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .timeline-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .resources-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="resources-body">
+    <div class="resources-container">
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
+            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
+            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
+        </div>
+
+        <div id="initial" class="tab-content active">
+            <div class="timeline-indicator">
+                <div class="status-badge status-preregistered">Preregistered</div>
+                <span>[Registration Date]</span>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <h3 class="category-title">Protocol & Publication</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Study Protocol</div>
+                            <div class="resource-description">Pre-registered analysis plan and methodology</div>
+                            <div class="resource-links">
+                                <a href="[ACTUAL PREREGISTRATION URL]" class="resource-link" target="_blank">
+                                    <div class="link-title">Pre-registration on [Platform]</div>
+                                    <div class="link-url">[URL identifier]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Published Article</div>
+                            <div class="resource-description">Peer-reviewed publication [journal name]</div>
+                            <div class="resource-links">
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Published Article (Pending)</div>
+                                    <div class="link-url">DOI will be assigned upon publication</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"></path>
+                    </svg>
+                    <h3 class="category-title">Data & Analysis</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Complete Dataset & Scripts</div>
+                            <div class="resource-description">Raw data, processed data, and analysis scripts</div>
+                            <div class="resource-links">
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Complete Dataset (Pending)</div>
+                                    <div class="link-url">Will be available upon analysis completion</div>
+                                </a>
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Analysis Scripts (Pending)</div>
+                                    <div class="link-url">Will be available upon analysis completion</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Protocol Documentation</div>
+                            <div class="resource-description">PRISMA checklist and deviation reports</div>
+                            <div class="resource-links">
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">PRISMA Checklist (Pending)</div>
+                                    <div class="link-url">Will be available upon publication</div>
+                                </a>
+                                <a href="#" class="resource-link pending" target="_blank">
+                                    <div class="link-title">Deviation Report (Pending)</div>
+                                    <div class="link-url">Will document any protocol changes</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <div class="category-header">
+                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                    </svg>
+                    <h3 class="category-title">Related Research</h3>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Theoretical Background</div>
+                            <div class="resource-description">Key theoretical papers informing this meta-analysis</div>
+                            <div class="resource-links">
+                                <a href="[RELATED STUDY 1 URL]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Author et al. (YEAR)] - [Brief description]</div>
+                                    <div class="link-doi">DOI: [DOI if available]</div>
+                                </a>
+                                <a href="[RELATED STUDY 2 URL]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Author et al. (YEAR)] - [Brief description]</div>
+                                    <div class="link-doi">DOI: [DOI if available]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="update1" class="tab-content">
+            <div class="coming-soon-notice">
+                <strong>Update 1 Coming Soon</strong> • Expected: [XX] months after initial publication
+            </div>
+
+            <div class="timeline-indicator">
+                <div class="status-badge status-coming-soon">In Development</div>
+                <span>Next update scheduled</span>
+            </div>
+        </div>
+
+        <div id="update2" class="tab-content">
+            <div class="future-notice">
+                <strong>Future Update</strong> • Expected: [XX] months after Update 1
+            </div>
+
+            <div class="timeline-indicator">
+                <div class="status-badge status-future">Future</div>
+                <span>Long-term update planning</span>
+            </div>
+        </div>
     </div>
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 1 Published Article</a>
-    </div>
-  </div>
-</details>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
 ```
-
-### Update 2
-
-
-```{=html}
-<div class="development-notice">
-  <strong>Future Update:</strong> Second update
-</div>
-
-<details class="resource-details">
-  <summary class="resource-summary">Future Materials</summary>
-  <div class="resource-content">
-    <div class="link-wrapper">
-      <a href="#" class="resource-link pending" target="_blank">Update 2 Materials</a>
-    </div>
-  </div>
-</details>
-```
-
-:::
-
-
-## Current Results {#current-results}
-
-This is a pre-registered protocol. Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.
-
-A previous meta-analysis by [Author et al. (YEAR)] concluded that [summary of previous findings]. This living meta-analysis will update those findings with new research.
 
 ## Inclusion and Exclusion Criteria {#criteria}
 
@@ -359,264 +758,7 @@ Contact: [contact.email@institution.edu]
 - Use `.pending` class for unavailable resources
 - Author toggle functionality is already implemented
 - Reference toggle functionality is already implemented
-- All styling will be applied automatically through the SCSS file---
-title: "The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic Review and Meta-Analysis" 
-status: "Preregistered" # Options: Preregistered, Published, Retired
-analytical_framework: "Frequentist" # Options: Frequentist, Bayesian, Mixed Methods
-oxytocin:
-  intervention: "Intranasal oxytocin administration" # Options: Intranasal oxytocin administration, Peripheral oxytocin intervention (Intravenous/injection), Environmental/behavioral oxytocin manipulation, Perinatal oxytocin exposure
-  assessment_method: "Behavioral assessment" # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
-  route: "Central" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
-  dosage: "24 IU" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage
-population:
-  status: "Healthy" # Options: Healthy, Clinical, Mixed
-  age_group: "Adults" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
-  clinical_type: null # If applicable for clinical populations
-outcomes:
-  biological:
-    - "Cardiovascular" # Heart rate, blood pressure, HRV (maps to "Cardiovascular measures")
-  psychological_behavioral:
-    - "Social Cognition" # Theory of mind, empathy, emotion recognition (maps to "Social behavior")
-    - "Trust & Cooperation" # Economic games, interpersonal trust (maps to "Trust behavior")
-  clinical:
-    - "Autism" # ASD symptoms, social communication (maps to "Autism")
-update-frequency: "12 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
-dois:
-  preregistration: "10.XXXX/template-prereg"
-  preprint: "10.XXXX/template-preprint"
-  publication: "10.XXXX/template-publication"
-format:
-  html:
-    theme: 
-      - yeti
-      - ../styles.scss
-    css: styles.scss
-    page-layout: full
-    toc: true
-    toc-title: "On this page"
-    toc-location: right
-    toc-depth: 3
----
-
-::: {.callout-note .meta-info-container}
-## Project Information
-::: {.meta-grid}
-::: {.meta-column}
-#### Authors
-```{=html}
-<div id="author-list">
-  <div id="visible-authors">
-    [First Author Name] ([Primary Affiliation])<br>
-    [Second Author Name] ([Secondary Affiliation])<br>
-    [Senior Author Name] ([Multiple Affiliations Separated by | Pipes])
-    
-  </div>
-  
-  <div id="hidden-authors" style="display:none"> 
-  [Fourth Author] ([Affiliation])<br>
-  [Fifth Author] ([Affiliation])<br>
-    [Sixth Author] ([Affiliation])<br>
-    [Seventh Author] ([Affiliation])<br>
-    [Eighth Author] ([Multiple Affiliations | Separated by Pipes])<br>
-    [Additional Authors as needed...]<br>
-    
-  </div>
-  
-  <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
-  
-  <script>
-  function toggleAuthors() {
-    var hiddenAuthors = document.getElementById("hidden-authors");
-    var toggleButton = document.getElementById("author-toggle");
-    
-    if (hiddenAuthors.style.display === "none") {
-      hiddenAuthors.style.display = "block";
-      toggleButton.textContent = "Show fewer authors";
-    } else {
-      hiddenAuthors.style.display = "none";
-      toggleButton.textContent = "Show more authors";
-    }
-  }
-  </script>
-</div>
-```
-:::
-::: {.meta-column}
-#### Timeline
-**Pre-registered:** [Month DD, YYYY]  
-**Last update:** [Status of current analysis]  
-**Next update:** [Planned date or "To be determined" (XX-month update cycle)]
-:::
-::: {.meta-column}
-#### Identifiers
-**DOI:** <a href="[ACTUAL DOI URL]" target="_blank">[DOI URL or identifier]</a>
-
-**Keywords:** [keyword1], [keyword2], [keyword3], [methodology], [population]
-:::
-::: {.meta-column}
-#### Contact
-**Principal Investigator:** [PI Full Name]  
-**Email:** [pi.email@institution.edu]
-:::
-:::
-:::
-
-## Abstract {#abstract}
-
-This living meta-analysis investigates the relationship between [INTERVENTION DESCRIPTION] and [OUTCOME MEASURES] in [TARGET POPULATION]. [Brief background on why this research question is important and relevant statistics about prevalence or current practices].
-
-The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing [specific statistical methods] to synthesize findings across the literature. The project addresses whether [SPECIFIC RESEARCH QUESTION]. This living meta-analysis will be updated every [XX] months, ensuring the incorporation of emerging evidence.
-
-## Current Results {#current-results}
-
-[IF PREREGISTERED]: This is a pre-registered protocol. Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.
-
-[IF PUBLISHED]: [Summary of main findings, effect sizes, confidence intervals, and clinical significance]
-
-[Include any relevant previous research context]: A previous meta-analysis by [Author et al. (YEAR)] concluded that [summary of previous findings]. This living meta-analysis will update those findings with new research.
-
-## Resources {#resources}
-
-```{=html}
-<details class="resource-details">
-  <summary class="resource-summary">Pre-registration & Publication</summary>
-  <div class="link-wrapper">
-    <a href="[ACTUAL PREREGISTRATION URL]" class="resource-link" target="_blank">Pre-registration on [Platform]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[PUBLICATION URL OR #]" class="resource-link [pending if not available]" target="_blank">Published Article [add "pending" class if not yet published]</a>
-  </div>
-</details>
-
-<details class="resource-details">
-  <summary class="resource-summary">Data & Analysis Resources</summary>
-  <div class="link-wrapper">
-    <a href="[DATASET URL OR #]" class="resource-link [pending if not available]" target="_blank">Complete Dataset [add "pending" class if not available]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[ANALYSIS SCRIPTS URL OR #]" class="resource-link [pending if not available]" target="_blank">Analysis Scripts [add "pending" class if not available]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[DEVIATION REPORT URL OR #]" class="resource-link [pending if not available]" target="_blank">Deviation Report [add "pending" class if not available]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[PRISMA CHECKLIST URL OR #]" class="resource-link [pending if not available]" target="_blank">PRISMA Checklist [add "pending" class if not available]</a>
-  </div>
-</details>
-
-<details class="resource-details">
-  <summary class="resource-summary">Related Resources</summary>
-  <div class="link-wrapper">
-    <a href="[RELATED STUDY 1 URL]" class="resource-link" target="_blank">[Author et al. (YEAR)] - [Brief description]</a>
-  </div>
-  <div class="link-wrapper">
-    <a href="[RELATED STUDY 2 URL]" class="resource-link" target="_blank">[Author et al. (YEAR)] - [Brief description]</a>
-  </div>
-</details>
-```
-
-## Inclusion and Exclusion Criteria {#criteria}
-
-::: {.criteria-box}
-### Inclusion Criteria
-
-- **Type of Studies:** [Study designs included, e.g., "Randomized controlled trials", "Original research written in English"]
-- **Intervention:** [Specific intervention criteria, e.g., "Intranasal oxytocin administration"]
-- **Population:** [Target population, e.g., "Healthy adults aged 18-65"]
-- **Outcomes:** [Primary and secondary outcomes, e.g., "Social behavior measures", "Validated scales for trust"]
-- **Data Requirements:** [Statistical requirements, e.g., "Must report means and standard deviations or effect sizes"]
-:::
-
-::: {.criteria-box}
-### Exclusion Criteria
-
-- [Specific exclusion criteria relevant to the research question]
-- [Additional exclusion criteria]
-- [Overlap/duplicate publication handling]
-:::
-
-## Methodology Summary {#methodology}
-
-This living meta-analysis follows the PRISMA guidelines for systematic reviews. Our methodology is pre-registered and will incorporate [relevant previous research if applicable].
-
-The quality of included studies will be assessed using [specific quality assessment tool, e.g., "Cochrane Risk of Bias tool for RCTs"]. Studies will be independently rated by two reviewers [describe rating categories and scoring system].
-
-Statistical analyses will be conducted using [statistical software] with the [specific packages]. [Type of effects model] will be used with [specific estimator]. Heterogeneity will be evaluated by calculating [heterogeneity measures]. Publication bias will be assessed using [bias assessment methods].
-
-## Search Strategy {#search-strategy}
-
-::: {.search-strategy-box}
-<span class="search-db">[DATABASE 1]:</span>
-[Search string for database 1]
-
-<span class="search-db">[DATABASE 2]:</span>
-[Search string for database 2]
-
-<span class="search-db">[DATABASE 3]:</span>
-[Search string for database 3]
-:::
-
-## Update Protocol {#update-protocol}
-
-This is a living meta-analysis that will be updated every [XX] months for a minimum of [XX] years ([number] updates after initial publication). Updates will include:
-
-1. [Specific update procedures]
-2. [Search strategy updates]
-3. [Analysis protocol]
-4. [Statistical correction methods]
-5. [Additional relevant procedures]
-
-### Updates Log {#updates-log}
-
-- Initial pre-registration: [YEAR]
-- First analysis and publication: [Status/Date]
-- [Additional updates as they occur]
-
-### Next Update {#next-update}
-Scheduled for: [Date or "XX months after initial publication"]  
-Contact: [contact.email@institution.edu]
-
-## References {#references}
-
-```{=html}
-<div id="reference-list" style="font-size: 0.85rem;">
-  <div id="visible-references">
-    [Author, A. B., & Coauthor, C. D. (YEAR). Title of first reference. <i>Journal Name, Volume</i>(Issue), pages. https://doi.org/DOI]<br><br>
-    
-    [Author, E. F., Author, G. H., & Author, I. J. (YEAR). Title of second reference. <i>Journal Name, Volume</i>(Issue), pages. https://doi.org/DOI]<br><br>
-    
-    [Author, K. L. et al. (YEAR). Title of third reference. <i>Journal Name, Volume</i>(Issue), pages. https://doi.org/DOI]<br><br>
-  </div>
-  
-  <div id="hidden-references" style="display:none">
-    [Additional references in same format]<br><br>
-    
-    [Continue with remaining references]<br><br>
-    
-    [Last reference in same format]<br><br>
-  </div>
-  
-  <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
-  
-  <script>
-  function toggleReferences() {
-    var hiddenReferences = document.getElementById("hidden-references");
-    var toggleButton = document.getElementById("reference-toggle");
-    
-    if (hiddenReferences.style.display === "none") {
-      hiddenReferences.style.display = "block";
-      toggleButton.textContent = "Show fewer references";
-    } else {
-      hiddenReferences.style.display = "none";
-      toggleButton.textContent = "Show more references";
-    }
-  }
-  </script>
-</div>
-```
-
----
-
+- All styling will be applied automatically through the SCSS file
 ## INSTRUCTIONS FOR USE:
 
 ### YAML Header Instructions:
