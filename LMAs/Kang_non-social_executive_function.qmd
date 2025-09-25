@@ -35,7 +35,9 @@ format:
 
 ::: {.project-hero-section}
 ::: {.project-hero-content}
+::: {.project-hero-title}
 Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis
+:::
 
 :::
 :::
@@ -115,7 +117,6 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
 
 
 ## Resources {#resources}
-
 ```{=html}
 <!DOCTYPE html>
 <html lang="en">
@@ -428,6 +429,21 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
                         </div>
                     </div>
                 </div>
+
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Preprint Version</div>
+                            <div class="resource-description">Open access preprint with full supplementary materials</div>
+                            <div class="resource-links">
+                                <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">
+                                    <div class="link-title">OSF Preprint</div>
+                                    <div class="link-url">osf.io/cbjxd</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="resource-category">
@@ -462,21 +478,6 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
                                 <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">
                                     <div class="link-title">Shiny Web Application</div>
                                     <div class="link-url">dsquintana.shinyapps.io/ot_meta_exec</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Preprint Version</div>
-                            <div class="resource-description">Open access preprint with full supplementary materials</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">
-                                    <div class="link-title">OSF Preprint</div>
-                                    <div class="link-url">osf.io/cbjxd</div>
                                 </a>
                             </div>
                         </div>

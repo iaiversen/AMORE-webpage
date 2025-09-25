@@ -10,8 +10,9 @@ format:
 
 ::: {.hero-section}
 ::: {.hero-content}
-
+::: {.hero-title}
 Standardization Framework for AMORE 
+:::
 
 ::: {.hero-tagline}
 

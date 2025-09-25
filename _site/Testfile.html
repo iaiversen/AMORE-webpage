@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis – Active Monitoring of Oxytocin Research Evidence</title>
+<title>testfile – Active Monitoring of Oxytocin Research Evidence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-72e04aa0d87181c4f80efbb94b5bdd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8153dab23c2349da0f40541a33a14877.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,14 +71,43 @@ ul.task-list li input[type="checkbox"] {
 <meta name="keywords" content="oxytocin, living meta-analysis, systematic review, behavioral outcomes, biobehavioral, AMORE">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.scss">
-<link rel="stylesheet" href="styles_for_lma.scss">
-<meta property="og:title" content="Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis – Active Monitoring of Oxytocin Research Evidence">
+<meta property="og:title" content="Active Monitoring of Oxytocin Research Evidence">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Active Monitoring of Oxytocin Research Evidence">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -134,898 +163,303 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="project-hero-section">
-<div class="project-hero-content">
-<p>Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis</p>
-</div>
-</div>
-<div class="project-info-panel">
-<div class="project-info-grid">
-<section id="authors" class="level3 info-card authors-card">
-<h3 class="anchored" data-anchor-id="authors">Authors</h3>
-<div id="author-list">
-  <div id="visible-authors">
-    <strong>Heemin Kang</strong> (University of Oslo)<br>
-    <strong>Bernt D. Glaser</strong> (University of Oslo)<br>
-    <strong>Alina I. Sartorius</strong> (University of Oslo)
-  </div>
-  
-  <div id="hidden-authors" style="display:none"> 
-    <strong>Kristin Audunsdottir</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
-    <strong>Emilie Smith-Meyer Kildal</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
-    <strong>Terje Nærland</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital | Centre for Precision Psychiatry)<br>
-    <strong>Ole A. Andreassen</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | Centre for Precision Psychiatry)<br>
-    <strong>Lars T. Westlye</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
-    <strong>Daniel S. Quintana</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital)
-  </div>
-  
-  <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
-  
-  <script>
-  function toggleAuthors() {
-    var hiddenAuthors = document.getElementById("hidden-authors");
-    var toggleButton = document.getElementById("author-toggle");
-    
-    if (hiddenAuthors.style.display === "none") {
-      hiddenAuthors.style.display = "block";
-      toggleButton.textContent = "Show fewer authors";
-    } else {
-      hiddenAuthors.style.display = "none";
-      toggleButton.textContent = "Show more authors";
-    }
-  }
-  </script>
-</div>
-</section>
-<section id="timeline" class="level3 info-card timeline-card">
-<h3 class="anchored" data-anchor-id="timeline">Timeline</h3>
-<p><strong>Pre-registered:</strong> July 29, 2022<br>
-<strong>Published:</strong> January 18, 2025<br>
-<strong>Next update:</strong> Transforming meta-analysis protocol into living meta-analysis protocol in progress</p>
-</section>
-<section id="identifiers" class="level3 info-card identifiers-card">
-<h3 class="anchored" data-anchor-id="identifiers">Identifiers</h3>
-<p><strong>DOI:</strong> <a href="https://doi.org/10.1038/s41380-024-02871-4" target="_blank">10.1038/s41380-024-02871-4</a></p>
-<p><strong>Keywords:</strong> oxytocin, executive function, meta-analysis, cognitive flexibility, working memory, inhibitory control</p>
-</section>
-<section id="contact" class="level3 info-card contact-card">
-<h3 class="anchored" data-anchor-id="contact">Contact</h3>
-<p><strong>Principal Investigator:</strong> Daniel S. Quintana<br>
-<strong>Email:</strong> daniel.quintana@psykologi.uio.no</p>
-</section>
-</div>
-</div>
-<div class="main-content-container">
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>This preregistered systematic review and meta-analysis investigates the effects of oxytocin administration on non-social executive functions in humans. While oxytocin has received considerable attention for its role in social behaviors, emerging evidence suggests broader cognitive effects beyond social contexts.</p>
-<p>The analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies.</p>
-
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMORE Resources</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            background: #f8fafc;
-            padding: 20px;
-        }
-
-        .resources-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-
-        .tab-navigation {
-            display: flex;
-            border-bottom: 1px solid #e5e7eb;
-            background: #f9fafb;
-        }
-
-        .tab-button {
-            flex: 1;
-            padding: 16px 24px;
-            background: none;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            color: #6b7280;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .tab-button.active {
-            color: #2563eb;
-            background: white;
-        }
-
-        .tab-button.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #2563eb;
-        }
-
-        .tab-button:hover:not(.active) {
-            color: #374151;
-            background: #f3f4f6;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 32px;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .resource-category {
-            margin-bottom: 32px;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .category-icon {
-            width: 24px;
-            height: 24px;
-            color: #2563eb;
-        }
-
-        .category-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #111827;
-        }
-
-        .resource-item {
-            background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .resource-item:hover {
-            border-color: #2563eb;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
-        }
-
-        .resource-header {
-            padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .resource-info {
-            flex-grow: 1;
-        }
-
-        .resource-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 8px;
-        }
-
-        .resource-description {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 12px;
-        }
-
-        .resource-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .resource-link {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            padding: 12px 16px;
-            background: white;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .resource-link:hover {
-            border-color: #2563eb;
-            background: #f0f4ff;
-        }
-
-        .link-title {
-            font-weight: 500;
-            color: #2563eb;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .link-doi {
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 12px;
-            color: #6b7280;
-            background: #f3f4f6;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        .link-url {
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 2px;
-        }
-
-        .status-badge {
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .status-published {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .status-coming-soon {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .status-future {
-            background: #e5e7eb;
-            color: #6b7280;
-        }
-
-        .coming-soon-notice {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: white;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .future-notice {
-            background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
-            color: white;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .timeline-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        @media (max-width: 768px) {
-            .resources-container {
-                margin: 0;
-                border-radius: 0;
-            }
-
-            .tab-navigation {
-                flex-direction: column;
-            }
-
-            .tab-content {
-                padding: 20px;
-            }
-
-            .resource-header {
-                flex-direction: column;
-                gap: 12px;
-            }
-        }
-    </style>
-
-
-    <div class="resources-container">
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
-            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
-            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
-        </div>
-
-        <div id="initial" class="tab-content active">
-            <div class="timeline-indicator">
-                <div class="status-badge status-published">Published</div>
-                <span>January 2025</span>
-            </div>
-
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <h3 class="category-title anchored">Protocol &amp; Publication</h3>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Study Protocol</div>
-                            <div class="resource-description">Pre-registered analysis plan and methodology</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">
-                                    <div class="link-title">Pre-registration on OSF</div>
-                                    <div class="link-url">osf.io/8fzdy</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Published Article</div>
-                            <div class="resource-description">Peer-reviewed publication in Molecular Psychiatry</div>
-                            <div class="resource-links">
-                                <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">
-                                    <div class="link-title">Molecular Psychiatry Article</div>
-                                    <div class="link-doi">DOI: 10.1038/s41380-024-02871-4</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"></path>
-                    </svg>
-                    <h3 class="category-title anchored">Data &amp; Analysis</h3>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Complete Dataset &amp; Scripts</div>
-                            <div class="resource-description">Raw data, processed data, and R analysis scripts</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">
-                                    <div class="link-title">OSF Data Repository</div>
-                                    <div class="link-url">osf.io/7eg5u</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Interactive Web Application</div>
-                            <div class="resource-description">Live Shiny app for exploring results and running analyses</div>
-                            <div class="resource-links">
-                                <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">
-                                    <div class="link-title">Shiny Web Application</div>
-                                    <div class="link-url">dsquintana.shinyapps.io/ot_meta_exec</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Preprint Version</div>
-                            <div class="resource-description">Open access preprint with full supplementary materials</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">
-                                    <div class="link-title">OSF Preprint</div>
-                                    <div class="link-url">osf.io/cbjxd</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                    </svg>
-                    <h3 class="category-title anchored">Related Research</h3>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Theoretical Background</div>
-                            <div class="resource-description">Key theoretical papers informing this meta-analysis</div>
-                            <div class="resource-links">
-                                <a href="https://doi.org/10.1016/j.tics.2020.03.008" class="resource-link" target="_blank">
-                                    <div class="link-title">Allostatic Theory of Oxytocin</div>
-                                    <div class="link-doi">DOI: 10.1016/j.tics.2020.03.008</div>
-                                </a>
-                                <a href="https://doi.org/10.1038/s41380-020-0751-x" class="resource-link" target="_blank">
-                                    <div class="link-title">Intranasal Oxytocin Research Advances</div>
-                                    <div class="link-doi">DOI: 10.1038/s41380-020-0751-x</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="update1" class="tab-content">
-            <div class="coming-soon-notice">
-                <strong>Update 1 Coming Soon</strong> • Expected: January 2027 (24-month cycle)
-            </div>
-
-            <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">In Development</div>
-                <span>Next update within 24 months</span>
-            </div>
-        </div>
-
-        <div id="update2" class="tab-content">
-            <div class="future-notice">
-                <strong>Future Update</strong> • Expected: January 2029 (48 months from initial)
-            </div>
-
-            <div class="timeline-indicator">
-                <div class="status-badge status-future">Future</div>
-                <span>Long-term update planning</span>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function switchTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
-
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
-    </script>
-
-
-
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Current Results Section</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
-            color: #374151;
-            background: #ffffff;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .results-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .results-header {
-            margin-bottom: 2.5rem;
-        }
-
-        .results-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #2563eb;
-            padding-bottom: 0.5rem;
-        }
-
-        .overall-findings {
-            background: #f8fafc;
-            border-left: 4px solid #2563eb;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .overall-findings p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .key-findings-section {
-            margin: 3rem 0;
-        }
-
-        .key-findings-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 1.5rem;
-        }
-
-        .findings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .finding-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .finding-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .finding-card.significant {
-            border-left: 4px solid #10b981;
-            background: linear-gradient(to right, #ecfdf5, #ffffff);
-        }
-
-        .finding-card.non-significant {
-            border-left: 4px solid #6b7280;
-            background: linear-gradient(to right, #f9fafb, #ffffff);
-        }
-
-        .finding-domain {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: #111827;
-        }
-
-        .finding-effect {
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.95rem;
-            color: #4b5563;
-            margin-bottom: 0.5rem;
-        }
-
-        .finding-significance {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .significant .finding-significance {
-            color: #059669;
-        }
-
-        .non-significant .finding-significance {
-            color: #6b7280;
-        }
-
-        .bayesian-analysis {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 1px solid #f59e0b;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2.5rem 0;
-        }
-
-        .bayesian-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #92400e;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .bayesian-content {
-            color: #78350f;
-            font-size: 1.05rem;
-        }
-
-        .statistical-note {
-            background: #f3f4f6;
-            border: 1px solid #d1d5db;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-        .statistical-note-title {
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 0.75rem;
-        }
-
-        .statistical-note-content {
-            color: #4b5563;
-            font-size: 1rem;
-        }
-
-        .effect-size-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-left: 0.5rem;
-        }
-
-        .positive-effect {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .neutral-effect {
-            background: #f3f4f6;
-            color: #374151;
-        }
-
-        @media (max-width: 768px) {
-            .findings-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .overall-findings {
-                padding: 1.5rem;
-            }
-            
-            .bayesian-analysis {
-                padding: 1.5rem;
-            }
-        }
-    </style>
-
-
-    <div class="results-container">
-        <div class="results-header">
-            <h2 id="current-results" class="anchored">Current Results</h2>
-        </div>
-
-        <div class="overall-findings">
-            <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30).</p>
-            
-            <p>However, subgroup analyses revealed <strong>significant heterogeneity</strong> across different executive function domains, suggesting that oxytocin's effects may be domain-specific rather than uniformly distributed across all cognitive functions.</p>
-        </div>
-
-        <div class="key-findings-section">
-            <h3 class="key-findings-title anchored">Key Findings by Domain</h3>
-            
-            <div class="findings-grid">
-                <div class="finding-card significant">
-                    <div class="finding-domain">
-                        Cognitive Flexibility
-                        <span class="effect-size-badge positive-effect">Significant Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = 0.20</div>
-                    <div class="finding-significance">p = 0.02 • Statistically significant positive effect</div>
-                </div>
-
-                <div class="finding-card non-significant">
-                    <div class="finding-domain">
-                        Working Memory
-                        <span class="effect-size-badge neutral-effect">No Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = 0.05</div>
-                    <div class="finding-significance">No significant effect detected</div>
-                </div>
-
-                <div class="finding-card non-significant">
-                    <div class="finding-domain">
-                        Inhibitory Control
-                        <span class="effect-size-badge neutral-effect">No Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = -0.04</div>
-                    <div class="finding-significance">No significant effect detected</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bayesian-analysis">
-            <div class="bayesian-title">
-                <svg width="20" height="20" fill="currentColor" viewbox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"></path>
-                </svg>
-                Bayesian Meta-Analysis Results
-            </div>
-            <div class="bayesian-content">
-                The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an overall effect</strong> (BF₁₀ = 0.10) and <strong>moderate evidence against publication bias</strong> (BF_PB = 0.32). These findings strengthen confidence in the null result for the overall analysis.
-            </div>
-        </div>
-
-        <div class="statistical-note">
-            <div class="statistical-note-title">Statistical Power Analysis</div>
-            <div class="statistical-note-content">
-                Individual studies were generally <strong>underpowered</strong> (5-10% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects in oxytocin research.
-            </div>
-        </div>
-
-        <div class="figure-section" style="margin: 3rem 0; text-align: center;">
-            <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
-                <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png" alt="Firepower Plot showing statistical power analysis" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
-                <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
-                    <strong>Figure 2: Firepower plot.</strong> Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</section>
-<section id="criteria" class="level2">
-<h2 class="anchored" data-anchor-id="criteria">Inclusion and Exclusion Criteria</h2>
-<section id="inclusion-criteria" class="level3 criteria-box">
-<h3 class="anchored" data-anchor-id="inclusion-criteria">Inclusion Criteria</h3>
-<ul>
-<li><strong>Type of Studies:</strong> Human studies measuring effects of oxytocin administration on executive function using non-social stimuli</li>
-<li><strong>Intervention:</strong> Oxytocin administered intranasally, orally, or intravenously regardless of dosage</li>
-<li><strong>Population:</strong> Both clinical and neurotypical participants (no age restrictions)</li>
-<li><strong>Outcomes:</strong> Executive function measures (working memory, inhibitory control, cognitive flexibility) using non-social stimuli such as abstract shapes</li>
-<li><strong>Design:</strong> Placebo-controlled studies</li>
-<li><strong>Language:</strong> Publications in English language</li>
-<li><strong>Data Requirements:</strong> Sufficient statistical information to calculate effect sizes</li>
-</ul>
-</section>
-<section id="exclusion-criteria" class="level3 criteria-box">
-<h3 class="anchored" data-anchor-id="exclusion-criteria">Exclusion Criteria</h3>
-<ul>
-<li>Non-human animal studies</li>
-<li>Studies investigating only endogenous oxytocin levels (no administration)</li>
-<li>Studies measuring only somatic functions</li>
-<li>Executive function tasks using social stimuli (e.g., emotional faces, social scenarios)</li>
-<li>Studies without placebo control conditions</li>
-<li>Insufficient statistical data for meta-analysis</li>
-</ul>
-</section>
-</section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology Summary</h2>
-<p>This preregistered systematic review followed PRISMA guidelines. Searches were conducted in PubMed, Europe PubMed Central, and Bielefeld Academic Search Engine (BASE) on July 29, 2022, with an updated search on August 1, 2023.</p>
-<p>Quality assessment was conducted using the RoB 2.0 tool for assessing risk of bias in randomized trials. Two reviewers independently extracted data and assessed study quality, with disagreements resolved through discussion.</p>
-<p>Statistical analyses were implemented in R Studio 4.2.2 using the metafor package for frequentist meta-analysis and RoBMA for Robust Bayesian Meta-Analysis. A multilevel random-effects model was used to account for multiple dependent outcomes from the same studies. Between-measurement correlation was set at r = 0.3 based on available raw data from one included study.</p>
-</section>
-<section id="search-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="search-strategy">Search Strategy</h2>
-<div class="search-strategy-box">
-<p><span class="search-db">PubMed:</span> Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes</p>
-<p><span class="search-db">Europe PubMed Central:</span> Customized search terms adapted for database specifications</p>
-<p><span class="search-db">Bielefeld Academic Search Engine (BASE):</span> Comprehensive search strategy including grey literature and preprints</p>
-</div>
-</section>
-<section id="study-characteristics" class="level2">
-<h2 class="anchored" data-anchor-id="study-characteristics">Study Characteristics</h2>
-<ul>
-<li><strong>Included studies:</strong> The final meta-analysis included 13 studies with 20 effect estimates</li>
-<li><strong>Total participants:</strong> 729 (284 in within-participant studies, 445 in between-group studies)</li>
-<li><strong>Mean age:</strong> 31.64 years (within-participant studies), 25.68 years (between-group studies)</li>
-<li><strong>Oxytocin dosage:</strong> Predominantly 24 IU intranasal (76.92% of studies)</li>
-<li><strong>Administration routes:</strong> Intranasal (92.3%), oral (7.7%)</li>
-<li><strong>Publication status:</strong> 76.92% peer-reviewed articles, 23.07% letters to editor</li>
-<li><strong>Study designs:</strong> 6 within-participant, 7 between-group studies</li>
-</ul>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="reference-list" style="font-size: 0.85rem;">
-  <div id="visible-references">
-    Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., Nærland, T., ... &amp; Quintana, D.S. (2025). Effects of oxytocin administration on non-social executive functions in humans: a preregistered systematic review and meta-analysis. <i>Molecular Psychiatry, 30</i>, 2239–2251. <a href="https://doi.org/10.1038/s41380-024-02871-4">https://doi.org/10.1038/s41380-024-02871-4</a><br><br>
-    
-    Quintana, D.S., &amp; Guastella, A.J. (2020). An allostatic theory of oxytocin. <i>Trends in Cognitive Sciences, 24</i>(6), 515-528. <a href="https://doi.org/10.1016/j.tics.2020.03.008">https://doi.org/10.1016/j.tics.2020.03.008</a><br><br>
-    
-    Chini, B., Leonzino, M., Braida, D., &amp; Sala, M. (2014). Learning about oxytocin: pharmacologic and behavioral issues. <i>Biological Psychiatry, 76</i>(5), 360-366. <a href="https://doi.org/10.1016/j.biopsych.2013.08.029">https://doi.org/10.1016/j.biopsych.2013.08.029</a><br><br>
-  </div>
-  
-  <div id="hidden-references" style="display:none">
-    Miyake, A., &amp; Friedman, N.P. (2012). The nature and organization of individual differences in executive functions: four general conclusions. <i>Current Directions in Psychological Science, 21</i>(1), 8-14.<br><br>
-    
-    Kapetaniou, G.E., Reinhard, M.A., Christian, P., Jobst, A., Tobler, P.N., Padberg, F., ... &amp; Hurlemann, R. (2021). The role of oxytocin in delay of gratification and flexibility in non-social decision making. <i>eLife, 10</i>, e61844.<br><br>
-    
-    Quintana, D.S., Lischke, A., Grace, S., Scheele, D., Ma, Y., &amp; Becker, B. (2021). Advances in the field of intranasal oxytocin research: lessons learned and future directions for clinical research. <i>Molecular Psychiatry, 26</i>(1), 80-91.<br><br>
-    
-    Bartoš, F., Maier, M., Quintana, D.S., &amp; Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. <i>Advances in Methods and Practices in Psychological Science, 5</i>(3), 25152459221109259.<br><br>
-  </div>
-  
-  <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
-  
-  <script>
-  function toggleReferences() {
-    var hiddenReferences = document.getElementById("hidden-references");
-    var toggleButton = document.getElementById("reference-toggle");
-    
-    if (hiddenReferences.style.display === "none") {
-      hiddenReferences.style.display = "block";
-      toggleButton.textContent = "Show fewer references";
-    } else {
-      hiddenReferences.style.display = "none";
-      toggleButton.textContent = "Show more references";
-    }
-  }
-  </script>
-</div>
-</section>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p>/<em>============================================= = = = Global Variables = = = = Contains all color definitions and basic = = variables that affect the entire website = ===============================================</em>/</p>
+<p>/* Color Palette */ <span class="math inline">\(indigo-dye: #0A2A5E;\)</span>royal-blue: #1E50A0; <span class="math inline">\(lapis-lazuli: #3c6997ff;\)</span>vivid-sky-blue: #5adbffff;</p>
+<p>/<em>– scss:defaults –</em>/ <span class="math inline">\(body-bg: #fafbfc;\)</span>body-color: #2d3748;<br>
+<span class="math inline">\(link-color: #0A2A5E;\)</span>font-family-sans-serif: “Source Sans Pro”, -apple-system, “system-ui”, “Segoe UI”, Roboto, “Helvetica Neue”, Arial, sans-serif; $font-size-root: 16px;</p>
+<p>/<em>– scss:rules –</em>/</p>
+<p>:root { –primary-color: #{<span class="math inline">\(indigo-dye};
+  --secondary-color: #{\)</span>royal-blue};<br>
+–background-main: white;<br>
+–background-alt: #{<span class="math inline">\(body-bg};
+  --accent-1: #{\)</span>body-color};<br>
+–accent-2: #{$lapis-lazuli};<br>
+}</p>
+<p>body { font-size: 16px; line-height: 1.6; color: var(–accent-1); letter-spacing: 0.01em; font-family: $font-family-sans-serif; background: linear-gradient(-45deg, #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E) !important; background-size: 400% 400% !important; animation: gradientShift 15s ease infinite !important; min-height: 100vh; position: relative; }</p>
+<p>body::before { content: ’‘; position: fixed; top: 10%; left: 15%; width: 120px; height: 90px; background-image: url(’logo.unfinished_nowhite- Copy.png’); background-size: contain; background-repeat: no-repeat; opacity: 0.15; filter: brightness(0) invert(1); animation: float 6s ease-in-out infinite; z-index: 0; }</p>
+<p>body::after { content: ’‘; position: fixed; bottom: 15%; right: 10%; width: 100px; height: 75px; background-image: url(’logo.unfinished_nowhite- Copy.png’); background-size: contain; background-repeat: no-repeat; opacity: 0.12; filter: brightness(0) invert(1); animation: float 8s ease-in-out infinite reverse; z-index: 0; }</p>
+<p>body:has(.project-hero-section):not(:has(.contact-container)) { background: white !important; animation: none !important; }</p>
+<p>body:has(.project-hero-section):not(:has(.contact-container))::before, body:has(.project-hero-section):not(:has(.contact-container))::after { display: none !important; }</p>
+<p>body:has(.contact-container) { background: linear-gradient(-45deg, #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E) !important; background-size: 400% 400% !important; animation: gradientShift 15s ease infinite !important; }</p>
+<p><span class="citation" data-cites="keyframes">@keyframes</span> gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }</p>
+<p><span class="citation" data-cites="keyframes">@keyframes</span> float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(2deg); } }</p>
+<p>.main-content, .quarto-title-block, .page-columns, .page-layout-full .page-columns, .column-page, .column-body { background: transparent !important; box-shadow: none !important; }</p>
+<p>h1, h2, h3, h4, h5, h6 { color: #0A2A5E; letter-spacing: -0.02em; }</p>
+<p>.title, h1 { font-size: 2.5rem; /* Increased from 2.2rem for better visibility on laptop */ color: #0A2A5E; margin-top: 1.8rem; margin-bottom: 2rem; font-weight: 700; line-height: 1.3; }</p>
+<p>h2 { font-size: 1.8rem; /* Increased from 1.6rem */ margin-top: 2.5rem; margin-bottom: 1.5rem; font-weight: 650; color: #0A2A5E; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }</p>
+<p>.project-hero-section ~ * h2 { border-bottom: none; padding-bottom: 0; }</p>
+<p>h3 { font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 550; }</p>
+<p>ul { margin: 1rem 0; padding-left: 1.5rem; }</p>
+<p>ul li { margin: 0.5rem 0; line-height: 1.6; }</p>
+<p>a { text-decoration: none; color: #1E50A0; border-bottom: 1px solid transparent; transition: all 0.2s ease; }</p>
+<p>a:hover { color: #0A2A5E; text-decoration: none; }</p>
+<p>.btn, .primary-button, .secondary-button { display: inline-block; padding: 0.8rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; text-align: center; }</p>
+<p>.btn-primary, .primary-button { background-color: var(–primary-color); color: white; border: none; }</p>
+<p>.btn-primary:hover, .primary-button:hover { background-color: var(–secondary-color); color: white; text-decoration: none; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10, 42, 94, 0.3); }</p>
+<p>.btn-secondary, .secondary-button { background-color: #f8f9fa; color: var(–primary-color); border: 1px solid var(–primary-color); }</p>
+<p>.btn-secondary:hover, .secondary-button:hover { background-color: var(–primary-color); color: white; text-decoration: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(10, 42, 94, 0.2); }</p>
+<p>.anchor-section, h1 &gt; a[href^=“#”], h2 &gt; a[href^=“#”], h3 &gt; a[href^=“#”], h4 &gt; a[href^=“#”], h5 &gt; a[href^=“#”], h6 &gt; a[href^=“#”] { display: none !important; }</p>
+<p>.navbar { background: rgba(255, 255, 255, 0.95) !important; backdrop-filter: blur(10px); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }</p>
+<p>.navbar .nav-link, .navbar .navbar-title, .navbar .navbar-nav-scroll .nav-link { color: #333333 !important;<br>
+}</p>
+<p>.navbar .navbar-brand img { max-height: 60px; margin-right: 10px; }</p>
+<p>.navbar .navbar-toggler-icon { background-image: url(“data:image/svg+xml,%3csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 30 30’%3e%3cpath stroke=‘rgba%280, 0, 0, 0.7%29’ stroke-linecap=‘round’ stroke-miterlimit=‘10’ stroke-width=‘2’ d=‘M4 7h22M4 15h22M4 23h22’/%3e%3c/svg%3e”) !important; }</p>
+<p>.navbar .navbar-toggler { border-color: rgba(0, 0, 0, 0.2) !important; }</p>
+<p>.navbar .nav-link { transition: all 0.2s ease; }</p>
+<p>.navbar .nav-link:hover { color: var(–primary-color) !important; }</p>
+<p>body:has(.project-hero-section):not(:has(.contact-container)) .navbar { background: white !important; backdrop-filter: none; }</p>
+<p>.navbar-brand:hover, .navbar-title:hover { color: inherit !important; text-decoration: none !important; }</p>
+<p>.aa-Autocomplete { color: black !important; }</p>
+<p>.aa-Input { color: black !important; background: white !important; border: 1px solid #ddd !important; width: 200px !important; visibility: visible !important; display: inline-block !important; }</p>
+<p>.aa-SubmitIcon { color: black !important; visibility: visible !important; }</p>
+<p>.page-layout-full .page-columns { column-gap: 2.5rem; }</p>
+<p>.page-columns .page-row-navigation { gap: 3rem; }</p>
+<p>.sidebar-navigation { font-size: 14px; line-height: 1.5; }</p>
+<p>.sidebar-navigation .active { background: rgba(30, 80, 160, 0.1); border-radius: 4px; font-weight: 500; }</p>
+<p>.sidebar-navigation a { transition: all 0.2s ease; padding: 0.25rem 0.5rem; margin: 0.125rem 0; border-radius: 4px; }</p>
+<p>.sidebar-navigation a:hover { background: rgba(240, 246, 255, 0.5); }</p>
+<p>/* Index Page Styles */ .spacer-index { margin-bottom: 3rem; }</p>
+<p>.header-content { text-align: center; margin: 2rem auto; }</p>
+<p>.header-logo { display: block; margin: 2rem auto; max-width: 300px; height: auto; }</p>
+<p>.subtitle-text { text-align: center !important; font-size: 1.5rem !important; color: white !important; margin: 1.5rem 0 3rem 0 !important; font-weight: 700 !important; }</p>
+<p>.header-links { display: flex; justify-content: center; gap: 1rem; margin: 2rem auto; }</p>
+<p>.header-links a { display: inline-block; padding: 0.8rem 1.5rem; background-color: var(–primary-color); color: white; text-decoration: none; border-radius: 6px; transition: all 0.3s ease; }</p>
+<p>.header-links a:hover { background-color: var(–secondary-color); text-decoration: none; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10, 42, 94, 0.3); }</p>
+<p>.content-section { text-align: center !important; background: transparent !important; margin-top: 0 !important; padding: 0 3rem; max-width: 1400px; margin-left: auto; margin-right: auto; width: 99%; color: white !important; }</p>
+<p>.content-section p:has(a[href*=“Behavioral Neuroendocrinology Lab”]), .content-section .BNL-text { text-align: center; }</p>
+<p>.content-section p a { color: white !important; border-bottom: 1px solid white; }</p>
+<p>.content-section p a:hover { color: rgba(255, 255, 255, 0.8) !important; border-bottom-color: rgba(255, 255, 255, 0.8); }</p>
+<p>.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; }</p>
+<p>.feature-box { padding: 1.5rem; margin: 1rem 0; background: rgba(255, 255, 255, 0.85) !important; backdrop-filter: blur(5px); border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); height: 100%; display: flex; flex-direction: column; text-align: center; font-size: 1rem; font-weight: 400; transition: all 0.2s ease; border: 1px solid rgba(255, 255, 255, 0.2); }</p>
+<p>.feature-box:hover { background: rgba(255, 255, 255, 0.8) !important; transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); border-color: rgba(30, 80, 160, 0.2); }</p>
+<p>.feature-box h3 { text-align: center; margin-bottom: 1rem; font-size: 1.4rem; }</p>
+<p>.feature-heading { text-align: center; font-size: 1.5rem; color: #0A2A5E; margin: 3rem 0 1.5rem 0; font-weight: 700; }</p>
+<p>/* Contact Page */ .contact-container { background: transparent !important; border-radius: 12px; padding: 0; margin: 0.3rem auto; max-width: 2000px; width: 85%; height: 600px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }</p>
+<p>.contact-container::before { content: ’’ !important; position: absolute !important; right: -15% !important; top: 0 !important; width: 65% !important; height: 100% !important; background: url(‘https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png’) no-repeat center center !important; background-size: contain !important; background-position: center !important; filter: brightness(0) invert(1) opacity(0.3) !important; z-index: 2 !important; pointer-events: none !important; display: block !important; }</p>
+<p>.contact-section { padding: 2rem 2.5rem 2rem 3rem; background: white; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; height: 100%; }</p>
+<p>.contact-section h2 { font-size: 2.2rem; color: #0A2A5E; margin-bottom: 1.2rem; text-align: left; border: none; padding: 0; margin-top: 0; }</p>
+<p>.contact-section p { font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; color: #2d3748; }</p>
+<p>.contact-section ul { background: none; list-style: none; padding: 0; margin: 1.2rem 0; }</p>
+<p>.contact-section li { background: none; margin: 0.8rem 0; padding: 0; border: none; color: #2d3748; font-size: 0.95rem; line-height: 1.4; }</p>
+<p>.contact-section li strong { color: #0A2A5E; font-weight: 600; }</p>
+<p>.contact-buttons { margin-top: 1.5rem; position: relative; z-index: 4; display: flex; justify-content: center; }</p>
+<p>.contact-buttons .primary-button { background: #0A2A5E; color: white; padding: 0.8rem 1.6rem; font-size: 1rem; border-radius: 6px; text-decoration: none; display: inline-block; border: none; transition: background-color 0.3s ease; }</p>
+<p>.contact-buttons .primary-button:hover { background: #1E50A0; }</p>
+<p>/* Responsive Design */ <span class="citation" data-cites="media">@media</span> (min-width: 1600px) { .header-logo { max-width: 350px; margin: 2.5rem auto; }</p>
+<p>.subtitle-text { font-size: 1.8rem !important; margin: 1.8rem 0 3.5rem 0 !important; }</p>
+<p>.header-links { gap: 1.3rem; margin: 2.5rem auto; }</p>
+<p>.header-links a { padding: 1rem 1.8rem; font-size: 1.1rem; }</p>
+<p>.content-section { padding: 0 3.5rem; }</p>
+<p>.feature-grid { gap: 2.5rem; margin: 2.5rem 0; }</p>
+<p>.feature-box { padding: 1.8rem; margin: 1.3rem 0; font-size: 1.1rem; }</p>
+<p>.feature-box h3 { font-size: 1.6rem; } }</p>
+<p><span class="citation" data-cites="media">@media</span> (min-width: 768px) and (max-width: 1023px) { .header-logo { max-width: 255px; margin: 1.7rem auto; }</p>
+<p>.subtitle-text { font-size: 1.3rem !important; margin: 1.3rem 0 2.6rem 0 !important; }</p>
+<p>.header-links { gap: 0.85rem; margin: 1.7rem auto; }</p>
+<p>.header-links a { padding: 0.7rem 1.3rem; font-size: 0.95rem; }</p>
+<p>.content-section { padding: 0 2.6rem; }</p>
+<p>.feature-grid { gap: 1.7rem; margin: 1.7rem 0; }</p>
+<p>.feature-box { padding: 1.3rem; margin: 0.85rem 0; font-size: 0.95rem; }</p>
+<p>.feature-box h3 { font-size: 1.2rem; }</p>
+<p>.contact-container { height: 510px; width: 88%; } }</p>
+<p><span class="citation" data-cites="media">@media</span> (min-width: 481px) and (max-width: 767px) { .header-logo { max-width: 210px; margin: 1.4rem auto; }</p>
+<p>.subtitle-text { font-size: 1.05rem !important; margin: 1.05rem 0 2.1rem 0 !important; }</p>
+<p>.header-links { flex-direction: column; align-items: center; gap: 0.7rem; margin: 1.4rem auto; }</p>
+<p>.header-links a { padding: 0.56rem 1.05rem; font-size: 0.9rem; min-width: 200px; text-align: center; }</p>
+<p>.content-section { padding: 0 2.1rem; }</p>
+<p>.feature-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; margin: 1.4rem 0; }</p>
+<p>.feature-box { padding: 1.05rem; margin: 0.7rem 0; font-size: 0.9rem; }</p>
+<p>.feature-box h3 { font-size: 1rem; }</p>
+<p>.navbar .navbar-brand img { max-height: 42px; }</p>
+<p>.navbar-title { font-size: 0.8rem; }</p>
+<p>.contact-container { grid-template-columns: 1fr; height: 420px; width: 92%; }</p>
+<p>.contact-container::before { bottom: -10%; right: -10%; top: auto; width: 50%; height: 40%; }</p>
+<p>.contact-section { padding: 1.4rem 1.75rem; }</p>
+<p>.contact-section h2 { font-size: 1.54rem; }</p>
+<p>.contact-section p, .contact-section li { font-size: 0.9rem; } }</p>
+<p><span class="citation" data-cites="media">@media</span> (max-width: 480px) { .header-logo { max-width: 150px; margin: 1rem auto; }</p>
+<p>.subtitle-text { font-size: 0.75rem !important; margin: 0.75rem 0 1.5rem 0 !important; }</p>
+<p>.header-links { flex-direction: column; align-items: center; gap: 0.5rem; margin: 1rem auto; }</p>
+<p>.header-links a { padding: 0.4rem 0.75rem; font-size: 0.8rem; min-width: 180px; text-align: center; }</p>
+<p>.content-section { padding: 0 1.5rem; }</p>
+<p>.content-section p { font-size: 0.9rem; }</p>
+<p>.feature-grid { grid-template-columns: 1fr; gap: 1rem; margin: 1rem 0; }</p>
+<p>.feature-box { padding: 0.75rem; margin: 0.5rem 0; font-size: 0.8rem; }</p>
+<p>.feature-box h3 { font-size: 0.9rem; }</p>
+<p>.navbar { padding: 0.5rem 0.75rem; }</p>
+<p>.navbar .navbar-brand img { max-height: 30px; }</p>
+<p>.navbar-title { font-size: 0.6rem; max-width: 150px; }</p>
+<p>.contact-container { width: 95%; height: 300px; margin: 0.5rem auto; }</p>
+<p>.contact-container::before { width: 35%; height: 25%; bottom: -5%; right: -5%; }</p>
+<p>.contact-section { padding: 1rem 1.25rem; }</p>
+<p>.contact-section h2 { font-size: 1.1rem; }</p>
+<p>.contact-section p, .contact-section li { font-size: 0.75rem; }</p>
+<p>.contact-buttons .primary-button { padding: 0.4rem 0.8rem; font-size: 0.8rem; }</p>
+<p>/* Proper proportional scaling: 2.5rem * 0.5 = 1.25rem */ .title:not(.subtitle-text), h1:not(.hero-content h1):not(.project-hero-content h1) { font-size: 1.25rem; }</p>
+<p>/* Proper proportional scaling: 1.8rem * 0.5 = 0.9rem */ h2:not(.contact-section h2) { font-size: 0.9rem; }</p>
+<p>/* h3 scales proportionally too <em>/ h3:not(.feature-box h3) { font-size: 0.65rem; /</em> 1.3rem * 0.5 */ }</p>
+<p>/* Scale hero tagline proportionally - 1.4rem * 0.5 = 0.7rem */ .hero-content .hero-tagline, .hero-section .hero-content .hero-tagline, .hero-section .hero-tagline { font-size: 0.7rem !important; }</p>
+<p>/* Scale hero title proportionally - 2.2rem * 0.5 = 1.1rem */ .hero-content h1, .hero-section .hero-content h1, .hero-section h1, .hero-section .hero-content p { font-size: 1.1rem !important; } }</p>
+<p><span class="citation" data-cites="media">@media</span> (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }</p>
+<p>body { animation: none !important; }</p>
+<p>body::before, body::after { animation: none !important; } }</p>
+<p><span class="citation" data-cites="media">@media</span> (prefers-contrast: high) { .feature-box { border: 2px solid var(–primary-color) !important; }</p>
+<p>.contact-container::before { display: none !important; } }</p>
+<p>/* Hero Section */ .hero-section { position: relative; min-height: 22vh; width: 100vw; margin-left: calc(-50vw + 50%); margin-top: 0 !important; margin-bottom: 0; background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; text-align: center; padding-top: 0; border-top: none; }</p>
+<p>.hero-section::before { content: ’’; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%); animation: subtleFloat 8s ease-in-out infinite; }</p>
+<p><span class="citation" data-cites="keyframes">@keyframes</span> subtleFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }</p>
+<p>.hero-content { position: relative; z-index: 2; max-width: 800px; padding: 2rem; }</p>
+<p>.hero-content h1 { font-size: 2.2rem; /* Back to reasonable size, but larger than tagline */ margin-bottom: 1.5rem; font-weight: 700; color: white; margin-top: 0; }</p>
+<p>.hero-content .hero-tagline { font-size: 1.4rem; /* Smaller than main title */ margin-bottom: 2rem; opacity: 0.9; line-height: 1.6; color: white; }</p>
+<p>/* Target the Quarto div-based hero tagline specifically */ .hero-section .hero-content .hero-tagline, .hero-section .hero-tagline { font-size: 1.4rem !important; color: white !important; margin-bottom: 2rem; opacity: 0.9; line-height: 1.6; text-align: center; }</p>
+<p>/* Make sure the main hero title is properly sized */ .hero-section .hero-content h1, .hero-section h1 { font-size: 2.2rem !important; font-weight: 700 !important; color: white !important; margin-bottom: 1.5rem; }</p>
+<p>/* Target the paragraph that contains the main hero title */ .hero-section .hero-content p { font-size: 2.2rem !important; font-weight: 700 !important; color: white !important; margin-bottom: 1.5rem !important; margin-top: 0 !important; line-height: 1.3 !important; }</p>
+<p>/* Hide page title for about page <em>/ .hero-section ~ </em> h1:first-child, #title-block-header, .quarto-title-block, #quarto-content &gt; h1:first-child { display: none !important; }</p>
+<p>/* Tab System */ .about-tabs-container { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 0 auto 2rem; max-width: 1200px; position: relative; z-index: 3; overflow: hidden; }</p>
+<p>.tab-navigation { display: flex; background: #f8f9fa; border-radius: 8px 8px 0 0; overflow: hidden; }</p>
+<p>.tab-navigation .tab-button { flex: 1; padding: 1.2rem 1rem; background: transparent; border: none; font-size: 0.95rem; font-weight: 600; color: #666; cursor: pointer; transition: all 0.3s ease; position: relative; }</p>
+<p>.tab-navigation .tab-button::after { content: ’’; position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: #0A2A5E; transition: all 0.3s ease; transform: translateX(-50%); }</p>
+<p>.tab-navigation .tab-button:hover { background: rgba(10, 42, 94, 0.05); color: #0A2A5E; }</p>
+<p>.tab-navigation .tab-button.active { background: white; color: #0A2A5E; }</p>
+<p>.tab-navigation .tab-button.active::after { width: 50%; }</p>
+<p>.tab-content { padding: 2rem; min-height: 400px; }</p>
+<p>.tab-content .tab-pane { display: none; }</p>
+<p>.tab-content .tab-pane.active { display: block; animation: fadeIn 0.3s ease-in-out; }</p>
+<p><span class="citation" data-cites="keyframes">@keyframes</span> fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }</p>
+<p>/* Project Hero Section */ .project-hero-section { position: relative; min-height: 40vh; width: 100vw; margin-left: calc(-50vw + 50%); margin-top: 0 !important; margin-bottom: 0; background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; text-align: left; padding: 3rem 2rem; }</p>
+<p>.project-hero-section::before { content: ’’; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.04) 0%, transparent 50%); animation: subtleFloat 10s ease-in-out infinite; }</p>
+<p>.project-hero-content { position: relative; z-index: 2; max-width: 85%; width: 100%; }</p>
+<p>.project-hero-content h1 { font-size: 3rem; margin-bottom: 2rem; font-weight: 700; color: white; margin-top: 0; line-height: 1.2; }</p>
+<p>/* Project Info Panel */ .project-info-panel { background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); margin: -4rem 0 3rem 0; width: 95vw; margin-left: calc(-47.5vw + 50%); position: relative; z-index: 3; overflow: hidden; }</p>
+<p>.project-info-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 95%; margin: auto; }</p>
+<p>.info-card { padding: 1.5rem; border-bottom: 1px solid #eee; border-right: 1px solid #eee; transition: all 0.2s ease; }</p>
+<p>.info-card:nth-child(4n) { border-right: none; }</p>
+<p>.info-card:nth-last-child(-n+4) { border-bottom: none; }</p>
+<p>.info-card:hover { background: rgba(240, 246, 255, 0.3); }</p>
+<p>.info-card h3 { color: #0A2A5E; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.8rem; margin-top: 0; padding-bottom: 0.3rem; display: inline-block; }</p>
+<p>.info-card p, .info-card div { font-size: 0.8rem; line-height: 1.4; margin-bottom: 0.6rem; }</p>
+<p>.info-card p:last-child, .info-card div:last-child { margin-bottom: 0; }</p>
+<p>.info-card strong { color: #0A2A5E; font-weight: 600; }</p>
+<p>.info-card a { color: #1E50A0; text-decoration: none; }</p>
+<p>.info-card a:hover { color: #0A2A5E; text-decoration: underline; }</p>
+<p>/* Additional responsive adjustments for project pages */ <span class="citation" data-cites="media">@media</span> (min-width: 481px) and (max-width: 767px) { .project-hero-section { min-height: 28vh; padding: 2.1rem 1.4rem; }</p>
+<p>.project-hero-content h1 { font-size: 2.1rem; }</p>
+<p>.project-info-grid { grid-template-columns: repeat(2, 1fr); } }</p>
+<p><span class="citation" data-cites="media">@media</span> (max-width: 480px) { .project-hero-section { min-height: 20vh; padding: 1.5rem 1rem; }</p>
+<p>.project-hero-content h1 { font-size: 1.5rem; }</p>
+<p>.project-info-grid { grid-template-columns: 1fr; }</p>
+<p>.info-card { padding: 0.75rem; text-align: center; }</p>
+<p>.info-card h3 { font-size: 0.7rem; }</p>
+<p>.info-card p, .info-card div { font-size: 0.6rem; } }</p>
+<p>/* Main content container */ .main-content-container { max-width: 80%; margin: 0 auto; background: white !important; }</p>
+<p>/* Project page content sections get white background */ body:has(.project-hero-section):not(:has(.contact-container)) .main-content, body:has(.project-hero-section):not(:has(.contact-container)) .page-columns, body:has(.project-hero-section):not(:has(.contact-container)) .column-page, body:has(.project-hero-section):not(:has(.contact-container)) .column-body { background: white !important; }</p>
+<p>.abstract-section { padding: 0; background: transparent; border-radius: 0; box-shadow: none; margin: 2rem 0; }</p>
+<p>.abstract-section h2 { color: #0A2A5E; font-size: 1.5rem; margin-bottom: 1.2rem; }</p>
+<p>.inclusion-exclusion-section { padding: 0; margin-top: 2rem; background: transparent; border-radius: 0; box-shadow: none; }</p>
+<p>.inclusion-exclusion-section h2 { color: #0A2A5E; font-size: 1.5rem; margin-bottom: 1.2rem; }</p>
+<p>.inclusion-exclusion-section h3 { color: #1E50A0; font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; }</p>
+<p>.inclusion-exclusion-section ul { margin-bottom: 1.5rem; }</p>
+<p>.inclusion-exclusion-section li { margin-bottom: 0.5rem; }</p>
+<p>.inclusion-exclusion-section strong { color: #3c6997ff; }</p>
+<p>/* Modern card styling for project sections */ .search-string-box, .resources-panel { background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 0, 0, 0.04); padding: 2rem; margin: 2rem 0; transition: box-shadow 0.2s ease; }</p>
+<p>.search-string-box:hover, .resources-panel:hover { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12); }</p>
+<p>.search-string-box { font-size: 0.9rem; line-height: 1.5; }</p>
+<p>.search-string-box .panel-title { color: #0A2A5E; font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid #dee2e6; padding-bottom: 0.5rem; }</p>
+<p>.search-string-box strong { display: block; margin-top: 0.5rem; margin-bottom: 0.3rem; color: #0A2A5E; }</p>
+<p>.resources-panel .panel-title { color: #0A2A5E; font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid #dee2e6; padding-bottom: 0.5rem; }</p>
+<p>.resources-panel strong { display: block; margin-top: 1rem; margin-bottom: 0.3rem; color: #0A2A5E; }</p>
+<p>/* Criteria box styles */ .criteria-box { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }</p>
+<p>.criteria-box h3 { color: #0A2A5E; font-size: 1rem; margin-top: 0; margin-bottom: 10px; font-weight: 600; }</p>
+<p>.criteria-box ul, .criteria-box ol { font-size: 0.9rem; padding-left: 20px; margin-bottom: 10px; }</p>
+<p>.criteria-box li { margin-bottom: 5px; }</p>
+<p>/* Resource accordion styling */ .resource-details { background: white; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); border: 1px solid rgba(0, 0, 0, 0.04); margin-bottom: 1.5rem; overflow: hidden; transition: box-shadow 0.2s ease; }</p>
+<p>.resource-details:hover { box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12); }</p>
+<p>.resource-summary { background-color: #f8f9fa; color: #0A2A5E; cursor: pointer; padding: 15px 20px; width: 100%; text-align: left; font-size: 16px; font-weight: 600; list-style: none; }</p>
+<p>.resource-summary::marker { display: none; }</p>
+<p>.resource-summary::-webkit-details-marker { display: none; }</p>
+<p>.resource-summary::after { content: “+”; float: right; font-size: 18px; font-weight: bold; }</p>
+<p>.resource-summary:hover { background-color: #e9e9e9; }</p>
+<p>details[open] .resource-summary::after { content: “−”; }</p>
+<p>.link-wrapper { padding: 10px 20px; border-top: 1px solid #f0f0f0; background-color: white; }</p>
+<p>.link-wrapper:first-of-type { border-top: none; }</p>
+<p>.resource-link { display: block; color: #1E50A0; text-decoration: none; padding: 5px 0; font-size: 15px; }</p>
+<p>.resource-link:hover { text-decoration: underline; }</p>
+<p>.resource-link.pending { color: #999; cursor: not-allowed; pointer-events: none; }</p>
+<p>.resource-link.pending:after { content: ” ⏳“; font-size: 14px; }</p>
+<p>/* Toggle Links */ .toggle-link { font-size: 0.85rem !important; color: #1E50A0 !important; text-decoration: none !important; display: inline-block !important; margin-top: 0.8rem !important; padding: 0.3rem 0.6rem !important; border-radius: 4px !important; background: rgba(30, 80, 160, 0.05) !important; transition: all 0.2s ease !important; }</p>
+<p>.toggle-link:hover { background: rgba(30, 80, 160, 0.1) !important; color: #0A2A5E !important; text-decoration: none !important; }</p>
+<p>/* Results Highlight Box */ .results-highlight { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-left: 4px solid #0A2A5E; border-radius: 0 12px 12px 0; padding: 1.5rem 2rem; margin: 2rem 0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); }</p>
+<p>.results-highlight h3 { color: #0A2A5E; margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem; }</p>
+<p>.results-highlight p { margin: 0; font-weight: 500; }</p>
+<p>/* Search strategy box styles */ .search-strategy-box { border-left: 4px solid #0A2A5E; padding: 15px 20px; margin: 20px 0; font-family: monospace; font-size: 0.9rem; line-height: 1.4; white-space: pre-wrap; word-wrap: break-word; overflow-x: auto; }</p>
+<p>.search-db { font-weight: 600; color: #0A2A5E; display: block; margin-bottom: 5px; }</p>
+<p>/* Project TOC positioning <em>/ .project-hero-section ~ </em> .sidebar-navigation { margin-top: 8rem; }</p>
+<p>/* Process Steps */ .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }</p>
+<p>.process-step { background: #f8f9fa; padding: 1.5rem; border-radius: 8px; text-align: center; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }</p>
+<p>.process-step:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }</p>
+<p>.process-step .step-icon { width: 50px; height: 50px; background: #0A2A5E; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.2rem; font-weight: bold; }</p>
+<p>.process-step h4 { color: #0A2A5E; margin-bottom: 0.8rem; font-size: 1.1rem; }</p>
+<p>.process-step p { font-size: 0.9rem; line-height: 1.5; margin: 0; }</p>
+<p>/* Committee Member Cards */ .committee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }</p>
+<p>.committee-card { background: #f8f9fa; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: all 0.2s ease; border-left: 3px solid #0A2A5E; }</p>
+<p>.committee-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); background: rgba(240, 246, 255, 0.5); }</p>
+<p>.committee-card strong { display: block; font-size: 1rem; font-weight: 600; color: #0A2A5E; margin-bottom: 0.8rem; line-height: 1.3; }</p>
+<p>.committee-card &gt; *:not(strong) { font-size: 0.85rem; line-height: 1.4; color: #555; margin: 0; }</p>
+<p>#committee-members { margin-top: 4rem !important; }</p>
+<p>/* Other Page Styling */ .panel-tabset { background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(8px); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 2rem; margin: 2rem auto; max-width: 1200px; }</p>
+<p>.requirements-box { background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(8px); padding: 1.5rem; border-radius: 8px; margin: 1.5rem auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s ease; }</p>
+<p>.requirements-box:hover { background: rgba(240, 246, 255, 0.5) !important; }</p>
+<p>.requirements-box li { margin-bottom: 2rem; list-style-type: none; color: var(–accent-1); line-height: 1.6; }</p>
+<p>.requirements-box strong { display: block; margin-bottom: 0.25rem; color: var(–primary-color); font-size: 1.1rem; }</p>
+<p>.tab-header { color: var(–primary-color); font-weight: 600; font-size: 1.2rem; margin-bottom: 1.5rem; }</p>
+<p>/* Guidelines Page */ .wizard-container { display: flex; gap: 2rem; margin: 2rem auto; max-width: 1200px; min-height: 600px; background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(8px); border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); }</p>
+<p>.wizard-nav { flex: 0 0 300px; background: #f8f9fa; border-radius: 8px; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }</p>
+<p>.wizard-nav .nav-header { padding: 1rem; font-weight: 600; font-size: 1.2rem; color: var(–primary-color); border-bottom: 1px solid #dee2e6; }</p>
+<p>.step-list { list-style: none; padding: 0; margin: 0; }</p>
+<p>.step-item { display: flex; align-items: center; padding: 1rem; cursor: pointer; transition: all 0.3s ease; border-left: 4px solid transparent; }</p>
+<p>.step-item:hover { background: rgba(92, 105, 151, 0.1); }</p>
+<p>.step-item.active { background: rgba(9, 64, 116, 0.1); border-left-color: var(–primary-color); }</p>
+<p>.step-item.active .step-number { background: var(–primary-color); color: white; }</p>
+<p>.step-number { width: 28px; height: 28px; background: #dee2e6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-weight: 600; font-size: 0.9rem; }</p>
+<p>.step-text { font-size: 0.95rem; }</p>
+<p>.wizard-content { flex: 1; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }</p>
+<p>.step-content { display: none; }</p>
+<p>.step-content.active { display: block; }</p>
+<p>.step-content h2 { color: var(–primary-color); margin-bottom: 1.5rem; }</p>
+<p>.content-box { background: rgba(255, 255, 255, 0.9) !important; backdrop-filter: blur(8px); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; transition: all 0.2s ease; }</p>
+<p>.content-box:hover { background: rgba(240, 246, 255, 0.5) !important; }</p>
+<p>/* Resources Page */ .title-space { margin-top: 2rem; }</p>
+<p>h2[data-anchor-id=“resourcepage”] { color: white !important; padding: 0.5rem 1rem !important; border-radius: 8px 8px 0 0 !important; margin-bottom: 0 !important; border-bottom: none !important; }</p>
+<p>.resource-list { margin-top: 2rem; margin-bottom: 3rem; }</p>
+<p>.resource-item { background: rgba(249, 249, 249, 0.9); backdrop-filter: blur(5px); border-left: 4px solid #0A2A5E; padding: 1.5rem 2rem; margin-bottom: 2rem; border-radius: 0 8px 8px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }</p>
+<p>.resource-item h3 { color: #0A2A5E; margin-top: 0; margin-bottom: 1rem; font-size: 1.3rem; }</p>
+<p>.resource-item p { margin-bottom: 1.2rem; line-height: 1.6; }</p>
+<p>/* Protocol Checklist */ .white-text { color: white !important; }</p>
+<p>.checklist-container { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 2rem; margin: 2rem auto; max-width: 1200px; }</p>
+<p>.checklist-container h3 { color: #0A2A5E; font-size: 1.4rem; margin-top: 2rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; }</p>
+<p>.checklist-container h3:first-of-type { margin-top: 0.5rem; }</p>
+<p>.checklist-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; margin-bottom: 0.5rem; background: #f8f9fa; border-radius: 6px; transition: all 0.2s ease; }</p>
+<p>.checklist-item:hover { background: rgba(240, 246, 255, 0.5); }</p>
+<p>.checklist-item-title { font-weight: 500; color: var(–accent-1); }</p>
+<p>.checklist-item-description { font-size: 0.9rem; color: #666; margin-top: 0.25rem; font-style: italic; max-width: 90%; }</p>
+<p>.checklist-item-checkbox { width: 20px; height: 20px; min-width: 20px; border: 2px solid #0A2A5E; border-radius: 2px; display: inline-block; position: relative; background: white; margin-top: 3px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); transition: all 0.2s ease; }</p>
+<p>.checklist-item-checkbox:hover { border-color: #1E50A0; }</p>
+<p>.checklist-item-checkbox.checked { background: #0A2A5E; }</p>
+<p>.checklist-item-checkbox.checked:after { content: ’’; position: absolute; left: 6px; top: 2px; width: 6px; height: 12px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }</p>
+<p>.download-button-container { margin: 2rem 0; }</p>
+<p>#downloadPDF { display: inline-block; color: #1E50A0; text-decoration: none; font-weight: 500; padding: 0.4rem 0; border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s ease; }</p>
+<p>#downloadPDF:hover { color: #0A2A5E; border-bottom-color: #0A2A5E; text-decoration: none; transform: translateY(-1px); }</p>
+<p>/* Development notice banner */ .development-notice { background-color: #fff3cd; color: #664d03; border-left: 4px solid #ffda6a; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 4px 4px 0; display: inline-block; font-weight: 500; }</p>
 
 
 

@@ -9,7 +9,9 @@ format:
 
 ::: {.hero-section}
 ::: {.hero-content}
+::: {.hero-title}
 Advancing Oxytocin Research Together
+:::
 
 ::: {.hero-tagline}
 
