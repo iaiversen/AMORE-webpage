@@ -1,0 +1,22 @@
+---
+title: "Guide for managing AMORE website"
+author: "Ingebjørg A. Iversen"
+format: revealjs
+editor: visual
+---
+
+# Guide for managing AMORE website
+
+### This guide includes: 
+
+------------------------------------------------------------------------
+
+1.  Important information.
+2.  Getting Started (Git clone, dependencies)
+3.  Project Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it)
+4.  File-by-File Breakdown
+5.  Common Tasks & Workflows
+6.  Troubleshooting
+7.  Contributing Guidelines
+
+## 1. Important information 
