@@ -220,6 +220,11 @@ Department of Clinical Medicine, Child and Adolescent Psychiatry, University of 
 Department of Psychology, University of Oslo, Oslo, Norway
 :::
 
+::: {.committee-card}
+**MSc Ingebjørg Anjadatter Iversen**
+Department of Psychology, University of Oslo, Oslo, Norway
+::: 
+
 :::
 :::
 :::
