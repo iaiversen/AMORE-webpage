@@ -291,6 +291,13 @@
     "href": "AMORE_Guide.html",
     "title": "Guide for managing AMORE website",
     "section": "",
-    "text": "Important information.\nGetting Started (Git clone, dependencies)\nProject Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it)\nFile-by-File Breakdown\nCommon Tasks & Workflows\nTroubleshooting\nContributing Guidelines"
+    "text": "Important information.\nGetting Started (Git clone, dependencies)\nProject Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it) Explaining the SCSS system\nFile-by-File Breakdown\nCommon Tasks & Workflows\nTroubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)\nContributing Guidelines\n\nhow to add html content\nhow to add visualizations\nhow to change font size\nhow to add project\n\nHow to add projects"
+  },
+  {
+    "objectID": "about.html#what-are-living-meta-analyses",
+    "href": "about.html#what-are-living-meta-analyses",
+    "title": "Active Monitoring of Oxytocin Research Evidence",
+    "section": "What are Living Meta-Analyses",
+    "text": "What are Living Meta-Analyses\nLiving meta-analyses are meta-analyses that are updated regularly to include new research findings. This ensures that the meta-analytic evidence reflects the most current research findings. Living meta-analyses are particularly useful in fields where research is rapidly evolving, as they provide a dynamic and up-to-date synthesis of the available evidence.\n\n  \n  Figure: Traditional vs. Living Meta-Analysis - Evidence Integration Over Time"
   }
 ]

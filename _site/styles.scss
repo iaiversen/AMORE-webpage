@@ -778,6 +778,11 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .tab-navigation .tab-button::after {
