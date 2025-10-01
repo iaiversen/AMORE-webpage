@@ -7,16 +7,32 @@ editor: visual
 
 # Guide for managing AMORE website
 
-### This guide includes: 
+### This guide includes:
 
 ------------------------------------------------------------------------
 
 1.  Important information.
+
 2.  Getting Started (Git clone, dependencies)
-3.  Project Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it)
+
+3.  Project Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it) Explaining the SCSS system
+
 4.  File-by-File Breakdown
+
 5.  Common Tasks & Workflows
-6.  Troubleshooting
+
+6.  Troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)
+
 7.  Contributing Guidelines
 
-## 1. Important information 
+    -   how to add html content
+
+    -   how to add visualizations
+
+    -   how to change font size
+
+    -   how to add project
+
+8.  How to add projects
+
+## 1. Important information

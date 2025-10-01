@@ -778,6 +778,11 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .tab-navigation .tab-button::after {
@@ -1571,7 +1576,6 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.6rem;
   }
   
-    /* Add these to your existing @media (min-width: 1600px) block */
   .hero-section {
     height: 28vh !important;
     min-height: 280px;
@@ -1656,7 +1660,6 @@ h2[data-anchor-id="resourcepage"] {
     grid-template-columns: repeat(2, 1fr);
   }
   
-    /* Add these to your existing @media (min-width: 768px) and (max-width: 1199px) block */
   .hero-section {
     height: 23vh !important;
     min-height: 200px;
@@ -1768,16 +1771,10 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.9rem;
   }
   
-  .project-hero-section {
-    min-height: 28vh;
-    padding: 2.1rem 1.4rem;
-  }
-  
   .project-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
-    /* Add these to your existing @media (min-width: 481px) and (max-width: 767px) block */
   .hero-section {
     height: 22vh !important;
     min-height: 180px;
@@ -1798,8 +1795,30 @@ h2[data-anchor-id="resourcepage"] {
     padding: 2.1rem 1.4rem;
   }
   
-  .project-hero-content {
+  /* .project-hero-section {
+    min-height: 28vh;
+    padding: 2.1rem 1.4rem;
+  } */
+  
+   /* .project-hero-section {
+    min-height: 280px !important;
+    height: auto !important;
+    padding: 2rem 1rem;
+  } 
+  
+  /*.project-hero-content {
     font-size: 1.3rem !important;
+  } */ 
+  
+  .project-hero-content {
+    max-width: 95%;
+    padding-top: 0.5rem !important;
+  }
+  
+  .project-hero-title {
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+    padding-bottom: 1rem !important;
   }
 }
 
@@ -1902,9 +1921,21 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.8rem;
   }
   
-  .project-hero-section {
+  /*.project-hero-section {
     min-height: 20vh;
     padding: 1.5rem 1rem;
+  } */ 
+  
+    .project-hero-section {
+    min-height: 260px !important;
+    height: auto !important;
+    padding: 1.5rem 1rem;
+  }
+  
+  .project-hero-title {
+    font-size: 1.1rem !important;
+    line-height: 1.35 !important;
+    padding-bottom: 0.75rem !important;
   }
   
   .project-info-grid {
