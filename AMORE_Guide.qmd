@@ -19,6 +19,8 @@ editor: visual
 
 4.  File-by-File Breakdown
 
+    1.  explain gitignore
+
 5.  Common Tasks & Workflows
 
 6.  Troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)

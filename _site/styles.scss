@@ -2191,16 +2191,19 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.3rem !important;
   } */ 
   
+  /* Project hero title scaling for tablets */
   .project-hero-content {
     max-width: 95%;
+    font-size: 1.4rem !important;  // Add this line
     padding-top: 0.5rem !important;
   }
   
   .project-hero-title {
-    font-size: 1.2rem !important;
-    line-height: 1.4 !important;
+    font-size: 1.3rem !important;  // Slightly larger than 1.2rem for tablets
+    line-height: 1.35 !important;
     padding-bottom: 1rem !important;
   }
+  
     .resources-container {
     margin: 0 0.7rem;
     border-radius: 8px;
@@ -2217,6 +2220,52 @@ h2[data-anchor-id="resourcepage"] {
   
   .resource-title {
     font-size: 1rem;
+  }
+  
+  /*----------------------------------------------
+  /* Scale down ALL body text and content */
+  body {
+    font-size: 0.9rem !important;
+  }
+  
+  p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Section headings */
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Project hero title */
+  .project-hero-content,
+  .project-hero-content p {
+    font-size: 1.4rem !important;
+  }
+  
+  /* Main content areas */
+  .main-content-container,
+  .main-content-container p,
+  .abstract-section p,
+  .inclusion-exclusion-section p,
+  .results-container p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Lists */
+  ul li,
+  ol li {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Info cards */
+  .info-card p,
+  .info-card div {
+    font-size: 0.75rem !important;
   }
 }
   
@@ -2531,6 +2580,65 @@ h2[data-anchor-id="resourcepage"] {
     max-width: 100% !important;
     width: 100% !important;
     padding: 0 0.75rem !important;
+  }
+  
+  /* Scale down ALL body text and content for mobile */
+  body {
+    font-size: 0.85rem !important;
+  }
+  
+  p {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Section headings - make them smaller */
+  h2 {
+    font-size: 1.1rem !important;
+  }
+  
+  h3 {
+    font-size: 0.95rem !important;
+  }
+  
+  /* Project hero title */
+  .project-hero-content,
+  .project-hero-content p {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Main content areas */
+  .main-content-container,
+  .main-content-container p,
+  .abstract-section p,
+  .inclusion-exclusion-section p,
+  .results-container p,
+  .overall-findings p,
+  .bayesian-content,
+  .statistical-note-content {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Lists */
+  ul li,
+  ol li {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Finding cards */
+  .finding-domain {
+    font-size: 0.95rem !important;
+  }
+  
+  .finding-effect,
+  .finding-significance {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Criteria boxes */
+  .criteria-box,
+  .criteria-box p,
+  .criteria-box li {
+    font-size: 0.75rem !important;
   }
 }
 
