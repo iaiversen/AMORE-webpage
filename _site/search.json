@@ -291,7 +291,7 @@
     "href": "AMORE_Guide.html",
     "title": "Guide for managing AMORE website",
     "section": "",
-    "text": "Important information.\n\nthe different languages\nRstudio and quarto\ngithub, shinyapp and netlify.\n\nGetting Started (Git clone, dependencies)\nProject Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it) Explaining the SCSS system\nFile-by-File Breakdown\n\nexplain .gitignore\n\nCommon Tasks & Workflows\nTroubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)\nContributing Guidelines\n\nhow to add html content\nhow to add visualizations\nhow to change font size\nhow to add project\n\nHow to add projects"
+    "text": "Important information.\n\nthe different languages\nRstudio and quarto\ngithub, shinyapp and netlify.\n\nGetting Started (Git clone, dependencies)\nProject Structure Overview\n\n(Folder structure,\nwhat needs to be where, where do you need to save things to add it)\nExplaining the SCSS system, configurations files,\n\nFile-by-File Breakdown\n\nexplain .gitignore\n\nCommon Tasks & Workflows\nTroubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)\nContributing Guidelines\n\nhow to add html content\nhow to add visualizations\nhow to change font size\nhow to add project\n\nHow to add projects"
   },
   {
     "objectID": "about.html#what-are-living-meta-analyses",

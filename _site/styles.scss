@@ -1763,7 +1763,7 @@ h2[data-anchor-id="resourcepage"] {
 }
 
 .resource-item {
-  background: rgba(249, 249, 249, 0.9);
+  background: #fff;
   backdrop-filter: blur(5px);
   border-left: 4px solid #0A2A5E;
   padding: 1.5rem 2rem;
@@ -2375,14 +2375,15 @@ h2[data-anchor-id="resourcepage"] {
     padding: 1.5rem 1rem;
   } */ 
   
-    .project-hero-section {
+  .project-hero-section {
     min-height: 260px !important;
     height: auto !important;
     padding: 1.5rem 1rem;
   }
   
   .project-hero-title {
-    font-size: 1.1rem !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
     line-height: 1.35 !important;
     padding-bottom: 0.75rem !important;
   }
@@ -2414,6 +2415,7 @@ h2[data-anchor-id="resourcepage"] {
   
   .hero-title {
     font-size: 1.2rem !important;
+    
   }
   
   .hero-tagline {
@@ -2637,6 +2639,50 @@ h2[data-anchor-id="resourcepage"] {
   .criteria-box,
   .criteria-box p,
   .criteria-box li {
+    font-size: 0.75rem !important;
+  }
+  
+  
+  /* Fix process steps wrapping */
+  .process-steps {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .process-step {
+    padding: 1rem !important;
+    min-width: 0 !important;
+    word-wrap: break-word !important;
+  }
+  
+  .process-step h4 {
+    font-size: 0.95rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  .process-step p {
+    font-size: 0.8rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  /* Fix committee cards wrapping */
+  .committee-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .committee-card {
+    min-width: 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .committee-card strong {
+    font-size: 0.9rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  .committee-card > *:not(strong) {
     font-size: 0.75rem !important;
   }
 }
