@@ -408,12 +408,12 @@ PROJECT PAGES SECTION
     background: #f3f4f6;
 }
 
-.tab-content {
+.resources-container .tab-content {
     display: none;
     padding: 32px;
 }
 
-.tab-content.active {
+.resources-container .tab-content.active {
     display: block;
 }
 
@@ -1197,11 +1197,11 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   min-height: 400px;
 }
 
-.tab-content .tab-pane {
+.about-tabs-container .tab-content .tab-pane {
   display: none;
 }
 
-.tab-content .tab-pane.active {
+.about-tabs-container .tab-content .tab-pane.active {
   display: block;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -2214,7 +2214,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.85rem;
   }
   
-  .tab-content {
+ .resources-container .tab-content {
     padding: 1.4rem 1.05rem;
   }
   
@@ -2467,8 +2467,7 @@ h2[data-anchor-id="resourcepage"] {
     min-height: 3rem !important;
   }
   
-  /* Tab Content */
-  .tab-content {
+.resources-container .tab-content {
     padding: 1rem 0.75rem !important;
     width: 100% !important;
     box-sizing: border-box !important;

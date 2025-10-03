@@ -13,13 +13,25 @@ editor: visual
 
 1.  Important information.
 
+    1.  the different languages
+
+    2.  Rstudio and quarto
+
+    3.  github, shinyapp and netlify.
+
 2.  Getting Started (Git clone, dependencies)
 
-3.  Project Structure Overview (Folder structure, what needs to be where, where do you need to save things to add it) Explaining the SCSS system
+3.  Project Structure Overview
+
+    1.  (Folder structure,
+
+    2.  what needs to be where, where do you need to save things to add it)
+
+    3.  Explaining the SCSS system, configurations files,
 
 4.  File-by-File Breakdown
 
-    1.  explain gitignore
+    1.  explain .gitignore
 
 5.  Common Tasks & Workflows
 
