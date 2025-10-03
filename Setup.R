@@ -43,6 +43,23 @@ if (!tinytex::is_tinytex()) {
   message("TinyTeX distribution is already installed")
 }
 
+sync_styles <- function() {
+  # Save current directory
+  old_dir <- getwd()
+  
+  # Change to the correct directory
+  setwd("C:/Users/iaive/AMORE-webpage")
+  
+  # Run the batch file
+  system("sync-styles.bat")
+  
+  # Return to original directory
+  setwd(old_dir)
+  
+  cat("✓ Styles synchronized!\n")
+}
+
+
 # Core packages
 # rmarkdown: Basic package for R Markdown and Quarto document processing
 install_and_load("rmarkdown")
