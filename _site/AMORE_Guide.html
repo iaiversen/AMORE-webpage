@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -143,25 +208,17 @@ Ingebjørg A. Iversen
 </section>
 <section class="slide level2">
 
+<h3 id="table-of-content">Table of content</h3>
 <ol type="1">
-<li><p>Important information.</p>
-<ol type="1">
-<li><p>the different languages</p>
-<ol type="1">
-<li>Quarto is multilingual, the AMORE website uses different languages *Javascript, html, R, Quarto Markdown, Shell, and SCSS . The Github page informs all languages used under the About section to the AMORE/website github page.</li>
-</ol></li>
-<li><p>Rstudio and quarto</p></li>
-<li><p>github, shinyapp and netlify.</p></li>
-<li><p>Two factor authenticator</p></li>
-</ol></li>
-<li><p>Getting Started (Git clone, dependencies)</p></li>
-<li><p>Project Structure Overview</p>
+<li>Important information</li>
+<li>Getting Started (Git clone, dependencies)</li>
+<li>Project Structure Overview
 <ol type="1">
 <li><p>(Folder structure,</p></li>
 <li><p>what needs to be where, where do you need to save things to add it)</p></li>
 <li><p>Explaining the SCSS system, configurations files,</p></li>
 </ol></li>
-<li><p>File-by-File Breakdown</p>
+<li>File-by-File Breakdown
 <ol type="1">
 <li>explain .gitignore</li>
 <li>Styles.scss
@@ -171,24 +228,150 @@ Ingebjørg A. Iversen
 <li></li>
 </ol></li>
 </ol></li>
-<li><p>Common Tasks &amp; Workflows</p></li>
-<li><p>Troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)</p></li>
-<li><p>Contributing Guidelines</p>
+<li>Troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)</li>
+<li>Contributions Guidelines
+<ol type="1">
+<li>troubleshooting</li>
+<li>How to add project files</li>
+<li>how to add new website pages</li>
+<li>How to make design changes
 <ul>
-<li><p>how to add html content</p></li>
-<li><p>how to add visualizations</p></li>
-<li><p>how to make scss alterations</p>
+<li><p>sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage”) write sync_styles in the console (make sure the function has been activated from the Setup.R script).</p>
 <ul>
-<li><p>sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage”) write sync_styles in the console (make sure the function has been activated from the Setup.R script).</p></li>
-<li><p>if you make alterations, make sure those alterations fit with <span class="citation" data-cites="media">@media</span> adjustable screen sizes</p></li>
+<li>if you make alterations, make sure those alterations fit with <span class="citation" data-cites="media">@media</span> adjustable screen sizes</li>
 </ul></li>
-<li><p>how to add project</p></li>
+<li><p>How to add new website pages (add to yaml navigation) save in correct folder</p></li>
 </ul></li>
-<li><p>How to add projects</p></li>
+</ol></li>
 </ol>
 </section>
 <section id="important-information" class="slide level2">
 <h2>1. Important information</h2>
+<h3 id="the-different-languages">1.1 The Different Languages</h3>
+<p>The AMORE website is built using multiple programming languages and frameworks that work together:</p>
+<p>Quarto Markdown (.qmd): Primary content files for pages SCSS/CSS: Styling and responsive design JavaScript: Interactive functionality and client-side behavior R: Shiny app backend, data processing, and setup scripts HTML: Embedded within Quarto files for custom components Shell scripts: Deployment and automation tasks</p>
+<h4 id="why-multiple-languages-each-serves-a-specific-purpose">Why multiple languages? Each serves a specific purpose:</h4>
+<p>Quarto allows academic content with citations and technical writing SCSS provides maintainable, organized styling with variables JavaScript enables interactivity (filter tabs, pagination) R powers the dynamic Living Meta-Analysis directory HTML gives precise control over structure when needed</p>
+<h3 id="rstudio-and-quarto">1.2 RStudio and Quarto</h3>
+<p>RStudio is your primary development environment. Install:</p>
+<p>R (version 4.0.0+) from CRAN RStudio Desktop from Posit Quarto CLI - Usually bundled with RStudio, or install from quarto.org</p>
+<p>Key RStudio features for this project:</p>
+<p>Visual editor for .qmd files Terminal for git commands Console for running R functions (like sync_styles()) Files pane for navigation Viewer for previewing rendered pages</p>
+<h3 id="github-shinyapps.io-and-netlify">1.3 GitHub, ShinyApps.io, and Netlify</h3>
+<p>Three platforms work together: GitHub (Version Control &amp; Collaboration)</p>
+<p>Repository: iaiversen/AMORE-webpage Stores all source code Tracks changes with commit history Enables collaboration through pull requests Important: Never commit sensitive data (API keys, passwords)</p>
+<p>ShinyApps.io (Shiny App Hosting)</p>
+<p>Hosts the Living Meta-Analysis directory (app.R) Free tier limitations: limited active hours, connection timeouts URL: https://meta-oxytocin.shinyapps.io/shiny-meta/ Embedded in Living_meta-analysis_Directory.qmd via iframe</p>
+<p>Netlify (Website Hosting)</p>
+<p>Automatically deploys from GitHub Builds site from _site folder after Quarto render Domain: amore-project.org Configuration in netlify.toml</p>
+<p>Deployment workflow:</p>
+<p>Make changes locally in RStudio Test by rendering (quarto render or Render button) Commit and push to GitHub Netlify automatically rebuilds and deploys For Shiny app: Deploy separately using rsconnect::deployApp()</p>
+<h3 id="two-factor-authentication">1.4 Two-Factor Authentication</h3>
+<p>Why it matters: Protects the project from unauthorized access. Where you need 2FA:</p>
+<p>Netlify account: For deployment settings</p>
+</section>
+<section id="getting-started" class="slide level2">
+<h2>2. Getting started</h2>
+<h3 id="git-clone">2.1 Git Clone</h3>
+<p><strong>First time setup:</strong></p>
+<p>bash or Windows powershell</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># In terminal/command line:</span></span>
+<span id="cb1-2"><a></a><span class="bu">cd</span> ~/Documents  <span class="co"># or your preferred location</span></span>
+<span id="cb1-3"><a></a><span class="fu">git</span> clone https://github.com/iaiversen/AMORE-webpage.git</span>
+<span id="cb1-4"><a></a><span class="bu">cd</span> AMORE-webpage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>In RStudio:</strong></p>
+<ol type="1">
+<li><p>File → New Project → Version Control → Git</p></li>
+<li><p>Repository URL: <code>https://github.com/iaiversen/AMORE-webpage.git</code></p></li>
+<li><p>Choose directory location</p></li>
+<li><p>Create Project</p></li>
+</ol>
+<h3 id="dependencies">2.2 Dependencies</h3>
+<p><strong>Install all required packages:</strong></p>
+<p>Open <code>Setup.R</code> and run the entire script. This installs:</p>
+<p><strong>Core packages:</strong></p>
+<ul>
+<li><p><code>rmarkdown</code>, <code>knitr</code>, <code>quarto</code> - Document rendering</p></li>
+<li><p><code>shiny</code>, <code>rsconnect</code> - Shiny app deployment</p></li>
+<li><p><code>DT</code>, <code>yaml</code>, <code>fs</code>, <code>httr</code>, <code>jsonlite</code> - Data handling</p></li>
+<li><p><code>bslib</code>, <code>sass</code> - Styling</p></li>
+<li><p><code>tinytex</code> - LaTeX/PDF support</p></li>
+</ul>
+<p><strong>The script handles:</strong></p>
+<ul>
+<li><p>Checking if packages are already installed</p></li>
+<li><p>Installing missing packages</p></li>
+<li><p>Loading libraries</p></li>
+<li><p>Setting up TinyTeX distribution</p></li>
+</ul>
+<p><strong>Run once after cloning:</strong></p>
+<h3 id="verify-installation">2.3 Verify Installation</h3>
+<p><strong>Test that everything works:</strong></p>
+<p>r console</p>
+<pre><code># Check Quarto system("quarto --version") 
+# Test rendering a single page quarto::quarto_render("index.qmd")  
+# Test sync_styles function source("Setup.R") sync_styles()</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>AMORE<span class="sc">-</span>webpage<span class="sc">/</span></span>
+<span id="cb3-2"><a></a>├── .git<span class="sc">/</span>                      <span class="co"># Git version control (don't edit)</span></span>
+<span id="cb3-3"><a></a>├── .quarto<span class="sc">/</span>                   <span class="co"># Quarto cache (don't edit)</span></span>
+<span id="cb3-4"><a></a>├── _site<span class="sc">/</span>                     <span class="co"># Generated website (don't commit)</span></span>
+<span id="cb3-5"><a></a>├── LMAs<span class="sc">/</span>                      <span class="co"># Living Meta-Analysis project pages</span></span>
+<span id="cb3-6"><a></a>│   ├── executive<span class="sc">-</span>function.qmd</span>
+<span id="cb3-7"><a></a>│   ├── styles_for_lma.scss</span>
+<span id="cb3-8"><a></a>│   └── lma<span class="sc">-</span>template.qmd</span>
+<span id="cb3-9"><a></a>├── shiny<span class="sc">-</span>meta<span class="sc">/</span>               <span class="co"># Shiny app folder</span></span>
+<span id="cb3-10"><a></a>│   └── app.R</span>
+<span id="cb3-11"><a></a>├── images and visualizations<span class="sc">/</span> <span class="co"># Assets</span></span>
+<span id="cb3-12"><a></a>├── _quarto.yml               <span class="co"># Site configuration</span></span>
+<span id="cb3-13"><a></a>├── styles.scss               <span class="co"># Main stylesheet</span></span>
+<span id="cb3-14"><a></a>├── index.qmd                 <span class="co"># Homepage</span></span>
+<span id="cb3-15"><a></a>├── about.qmd                 <span class="co"># About page</span></span>
+<span id="cb3-16"><a></a>├── contact.qmd               <span class="co"># Contact page</span></span>
+<span id="cb3-17"><a></a>├── Resources.qmd             <span class="co"># Resources page</span></span>
+<span id="cb3-18"><a></a>├── guidelines.qmd            <span class="co"># Guidelines page</span></span>
+<span id="cb3-19"><a></a>├── Standardization.qmd       <span class="co"># Standards page</span></span>
+<span id="cb3-20"><a></a>├── Living_meta<span class="sc">-</span>analysis_Directory.qmd  <span class="co"># Shiny embed</span></span>
+<span id="cb3-21"><a></a>├── Protocol_checklist.qmd    <span class="co"># Checklist tool</span></span>
+<span id="cb3-22"><a></a>├── Setup.R                   <span class="co"># Dependency installer</span></span>
+<span id="cb3-23"><a></a>├── LICENSE                   <span class="co"># MIT License</span></span>
+<span id="cb3-24"><a></a>├── .gitignore               <span class="co"># Git exclusions</span></span>
+<span id="cb3-25"><a></a>├── netlify.toml             <span class="co"># Netlify config</span></span>
+<span id="cb3-26"><a></a>└── README.md                <span class="co"># GitHub readme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="project-structure-overview" class="slide level2">
+<h2>3. Project structure overview</h2>
+</section>
+<section id="file-by-file-breakdown" class="slide level2">
+<h2>4. File-by-file breakdown</h2>
+<h3 id="gitignore-explained">4.1 .gitignore Explained</h3>
+<p><strong>Purpose:</strong> Tells Git which files to ignore (not track/commit).</p>
+<p><strong>Current exclusions:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">.Rproj.user/</span>      <span class="co"># RStudio project files</span></span>
+<span id="cb4-2"><a></a><span class="ex">.Rhistory</span>         <span class="co"># R command history</span></span>
+<span id="cb4-3"><a></a><span class="ex">.RData</span>            <span class="co"># R workspace data</span></span>
+<span id="cb4-4"><a></a><span class="ex">.Ruserdata</span>        <span class="co"># User-specific R settings</span></span>
+<span id="cb4-5"><a></a><span class="ex">/_quarto/</span>         <span class="co"># Quarto cache</span></span>
+<span id="cb4-6"><a></a><span class="ex">**/_quarto_internal_scss_error.scss</span>  <span class="co"># Temporary error files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Why exclude these:</strong></p>
+<ul>
+<li><p>RStudio files are user-specific</p></li>
+<li><p>_site/ is generated, not source code</p></li>
+<li><p>Cache files speed up local rendering but aren’t needed in repo</p></li>
+<li><p>Reduces repository size</p></li>
+</ul>
+<p><strong>Never add to .gitignore:</strong></p>
+<ul>
+<li><p>Source files (.qmd, .R, .scss)</p></li>
+<li><p>Configuration files (_quarto.yml, netlify.toml)</p></li>
+<li><p>Assets (images, logos)</p></li>
+</ul>
+<h3 id="styles.scss-deep-dive">4.2 styles.scss Deep Dive</h3>
 
 
 </section>
@@ -407,6 +590,82 @@ Ingebjørg A. Iversen
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

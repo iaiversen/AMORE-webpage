@@ -981,102 +981,104 @@ ui <- fluidPage(
     $(document).ready(function() {
       console.log('Responsive JavaScript loaded');
       
-      // Tab functionality (simplified)
-      $('.filter-tab').on('click', function(e) {
-        e.preventDefault();
-        var target = $(this).data('target');
-        var $filterPanels = $('.filter-panels');
-        var $clickedTab = $(this);
-        
-        if ($clickedTab.hasClass('active') && $filterPanels.hasClass('show')) {
-          // Close if clicking active tab
-          $filterPanels.removeClass('show');
-          $('.filter-tab').removeClass('active');
-          $('.filter-panel').removeClass('active');
-        } else {
-          // Open selected tab
-          $filterPanels.addClass('show');
-          $('.filter-tab').removeClass('active');
-          $clickedTab.addClass('active');
-          $('.filter-panel').removeClass('active');
-          $('#' + target + '-panel').addClass('active');
-        }
-      });
+          // Mobile-optimized tab functionality with touch support
+    $('.filter-tab').on('click touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       
-      // Mobile scroll optimization
-      if ($(window).width() <= 767) {
-        // Smooth scrolling for mobile tab selection
-        $('.filter-tab').on('click', function() {
+      var target = $(this).data('target');
+      var $filterPanels = $('.filter-panels');
+      var $clickedTab = $(this);
+      
+      console.log('Tab clicked/touched:', target);
+      
+      if ($clickedTab.hasClass('active') && $filterPanels.hasClass('show')) {
+        // Close if clicking active tab
+        $filterPanels.removeClass('show');
+        $('.filter-tab').removeClass('active');
+        $('.filter-panel').removeClass('active');
+      } else {
+        // Open selected tab
+        $filterPanels.addClass('show');
+        $('.filter-tab').removeClass('active');
+        $clickedTab.addClass('active');
+        $('.filter-panel').removeClass('active');
+        $('#' + target + '-panel').addClass('active');
+        
+        // Scroll to filter panel on mobile
+        if ($(window).width() <= 767) {
           setTimeout(function() {
-            $('.filter-panels').get(0).scrollIntoView({
+            $filterPanels[0].scrollIntoView({
               behavior: 'smooth',
-              block: 'start'
+              block: 'nearest'
             });
           }, 100);
-        });
-        
-        // Optimize touch scrolling
-        $('.filter-panels').css({
-          '-webkit-overflow-scrolling': 'touch',
-          'overscroll-behavior': 'contain'
-        });
-      }
-      
-      // Prevent iOS zoom on input focus
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        $('input[type=\"text\"], input[type=\"search\"], textarea, select').attr('autocomplete', 'off');
-        
-        // Add viewport meta tag dynamically if not present
-        if (!$('meta[name=\"viewport\"]').length) {
-          $('head').append('<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">');
         }
       }
       
-      // Handle window resize for responsive adjustments
-      var resizeTimer;
-      $(window).on('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-          // Close filter panels on orientation change for mobile
-          if ($(window).width() <= 767) {
-            $('.filter-panels').removeClass('show');
-            $('.filter-tab').removeClass('active');
-            $('.filter-panel').removeClass('active');
-          }
-        }, 250);
-      });
-      
-      // Enhanced filter panel height management
-      function adjustFilterPanelHeight() {
-        var $activePanel = $('.filter-panel.active');
-        if ($activePanel.length) {
-          var panelHeight = $activePanel.outerHeight();
-          var maxHeight = Math.min(panelHeight + 50, $(window).height() * 0.4);
-          $('.filter-panels.show').css('max-height', maxHeight + 'px');
-        }
-      }
-      
-      // Adjust height when panels are shown/hidden
-      $('.filter-tab').on('click', function() {
-        setTimeout(adjustFilterPanelHeight, 50);
-      });
-      
-      // Keyboard navigation support
-      $('.filter-tab').on('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          $(this).click();
-        }
-      });
-      
-      // Focus management for accessibility
-      $('.filter-tab').on('focus', function() {
-        $(this).addClass('focus-visible');
-      }).on('blur', function() {
-        $(this).removeClass('focus-visible');
-      });
+      setTimeout(adjustFilterPanelHeight, 50);
     });
-  ")),
+    
+    // Prevent default touch behavior
+    $('.filter-tab').on('touchstart', function(e) {
+      $(this).addClass('touching');
+    }).on('touchend touchcancel', function(e) {
+      $(this).removeClass('touching');
+    });
+    
+    // Enhanced filter panel height management
+    function adjustFilterPanelHeight() {
+      var $activePanel = $('.filter-panel.active');
+      if ($activePanel.length) {
+        var panelHeight = $activePanel.outerHeight();
+        var windowHeight = $(window).height();
+        var maxHeight = Math.min(panelHeight + 50, windowHeight * 0.5);
+        $('.filter-panels.show').css('max-height', maxHeight + 'px');
+      }
+    }
+    
+    // Close filter panels when clicking outside on mobile
+    $(document).on('click touchend', function(e) {
+      if ($(window).width() <= 767) {
+        if (!$(e.target).closest('.filter-tabs, .filter-panels').length) {
+          $('.filter-panels').removeClass('show');
+          $('.filter-tab').removeClass('active');
+          $('.filter-panel').removeClass('active');
+        }
+      }
+    });
+    
+    // Handle window resize
+    var resizeTimer;
+    $(window).on('resize orientationchange', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        if ($(window).width() <= 767) {
+          $('.filter-panels').removeClass('show');
+          $('.filter-tab').removeClass('active');
+          $('.filter-panel').removeClass('active');
+        }
+        adjustFilterPanelHeight();
+      }, 250);
+    });
+    
+    // Optimize touch scrolling
+    if ($(window).width() <= 767) {
+      $('.filter-panels').css({
+        '-webkit-overflow-scrolling': 'touch',
+        'overscroll-behavior': 'contain'
+      });
+    }
+    
+    // Keyboard navigation
+    $('.filter-tab').on('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        $(this).trigger('click');
+      }
+    });
+  });
+")),
   
   # Height tracking and connection management script
   tags$script(HTML("
