@@ -5,21 +5,17 @@ format: revealjs
 editor: visual
 ---
 
-# Guide for managing AMORE website
-
-### This guide includes:
-
-------------------------------------------------------------------------
-
 1.  Important information.
 
     1.  the different languages
 
-        1.  Quarto is multilingual, the AMORE website uses different languages \*Javascript, html, R, Shell, and SCSS or CSS. The Github page informs all languages used under the About section to the AMORE/website github page.
+        1.  Quarto is multilingual, the AMORE website uses different languages \*Javascript, html, R, Quarto Markdown, Shell, and SCSS . The Github page informs all languages used under the About section to the AMORE/website github page.
 
     2.  Rstudio and quarto
 
     3.  github, shinyapp and netlify.
+
+    4.  Two factor authenticator
 
 2.  Getting Started (Git clone, dependencies)
 

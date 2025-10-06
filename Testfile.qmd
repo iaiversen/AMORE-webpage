@@ -408,12 +408,12 @@ PROJECT PAGES SECTION
     background: #f3f4f6;
 }
 
-.tab-content {
+.resources-container .tab-content {
     display: none;
     padding: 32px;
 }
 
-.tab-content.active {
+.resources-container .tab-content.active {
     display: block;
 }
 
@@ -1197,11 +1197,11 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   min-height: 400px;
 }
 
-.tab-content .tab-pane {
+.about-tabs-container .tab-content .tab-pane {
   display: none;
 }
 
-.tab-content .tab-pane.active {
+.about-tabs-container .tab-content .tab-pane.active {
   display: block;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -1763,7 +1763,7 @@ h2[data-anchor-id="resourcepage"] {
 }
 
 .resource-item {
-  background: rgba(249, 249, 249, 0.9);
+  background: #fff;
   backdrop-filter: blur(5px);
   border-left: 4px solid #0A2A5E;
   padding: 1.5rem 2rem;
@@ -1910,7 +1910,14 @@ h2[data-anchor-id="resourcepage"] {
   font-weight: 500;
 }
 
-/* CLEAN RESPONSIVE DESIGN SYSTEM */
+/* ===========================================================================
+   
+   
+                             RESPONSIVE DESIGN
+   
+   
+=========================================================================== */
+
 @media (min-width: 1600px) {
   html { font-size: 18px; }
   
@@ -2131,25 +2138,45 @@ h2[data-anchor-id="resourcepage"] {
     width: 92%;
   }
   
+  .contact-container {
+    grid-template-columns: 1fr;
+    height: auto; /* Changed from fixed */
+    min-height: 450px;
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+  
   .contact-container::before {
-    bottom: -10%;
-    right: -10%;
-    top: auto;
-    width: 50%;
-    height: 40%;
+    width: 40%;
+    height: 35%;
+    bottom: -8%;
+    right: -8%;
+    opacity: 0.25;
   }
   
   .contact-section {
-    padding: 1.4rem 1.75rem;
+    padding: 2rem 2rem; /* More breathing room */
   }
   
   .contact-section h2 {
-    font-size: 1.54rem;
+    font-size: 1.6rem; /* Slightly smaller than desktop */
+    margin-bottom: 1rem;
   }
   
   .contact-section p,
   .contact-section li {
     font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+  
+  .contact-section ul {
+    margin: 1.2rem 0;
+  }
+  
+  .contact-buttons .primary-button {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
   }
   
   .project-info-grid {
@@ -2191,16 +2218,19 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.3rem !important;
   } */ 
   
+  /* Project hero title scaling for tablets */
   .project-hero-content {
     max-width: 95%;
+    font-size: 1.4rem !important;  // Add this line
     padding-top: 0.5rem !important;
   }
   
   .project-hero-title {
-    font-size: 1.2rem !important;
-    line-height: 1.4 !important;
+    font-size: 1.3rem !important;  // Slightly larger than 1.2rem for tablets
+    line-height: 1.35 !important;
     padding-bottom: 1rem !important;
   }
+  
     .resources-container {
     margin: 0 0.7rem;
     border-radius: 8px;
@@ -2211,12 +2241,58 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.85rem;
   }
   
-  .tab-content {
+ .resources-container .tab-content {
     padding: 1.4rem 1.05rem;
   }
   
   .resource-title {
     font-size: 1rem;
+  }
+  
+  /*----------------------------------------------
+  /* Scale down ALL body text and content */
+  body {
+    font-size: 0.9rem !important;
+  }
+  
+  p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Section headings */
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Project hero title */
+  .project-hero-content,
+  .project-hero-content p {
+    font-size: 1.4rem !important;
+  }
+  
+  /* Main content areas */
+  .main-content-container,
+  .main-content-container p,
+  .abstract-section p,
+  .inclusion-exclusion-section p,
+  .results-container p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Lists */
+  ul li,
+  ol li {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Info cards */
+  .info-card p,
+  .info-card div {
+    font-size: 0.75rem !important;
   }
 }
   
@@ -2303,37 +2379,69 @@ h2[data-anchor-id="resourcepage"] {
     right: -5%;
   }
   
+  .contact-container {
+    width: 95%;
+    height: auto; /* Remove fixed height */
+    min-height: 450px; /* Ensure enough space */
+    margin: 1rem auto;
+    grid-template-columns: 1fr; /* Single column - remove logo side */
+    padding: 0;
+  }
+  
+  /* Hide the decorative logo on mobile - it interferes with readability */
+  .contact-container::before {
+    display: none !important;
+  }
+  
   .contact-section {
-    padding: 1rem 1.25rem;
+    padding: 1.8rem 1.5rem; /* Good padding for text */
+    min-height: auto;
   }
   
   .contact-section h2 {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
   
-  .contact-section p,
+  .contact-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
   .contact-section li {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+  }
+  
+  .contact-section ul {
+    margin: 1rem 0;
+    padding-left: 1.3rem;
+  }
+  
+  .contact-buttons {
+    margin-top: 1.5rem;
   }
   
   .contact-buttons .primary-button {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-  }
-  
+    padding: 0.8rem 1.3rem;
+    font-size: 0.95rem;
+  }  
   /*.project-hero-section {
     min-height: 20vh;
     padding: 1.5rem 1rem;
   } */ 
   
-    .project-hero-section {
+  .project-hero-section {
     min-height: 260px !important;
     height: auto !important;
     padding: 1.5rem 1rem;
   }
   
   .project-hero-title {
-    font-size: 1.1rem !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
     line-height: 1.35 !important;
     padding-bottom: 0.75rem !important;
   }
@@ -2356,7 +2464,6 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.6rem;
   }
   
- 
   .hero-section {
     height: 20vh !important;
     min-height: 160px;
@@ -2365,6 +2472,7 @@ h2[data-anchor-id="resourcepage"] {
   
   .hero-title {
     font-size: 1.2rem !important;
+    
   }
   
   .hero-tagline {
@@ -2381,7 +2489,11 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1rem !important;
   } 
   
-  /* RESOURCES CONTAINER - COMPLETE MOBILE FIX */
+  /* ==========================================
+     RESOURCES CONTAINER - COMPLETE MOBILE RULES
+     ========================================== */
+  
+  /* Main container */
   .resources-container {
     max-width: 100% !important;
     width: 100% !important;
@@ -2414,25 +2526,49 @@ h2[data-anchor-id="resourcepage"] {
     min-height: 3rem !important;
   }
   
-  /* Tab Content */
-  .tab-content {
+.resources-container .tab-content {
     padding: 1rem 0.75rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
   
+  /* Resource Categories */
+  .resource-category {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Category Headers */
+  .category-header {
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
+    gap: 8px !important;
+  }
+  
+  .category-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .category-title {
+    font-size: 0.95rem !important;
+  }
+  
   /* Resource Items */
-  .resource-category,
   .resource-item {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-bottom: 0.75rem !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
   
   .resource-header {
-    padding: 1rem !important;
+    padding: 0.75rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
@@ -2443,46 +2579,168 @@ h2[data-anchor-id="resourcepage"] {
   }
   
   .resource-title {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
     word-wrap: break-word !important;
   }
   
   .resource-description {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
   }
   
-  /* Fix DOI and URL text wrapping */
+  /* Resource Links */
+  .resource-links {
+    gap: 0.5rem !important;
+  }
+  
+  .resource-link {
+    padding: 0.6rem 0.5rem !important;
+  }
+  
+  .link-title {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.25rem !important;
+    word-wrap: break-word !important;
+  }
+  
   .link-doi,
   .link-url {
-    font-size: 0.7rem !important;
+    font-size: 0.65rem !important;
+    padding: 1px 4px !important;
     word-break: break-all !important;
     white-space: normal !important;
   }
   
-  .link-title {
-    font-size: 0.85rem !important;
-    word-wrap: break-word !important;
+  /* Status Badges */
+  .status-badge {
+    padding: 4px 8px !important;
+    font-size: 0.65rem !important;
   }
   
-  .resource-link {
-    padding: 0.75rem 0.5rem !important;
+  /* Timeline Indicator */
+  .timeline-indicator {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    gap: 6px !important;
   }
   
-  /* Category headers */
-  .category-title {
-    font-size: 1rem !important;
+  /* Notice Banners */
+  .coming-soon-notice,
+  .future-notice {
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 1rem !important;
+    font-size: 0.8rem !important;
   }
   
-  .category-icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
-  
-  /* Main content container */
+  /* Main content container override */
   .main-content-container {
     max-width: 100% !important;
     width: 100% !important;
     padding: 0 0.75rem !important;
+  }
+  
+  /* Scale down ALL body text and content for mobile */
+  body {
+    font-size: 0.85rem !important;
+  }
+  
+  p {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Section headings - make them smaller */
+  h2 {
+    font-size: 1.1rem !important;
+  }
+  
+  h3 {
+    font-size: 0.95rem !important;
+  }
+  
+  /* Project hero title */
+  .project-hero-content,
+  .project-hero-content p {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Main content areas */
+  .main-content-container,
+  .main-content-container p,
+  .abstract-section p,
+  .inclusion-exclusion-section p,
+  .results-container p,
+  .overall-findings p,
+  .bayesian-content,
+  .statistical-note-content {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Lists */
+  ul li,
+  ol li {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Finding cards */
+  .finding-domain {
+    font-size: 0.95rem !important;
+  }
+  
+  .finding-effect,
+  .finding-significance {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Criteria boxes */
+  .criteria-box,
+  .criteria-box p,
+  .criteria-box li {
+    font-size: 0.75rem !important;
+  }
+  
+  
+  /* Fix process steps wrapping */
+  .process-steps {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .process-step {
+    padding: 1rem !important;
+    min-width: 0 !important;
+    word-wrap: break-word !important;
+  }
+  
+  .process-step h4 {
+    font-size: 0.95rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  .process-step p {
+    font-size: 0.8rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  /* Fix committee cards wrapping */
+  .committee-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .committee-card {
+    min-width: 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  .committee-card strong {
+    font-size: 0.9rem !important;
+    word-wrap: break-word !important;
+  }
+  
+  .committee-card > *:not(strong) {
+    font-size: 0.75rem !important;
   }
 }
 

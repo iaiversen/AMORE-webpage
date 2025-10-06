@@ -1762,7 +1762,7 @@ h2[data-anchor-id="resourcepage"] {
   margin-bottom: 3rem;
 }
 
-.resource-item {
+.standalone-resources-page .resource-item {
   background: #fff;
   backdrop-filter: blur(5px);
   border-left: 4px solid #0A2A5E;
@@ -2464,7 +2464,6 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.6rem;
   }
   
- 
   .hero-section {
     height: 20vh !important;
     min-height: 160px;
@@ -2742,6 +2741,14 @@ h2[data-anchor-id="resourcepage"] {
   
   .committee-card > *:not(strong) {
     font-size: 0.75rem !important;
+  }
+  
+  .standalone-resources-page .resource-list {
+    padding: 0 1rem !important;
+  }
+  
+  .standalone-resources-page .resource-item {
+    padding: 1.2rem 1rem !important;
   }
 }
 

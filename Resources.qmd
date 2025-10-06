@@ -13,6 +13,7 @@ format:
 
 ## Checklist for creating AMORE project proposal {#resourcepage} 
 
+::: {.standalone-resources-page}
 ::: {.resource-list}
 ::: {.resource-item}
 When creating a project proposal for a Living Meta-Analysis in AMORE, it is essential to include all necessary information to ensure a smooth review and approval process. The following checklist outlines the key components that should be included in your project proposal. 
@@ -64,3 +65,4 @@ Reference management software that helps you collect, organize, and cite researc
 [Visit Zotero](https://www.zotero.org/){.resource-link target="_blank"}
 :::
 :::
+::: 
