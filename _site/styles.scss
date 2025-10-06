@@ -1910,7 +1910,14 @@ h2[data-anchor-id="resourcepage"] {
   font-weight: 500;
 }
 
-/* CLEAN RESPONSIVE DESIGN SYSTEM */
+/* ===========================================================================
+   
+   
+                             RESPONSIVE DESIGN
+   
+   
+=========================================================================== */
+
 @media (min-width: 1600px) {
   html { font-size: 18px; }
   
@@ -2131,25 +2138,45 @@ h2[data-anchor-id="resourcepage"] {
     width: 92%;
   }
   
+  .contact-container {
+    grid-template-columns: 1fr;
+    height: auto; /* Changed from fixed */
+    min-height: 450px;
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+  
   .contact-container::before {
-    bottom: -10%;
-    right: -10%;
-    top: auto;
-    width: 50%;
-    height: 40%;
+    width: 40%;
+    height: 35%;
+    bottom: -8%;
+    right: -8%;
+    opacity: 0.25;
   }
   
   .contact-section {
-    padding: 1.4rem 1.75rem;
+    padding: 2rem 2rem; /* More breathing room */
   }
   
   .contact-section h2 {
-    font-size: 1.54rem;
+    font-size: 1.6rem; /* Slightly smaller than desktop */
+    margin-bottom: 1rem;
   }
   
   .contact-section p,
   .contact-section li {
     font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+  
+  .contact-section ul {
+    margin: 1.2rem 0;
+  }
+  
+  .contact-buttons .primary-button {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
   }
   
   .project-info-grid {
@@ -2352,24 +2379,55 @@ h2[data-anchor-id="resourcepage"] {
     right: -5%;
   }
   
+  .contact-container {
+    width: 95%;
+    height: auto; /* Remove fixed height */
+    min-height: 450px; /* Ensure enough space */
+    margin: 1rem auto;
+    grid-template-columns: 1fr; /* Single column - remove logo side */
+    padding: 0;
+  }
+  
+  /* Hide the decorative logo on mobile - it interferes with readability */
+  .contact-container::before {
+    display: none !important;
+  }
+  
   .contact-section {
-    padding: 1rem 1.25rem;
+    padding: 1.8rem 1.5rem; /* Good padding for text */
+    min-height: auto;
   }
   
   .contact-section h2 {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
   
-  .contact-section p,
+  .contact-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
   .contact-section li {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+  }
+  
+  .contact-section ul {
+    margin: 1rem 0;
+    padding-left: 1.3rem;
+  }
+  
+  .contact-buttons {
+    margin-top: 1.5rem;
   }
   
   .contact-buttons .primary-button {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-  }
-  
+    padding: 0.8rem 1.3rem;
+    font-size: 0.95rem;
+  }  
   /*.project-hero-section {
     min-height: 20vh;
     padding: 1.5rem 1rem;

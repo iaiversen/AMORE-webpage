@@ -15,6 +15,8 @@ editor: visual
 
     1.  the different languages
 
+        1.  Quarto is multilingual, the AMORE website uses different languages \*Javascript, html, R, Shell, and SCSS or CSS. The Github page informs all languages used under the About section to the AMORE/website github page.
+
     2.  Rstudio and quarto
 
     3.  github, shinyapp and netlify.
@@ -32,6 +34,10 @@ editor: visual
 4.  File-by-File Breakdown
 
     1.  explain .gitignore
+    2.  Styles.scss
+        1.  The styles.scss is devided into different sections
+        2.  The standard screen size codes, and the @media sections with adjusted screen layout for smaller tablets and mobile screens
+        3.  
 
 5.  Common Tasks & Workflows
 
@@ -43,7 +49,11 @@ editor: visual
 
     -   how to add visualizations
 
-    -   how to change font size
+    -   how to make scss alterations
+
+        -   sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage") write sync_styles in the console (make sure the function has been activated from the Setup.R script).
+
+        -   if you make alterations, make sure those alterations fit with @media adjustable screen sizes
 
     -   how to add project
 

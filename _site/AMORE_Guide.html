@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-138708b76abcd81e6382cf5e72959db9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cdbefdc1dd4837adc7f43f92c4c91058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -180,7 +180,10 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p>Important information.</p>
 <ol type="1">
-<li><p>the different languages</p></li>
+<li><p>the different languages</p>
+<ol type="1">
+<li>Quarto is multilingual, the AMORE website uses different languages *Javascript, html, R, Shell, and SCSS or CSS. The Github page informs all languages used under the About section to the AMORE/website github page.</li>
+</ol></li>
 <li><p>Rstudio and quarto</p></li>
 <li><p>github, shinyapp and netlify.</p></li>
 </ol></li>
@@ -194,6 +197,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p>File-by-File Breakdown</p>
 <ol type="1">
 <li>explain .gitignore</li>
+<li>Styles.scss
+<ol type="1">
+<li>The styles.scss is devided into different sections</li>
+<li>The standard screen size codes, and the <span class="citation" data-cites="media">@media</span> sections with adjusted screen layout for smaller tablets and mobile screens</li>
+<li></li>
+</ol></li>
 </ol></li>
 <li><p>Common Tasks &amp; Workflows</p></li>
 <li><p>Troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)</p></li>
@@ -201,7 +210,11 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>how to add html content</p></li>
 <li><p>how to add visualizations</p></li>
-<li><p>how to change font size</p></li>
+<li><p>how to make scss alterations</p>
+<ul>
+<li><p>sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage”) write sync_styles in the console (make sure the function has been activated from the Setup.R script).</p></li>
+<li><p>if you make alterations, make sure those alterations fit with <span class="citation" data-cites="media">@media</span> adjustable screen sizes</p></li>
+</ul></li>
 <li><p>how to add project</p></li>
 </ul></li>
 <li><p>How to add projects</p></li>
