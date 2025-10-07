@@ -17,6 +17,10 @@
 
 (sass = TRUE)
 
+# -------------------------------------------------------------
+# Individualized functions for AMORE 
+# -------------------------------------------------------------
+
 # Function to install and load R packages
 install_and_load <- function(package) {
   if (!require(package, character.only = TRUE)) {
@@ -24,7 +28,6 @@ install_and_load <- function(package) {
     library(package, character.only = TRUE)
   }
 }
-
 
 # Check and install TinyTeX if not present
 if (!tinytex::is_tinytex()) {
@@ -43,6 +46,7 @@ if (!tinytex::is_tinytex()) {
   message("TinyTeX distribution is already installed")
 }
 
+# Function to synchronize the styles.scss files across different folders
 sync_styles <- function() {
   # Save current directory
   old_dir <- getwd()

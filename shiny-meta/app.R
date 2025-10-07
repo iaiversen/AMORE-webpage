@@ -1,4 +1,4 @@
-#====== Load required libraries =========# 
+#========================== Load required libraries ====================# 
 library(shiny)
 library(shinyjs)  # Added for enable/disable functionality
 library(DT)
@@ -11,6 +11,7 @@ library(stringdist)  # For fuzzy search matching
 
 
 #============================= UI section ==============================# 
+
 ui <- fluidPage(
   # Initialize shinyjs
   useShinyjs(),

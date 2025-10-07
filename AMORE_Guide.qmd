@@ -20,16 +20,12 @@ editor: visual
     2.  Styles.scss
         1.  The styles.scss is devided into different sections
         2.  The standard screen size codes, and the @media sections with adjusted screen layout for smaller tablets and mobile screens
-5.   Contributions Guidelines
-    1.  troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!)
-    2.  How to add project files
-    3.  how to add new website pages
-    4.  How to make design changes
-        -   sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage") write sync_styles in the console (make sure the function has been activated from the Setup.R script).
+5.  Contributions Guidelines 1. troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!) 2. How to add project files 3. how to add new website pages 4. How to make design changes
+    -   sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage") write sync_styles in the console (make sure the function has been activated from the Setup.R script).
 
-            -   if you make alterations, make sure those alterations fit with @media adjustable screen sizes
+        -   if you make alterations, make sure those alterations fit with @media adjustable screen sizes
 
-        -   How to add new website pages (add to yaml navigation) save in correct folder
+    -   How to add new website pages (add to yaml navigation) save in correct folder
 
 ## 1. Important information
 
@@ -238,10 +234,10 @@ AMORE-webpage/
 
 4.3 How the app.R filter and search functions with the app.R
 
-## 5. Contributions guidelines 
+## 5. Contributions guidelines
 
-### 5.1 How to add projects 
+### 5.1 How to add projects
 
-### 5.2 How to add websites to AMORE 
+### 5.2 How to add websites to AMORE
 
 ### 5.3 Troubleshooting
