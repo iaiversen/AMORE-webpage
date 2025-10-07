@@ -1,11 +1,5 @@
 ---
 title: "Standardization Framework for Living Meta-Analysis on AMORE"
-format:
-  html:
-    theme: 
-      - yeti
-      - styles.scss
-    css: styles.scss
 ---
 
 ::: {.hero-section}

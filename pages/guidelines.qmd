@@ -2,10 +2,6 @@
 title: "How to Publish Your Living Meta-Analysis on AMORE"
 format:
   html:
-    theme: 
-      - yeti
-      - styles.scss
-    css: styles.scss
     page-layout: full
 ---
 

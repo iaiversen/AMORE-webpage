@@ -2,10 +2,8 @@
 title: "Research tools and resources" 
 format:
   html:
-    theme: 
-      - yeti
-      - styles.scss
-    css: styles.scss
+    page-layout: full 
+    container-fluid: true
 ---
 
 ::: {.title-space}

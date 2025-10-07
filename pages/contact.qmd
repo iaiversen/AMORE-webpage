@@ -1,9 +1,6 @@
 ---
 format:
   html:
-    theme: 
-      - styles.scss
-    css: styles.scss 
     page-layout: full
     title-block-banner: false 
     title-block-style: none 

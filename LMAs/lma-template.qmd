@@ -26,10 +26,6 @@ dois:
   publication: "10.XXXX/template-publication"
 format:
   html:
-    theme: 
-      - yeti
-      - ../assets/styles/styles.scss
-    css: ../assets/styles/styles.scss
     page-layout: full
     toc: true
     toc-title: "On this page"

@@ -1,15 +1,12 @@
 ---
 format:
   html:
-    theme: 
-      - styles.scss
-    css: styles.scss
     page-layout: full
 ---
 
 
 ::: {.content-section}
-![](white_no_bak.png){.header-logo}
+![](assets/images/white_no_bak.png){.header-logo}
 
 ::: {.subtitle-text}
 Active Monitoring of Oxytocin Research Evidence

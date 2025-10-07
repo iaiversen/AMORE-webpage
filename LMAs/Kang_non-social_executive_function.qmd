@@ -24,10 +24,6 @@ dois:
   publication: "10.1038/s41380-024-02871-4"
 format:
   html:
-    theme: 
-      - yeti
-      - styles.scss
-    css: styles.scss
     page-layout: full
     toc-title: "On this page"
     toc-location: right

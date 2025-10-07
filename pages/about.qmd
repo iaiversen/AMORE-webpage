@@ -1,9 +1,6 @@
 ---
 format:
   html:
-    theme: 
-      - ../styles.scss
-    css: ../styles.scss
     page-layout: full
 ---
 
@@ -71,7 +68,8 @@ Living meta-analyses are meta-analyses that are updated regularly to include new
 
 ```{=html}  
 <div style="text-align: center; margin: 2rem 0;">
-  <img src="images and visualizations/LiMAs.jpg" alt="Traditional vs. Living Meta-Analysis comparison" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <img src="../assets/images/LiMAs.jpg" alt="Traditional vs. Living Meta-Analysis comparison" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"> 
+  style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <p style="font-size: 0.9rem; color: #666; margin-top: 1rem; font-style: italic;">Figure: Traditional vs. Living Meta-Analysis - Evidence Integration Over Time</p>
 </div>
 ```

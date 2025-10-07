@@ -163,32 +163,57 @@ source("Setup.R") sync_styles() # Test sync_styles function
 #| eval: false
 #| echo: true 
 
-AMORE-webpage/
-├── .git/                      # Git version control (don't edit)
-├── .quarto/                   # Quarto cache (don't edit)
-├── _site/                     # Generated website (don't commit)
-├── LMAs/                      # Living Meta-Analysis project pages
-│   ├── executive-function.qmd
-│   ├── styles_for_lma.scss
-│   └── lma-template.qmd
-├── shiny-meta/               # Shiny app folder
-│   └── app.R
-├── images and visualizations/ # Assets
-├── _quarto.yml               # Site configuration
-├── styles.scss               # Main stylesheet
-├── index.qmd                 # Homepage
-├── about.qmd                 # About page
-├── contact.qmd               # Contact page
-├── Resources.qmd             # Resources page
-├── guidelines.qmd            # Guidelines page
-├── Standardization.qmd       # Standards page
-├── Living_meta-analysis_Directory.qmd  # Shiny embed
-├── Protocol_checklist.qmd    # Checklist tool
-├── Setup.R                   # Dependency installer
-├── LICENSE                   # MIT License
-├── .gitignore               # Git exclusions
-├── netlify.toml             # Netlify config
-└── README.md                # GitHub readme
+AMORE/
+├── index.qmd                          # Homepage (root level)
+├── _quarto.yml                        # Main config
+├── LICENSE
+├── README.md
+├── .gitignore
+├── package.json
+├── AMORE.Rproj
+│
+├── assets/
+│   ├── favicons/                      # All favicon files
+│   ├── images/                        # Logo and visual assets
+│   └── styles/
+│       └── styles.scss                # Main stylesheet
+│
+├── pages/                             # All content pages
+│   ├── about.qmd
+│   ├── contact.qmd
+│   ├── guidelines.qmd
+│   ├── Living_meta-analysis_Directory.qmd
+│   ├── Protocol_checklist.qmd
+│   ├── Resources.qmd
+│   └── Standardization.qmd
+│
+├── LMAs/                              # Living Meta-Analysis projects
+│   ├── lma-template.qmd
+│   ├── Kang_non-social_executive_function.qmd
+│   ├── moxnes_perinatal_oxytocin.qmd
+│   └── styles.scss                    #
+│
+├── docs/                              # Documentation
+│   ├── AMORE_Guide.qmd
+│   └── Testfile.qmd
+│
+├── scripts/                           # Utility scripts
+│   ├── Setup.R
+│   └── sync-styles.bat
+│
+├── deployment/                        # Deployment configs
+│   ├── netlify.toml
+│   ├── netlify-setup-quarto.sh
+│   └── install-quarto.sh
+│
+├── shiny-meta/                        # Shiny application
+│   ├── app.R
+│   ├── deploy.R
+│   ├── README.md
+│   ├── rsconnect/
+│   └── www/
+│
+└── _site/                             # Generated site (output)
 ```
 
 ## 4. File-by-file breakdown
