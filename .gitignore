@@ -1,3 +1,7 @@
+# R files
+*.log
+*.tex
+*.aux
 .Rproj.user
 .Rproj.user/
 .Rhistory
@@ -17,8 +21,18 @@ _site/
 /_freeze/
 /_book/
 /*_files/
-Testfile.qmd 
 
+# OS files
+.DS_Store
+Thumbs.db
 
+# Test files
+Testfile.qmd
+docs/Testfile.qmd
 
+# Generated files
+_quarto_internal_scss_error.scss
 
+# Backup files
+*.backup
+*.bak

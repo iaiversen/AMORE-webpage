@@ -4,8 +4,8 @@ format:
   html:
     theme: 
       - yeti
-      - ../styles.scss
-    css: ../styles.scss
+      - styles.scss
+    css: styles.scss
     page-layout: full
 ---
 

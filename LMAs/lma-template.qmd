@@ -28,8 +28,8 @@ format:
   html:
     theme: 
       - yeti
-      - ../styles.scss
-    css: styles_for_lma.scss
+      - ../assets/styles/styles.scss
+    css: ../assets/styles/styles.scss
     page-layout: full
     toc: true
     toc-title: "On this page"

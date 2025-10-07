@@ -4,11 +4,12 @@ project:
   render:
     - "*.qmd"
     - "!_*.qmd"  # Exclude files starting with underscore
+    - "pages/*.qmd"  # Include pages folder
     - "LMAs/*.qmd"  # Explicitly include LMA files
 
 website:
   title: "Active Monitoring of Oxytocin Research Evidence"
-  favicon: "favicon.ico"
+  favicon: "assets/favicons/favicon.ico"  
   open-graph: true
   page-footer: 
     center: 
@@ -19,38 +20,38 @@ website:
         href: https://www.sv.uio.no/psi/english/research/groups/bnl/index.html
   navbar:
     search: true
-    logo: "logo.unfinished_nowhite- Copy.png"
+    logo: "assets/images/logo.unfinished_nowhite- Copy.png"
     right:
       - text: "Living Meta-Analysis"
-        href: Living_meta-analysis_Directory.qmd 
+        href: pages/Living_meta-analysis_Directory.qmd  
       - text: "Contact"
-        href: contact.qmd
+        href: pages/contact.qmd  
       - text: "Guidelines"
-        href: guidelines.qmd
+        href: pages/guidelines.qmd  
       - text: "Standardized framework"
-        href: Standardization.qmd
+        href: pages/Standardization.qmd  
       - text: "Resources"
-        href: Resources.qmd
+        href: pages/Resources.qmd  
       - text: "About"
-        href: about.qmd
+        href: pages/about.qmd  
       - text: "Home"
-        href: index.qmd
+        href: index.qmd  
+
 format:
   html:
     theme: 
       - yeti
-      - styles.scss
-    css: styles.scss
+      - assets/styles/styles.scss  
+    css: assets/styles/styles.scss
     include-in-header:
-      # Add metadata tags for better SEO and data extraction
       text: |
         <meta name="description" content="Active Monitoring of Oxytocin Research Evidence (AMORE) is a platform for living meta-analyses in oxytocin research.">
         <meta name="keywords" content="oxytocin, living meta-analysis, systematic review, behavioral outcomes, biobehavioral, AMORE">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#0A2A5E">
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"> 
-        <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">  # CHANGED
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">  # CHANGED
+        <link rel="manifest" href="assets/favicons/site.webmanifest">  # CHANGED
 # Uncomment when deploying Shiny:
 # resources:
 #   - shiny

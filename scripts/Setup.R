@@ -47,19 +47,18 @@ if (!tinytex::is_tinytex()) {
 }
 
 # Function to synchronize the styles.scss files across different folders
+# the here package is used to automatically find the project root and must be installed.
+# You find it further down in the list of packages to install and load.
 sync_styles <- function() {
-  # Save current directory
   old_dir <- getwd()
   
-  # Change to the correct directory
-  setwd("C:/Users/iaive/AMORE-webpage")
+  # Automatically find project root
+  setwd(here::here())
   
   # Run the batch file
-  system("sync-styles.bat")
+  system("scripts/sync-styles.bat")
   
-  # Return to original directory
   setwd(old_dir)
-  
   cat("✓ Styles synchronized!\n")
 }
 
@@ -86,10 +85,13 @@ install_and_load("quarto")
 # shiny app package to deploy and manage shiny applications directly from my local envitonment
 install_and_load("rsconnect")
 
+# Additional useful packages for Shiny apps
 install_and_load("DT")
 
+# For reading and writing YAML files (often used in configuration)
 install_and_load("yaml")
 
+# For file system operations
 install_and_load("fs")
 
 # For web content processing
