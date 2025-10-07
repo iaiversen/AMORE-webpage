@@ -22,6 +22,20 @@ _site/
 /_book/
 /*_files/
 
+# Generated HTML files in SOURCE directories (not _site)
+/*.html
+/pages/*.html
+/LMAs/*.html
+/docs/*.html
+
+# Generated dependency folders in SOURCE directories
+/*_files/
+/pages/*_files/
+/LMAs/*_files/
+/docs/*_files/
+
+
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -44,7 +44,8 @@ format:
   html:
     theme: 
       - yeti
-      - assets/styles/styles.scss  
+      - assets/styles/styles.scss
+    css: assets/styles/styles.css
     include-in-header:
       text: |
         <meta name="description" content="Active Monitoring of Oxytocin Research Evidence (AMORE) is a platform for living meta-analyses in oxytocin research.">

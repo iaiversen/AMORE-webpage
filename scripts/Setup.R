@@ -49,18 +49,18 @@ if (!tinytex::is_tinytex()) {
 # Function to synchronize the styles.scss files across different folders
 # the here package is used to automatically find the project root and must be installed.
 # You find it further down in the list of packages to install and load.
-sync_styles <- function() {
-  old_dir <- getwd()
-  
+#sync_styles <- function() {
+# old_dir <- getwd()
+#
   # Automatically find project root
-  setwd(here::here())
-  
+#  setwd(here::here())
+#  
   # Run the batch file
-  system("scripts/sync-styles.bat")
-  
-  setwd(old_dir)
-  cat("✓ Styles synchronized!\n")
-}
+#  system("scripts/sync-styles.bat")
+#  
+#  setwd(old_dir)
+#  cat("✓ Styles synchronized!\n")
+#}
 
 
 # Core packages
@@ -108,3 +108,4 @@ install_and_load("jsonlite")
 
 # For handling HTTP requests if your Shiny app makes API calls
 install_and_load("httr")
+

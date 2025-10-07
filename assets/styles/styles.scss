@@ -56,7 +56,7 @@ body::before {
   left: 15%;
   width: 120px;
   height: 90px;
-  background-image: url('../images/logo.unfinished_nowhite- Copy.png');
+  background-image: url('assets/images/logo.unfinished_nowhite- Copy.png');
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.15;
@@ -72,7 +72,7 @@ body::after {
   right: 10%;
   width: 100px;
   height: 75px;
-  background-image: url('../images/logo.unfinished_nowhite- Copy.png');
+  background-image: url('assets/images/logo.unfinished_nowhite- Copy.png');
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.12;
@@ -1046,7 +1046,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   top: 0 !important;
   width: 65% !important;
   height: 100% !important;
-  background: url('../images/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
+  background: url('assets/images/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
   /*background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;*/ 
   background-size: contain !important;
   background-position: center !important;
