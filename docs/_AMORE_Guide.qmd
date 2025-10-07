@@ -15,6 +15,8 @@ editor: visual
     2.  what needs to be where, where do you need to save things to add it)
 
     3.  Explaining the SCSS system, configurations files,
+
+    4.  deployment process
 4.  File-by-File Breakdown
     1.  explain .gitignore
     2.  Styles.scss

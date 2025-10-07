@@ -1,11 +1,12 @@
-# Last updated: 20.02.2025 | 02/19/2025 
-# =================================================================
+# Last updated: 07.10.2025
+# ==============================================================================================
 # AMORE Project Setup Script
 # This script installs all necessary components for the AMORE website
-# =================================================================
+# ==============================================================================================
 
+# ----------------------------------------------------------------------------------------------
 # Prerequisites Installation Instructions
-# -------------------------------------
+# ----------------------------------------------------------------------------------------------
 #
 # 1. R (version 4.0.0 or higher) from https://cran.r-project.org/
 #    - Required for all R packages
@@ -17,9 +18,9 @@
 
 (sass = TRUE)
 
-# -------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------
 # Individualized functions for AMORE 
-# -------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------
 
 # Function to install and load R packages
 install_and_load <- function(package) {
@@ -46,24 +47,13 @@ if (!tinytex::is_tinytex()) {
   message("TinyTeX distribution is already installed")
 }
 
-# Function to synchronize the styles.scss files across different folders
-# the here package is used to automatically find the project root and must be installed.
-# You find it further down in the list of packages to install and load.
-#sync_styles <- function() {
-# old_dir <- getwd()
-#
-  # Automatically find project root
-#  setwd(here::here())
-#  
-  # Run the batch file
-#  system("scripts/sync-styles.bat")
-#  
-#  setwd(old_dir)
-#  cat("✓ Styles synchronized!\n")
-#}
+
+# ----------------------------------------------------------------------------------------------
+# Neccessary packages for R Markdown, Quarto, and Shiny 
+# installed and/or loaded with the function above
+# ----------------------------------------------------------------------------------------------
 
 
-# Core packages
 # rmarkdown: Basic package for R Markdown and Quarto document processing
 install_and_load("rmarkdown")
 
