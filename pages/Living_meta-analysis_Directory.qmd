@@ -1,47 +1,92 @@
 ---
+title: "Living Meta-Analysis Directory"
 format: 
   html:
     page-layout: full 
     container-fluid: true
 ---
-
 ```{=html}
+<style>
+/* Remove all container constraints */
+#quarto-content,
+.page-columns,
+.column-page,
+.column-body {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Full-width shiny container */
+.shiny-container {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+/* Full-width iframe */
+#shiny-iframe {
+  width: 100% !important;
+  height: 2000px !important;
+  border: none !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove body padding */
+body, html {
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+</style>
 
 <div class="shiny-container">
-  <iframe id="shiny-iframe" src="https://meta-oxytocin.shinyapps.io/shiny-meta/" 
-          style="width:100%; height:1500px; border:none; overflow:visible;" scrolling="no"></iframe>
+  <iframe id="shiny-iframe" 
+          src="https://meta-oxytocin.shinyapps.io/shiny-meta/" 
+          scrolling="no"
+          frameborder="0">
+  </iframe>
 </div>
 
 <script>
-// Function to resize iframe based on content
+// Enhanced iframe resize functionality
 function resizeIframe() {
   const iframe = document.getElementById('shiny-iframe');
   
-  // Add message listener to receive height from Shiny app
+  // Listen for height messages from Shiny app
   window.addEventListener('message', function(e) {
     if (e.data && e.data.hasOwnProperty('frameHeight')) {
-      // Add a small buffer to avoid any potential scrollbar
-      iframe.style.height = (e.data.frameHeight + 20) + 'px';
+      iframe.style.height = (e.data.frameHeight + 50) + 'px';
       console.log("Iframe resized to: " + iframe.style.height);
     }
   });
+  
+  // Periodic check for content height (if same-origin)
+  setInterval(function() {
+    try {
+      if (iframe.contentWindow) {
+        const iframeDoc = iframe.contentWindow.document;
+        const newHeight = Math.max(
+          iframeDoc.body.scrollHeight,
+          iframeDoc.documentElement.scrollHeight
+        );
+        if (newHeight > 0) {
+          iframe.style.height = (newHeight + 50) + 'px';
+        }
+      }
+    } catch (e) {
+      // Cross-origin restriction, rely on postMessage
+    }
+  }, 500);
 }
 
-// Initialize resize functionality
 window.addEventListener('load', resizeIframe);
 </script>
-
-<style>
-.shiny-container {
-  margin-top: 5px;
-  width: 100%;
-  overflow: visible; /* This is important - don't clip or scroll */
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-/* Remove any margins that might create space */
-body, html {
-  overflow-x: hidden;
-}
-</style>

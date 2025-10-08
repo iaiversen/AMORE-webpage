@@ -41,8 +41,9 @@ _site/
 Thumbs.db
 
 # Test files
-Testfile.qmd
-docs/Testfile.qmd
+
+docs/_recoveryfile.qmd
+docs/_recoveryfile.app.qmd
 
 # Generated files
 _quarto_internal_scss_error.scss
