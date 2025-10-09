@@ -5,127 +5,165 @@ format: pdf
 editor: visual
 ---
 
-Stuff I need to add somewhere
+### List of stuff I need to add somewhere into this document: 
 
--   If you want to add a file that you do not want to render or deploy add it to .gitignore. And the quarto.yml file that structures the platform has been directed to ignore files that begins with underscore \_ e.g. I have the \_recoveryfile.qmd that I use to save script before doing bigger changes so that if the new changes messes up something I can very easily retrieve the old code that did work. I also use this for the template to the project pages.
+-   If you want to add a file that you do not want to render or deploy add it to .gitignore. Also, the quarto.yml file that structures the platform has been directed to ignore files that begins with underscore \_ e.g. I have the \_recoveryfile.qmd that I use to save script before doing bigger changes so that if the new changes messes up something I can very easily retrieve the old code that did work. I also use this for the template to the project pages.
 
--   CSS shorthand rules
-
-    -   margin shorthand rules:
-
-        **1 value:** `margin: 10px;`
-
-        -   
-
-        -   All 4 sides get 10px
-
-        -   
-
-        **2 values:** `margin: 10px 20px;`
-
-        -   
-
-        -   First value (10px) = top AND bottom
-
-        -   
-
-        -   Second value (20px) = left AND right
-
-        -   
-
-        **3 values:** `margin: 10px 20px 30px;`
-
-        -   
-
-        -   First = top
-
-        -   
-
-        -   Second = left AND right
-
-        -   
-
-        -   Third = bottom
-
-        -   
-
-        **4 values:** `margin: 10px 20px 30px 40px;`
-
-        -   
-
-        -   Goes clockwise: top, right, bottom, left (like a clock starting at 12)
-
-### Table of content
+## Table of content
 
 1.  Important information
-2.  Getting Started (Git clone, dependencies)
-3.  Project Structure Overview
-    1.  (Folder structure,
-
-    2.  what needs to be where, where do you need to save things to add it)
-
-    3.  Explaining the SCSS system, configurations files,
-
-    4.  deployment process
-4.  File-by-File Breakdown
-    1.  explain .gitignore
-    2.  Styles.scss
-        1.  The styles.scss is devided into different sections
-        2.  The standard screen size codes, and the @media sections with adjusted screen layout for smaller tablets and mobile screens
-5.  Contributions Guidelines 1. troubleshooting (inspect in browser, rendering before pushing to git, sometimes invisible spaces ruing everything!!!!!) 2. How to add project files 3. how to add new website pages 4. How to make design changes
-    -   sync_styles function (the function was created in the Setup.R script and syncs all the scss files across folders. These folders are there because quarto look for scss in different folders for different qmd files, and while one scss in the root folder technically should be enough, I experienced that quarto had problems with collecting or findings the scss rules unless I had the scss file in the same folder as the .qmd. However, some times even though there is a scss in the same folder as a .qmd the .qmd still gets its scss rules from another scss file, and it is no information about what file get rendering rules from what scss, therefore the scss file is distributed in all folders that need scss rendering rules, but are identical and synchronized from the root styles.scss. After you have done changes to the styles.scss in the root folder (AMORE-webpage") write sync_styles in the console (make sure the function has been activated from the Setup.R script).
-
-        -   if you make alterations, make sure those alterations fit with @media adjustable screen sizes
-
-    -   How to add new website pages (add to yaml navigation) save in correct folder
+2.  Getting started
+3.  Project structure overview
+4.  Styling system SCSS
+5.  Adding new projects
+6.  website maintenance
+7.  Troubleshooting
 
 ## 1. Important information
 
-### 1.1 The Different Languages
+### 1.1 Introduction information
 
-The AMORE website is built using multiple programming languages and frameworks that work together:
+AMORE is a website created by Ingebjørg Anjadatter Iversen for the behavioral Neuroendocrinology Lab to host living meta-analysis for oxytocin research investigating biobehavioral outcomes.
 
-Quarto Markdown (.qmd): Primary content files for pages SCSS/CSS: Styling and responsive design JavaScript: Interactive functionality and client-side behavior R: Shiny app backend, data processing, and setup scripts HTML: Embedded within Quarto files for custom components Shell scripts: Deployment and automation tasks
+This document instructs about MAINTANCE, ADDING PROJECTS, and AMORE project INFRASTRUCTURE
 
-#### Why multiple languages? Each serves a specific purpose:
+AMORE was built using RStudio and Quarto. Netlify deploys the webiste, and GitHub is used to host and share script. Netlify is accessing the script from the github repository for AMORE. Nettskjema is used as a medium between users and the AMORE team or the lab with different contacting forms
 
-Quarto allows academic content with citations and technical writing SCSS provides maintainable, organized styling with variables JavaScript enables interactivity (filter tabs, pagination) R powers the dynamic Living Meta-Analysis directory HTML gives precise control over structure when needed
+### 1.2 GitHub repository
 
-### 1.2 RStudio and Quarto
+Repository: AMORE-webpage
+
+Repository URL: https://github.com/iaiversen/AMORE-webpage
+
+Created by github account: iaiversen (Ingebjørg Anjadatter Iversen)
+
+Collaborators: dsquintana (Daniel quintana)
+
+#### 1.2.1 Repository License
+
+AMORE-webpage repository has the MIT license. It gives open access. The LICENSE file is in the root folder (AMORE-webpage).
+
+### 1.3 Github, ShinyApps.io and Netlify
+
+Three platforms work together:
+
+#### GitHub (Version Control & Collaboration)
+
+Repository: iaiversen/AMORE-webpage Stores all source code Tracks changes with commit history Enables collaboration through pull requests Important: Never commit sensitive data (API keys, passwords)
+
+#### ShinyApps.io (Shiny App Hosting)
+
+Hosts the Living Meta-Analysis directory (app.R) Free tier limitations: limited active hours, connection timeouts URL: https://meta-oxytocin.shinyapps.io/shiny-meta/ Embedded in Living_meta-analysis_Directory.qmd via iframe
+
+#### Netlify (Website Hosting)
+
+Automatically deploys from GitHub Builds site from \_site folder after Quarto render Domain: amore-project.org Configuration in netlify.toml
+
+#### Deployment workflow:
+
+Make changes locally in RStudio Test by rendering (quarto render or Render button) Commit and push to GitHub. Netlify automatically rebuilds and deploys. For Shiny app: Deploy separately using rsconnect::deployApp()
+
+#### 1.3.1 Netlify login and important
+
+two-step authenticator
+
+#### 1.3.2 Shinyapp.io login and important
+
+### 1.4 RStudio and Quarto
 
 RStudio is your primary development environment. Install:
 
 R (version 4.0.0+) from CRAN RStudio Desktop from Posit Quarto CLI - Usually bundled with RStudio, or install from quarto.org
 
-Key RStudio features for this project:
+#### 1.4.1 The Different Languages
 
-Visual editor for .qmd files Terminal for git commands Console for running R functions (like sync_styles()) Files pane for navigation Viewer for previewing rendered pages
+The AMORE website is built using multiple programming languages and frameworks that work together: Quarto is multilingual, Just specify in the code chunk what language is used.
 
-### 1.3 GitHub, ShinyApps.io, and Netlify
+The languages used:
 
-Three platforms work together: GitHub (Version Control & Collaboration)
+-   Quarto Markdown (.qmd): Primary content files for pages
 
-Repository: iaiversen/AMORE-webpage Stores all source code Tracks changes with commit history Enables collaboration through pull requests Important: Never commit sensitive data (API keys, passwords)
+-   SCSS/CSS: Styling and responsive design
 
-ShinyApps.io (Shiny App Hosting)
+-   JavaScript: Interactive functionality and client-side behavior
 
-Hosts the Living Meta-Analysis directory (app.R) Free tier limitations: limited active hours, connection timeouts URL: https://meta-oxytocin.shinyapps.io/shiny-meta/ Embedded in Living_meta-analysis_Directory.qmd via iframe
+-   R: Shiny app backend, data processing, and setup scripts
 
-Netlify (Website Hosting)
+-   HTML: Embedded within Quarto files for custom components Shell scripts: Deployment and automation tasks
 
-Automatically deploys from GitHub Builds site from \_site folder after Quarto render Domain: amore-project.org Configuration in netlify.toml
+#### 1.4.2
 
-Deployment workflow:
+To use a specific language just encompass the code chunk in the right way for example like the r code here or html. Quarto specific language does not need any specifications.
 
-Make changes locally in RStudio Test by rendering (quarto render or Render button) Commit and push to GitHub Netlify automatically rebuilds and deploys For Shiny app: Deploy separately using rsconnect::deployApp()
+```{r}
+#| label: Setup script for dependencies 
+#| eval: false 
+#| echo: true 
 
-### 1.4 Two-Factor Authentication
+Here I write r code
+```
 
-Why it matters: Protects the project from unauthorized access. Where you need 2FA:
+````{=html}
+To write html code encapsle the code in 
 
-Netlify account: For deployment settings
+```{=html}
+
+Inside here write html code 
+
+```
+````
+
+#### Why multiple languages? Each serves a specific purpose:
+
+Quarto allows academic content with citations and technical writing SCSS provides maintainable, organized styling with variables JavaScript enables interactivity (filter tabs, pagination) R powers the dynamic Living Meta-Analysis directory HTML gives precise control over structure when needed
+
+### 1.5 Nettskjema
+
+Ediorial right for nettskjema forms:
+
+-   ingebjai\@uio.no
+
+-   danielqu\@uio.no
+
+The users reach out to the AMORE team through Nettskjema. They find the nettskjema through links on the AMORE website.
+
+The nettskjema forms are:
+
+1.  Contact form AMORE
+
+    -   First form users get to.
+
+    -   Redirects to the other three forms
+
+2.  Propose your project
+
+3.  General inquiry
+
+4.  Update an existing living meta-analysis
+
+Emails of responses to any of these forms goes to:
+
+-   ingebjai\@student.sv.uio.no
+
+-   daniel.quintana\@psykologi.no
+
+    -   Dan streamlines the response to the relevant people for evaluation of project or getting in contact with the right people. (Rest of AMORE team).
+
+#### 1.5.1 What if this contact system needs change?
+
+Vis et Nettskjema på en nettside (embedding) - Universitetet i Oslo
 
 ## 2. Getting started
+
+### 2.1 Prerequisites
+
+-   R (Version 4.0.0 or higher) - programming language
+
+-   Rstudio - Integrated Development Environment (IDE) for R.
+
+-   Quarto - Document publishing system for creating websites or reports
+
+-   Github account
 
 ### 2.1 Git Clone
 
@@ -138,7 +176,7 @@ bash or Windows powershell
 #| eval: false
 #| echo: true 
 
-# In terminal/command line:
+# In powershell or bash terminal/command line:
 cd ~/Documents  # or your preferred location
 git clone https://github.com/iaiversen/AMORE-webpage.git
 cd AMORE-webpage
@@ -268,9 +306,9 @@ AMORE/
 └── _site/                             # Generated site (output)
 ```
 
-## 4. File-by-file breakdown
+## 3.? File-by-file breakdown
 
-### 4.1 .gitignore Explained
+### 3.1 .gitignore Explained
 
 **Purpose:** Tells Git which files to ignore (not track/commit).
 
@@ -307,14 +345,36 @@ AMORE/
 
 -   Assets (images, logos)
 
-### 4.2 styles.scss Deep Dive
+### 3.2 styles.scss Deep Dive
 
-4.3 How the app.R filter and search functions with the app.R
+3.3 How the app.R filter and search functions with the app.R
 
-## 5. Contributions guidelines
+## 4. Styling system SCSS
 
-### 5.1 How to add projects
+#### 4.? SCSS shorthand rules
 
-### 5.2 How to add websites to AMORE
+-   CSS shorthand rules
 
-### 5.3 Troubleshooting
+    -   margin shorthand rules:
+
+        **1 value:** `margin: 10px;`
+
+        -   All 4 sides get 10px
+
+        **2 values:** `margin: 10px 20px;`
+
+        -   First value (10px) = top AND bottom
+
+        -   Second value (20px) = left AND right
+
+        **3 values:** `margin: 10px 20px 30px;`
+
+        -   First = top
+
+        -   Second = left AND right
+
+        -   Third = bottom
+
+        **4 values:** `margin: 10px 20px 30px 40px;`
+
+        -   Goes clockwise: top, right, bottom, left (like a clock starting at 12)

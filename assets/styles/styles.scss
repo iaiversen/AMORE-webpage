@@ -1,122 +1,291 @@
 /*=============================================
-=                                           =
-=            Global Variables               =
-=                                           =
-= Contains all color definitions and basic  =
-= variables that affect the entire website  =
-===============================================*/
+=            TABLE OF CONTENTS               =
+=                                             =
+=  Navigate this stylesheet:                 =
+=  1. Global Variables & Setup               =
+=  2. Base Styles (body, html, fonts)        =
+=  3. Typography System                      =
+=  4. Layout Components                      =
+=     4.1 Hero Sections                      =
+=     4.2 Navigation                         =
+=     4.3 Containers & Grids                 =
+=  5. Interactive Components                 =
+=     5.1 Buttons & Links                    =
+=     5.2 Forms & Inputs                     =
+=     5.3 Cards & Panels                     =
+=  6. Page-Specific Styles                   =
+=     6.1 Homepage                           =
+=     6.2 Project Pages                      =
+=     6.3 Contact Page                       =
+=     6.4 About Page                         =
+=  7. Utility Classes                        =
+=  8. Animations & Transitions               =
+=  9. Responsive Design (Media Queries)      =
+=============================================*/
 
-/* Color Palette */
+
+/*=============================================
+=     1. GLOBAL VARIABLES & SETUP            =
+=                                             =
+=  Foundation of the design system.          =
+=  All colors, fonts, and base settings      =
+=  are defined here for consistency.         =
+=                                             =
+=  TO CHANGE THE SITE THEME:                 =
+=  Modify the color values below and the     =
+=  changes will propagate throughout.        =
+=============================================*/
+
+/* ===============================================
+   1.1 COLOR PALETTE
+   
+   AMORE Brand Colors - Professional blue palette
+   inspired by academic and scientific design
+   =============================================== */
+
+/* Primary brand color - Used for:
+   - Main headings
+   - Primary buttons
+   - Navigation active states
+   - Key UI elements */
 $indigo-dye: #0A2A5E;
+
+/* Secondary brand color - Used for:
+   - Hover states on buttons
+   - Secondary headings
+   - Interactive element highlights */
 $royal-blue: #1E50A0;
+
+/* Accent color - Used for:
+   - Borders on cards
+   - Link hover states
+   - Decorative elements */
 $lapis-lazuli: #3c6997ff;
+
+/* Bright accent - Currently unused
+   Reserved for future features or highlights */
 $vivid-sky-blue: #5adbffff;
 
+
+/* ===============================================
+   1.2 SCSS DEFAULTS
+   
+   Variables that Quarto/Bootstrap can read
+   Must be declared in this specific section
+=============================================== */
+
+
 /*-- scss:defaults --*/
-$body-bg: #fafbfc;           
-$body-color: #2d3748;        
-$link-color: #0A2A5E;        
+$body-bg: #fafbfc;
+$body-color: #2d3748;
+$link-color: #0A2A5E;
 $font-family-sans-serif: "Source Sans Pro", -apple-system, "system-ui", 
                         "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 $font-size-root: 16px;
 
-/* CLEAN FONT SYSTEM */
+
+
+/* ===============================================
+   1.3 ROOT FONT SIZE SETUP
+   
+   Sets the base for all rem calculations
+   1rem = 16px by default
+   =============================================== */
+
+/*-- scss:rules --*/
+
 html {
-  font-size: 16px;
+  font-size: 16px;  /* Base size for rem calculations */
 }
+
+
+
+/* ===============================================
+   1.4 SCSS RULES & CSS CUSTOM PROPERTIES
+   
+   Modern CSS variables (--variable-name) that can be
+   accessed in JavaScript and updated dynamically
+   =============================================== */
 
 /*-- scss:rules --*/
 
 :root {
-  --primary-color: #{$indigo-dye};    
-  --secondary-color: #{$royal-blue};  
-  --background-main: white;  
-  --background-alt: #{$body-bg};   
-  --accent-1: #{$body-color};      
-  --accent-2: #{$lapis-lazuli};    
+  /* Primary color - Main brand identity */
+  --primary-color: #{$indigo-dye};
+  
+  /* Secondary color - Supporting brand color */
+  --secondary-color: #{$royal-blue};
+  
+  /* Background colors */
+  --background-main: white;           /* Main content areas */
+  --background-alt: #{$body-bg};      /* Alternate sections */
+  
+  /* Accent colors for UI elements */
+  --accent-1: #{$body-color};         /* Default text */
+  --accent-2: #{$lapis-lazuli};       /* Highlights and borders */
 }
+
+
+/* ===============================================
+   1.5 USAGE NOTES
+   
+   HOW TO USE THESE VARIABLES:
+   
+   SCSS Variables ($variable):
+   - Use in SCSS code: color: $indigo-dye;
+   - Cannot be changed at runtime
+   - Compiled into final CSS values
+   
+   CSS Custom Properties (--variable):
+   - Use in CSS/SCSS: color: var(--primary-color);
+   - Can be changed with JavaScript
+   - Can be scoped to specific elements
+   - More flexible but slightly less browser support
+   
+   WHEN TO USE WHICH:
+   - Use SCSS variables ($) for static design tokens
+   - Use CSS variables (--) when you need dynamic changes
+   
+   EXAMPLE COLOR CHANGE:
+   To make the site green instead of blue:
+   $indigo-dye: #0A5E2A;  // Change to green
+   All buttons, headings, etc. will update automatically
+   =============================================== */
+   
+   /*=============================================
+=     2. BASE STYLES                          =
+=                                             =
+=  Foundation styles for the entire website. =
+=  Sets up the animated gradient background, =
+=  floating logo watermarks, and global      =
+=  element defaults.                         =
+=                                             =
+=  IMPORTANT: These styles affect every page =
+=  unless specifically overridden.           =
+=============================================*/
+
+
+/* ===============================================
+   2.1 BODY - MAIN CONTAINER & BACKGROUND
+   
+   The body element wraps all content.
+   Creates the signature animated gradient background
+   that gives AMORE its visual identity.
+   =============================================== */
 
 body {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--accent-1);
-  letter-spacing: 0.01em;
+  /* Typography basics */
+  font-size: 1rem;              /* 16px - base size for all text */
+  line-height: 1.6;             /* Comfortable reading spacing */
+  color: var(--accent-1);       /* Default text color */
+  letter-spacing: 0.01em;       /* Subtle spacing for readability */
   font-family: $font-family-sans-serif;
+  
+  /* ANIMATED GRADIENT BACKGROUND
+     Creates a slow-moving color shift effect
+     Colors cycle through the brand palette */
   background: linear-gradient(-45deg, #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E) !important;
-  background-size: 400% 400% !important;
-  animation: gradientShift 15s ease infinite !important;
-  min-height: 100vh;
-  position: relative;
+  background-size: 400% 400% !important;  /* Oversized to allow smooth movement */
+  animation: gradientShift 15s ease infinite !important;  /* 15 second cycle */
+  
+  min-height: 100vh;            /* Always at least full viewport height */
+  position: relative;           /* Creates positioning context for ::before/::after */
 }
 
+
+/* ===============================================
+   2.2 FLOATING LOGO WATERMARKS
+   
+   Subtle branding elements that float on the background.
+   Uses pseudo-elements so no extra HTML needed.
+   
+   ::before = Top-left logo
+   ::after  = Bottom-right logo
+   =============================================== */
+
+/* Top-left floating logo */
 body::before {
-  content: '';
-  position: fixed;
-  top: 10%;
-  left: 15%;
+  content: '';                  /* Required for pseudo-element */
+  position: fixed;              /* Stays in place when scrolling */
+  top: 10%;                     /* 10% from top of viewport */
+  left: 15%;                    /* 15% from left of viewport */
   width: 120px;
   height: 90px;
+  
+  /* The logo image */
   background-image: url('assets/images/logo.unfinished_nowhite- Copy.png');
-  background-size: contain;
+  background-size: contain;     /* Scales to fit without distortion */
   background-repeat: no-repeat;
-  opacity: 0.15;
-  filter: brightness(0) invert(1);
-  animation: float 6s ease-in-out infinite;
-  z-index: 0;
+  
+  /* Visual effects */
+  opacity: 0.15;                /* Very subtle - 15% visible */
+  filter: brightness(0) invert(1);  /* Converts logo to white */
+  animation: float 6s ease-in-out infinite;  /* Gentle floating motion */
+  z-index: 0;                   /* Behind all content */
 }
 
+/* Bottom-right floating logo */
 body::after {
   content: '';
   position: fixed;
-  bottom: 15%;
-  right: 10%;
-  width: 100px;
+  bottom: 15%;                  /* 15% from bottom */
+  right: 10%;                   /* 10% from right */
+  width: 100px;                 /* Slightly smaller than top logo */
   height: 75px;
+  
   background-image: url('assets/images/logo.unfinished_nowhite- Copy.png');
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.12;
+  
+  opacity: 0.12;                /* Even more subtle than top logo */
   filter: brightness(0) invert(1);
-  animation: float 8s ease-in-out infinite reverse;
+  animation: float 8s ease-in-out infinite reverse;  /* Different timing, reversed */
   z-index: 0;
 }
 
+
+/* ===============================================
+   2.3 PAGE-SPECIFIC BACKGROUND OVERRIDES
+   
+   Some pages need different backgrounds.
+   Project pages use white background for readability.
+   Contact page keeps the gradient.
+   
+   Uses :has() selector - checks if page contains
+   certain elements to determine which style to apply.
+   =============================================== */
+
+/* Project pages: White background, no animation
+   Applied to pages with .project-hero-section
+   BUT NOT pages with .contact-container */
 body:has(.project-hero-section):not(:has(.contact-container)) {
   background: white !important;
-  animation: none !important;
+  animation: none !important;   /* Stop gradient animation */
 }
 
+/* Project pages: Hide floating logos
+   Clean white pages don't need the decorative elements */
 body:has(.project-hero-section):not(:has(.contact-container))::before,
 body:has(.project-hero-section):not(:has(.contact-container))::after {
   display: none !important;
 }
 
+/* Contact page: Keep gradient background
+   Explicitly maintains animated gradient for contact page */
 body:has(.contact-container) {
   background: linear-gradient(-45deg, #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E) !important;
   background-size: 400% 400% !important;
   animation: gradientShift 15s ease infinite !important;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
-}
-
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* ===============================================
+   2.4 CONTENT TRANSPARENCY OVERRIDES
+   
+   Ensures main content areas don't inherit
+   the animated background - they should be
+   transparent or have their own backgrounds.
+   =============================================== */
 
 .main-content,
 .quarto-title-block,
@@ -124,82 +293,215 @@ body:has(.contact-container) {
 .page-layout-full .page-columns,
 .column-page,
 .column-body {
-  background: transparent !important;
-  box-shadow: none !important;
+  background: transparent !important;  /* Don't block the body gradient */
+  box-shadow: none !important;         /* No shadows on transparent elements */
 }
 
-/* CLEAN TYPOGRAPHY SYSTEM */
+
+/* ===============================================
+   2.5 USAGE NOTES
+   
+   TO DISABLE ANIMATED BACKGROUND:
+   Comment out the animation line:
+   // animation: gradientShift 15s ease infinite !important;
+   
+   TO CHANGE ANIMATION SPEED:
+   Modify the 15s value (lower = faster):
+   animation: gradientShift 8s ease infinite !important;
+   
+   TO ADD GRADIENT TO NEW PAGE TYPE:
+   Copy the body:has(.contact-container) pattern
+   and replace .contact-container with your selector
+   
+   WHY ::before AND ::after FOR LOGOS:
+   - No extra HTML elements needed
+   - Easy to hide on specific pages
+   - Fixed positioning keeps them in place
+   - Can be animated independently
+   =============================================== */
+   
+   /*=============================================
+=     3. TYPOGRAPHY SYSTEM                    =
+=                                             =
+=  Defines all text styling across the site. =
+=  Headings, paragraphs, lists, and links.   =
+=                                             =
+=  Hierarchy: h1 > h2 > h3 > h4 > h5 > h6    =
+=  All sizes scale responsively in Section 9 =
+=============================================*/
+
+
+/* ===============================================
+   3.1 GLOBAL TYPOGRAPHY SETTINGS
+   
+   Applied to ALL headings (h1-h6)
+   Individual heading styles build on these basics
+   =============================================== */
+
 h1, h2, h3, h4, h5, h6 {
-  color: #0A2A5E;
-  letter-spacing: -0.02em;
+  color: #0A2A5E;               /* Primary brand color for emphasis */
+  letter-spacing: -0.02em;      /* Slightly tighter for large text */
 }
 
+
+/* ===============================================
+   3.2 HEADING LEVELS
+   
+   Each heading level has specific use case:
+   h1: Page titles, hero sections
+   h2: Major section headers
+   h3: Subsection headers
+   h4-h6: Nested content, rare usage
+   =============================================== */
+
+/* H1 - Primary page titles */
 h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: 2.25rem;           /* 36px at default scale */
+  font-weight: 700;             /* Bold for maximum emphasis */
   color: #0A2A5E;
-  line-height: 1.2;
-  margin: 2rem 0 1.5rem 0;
+  line-height: 1.2;             /* Tight spacing for large text */
+  margin: 2rem 0 1.5rem 0;      /* Generous spacing above and below */
 }
 
+/* H2 - Major section dividers */
 h2 {
-  font-size: 1.75rem;
-  font-weight: 650;
+  font-size: 1.75rem;           /* 28px at default scale */
+  font-weight: 650;             /* Semi-bold */
   color: #0A2A5E;
   line-height: 1.3;
   margin: 2rem 0 1rem 0;
+  
+  /* Visual separator under h2 headings */
   border-bottom: 1px solid #eee;
   padding-bottom: 0.5rem;
 }
 
+/* H3 - Subsection headers */
 h3 {
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: 1.375rem;          /* 22px at default scale */
+  font-weight: 600;             /* Medium weight */
   color: #0A2A5E;
   line-height: 1.4;
   margin: 1.5rem 0 0.75rem 0;
 }
 
-/* HERO SECTIONS */
-.hero-section {
-  position: relative;
-  width: 100vw;
-  height: 25vh !important;
-  min-height: 25vh !important;
-  margin-left: calc(-50vw + 50%);
-  margin-top: 0 !important;
-  margin-bottom: 0;
-  background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%);
-  display: flex;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden;
-  color: white;
-  text-align: center !important;
-  padding: 3rem 2rem;
-  border-top: none;
+/* Note: h4, h5, h6 inherit from global h1-h6 settings above
+   They're rarely used in AMORE but available if needed */
+
+
+/* ===============================================
+   3.3 PARAGRAPH TEXT
+   
+   Body copy and general text content
+   Note: Responsive font sizes adjusted in Section 9
+   =============================================== */
+
+p {
+  /* Default paragraph styles */
+  /* Font size controlled by body (1rem = 16px) */
+  /* Line height inherited from body (1.6) */
+  margin-bottom: 1rem;          /* Space between paragraphs */
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
-  animation: subtleFloat 8s ease-in-out infinite;
+
+/* ===============================================
+   3.4 LISTS
+   
+   Unordered (ul) and ordered (ol) lists
+   Used throughout content pages and LMAs
+   =============================================== */
+
+ul {
+  margin: 1rem 0;               /* Space above and below list */
+  padding-left: 1.5rem;         /* Indent for bullet points */
 }
 
-.hero-content {
-  position: relative !important;
-  z-index: 2;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
+ul li {
+  margin: 0.5rem 0;             /* Space between list items */
+  line-height: 1.6;             /* Comfortable reading height */
 }
+
+/* Note: ol (ordered lists) inherit these styles
+   Add specific ol styles here if needed */
+
+
+/* ===============================================
+   3.5 LINKS
+   
+   Default link styling for all <a> elements
+   Hover effects and transitions
+   =============================================== */
+
+a {
+  text-decoration: none;        /* Remove default underline */
+  color: #1E50A0;               /* Secondary brand color */
+  border-bottom: 1px solid transparent;  /* Hidden border for hover effect */
+  transition: all 0.2s ease;    /* Smooth color changes */
+}
+
+/* Link hover state */
+a:hover {
+  color: #0A2A5E;               /* Darker on hover */
+  text-decoration: none;        /* Keep underline off */
+  /* border-bottom becomes visible via other styles if needed */
+}
+
+
+/* ===============================================
+   3.6 ANCHOR LINK HIDING
+   
+   Quarto auto-generates anchor links (#) next to headings
+   These are hidden for cleaner appearance
+   Users can still link to sections via URL
+   =============================================== */
+
+.anchor-section,
+h1 > a[href^="#"],
+h2 > a[href^="#"],
+h3 > a[href^="#"],
+h4 > a[href^="#"],
+h5 > a[href^="#"],
+h6 > a[href^="#"] {
+  display: none !important;     /* Hide all anchor link icons */
+}
+
+
+/* ===============================================
+   3.7 SPECIAL TEXT CLASSES
+   
+   Utility classes for specific text treatments
+   Used in various components across the site
+   =============================================== */
+
+/* White text override - used on gradient backgrounds */
+.white-text {
+  color: white !important;
+}
+
+/* Title styling for page headers */
+.title {
+  font-size: 2.5rem;            /* Larger than h1 */
+  color: var(--primary-color);
+  margin: 9rem 0 0.5rem 0;      /* Extra top margin for spacing */
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.025em;
+  
+  /* Gradient text effect */
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+}
+
+
+/* ===============================================
+   3.8 HERO SECTION TYPOGRAPHY
+   
+   Special text styles for hero/banner sections
+   Larger, more dramatic than body text
+   =============================================== */
 
 .hero-title {
   font-size: 2rem !important;
@@ -212,11 +514,13 @@ h3 {
   font-size: 1.3rem !important;
   font-weight: 400 !important;
   color: white !important;
-  opacity: 0.9;
+  opacity: 0.9;                 /* Slightly transparent for hierarchy */
   line-height: 1.5 !important;
   text-align: center;
 }
 
+
+/* Ensures hero text is centered */
 .hero-section .hero-tagline,
 .hero-section .hero-title, 
 .hero-content .hero-tagline,
@@ -224,47 +528,13 @@ h3 {
   text-align: center;
 }
 
-/*=============================================
-PROJECT PAGES SECTION 
 
-/* PROJECT HERO SECTIONS */
-.project-hero-section {
-  position: relative;
-  min-height: 30vh;
-  height: 35vh !important;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-top: 0 !important;
-  margin-bottom: 0;
-  background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  color: white;
-  text-align: left;
-  padding: 3rem 2rem;
-}
-
-.project-hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
-  animation: subtleFloat 10s ease-in-out infinite;
-}
-
-.project-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 85%;
-  width: 100%;
-}
+/* ===============================================
+   3.9 PROJECT PAGE TYPOGRAPHY
+   
+   Special styles for living meta-analysis pages
+   Larger hero text for project titles
+   =============================================== */
 
 .project-hero-content {
   font-size: 1.8rem !important;
@@ -274,7 +544,196 @@ PROJECT PAGES SECTION
   line-height: 1.3 !important;
 }
 
-/* Hide page title for about page */
+
+/* ===============================================
+   3.10 USAGE NOTES
+   
+   FONT SIZE HIERARCHY (at default 16px base):
+   h1: 36px (2.25rem)
+   h2: 28px (1.75rem)
+   h3: 22px (1.375rem)
+   body: 16px (1rem)
+   
+   RESPONSIVE SCALING:
+   All typography scales automatically at different
+   screen sizes - see Section 9 (Media Queries)
+   
+   TO CHANGE GLOBAL FONT:
+   Modify $font-family-sans-serif in Section 1
+   
+   TO ADJUST HEADING COLORS:
+   Change #0A2A5E to your preferred color
+   Or use var(--primary-color) for theme flexibility
+   
+   WHY !important IN HERO STYLES:
+   Overrides Quarto's default heading styles
+   Ensures consistent appearance across pages
+   =============================================== */
+   
+   /*=============================================
+=     4. LAYOUT COMPONENTS                    =
+=                                             =
+=  Major structural elements that define     =
+=  page layouts and organization.            =
+=                                             =
+=  4.1 Hero Sections                         =
+=  4.2 Navigation                            =
+=  4.3 Containers & Grids                    =
+=============================================*/
+
+
+/*=============================================
+=     4.1 HERO SECTIONS                       =
+=                                             =
+=  Large banner sections at top of pages.    =
+=  Two types:                                =
+=  - Standard hero (homepage, most pages)    =
+=  - Project hero (LMA project pages)        =
+=                                             =
+=  Both use gradient backgrounds and         =
+=  full viewport width for visual impact.    =
+=============================================*/
+
+
+/* ===============================================
+   4.1.1 STANDARD HERO SECTION
+   
+   Used on: Homepage, About, Contact, Guidelines, etc.
+   Height: 25vh (25% of viewport height)
+   Background: Blue gradient with subtle animation
+   =============================================== */
+
+.hero-section {
+  /* Positioning and size */
+  position: relative;
+  width: 100vw;                 /* Full viewport width */
+  height: 25vh !important;      /* 25% of screen height */
+  min-height: 25vh !important;  /* Minimum height maintained */
+  
+  /* Break out of container to span full width */
+  margin-left: calc(-50vw + 50%);  /* Centers and extends to edges */
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  
+  /* Gradient background */
+  background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%);
+  
+  /* Layout */
+  display: flex;
+  align-items: center !important;     /* Vertically center content */
+  justify-content: center !important; /* Horizontally center content */
+  overflow: hidden;                   /* Hide any overflow */
+  
+  /* Text styling */
+  color: white;
+  text-align: center !important;
+  
+  /* Spacing */
+  padding: 3rem 2rem;
+  border-top: none;
+}
+
+/* Decorative overlay effect
+   Creates subtle light spots on the gradient */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Radial gradient overlays for depth */
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  
+  animation: subtleFloat 8s ease-in-out infinite;  /* Gentle movement */
+}
+
+/* Hero content container
+   Wraps the title and tagline */
+.hero-content {
+  position: relative !important;
+  z-index: 2;                   /* Above ::before overlay */
+  max-width: 800px;             /* Constrains text width for readability */
+  display: flex;
+  flex-direction: column;       /* Stack title above tagline */
+}
+
+/* Note: .hero-title and .hero-tagline styles are in Section 3 (Typography) */
+
+
+/* ===============================================
+   4.1.2 PROJECT HERO SECTION
+   
+   Used on: Living Meta-Analysis project pages
+   Height: 35vh (taller than standard hero)
+   Purpose: Showcase project titles prominently
+   =============================================== */
+
+.project-hero-section {
+  /* Positioning and size */
+  position: relative;
+  min-height: 30vh;
+  height: 35vh !important;      /* Taller than standard hero */
+  width: 100vw;
+  
+  /* Break out of container */
+  margin-left: calc(-50vw + 50%);
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  
+  /* Same gradient as standard hero */
+  background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%);
+  
+  /* Layout - but LEFT aligned unlike standard hero */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  /* Text styling */
+  color: white;
+  text-align: left;             /* Different from standard hero */
+  padding: 3rem 2rem;
+}
+
+/* Decorative overlay - similar to standard hero but different animation timing */
+.project-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+  
+  animation: subtleFloat 10s ease-in-out infinite;  /* Slower than standard */
+}
+
+/* Project hero content container */
+.project-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 85%;               /* Wider than standard hero */
+  width: 100%;
+}
+
+/* Note: .project-hero-content text size is in Section 3 (Typography) */
+
+
+/* ===============================================
+   4.1.3 TITLE BLOCK HIDING
+   
+   Quarto auto-generates title blocks that we don't want
+   when using custom hero sections. These rules hide them.
+   =============================================== */
+
+/* Hide default Quarto title when custom hero exists */
 .hero-section ~ * h1:first-child,
 #title-block-header,
 .quarto-title-block,
@@ -282,45 +741,343 @@ PROJECT PAGES SECTION
   display: none !important;
 }
 
-/* PROJECT INFO PANEL */
+
+/* ===============================================
+   4.1.4 USAGE NOTES
+   
+   TO ADD HERO TO A NEW PAGE:
+   In your .qmd file, add:
+   
+   ::: {.hero-section}
+   ::: {.hero-content}
+   ::: {.hero-title}
+   Your Title Here
+   :::
+   ::: {.hero-tagline}
+   Your subtitle here
+   :::
+   :::
+   :::
+   
+   TO CHANGE HERO HEIGHT:
+   Modify the height value:
+   height: 30vh !important;  // Taller
+   height: 20vh !important;  // Shorter
+   
+   TO CHANGE GRADIENT COLORS:
+   Replace the three color values in:
+   background: linear-gradient(135deg, COLOR1, COLOR2, COLOR3);
+   
+   WHY calc(-50vw + 50%):
+   This CSS trick breaks the element out of its container
+   to span full viewport width, even when parent has max-width
+   
+   RESPONSIVE BEHAVIOR:
+   Heights adjust at different breakpoints - see Section 9
+   =============================================== */
+   
+   /*=============================================
+=     4.2 NAVIGATION                          =
+=                                             =
+=  Top navigation bar (navbar) styling.      =
+=  Includes logo, site title, and nav links. =
+=                                             =
+=  Features:                                 =
+=  - Semi-transparent white background       =
+=  - Blur effect (backdrop-filter)           =
+=  - Responsive hamburger menu on mobile     =
+=  - Special styling for project pages       =
+=============================================*/
+
+
+/* ===============================================
+   4.2.1 MAIN NAVBAR CONTAINER
+   
+   The navbar spans full width at top of every page
+   Bootstrap-based but heavily customized
+   =============================================== */
+
+.navbar {
+  /* Background with transparency and blur */
+  background: rgba(255, 255, 255, 0.95) !important;  /* 95% opaque white */
+  backdrop-filter: blur(10px);    /* Blurs content behind navbar */
+  
+  /* Shadow for depth */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ===============================================
+   4.2.2 NAVBAR TEXT & LINKS
+   
+   All text elements in navbar use dark grey
+   (not pure black) for better visual comfort
+   =============================================== */
+
+/* All navigation links and title */
+.navbar .nav-link,
+.navbar .navbar-title, 
+.navbar .navbar-nav-scroll .nav-link {
+  color: #333333 !important;      /* Dark grey, not black */
+}
+
+/* Hover effect on navigation links */
+.navbar .nav-link {
+  transition: all 0.2s ease;      /* Smooth color change */
+}
+
+.navbar .nav-link:hover {
+  color: var(--primary-color) !important;  /* Brand blue on hover */
+}
+
+
+/* ===============================================
+   4.2.3 NAVBAR BRAND (Logo + Title)
+   
+   Left side of navbar containing logo and site name
+   =============================================== */
+
+/* Logo image */
+.navbar .navbar-brand img {
+  max-height: 60px;               /* Limit logo height */
+  margin-right: 10px;             /* Space between logo and title */
+}
+
+/* Prevent hover effects on brand/title
+   These should not change color like nav links */
+.navbar-brand:hover,
+.navbar-title:hover {
+  color: inherit !important;      /* Keep original color */
+  text-decoration: none !important;  /* No underline */
+}
+
+
+/* ===============================================
+   4.2.4 MOBILE MENU (Hamburger)
+   
+   On small screens, navigation collapses into
+   a hamburger menu. These styles control its appearance.
+   =============================================== */
+
+/* The hamburger icon (three lines) */
+.navbar .navbar-toggler-icon {
+  /* Custom SVG for the three-line icon */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* The button that wraps the hamburger icon */
+.navbar .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.2) !important;  /* Subtle border */
+}
+
+
+/* ===============================================
+   4.2.5 PROJECT PAGE NAVBAR OVERRIDE
+   
+   On project (LMA) pages, navbar gets solid white
+   background instead of transparent/blur effect
+   =============================================== */
+
+/* Applies to pages with .project-hero-section but NOT .contact-container */
+body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
+  background: white !important;   /* Solid white, no transparency */
+  backdrop-filter: none;          /* Remove blur effect */
+}
+
+
+/* ===============================================
+   4.2.6 SEARCH COMPONENTS
+   
+   Search box in navbar (if enabled)
+   Quarto's built-in Algolia search styling
+   =============================================== */
+
+/* Main search autocomplete container */
+.aa-Autocomplete {
+  color: black !important;
+}
+
+/* Search input field */
+.aa-Input {
+  color: black !important;
+  background: white !important;
+  border: 1px solid #ddd !important;
+  width: 200px !important;        /* Fixed width on desktop */
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+/* Search submit icon (magnifying glass) */
+.aa-SubmitIcon {
+  color: black !important;
+  visibility: visible !important;
+}
+
+
+/* ===============================================
+   4.2.7 USAGE NOTES
+   
+   TO CHANGE NAVBAR TRANSPARENCY:
+   Modify the rgba value:
+   background: rgba(255, 255, 255, 0.98) !important;  // More opaque
+   background: rgba(255, 255, 255, 0.90) !important;  // More transparent
+   
+   TO DISABLE BLUR EFFECT:
+   Remove or comment out:
+   // backdrop-filter: blur(10px);
+   
+   TO CHANGE LOGO SIZE:
+   Adjust max-height value:
+   max-height: 80px;  // Larger logo
+   max-height: 40px;  // Smaller logo
+   
+   TO CUSTOMIZE HAMBURGER ICON:
+   Replace the data:image/svg+xml URL with your own SVG
+   Or use a different Bootstrap icon class
+   
+   MOBILE BEHAVIOR:
+   Navbar collapses to hamburger menu below 992px
+   Controlled by Bootstrap's responsive classes
+   Additional mobile styling in Section 9
+   
+   WHY backdrop-filter:
+   Creates modern "frosted glass" effect
+   Only works in modern browsers
+   Degrades gracefully to solid background in older browsers
+   =============================================== */
+   
+  /*=============================================
+=     4.3 CONTAINERS & GRIDS                  =
+=                                             =
+=  Layout systems for organizing content.    =
+=  Includes page containers, feature grids,  =
+=  project info panels, and card layouts.    =
+=                                             =
+=  Grid systems use CSS Grid for modern,     =
+=  responsive layouts that adapt to screen   =
+=  size automatically.                       =
+=============================================*/
+
+
+/* ===============================================
+   4.3.1 PAGE LAYOUT CONTAINERS
+   
+   Quarto generates various container classes
+   These ensure consistent spacing and width control
+   =============================================== */
+
+/* Main page container - full width setting */
+.page-layout-full .page-columns {
+  column-gap: 2.5rem;             /* Space between columns if layout has sidebars */
+}
+
+/* Navigation row spacing */
+.page-columns .page-row-navigation {
+  gap: 3rem;                      /* Space between nav elements */
+}
+
+/* Sidebar navigation styling */
+.sidebar-navigation {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Active link in sidebar (current page) */
+.sidebar-navigation .active {
+  background: rgba(30, 80, 160, 0.1);  /* Light blue highlight */
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* All sidebar links */
+.sidebar-navigation a {
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  margin: 0.125rem 0;
+  border-radius: 4px;
+}
+
+/* Sidebar link hover state */
+.sidebar-navigation a:hover {
+  background: rgba(240, 246, 255, 0.5);  /* Subtle hover effect */
+}
+
+
+/* ===============================================
+   4.3.2 MAIN CONTENT CONTAINER
+   
+   Centers and constrains content width
+   Used on most pages for readability
+   =============================================== */
+
+.main-content-container {
+  max-width: 80%;                 /* 80% of viewport width */
+  margin: 0 auto;                 /* Center horizontally */
+  background: white !important;
+}
+
+/* Override for project pages - ensures white background */
+body:has(.project-hero-section):not(:has(.contact-container)) .main-content,
+body:has(.project-hero-section):not(:has(.contact-container)) .page-columns,
+body:has(.project-hero-section):not(:has(.contact-container)) .column-page,
+body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
+  background: white !important;
+}
+
+
+/* ===============================================
+   4.3.3 PROJECT INFO PANEL
+   
+   Grid layout displaying project metadata
+   Appears below hero on LMA project pages
+   Shows: status, framework, outcomes, population, etc.
+   =============================================== */
+
+/* Main panel container */
 .project-info-panel {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin: -4rem 0 3rem 0;
-  width: 95vw;
-  margin-left: calc(-47.5vw + 50%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);  /* Deep shadow for elevation */
+  margin: -4rem 0 3rem 0;         /* Negative margin overlaps hero slightly */
+  width: 95vw;                    /* Nearly full viewport width */
+  margin-left: calc(-47.5vw + 50%);  /* Center and extend to edges */
   position: relative;
-  z-index: 3;
+  z-index: 3;                     /* Above hero section */
   overflow: hidden;
 }
 
+/* Grid layout for info cards */
 .project-info-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);  /* 4 equal columns on desktop */
   max-width: 95%;
   margin: auto;
 }
 
+/* Individual info card */
 .info-card {
   padding: 1.5rem;
-  border-bottom: 1px solid #eee;
-  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;  /* Horizontal divider */
+  border-right: 1px solid #eee;   /* Vertical divider */
   transition: all 0.2s ease;
 }
 
+/* Remove right border from last column */
 .info-card:nth-child(4n) {
   border-right: none;
 }
 
+/* Remove bottom border from last row */
 .info-card:nth-last-child(-n+4) {
   border-bottom: none;
 }
 
+/* Hover effect on info cards */
 .info-card:hover {
-  background: rgba(240, 246, 255, 0.3);
+  background: rgba(240, 246, 255, 0.3);  /* Light blue tint */
 }
 
+/* Info card heading */
 .info-card h3 {
   color: #0A2A5E;
   font-size: 0.95rem;
@@ -331,6 +1088,7 @@ PROJECT PAGES SECTION
   display: inline-block;
 }
 
+/* Info card text */
 .info-card p,
 .info-card div {
   font-size: 0.8rem;
@@ -343,11 +1101,13 @@ PROJECT PAGES SECTION
   margin-bottom: 0;
 }
 
+/* Emphasized text in info cards */
 .info-card strong {
   color: #0A2A5E;
   font-weight: 600;
 }
 
+/* Links in info cards */
 .info-card a {
   color: #1E50A0;
   text-decoration: none;
@@ -358,574 +1118,357 @@ PROJECT PAGES SECTION
   text-decoration: underline;
 }
 
- /* Container box for resources on project pages */ 
- 
-.resources-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+
+/* ===============================================
+   4.3.4 FEATURE GRID (Homepage)
+   
+   Three-column grid showcasing AMORE features
+   Displays key benefits on homepage
+   =============================================== */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 equal columns */
+  gap: 2rem;                      /* Space between boxes */
+  margin: 2rem 0;
 }
 
-.tab-navigation {
-    display: flex;
-    border-bottom: 1px solid #e5e7eb;
-    background: #f9fafb;
+/* Individual feature box */
+.feature-box {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.85) !important;  /* Semi-transparent */
+  backdrop-filter: blur(5px);     /* Blur effect behind box */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;                   /* Equal height boxes */
+  display: flex;
+  flex-direction: column;         /* Stack content vertically */
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.tab-button {
-    flex: 1;
-    padding: 16px 24px;
-    background: none;
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    color: #6b7280;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
+/* Feature box hover effect */
+.feature-box:hover {
+  background: rgba(255, 255, 255, 0.8) !important;  /* Slightly more opaque */
+  transform: translateY(-1px);    /* Subtle lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* Stronger shadow */
+  border-color: rgba(30, 80, 160, 0.2);
 }
 
-.tab-button.active {
-    color: #2563eb;
-    background: white;
+/* Feature box headings */
+.feature-box h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
-.tab-button.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #2563eb;
+
+/* ===============================================
+   4.3.5 COMMITTEE GRID (About Page)
+   
+   Auto-fitting grid for committee member cards
+   Adapts number of columns based on available space
+   =============================================== */
+
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Auto columns */
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-.tab-button:hover:not(.active) {
-    color: #374151;
-    background: #f3f4f6;
+/* Individual committee member card */
+.committee-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  border-left: 3px solid #0A2A5E;  /* Accent stripe */
 }
 
-.resources-container .tab-content {
-    display: none;
-    padding: 32px;
+/* Committee card hover effect */
+.committee-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(240, 246, 255, 0.5);
 }
 
-.resources-container .tab-content.active {
-    display: block;
+/* Committee member name */
+.committee-card strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0A2A5E;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
 }
 
-.resource-category {
-    margin-bottom: 32px;
+/* Committee member details */
+.committee-card > *:not(strong) {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #555;
+  margin: 0;
 }
 
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e5e7eb;
+
+/* ===============================================
+   4.3.6 PROCESS STEPS GRID (Guidelines Page)
+   
+   Auto-fitting grid for workflow visualization
+   Shows numbered steps in a process
+   =============================================== */
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  /* Auto columns */
+  gap: 1.5rem;
 }
 
-.category-icon {
-    width: 24px;
-    height: 24px;
-    color: #2563eb;
+/* Individual step card */
+.process-step {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.category-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #111827;
+/* Step hover effect */
+.process-step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-.resource-item {
-    background: #f8fafc;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+/* Circular step number icon */
+.process-step .step-icon {
+  width: 50px;
+  height: 50px;
+  background: #0A2A5E;
+  border-radius: 50%;             /* Makes it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;            /* Center horizontally */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.resource-item:hover {
-    border-color: #2563eb;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+/* Step title */
+.process-step h4 {
+  color: #0A2A5E;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
 }
 
-.resource-header {
-    padding: 20px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+/* Step description text */
+.process-step p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.resource-info {
-    flex-grow: 1;
-}
 
-.resource-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 8px;
-}
-
-.resource-description {
-    font-size: 14px;
-    color: #6b7280;
-    margin-bottom: 12px;
-}
-
-.resource-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.resource-link {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    padding: 12px 16px;
-    background: white;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.resource-link:hover {
-    border-color: #2563eb;
-    background: #f0f4ff;
-}
-
-.link-title {
-    font-weight: 500;
-    color: #2563eb;
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-
-.link-doi {
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 12px;
-    color: #6b7280;
-    background: #f3f4f6;
-    padding: 2px 6px;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.link-url {
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 12px;
-    color: #6b7280;
-    margin-top: 2px;
-}
-
-.status-badge {
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.status-published {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.status-coming-soon {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.status-future {
-    background: #e5e7eb;
-    color: #6b7280;
-}
-
-.coming-soon-notice {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: white;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 500;
-}
-
-.future-notice {
-    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
-    color: white;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 500;
-}
-
-.timeline-indicator {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-    font-size: 14px;
-    color: #6b7280;
-}
-
-/* Current results section */ 
-
-.results-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.results-header {
-    margin-bottom: 2.5rem;
-}
-
-.overall-findings {
-    background: #f8fafc;
-    border-left: 4px solid #2563eb;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 0 8px 8px 0;
-}
-
-.overall-findings p {
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-}
-
-.key-findings-section {
-    margin: 3rem 0;
-}
-
-.key-findings-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 1.5rem;
-}
-
-.findings-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.finding-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.finding-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-1px);
-}
-
-.finding-card.significant {
-    border-left: 4px solid #10b981;
-    background: linear-gradient(to right, #ecfdf5, #ffffff);
-}
-
-.finding-card.non-significant {
-    border-left: 4px solid #6b7280;
-    background: linear-gradient(to right, #f9fafb, #ffffff);
-}
-
-.finding-domain {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-    color: #111827;
-}
-
-.finding-effect {
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 0.95rem;
-    color: #4b5563;
-    margin-bottom: 0.5rem;
-}
-
-.finding-significance {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.significant .finding-significance {
-    color: #059669;
-}
-
-.non-significant .finding-significance {
-    color: #6b7280;
-}
-
-.bayesian-analysis {
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-    border: 1px solid #f59e0b;
-    padding: 2rem;
-    border-radius: 12px;
-    margin: 2.5rem 0;
-}
-
-.bayesian-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #92400e;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.bayesian-content {
-    color: #78350f;
-    font-size: 1.05rem;
-}
-
-.statistical-note {
-    background: #f3f4f6;
-    border: 1px solid #d1d5db;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 2rem;
-}
-
-.statistical-note-title {
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 0.75rem;
-}
-
-.statistical-note-content {
-    color: #4b5563;
-    font-size: 1rem;
-}
-
-.effect-size-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-left: 0.5rem;
-}
-
-.positive-effect {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.neutral-effect {
-    background: #f3f4f6;
-    color: #374151;
-}
+/* ===============================================
+   4.3.7 USAGE NOTES
+   
+   CSS GRID BASICS:
+   - grid-template-columns: defines column structure
+   - repeat(3, 1fr): creates 3 equal-width columns
+   - repeat(auto-fit, minmax(300px, 1fr)): auto-responsive
+   - gap: space between grid items
+   
+   TO CHANGE FEATURE GRID COLUMNS:
+   grid-template-columns: repeat(4, 1fr);  // 4 columns
+   grid-template-columns: repeat(2, 1fr);  // 2 columns
+   
+   TO ADJUST PROJECT INFO GRID:
+   Change repeat(4, 1fr) to repeat(3, 1fr) for 3 columns
+   Update :nth-child(4n) to :nth-child(3n) accordingly
+   
+   AUTO-FIT VS AUTO-FILL:
+   - auto-fit: collapses empty columns
+   - auto-fill: keeps empty columns in grid
+   We use auto-fit for responsive behavior
+   
+   RESPONSIVE BEHAVIOR:
+   All grids adapt at breakpoints - see Section 9
+   Mobile: typically collapses to single column
+   Tablet: 2 columns
+   Desktop: Full column count
+   =============================================== */
+   
+   /*=============================================
+=     5. INTERACTIVE COMPONENTS              =
+=                                             =
+=  User interface elements that respond to   =
+=  interaction (clicks, hovers, focus).      =
+=                                             =
+=  5.1 Buttons & Links                       =
+=  5.2 Forms & Inputs                        =
+=  5.3 Cards & Panels                        =
+=============================================*/
 
 
 /*=============================================
+=     5.1 BUTTONS & LINKS                     =
+=                                             =
+=  Clickable elements throughout the site.   =
+=  Includes primary/secondary buttons and    =
+=  specialized link styles.                  =
+=                                             =
+=  Design principle: Clear visual hierarchy  =
+=  through color, size, and hover effects.   =
+=============================================*/
 
-/* BASIC ELEMENTS */
-ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
 
-ul li {
-  margin: 0.5rem 0;
-  line-height: 1.6;
-}
+/* ===============================================
+   5.1.1 BUTTON BASE STYLES
+   
+   Shared properties for all button types
+   Creates consistent button appearance across site
+   =============================================== */
 
-a {
-  text-decoration: none;
-  color: #1E50A0;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
-}
-
-a:hover {
-  color: #0A2A5E;
-  text-decoration: none;
-}
-
-.btn, .primary-button, .secondary-button {
+.btn, 
+.primary-button, 
+.secondary-button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  padding: 0.8rem 1.5rem;         /* Comfortable clickable area */
+  border-radius: 6px;             /* Slightly rounded corners */
+  text-decoration: none;          /* Remove underline */
+  font-weight: 500;               /* Medium weight for readability */
+  transition: all 0.3s ease;      /* Smooth hover effects */
   text-align: center;
+  cursor: pointer;                /* Pointer cursor on hover */
 }
 
-.btn-primary, .primary-button {
+
+/* ===============================================
+   5.1.2 PRIMARY BUTTONS
+   
+   Main call-to-action buttons
+   Used for: Submit forms, main actions, contact links
+   Color: Brand blue (#0A2A5E)
+   =============================================== */
+
+.btn-primary, 
+.primary-button {
   background-color: var(--primary-color);
   color: white;
   border: none;
 }
 
-.btn-primary:hover, .primary-button:hover {
-  background-color: var(--secondary-color);
+/* Primary button hover state */
+.btn-primary:hover, 
+.primary-button:hover {
+  background-color: var(--secondary-color);  /* Slightly lighter blue */
   color: white;
   text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(10, 42, 94, 0.3);
+  transform: translateY(-2px);    /* Subtle lift effect */
+  box-shadow: 0 6px 20px rgba(10, 42, 94, 0.3);  /* Shadow for depth */
 }
 
-.btn-secondary, .secondary-button {
-  background-color: #f8f9fa;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+
+/* ===============================================
+   5.1.3 SECONDARY BUTTONS
+   
+   Alternative action buttons
+   Used for: Less important actions, cancel buttons
+   Style: Outlined rather than filled
+   =============================================== */
+
+.btn-secondary, 
+.secondary-button {
+  background-color: #f8f9fa;      /* Light grey background */
+  color: var(--primary-color);    /* Brand blue text */
+  border: 1px solid var(--primary-color);  /* Brand blue border */
 }
 
-.btn-secondary:hover, .secondary-button:hover {
-  background-color: var(--primary-color);
-  color: white;
+/* Secondary button hover state */
+.btn-secondary:hover, 
+.secondary-button:hover {
+  background-color: var(--primary-color);  /* Inverts to filled */
+  color: white;                   /* White text */
   text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(10, 42, 94, 0.2);
+  transform: translateY(-1px);    /* Subtle lift (less than primary) */
+  box-shadow: 0 4px 12px rgba(10, 42, 94, 0.2);  /* Lighter shadow */
 }
 
-.anchor-section,
-h1 > a[href^="#"],
-h2 > a[href^="#"],
-h3 > a[href^="#"],
-h4 > a[href^="#"],
-h5 > a[href^="#"],
-h6 > a[href^="#"] {
-  display: none !important;
-}
 
-/* NAVBAR */
-.navbar {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+/* ===============================================
+   5.1.4 PAGINATION BUTTONS
+   
+   Navigation buttons for multi-page content
+   Used in: Shiny app directory, long content lists
+   =============================================== */
 
-.navbar .nav-link,
-.navbar .navbar-title, 
-.navbar .navbar-nav-scroll .nav-link {
-  color: #333333 !important;  
-}
-
-.navbar .navbar-brand img {
-  max-height: 60px;
-  margin-right: 10px;
-}
-
-.navbar .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-.navbar .navbar-toggler {
-  border-color: rgba(0, 0, 0, 0.2) !important;
-}
-
-.navbar .nav-link {
-  transition: all 0.2s ease;
-}
-
-.navbar .nav-link:hover {
-  color: var(--primary-color) !important;
-}
-
-body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
-  background: white !important;
-  backdrop-filter: none;
-}
-
-.navbar-brand:hover,
-.navbar-title:hover {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-/* SEARCH COMPONENTS */
-.aa-Autocomplete {
-  color: black !important;
-}
-
-.aa-Input {
-  color: black !important;
-  background: white !important;
-  border: 1px solid #ddd !important;
-  width: 200px !important;
-  visibility: visible !important;
-  display: inline-block !important;
-}
-
-.aa-SubmitIcon {
-  color: black !important;
-  visibility: visible !important;
-}
-
-/* PAGE LAYOUT */
-.page-layout-full .page-columns {
-  column-gap: 2.5rem;
-}
-
-.page-columns .page-row-navigation {
-  gap: 3rem;
-}
-
-.sidebar-navigation {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.sidebar-navigation .active {
-  background: rgba(30, 80, 160, 0.1);
-  border-radius: 4px;
+.pagination-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
-.sidebar-navigation a {
-  transition: all 0.2s ease;
-  padding: 0.25rem 0.5rem;
-  margin: 0.125rem 0;
-  border-radius: 4px;
+/* Pagination button hover */
+.pagination-btn:hover:not(:disabled) {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
 }
 
-.sidebar-navigation a:hover {
-  background: rgba(240, 246, 255, 0.5);
+/* Disabled pagination button (can't go prev/next) */
+.pagination-btn:disabled {
+  background: var(--gray-300);    /* Grey when disabled */
+  color: var(--gray-600);
+  cursor: not-allowed;            /* Shows "forbidden" cursor */
+  transform: none;                /* No hover effect when disabled */
 }
 
-/* INDEX PAGE STYLES */
-.spacer-index {
-  margin-bottom: 3rem;
+
+/* ===============================================
+   5.1.5 TOGGLE LINKS
+   
+   Expandable/collapsible content links
+   Used for: "Show more" / "Show less" functionality
+   =============================================== */
+
+.toggle-link {
+  font-size: 0.85rem !important;
+  color: #1E50A0 !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-top: 0.8rem !important;
+  padding: 0.3rem 0.6rem !important;
+  border-radius: 4px !important;
+  background: rgba(30, 80, 160, 0.05) !important;  /* Very light blue tint */
+  transition: all 0.2s ease !important;
 }
 
-.header-content {
-  text-align: center;
-  margin: 2rem auto;
+/* Toggle link hover state */
+.toggle-link:hover {
+  background: rgba(30, 80, 160, 0.1) !important;  /* Darker tint */
+  color: #0A2A5E !important;
+  text-decoration: none !important;
 }
 
-.header-logo {
-  display: block;
-  margin: 2rem auto;
-  max-width: 300px;
-  height: auto;
-}
 
-.subtitle-text {
-  text-align: center !important;
-  font-size: 1.5rem !important;
-  color: white !important;
-  margin: 1.5rem 0 3rem 0 !important;
-  font-weight: 700 !important;
-}
+/* ===============================================
+   5.1.6 HEADER LINKS (Homepage)
+   
+   Large prominent links in homepage header section
+   Used for: Main navigation from homepage
+   =============================================== */
 
 .header-links {
   display: flex;
@@ -934,6 +1477,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   margin: 2rem auto;
 }
 
+/* Individual header link button */
 .header-links a {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -944,6 +1488,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   transition: all 0.3s ease;
 }
 
+/* Header link hover effect */
 .header-links a:hover {
   background-color: var(--secondary-color);
   text-decoration: none;
@@ -951,6 +1496,1006 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   box-shadow: 0 6px 20px rgba(10, 42, 94, 0.3);
 }
 
+
+/* ===============================================
+   5.1.7 RESOURCE LINKS
+   
+   Links within resource/document sections
+   Styled differently from regular body links
+   =============================================== */
+
+.resource-link {
+  display: block;                 /* Takes full width */
+  color: #1E50A0;
+  text-decoration: none;
+  padding: 5px 0;
+  font-size: 15px;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}
+
+/* Pending/disabled resource links */
+.resource-link.pending {
+  color: #999;                    /* Grey when not available */
+  cursor: not-allowed;
+  pointer-events: none;           /* Can't be clicked */
+}
+
+/* Visual indicator for pending links */
+.resource-link.pending:after {
+  content: " ⏳";                 /* Hourglass emoji */
+  font-size: 14px;
+}
+
+
+/* ===============================================
+   5.1.8 DOWNLOAD BUTTON (Protocol Checklist)
+   
+   Special styling for PDF download button
+   Underline style rather than button style
+   =============================================== */
+
+#downloadPDF {
+  display: inline-block;
+  color: #1E50A0;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;  /* Hidden underline */
+  transition: all 0.2s ease;
+}
+
+/* Download button hover effect */
+#downloadPDF:hover {
+  color: #0A2A5E;
+  border-bottom-color: #0A2A5E;  /* Underline appears */
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* ===============================================
+   5.1.9 USAGE NOTES
+   
+   BUTTON HIERARCHY:
+   1. Primary buttons (.primary-button) - Main actions
+   2. Secondary buttons (.secondary-button) - Alternative actions
+   3. Text links - Less prominent actions
+   
+   TO ADD NEW BUTTON TYPE:
+   Copy primary-button pattern and modify colors:
+   .tertiary-button {
+     background-color: #your-color;
+     color: white;
+   }
+   
+   TO CHANGE HOVER EFFECTS:
+   Modify transform and box-shadow values:
+   transform: translateY(-4px);  // More dramatic lift
+   transform: scale(1.05);       // Slight grow effect
+   
+   ACCESSIBILITY NOTES:
+   - All buttons have pointer cursor
+   - Disabled states show not-allowed cursor
+   - Focus states inherited from browser defaults
+   - Color contrast meets WCAG AA standards
+   
+   WHY !important IN SOME STYLES:
+   Toggle links use !important to override
+   default link styles that might conflict
+   Use sparingly - only when necessary
+   
+   BUTTON VS LINK:
+   Use <button> for actions (submit, toggle)
+   Use <a> for navigation (go to page)
+   Both can be styled to look the same
+   =============================================== */
+   
+   /*=============================================
+=     5.2 FORMS & INPUTS                      =
+=                                             =
+=  Form elements: text inputs, checkboxes,   =
+=  search boxes, and form controls.          =
+=                                             =
+=  Consistent styling across all input types =
+=  with focus states and validation support. =
+=============================================*/
+
+
+/* ===============================================
+   5.2.1 TEXT INPUT FIELDS
+   
+   Standard text inputs, search boxes, textareas
+   Used throughout site and in Shiny app
+   =============================================== */
+
+.form-control, 
+.search-input {
+  border: var(--gray-600) !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;  /* Subtle outer glow */
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: white;
+}
+
+/* Input focus state - active when user clicks in field */
+.form-control:focus, 
+.search-input:focus {
+  border-color: var(--gray-600) !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;
+  outline: none !important;       /* Remove default browser outline */
+  background: #fafafa;            /* Slight grey tint when active */
+}
+
+/* Placeholder text (empty field hint) */
+.form-control::placeholder, 
+.search-input::placeholder {
+  color: #666;
+  opacity: 0.7;
+}
+
+
+/* ===============================================
+   5.2.2 CHECKBOX GROUPS (Shiny App Filters)
+   
+   Custom checkbox styling for filter panels
+   Used in Living Meta-Analysis directory
+   =============================================== */
+
+/* Checkbox group container */
+.shiny-input-checkboxgroup {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Individual checkbox label */
+.shiny-input-checkboxgroup label {
+  font-weight: 400;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+  cursor: pointer;                /* Shows it's clickable */
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  touch-action: manipulation;     /* Better mobile tap handling */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;          /* Prevent text overflow */
+  white-space: normal;            /* Allow multi-line labels */
+  border-radius: 4px;
+}
+
+/* Checkbox label hover effect */
+.shiny-input-checkboxgroup label:hover {
+  background: rgba(10, 42, 94, 0.05);  /* Light blue background */
+  color: var(--primary-color);
+}
+
+/* The actual checkbox input */
+.shiny-input-checkboxgroup input[type='checkbox'] {
+  margin-right: 0.75rem;          /* Space between checkbox and label */
+  transform: scale(1.1);          /* Slightly larger for easier clicking */
+  accent-color: var(--primary-color);  /* Brand-colored checkbox */
+}
+
+
+/* ===============================================
+   5.2.3 CUSTOM CHECKBOX (Protocol Checklist)
+   
+   Styled checkbox that looks like a button
+   Can be clicked to toggle checked state
+   Used in interactive protocol checklist
+   =============================================== */
+
+.checklist-item-checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;                /* Prevents shrinking */
+  border: 2px solid #0A2A5E;
+  border-radius: 2px;             /* Slightly rounded square */
+  display: inline-block;
+  position: relative;
+  background: white;
+  margin-top: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+/* Checkbox hover effect */
+.checklist-item-checkbox:hover {
+  border-color: #1E50A0;
+}
+
+/* Checked state - filled with brand color */
+.checklist-item-checkbox.checked {
+  background: #0A2A5E;
+}
+
+/* Checkmark inside checked checkbox
+   Creates checkmark using CSS borders */
+.checklist-item-checkbox.checked:after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;      /* Right and bottom borders only */
+  transform: rotate(45deg);       /* Rotates to create checkmark shape */
+}
+
+
+/* ===============================================
+   5.2.4 CHECKLIST ITEM LAYOUT
+   
+   Container for checklist with checkbox and text
+   Used in protocol checklist page
+   =============================================== */
+
+.checklist-item {
+  display: flex;
+  justify-content: space-between;  /* Checkbox on right, text on left */
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* Checklist item hover effect */
+.checklist-item:hover {
+  background: rgba(240, 246, 255, 0.5);
+}
+
+/* Checklist item title */
+.checklist-item-title {
+  font-weight: 500;
+  color: var(--accent-1);
+}
+
+/* Checklist item description (subtitle) */
+.checklist-item-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+  font-style: italic;
+  max-width: 90%;
+}
+
+
+/* ===============================================
+   5.2.5 FILTER TAB BUTTONS (Shiny App)
+   
+   Tab-style buttons for switching filter categories
+   Not traditional form inputs but interactive controls
+   =============================================== */
+
+.filter-tab {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 25px;            /* Pill-shaped */
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.2rem !important;
+  color: var(--gray-700);
+  user-select: none;              /* Prevent text selection on click */
+}
+
+/* Filter tab hover state */
+.filter-tab:hover {
+  border-color: var(--primary-color);
+  background: var(--light-blue);
+}
+
+/* Active/selected filter tab */
+.filter-tab.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(10, 42, 94, 0.3);
+}
+
+
+/* ===============================================
+   5.2.6 WIZARD NAVIGATION BUTTONS (Guidelines)
+   
+   Previous/Next buttons in step-by-step wizard
+   Used in Guidelines page workflow
+   =============================================== */
+
+.nav-button {
+  padding: 0.5rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Wizard button hover */
+.nav-button:hover:not(:disabled) {
+  background: var(--secondary-color);
+}
+
+/* Disabled wizard button (start of wizard, end of wizard) */
+.nav-button:disabled {
+  background: #dee2e6;
+  cursor: not-allowed;
+}
+
+
+/* ===============================================
+   5.2.7 TAB BUTTONS (About Page, Resources)
+   
+   Tabbed interface navigation buttons
+   Used to switch between content sections
+   =============================================== */
+
+.tab-button {
+  flex: 1;                        /* Equal width tabs */
+  padding: 1.2rem 1rem;
+  background: transparent;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Animated underline for tabs */
+.tab-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;                       /* Hidden by default */
+  height: 3px;
+  background: #0A2A5E;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* Tab button hover state */
+.tab-button:hover {
+  background: rgba(10, 42, 94, 0.05);
+  color: #0A2A5E;
+}
+
+/* Active tab styling */
+.tab-button.active {
+  background: white;
+  color: #0A2A5E;
+}
+
+/* Active tab underline appears */
+.tab-button.active::after {
+  width: 50%;                     /* Underline expands */
+}
+
+
+/* ===============================================
+   5.2.8 USAGE NOTES
+   
+   FORM VALIDATION:
+   Currently no visual validation styling
+   To add validation states:
+   .form-control.invalid { border-color: red; }
+   .form-control.valid { border-color: green; }
+   
+   ACCESSIBILITY:
+   - All interactive elements have cursor: pointer
+   - Focus states clearly visible
+   - Labels associated with inputs
+   - Touch targets meet minimum size (44x44px)
+   
+   MOBILE CONSIDERATIONS:
+   - Input font-size 16px prevents iOS zoom on focus
+   - touch-action: manipulation improves tap response
+   - Checkboxes scaled up for easier tapping
+   
+   CUSTOM CHECKBOX TECHNIQUE:
+   Uses ::after pseudo-element for checkmark
+   Border trick: rotate(45deg) creates checkmark shape
+   Alternative: use SVG icon or Unicode ✓ character
+   
+   WHY accent-color:
+   Modern CSS property that themes native checkboxes
+   Works in latest browsers, gracefully degrades
+   
+   SHINY-SPECIFIC CLASSES:
+   .shiny-input-checkboxgroup created by Shiny
+   Can't change class names, only style them
+   =============================================== */
+   
+   /*=============================================
+=     5.3 CARDS & PANELS                      =
+=                                             =
+=  Container components for organizing and   =
+=  displaying content in structured blocks.  =
+=                                             =
+=  Includes: Content cards, accordion panels,=
+=  resource boxes, search strings, info boxes=
+=============================================*/
+
+
+/* ===============================================
+   5.3.1 BASIC CARD STYLING
+   
+   Standard card component used throughout site
+   White background, rounded corners, shadow
+   =============================================== */
+
+/* Generic card styles - applied to various components */
+.card,
+.feature-box,
+.committee-card,
+.process-step {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Card hover effect - subtle lift */
+.card:hover,
+.feature-box:hover,
+.committee-card:hover,
+.process-step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ===============================================
+   5.3.2 SEARCH STRING BOX (LMA Pages)
+   
+   Displays database search strings on project pages
+   Monospace font for code-like appearance
+   =============================================== */
+
+.search-string-box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+  margin: 2rem 0;
+  transition: box-shadow 0.2s ease;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.search-string-box:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Search string box title */
+.search-string-box .panel-title {
+  color: #0A2A5E;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+/* Database name labels within search box */
+.search-string-box strong {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  color: #0A2A5E;
+}
+
+/* Individual search query display */
+.search-string-box .search-db {
+  font-weight: 600;
+  color: #0A2A5E;
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+/* ===============================================
+   5.3.3 RESOURCES PANEL (LMA Pages)
+   
+   Container for resource links and documentation
+   Similar styling to search string box
+   =============================================== */
+
+.resources-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+  margin: 2rem 0;
+  transition: box-shadow 0.2s ease;
+}
+
+.resources-panel:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Resources panel title */
+.resources-panel .panel-title {
+  color: #0A2A5E;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+/* Section headers within resources panel */
+.resources-panel strong {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: #0A2A5E;
+}
+
+
+/* ===============================================
+   5.3.4 CRITERIA BOX (Inclusion/Exclusion)
+   
+   Displays eligibility criteria on LMA pages
+   Light grey background to differentiate from main content
+   =============================================== */
+
+.criteria-box {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Criteria box heading */
+.criteria-box h3 {
+  color: #0A2A5E;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Lists within criteria boxes */
+.criteria-box ul,
+.criteria-box ol {
+  font-size: 0.9rem;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.criteria-box li {
+  margin-bottom: 5px;
+}
+
+
+/* ===============================================
+   5.3.5 RESULTS HIGHLIGHT BOX
+   
+   Eye-catching box for displaying key findings
+   Gradient background with accent border
+   =============================================== */
+
+.results-highlight {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-left: 4px solid #0A2A5E;  /* Accent stripe */
+  border-radius: 0 12px 12px 0;    /* Rounded on right side only */
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.results-highlight h3 {
+  color: #0A2A5E;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.results-highlight p {
+  margin: 0;
+  font-weight: 500;
+}
+
+
+/* ===============================================
+   5.3.6 OVERALL FINDINGS BOX
+   
+   Summary box for meta-analysis results
+   Blue tinted background with left accent
+   =============================================== */
+
+.overall-findings {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;  /* Blue accent */
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.overall-findings p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+
+/* ===============================================
+   5.3.7 BAYESIAN ANALYSIS BOX
+   
+   Special highlighting for Bayesian results
+   Warm yellow/orange color scheme
+   =============================================== */
+
+.bayesian-analysis {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2.5rem 0;
+}
+
+/* Bayesian box title */
+.bayesian-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #92400e;               /* Dark brown for contrast */
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Bayesian box content text */
+.bayesian-content {
+  color: #78350f;               /* Dark brown text */
+  font-size: 1.05rem;
+}
+
+
+/* ===============================================
+   5.3.8 STATISTICAL NOTE BOX
+   
+   Grey box for technical/methodological notes
+   Neutral appearance for supplementary information
+   =============================================== */
+
+.statistical-note {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.statistical-note-title {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.statistical-note-content {
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+
+/* ===============================================
+   5.3.9 FINDING CARDS (Results Grid)
+   
+   Individual result cards in findings grid
+   Color-coded by significance
+   =============================================== */
+
+.finding-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.finding-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Significant finding - green accent */
+.finding-card.significant {
+  border-left: 4px solid #10b981;
+  background: linear-gradient(to right, #ecfdf5, #ffffff);
+}
+
+/* Non-significant finding - grey accent */
+.finding-card.non-significant {
+  border-left: 4px solid #6b7280;
+  background: linear-gradient(to right, #f9fafb, #ffffff);
+}
+
+/* Finding card elements */
+.finding-domain {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #111827;
+}
+
+.finding-effect {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;  /* Code font */
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.finding-significance {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Color coding for significance text */
+.significant .finding-significance {
+  color: #059669;               /* Green for significant */
+}
+
+.non-significant .finding-significance {
+  color: #6b7280;               /* Grey for non-significant */
+}
+
+
+/* ===============================================
+   5.3.10 RESOURCE ACCORDION (Details/Summary)
+   
+   Expandable/collapsible sections
+   Uses HTML <details> element
+   =============================================== */
+
+.resource-details {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.resource-details:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Clickable summary (accordion header) */
+.resource-summary {
+  background-color: #f8f9fa;
+  color: #0A2A5E;
+  cursor: pointer;
+  padding: 15px 20px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  list-style: none;             /* Removes default arrow */
+}
+
+/* Hide default disclosure triangle */
+.resource-summary::marker {
+  display: none;
+}
+
+.resource-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Plus icon when closed */
+.resource-summary::after {
+  content: "+";
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.resource-summary:hover {
+  background-color: #e9e9e9;
+}
+
+/* Minus icon when open */
+details[open] .resource-summary::after {
+  content: "−";
+}
+
+/* Content inside accordion */
+.link-wrapper {
+  padding: 10px 20px;
+  border-top: 1px solid #f0f0f0;
+  background-color: white;
+}
+
+.link-wrapper:first-of-type {
+  border-top: none;
+}
+
+
+/* ===============================================
+   5.3.11 REQUIREMENTS BOX (Guidelines Page)
+   
+   Semi-transparent box for requirement lists
+   Appears over gradient background
+   =============================================== */
+
+.requirements-box {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);   /* Blur effect behind box */
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.requirements-box:hover {
+  background: rgba(240, 246, 255, 0.5) !important;
+}
+
+/* List items in requirements box */
+.requirements-box li {
+  margin-bottom: 2rem;
+  list-style-type: none;
+  color: var(--accent-1);
+  line-height: 1.6;
+}
+
+/* Requirement titles (bold text) */
+.requirements-box strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+
+/* ===============================================
+   5.3.12 CONTENT BOX (Wizard Steps)
+   
+   Content containers in step-by-step wizards
+   Similar to requirements box
+   =============================================== */
+
+.content-box {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.content-box:hover {
+  background: rgba(240, 246, 255, 0.5) !important;
+}
+
+
+/* ===============================================
+   5.3.13 USAGE NOTES
+   
+   CARD PATTERNS:
+   - White cards: main content containers
+   - Colored cards: special emphasis (results, warnings)
+   - Transparent cards: overlay on gradient backgrounds
+   
+   BORDER-LEFT TECHNIQUE:
+   Used for visual categorization without full borders
+   Creates cleaner, more modern appearance
+   Common pattern: 4px solid color on left edge
+   
+   ACCORDION IMPLEMENTATION:
+   Uses native HTML <details>/<summary> elements
+   Benefits: No JavaScript needed, accessible by default
+   Styled with ::marker and ::after for custom indicators
+   
+   BACKDROP-FILTER:
+   Creates "frosted glass" effect
+   Modern browsers only - degrades to solid background
+   Requires background to have transparency (rgba)
+   
+   COLOR CODING STRATEGY:
+   - Blue (#0A2A5E): Primary brand, important info
+   - Green (#10b981): Success, significant results
+   - Yellow/Orange (#f59e0b): Warnings, special notes
+   - Grey (#6b7280): Neutral, non-significant
+   
+   TO ADD NEW CARD TYPE:
+   1. Copy base .card styles
+   2. Add specific class name
+   3. Customize colors, spacing, borders
+   4. Add hover effect if interactive
+   
+   ACCESSIBILITY:
+   - Adequate color contrast ratios
+   - Clickable areas clearly indicated
+   - Focus states visible
+   - Semantic HTML (details, summary)
+   =============================================== */
+   
+ /*=============================================
+=     6. PAGE-SPECIFIC STYLES                 =
+=                                             =
+=  Custom styles for individual pages that    =
+=  don't fit into global component patterns.  =
+=                                             =
+=  6.1 Homepage                              =
+=  6.2 Project Pages (LMAs)                  =
+=  6.3 Contact Page                          =
+=  6.4 About Page                            =
+=  6.5 Resources Page                        =
+=  6.6 Guidelines Page                       =
+=  6.7 Protocol Checklist                    =
+=============================================*/
+
+
+/* ===============================================
+   6.1 HOMEPAGE STYLES
+   
+   Unique elements found only on index.qmd
+   =============================================== */
+
+/* Extra spacing after hero section */
+.spacer-index {
+  margin-bottom: 3rem;
+}
+
+/* Header content wrapper */
+.header-content {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+/* AMORE logo on homepage */
+.header-logo {
+  display: block;
+  margin: 2rem auto;
+  max-width: 300px;
+  height: auto;
+}
+
+/* Subtitle below hero */
+.subtitle-text {
+  text-align: center !important;
+  font-size: 1.5rem !important;
+  color: white !important;
+  margin: 1.5rem 0 3rem 0 !important;
+  font-weight: 700 !important;
+}
+
+/* Note: .header-links and .feature-grid documented in Section 4.3 */
+
+/* Main content section on homepage */
 .content-section {
   text-align: center !important;
   background: transparent !important;
@@ -963,11 +2508,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   color: white !important;
 }
 
-.content-section p:has(a[href*="Behavioral Neuroendocrinology Lab"]),
-.content-section .BNL-text {
-  text-align: center;
-}
-
+/* Links within content section (on gradient) */
 .content-section p a {
   color: white !important;
   border-bottom: 1px solid white;
@@ -978,43 +2519,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   border-bottom-color: rgba(255, 255, 255, 0.8);
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.feature-box {
-  padding: 1.5rem;
-  margin: 1rem 0;
-  background: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(5px);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.feature-box:hover {
-  background: rgba(255, 255, 255, 0.8) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  border-color: rgba(30, 80, 160, 0.2);
-}
-
-.feature-box h3 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
+/* Feature heading */
 .feature-heading {
   text-align: center;
   font-size: 1.5rem;
@@ -1023,204 +2528,14 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   font-weight: 700;
 }
 
-/* CONTACT PAGE */
-.contact-container {
-  background: transparent !important;
-  border-radius: 12px;
-  padding: 0;
-  margin: 0.3rem auto;
-  max-width: 2000px;
-  width: 85%;
-  height: 600px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-}
 
-.contact-container::before {
-  content: '' !important;
-  position: absolute !important;
-  right: -15% !important;
-  top: 0 !important;
-  width: 65% !important;
-  height: 100% !important;
-  background: url('assets/images/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
-  /*background: url('https://raw.githubusercontent.com/iaiversen/AMORE-webpage/main/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;*/ 
-  background-size: contain !important;
-  background-position: center !important;
-  filter: brightness(0) invert(1) opacity(0.3) !important;
-  z-index: 2 !important;
-  pointer-events: none !important;
-  display: block !important;
-}
+/* ===============================================
+   6.2 PROJECT PAGES (LMA) STYLES
+   
+   Specific to living meta-analysis project pages
+   =============================================== */
 
-.contact-section {
-  padding: 2rem 2.5rem 2rem 3rem;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  height: 100%;
-}
-
-.contact-section h2 {
-  font-size: 2.2rem;
-  color: #0A2A5E;
-  margin-bottom: 1.2rem;
-  text-align: left;
-  border: none;
-  padding: 0;
-  margin-top: 0;
-}
-
-.contact-section p {
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  color: #2d3748;
-}
-
-.contact-section ul {
-  background: none;
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0;
-}
-
-.contact-section li {
-  background: none;
-  margin: 0.8rem 0;
-  padding: 0;
-  border: none;
-  color: #2d3748;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.contact-section li strong {
-  color: #0A2A5E;
-  font-weight: 600;
-}
-
-.contact-buttons {
-  margin-top: 1.5rem;
-  position: relative;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-}
-
-.contact-buttons .primary-button {
-  background: #0A2A5E;
-  color: white;
-  padding: 0.8rem 1.6rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  display: inline-block;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.contact-buttons .primary-button:hover {
-  background: #1E50A0;
-}
-
-/* TAB SYSTEM */
-.about-tabs-container {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin: 0 auto 2rem;
-  max-width: 1200px;
-  position: relative;
-  z-index: 3;
-  overflow: hidden;
-}
-
-.tab-navigation {
-  display: flex;
-  background: #f8f9fa;
-  border-radius: 8px 8px 0 0;
-  overflow: hidden;
-}
-
-.tab-navigation .tab-button {
-  flex: 1;
-  padding: 1.2rem 1rem;
-  background: transparent;
-  border: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #666;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.tab-navigation .tab-button::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: #0A2A5E;
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.tab-navigation .tab-button:hover {
-  background: rgba(10, 42, 94, 0.05);
-  color: #0A2A5E;
-}
-
-.tab-navigation .tab-button.active {
-  background: white;
-  color: #0A2A5E;
-}
-
-.tab-navigation .tab-button.active::after {
-  width: 50%;
-}
-
-.tab-content {
-  padding: 2rem;
-  min-height: 400px;
-}
-
-.about-tabs-container .tab-content .tab-pane {
-  display: none;
-}
-
-.about-tabs-container .tab-content .tab-pane.active {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-/* CONTENT SECTIONS */
-.main-content-container {
-  max-width: 80%;
-  margin: 0 auto;
-  background: white !important;
-}
-
-body:has(.project-hero-section):not(:has(.contact-container)) .main-content,
-body:has(.project-hero-section):not(:has(.contact-container)) .page-columns,
-body:has(.project-hero-section):not(:has(.contact-container)) .column-page,
-body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
-  background: white !important;
-}
-
+/* Abstract section on project pages */
 .abstract-section {
   padding: 0;
   background: transparent;
@@ -1235,6 +2550,7 @@ body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
   margin-bottom: 1.2rem;
 }
 
+/* Inclusion/Exclusion criteria section */
 .inclusion-exclusion-section {
   padding: 0;
   margin-top: 2rem;
@@ -1268,375 +2584,285 @@ body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
   color: #3c6997ff;
 }
 
-/* MODERN CARD STYLING */
-.search-string-box,
-.resources-panel {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  padding: 2rem;
-  margin: 2rem 0;
-  transition: box-shadow 0.2s ease;
-}
-
-.search-string-box:hover,
-.resources-panel:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-}
-
-.search-string-box {
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.search-string-box .panel-title {
-  color: #0A2A5E;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 0.5rem;
-}
-
-.search-string-box strong {
-  display: block;
-  margin-top: 0.5rem;
-  margin-bottom: 0.3rem;
-  color: #0A2A5E;
-}
-
-.resources-panel .panel-title {
-  color: #0A2A5E;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 0.5rem;
-}
-
-.resources-panel strong {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-  color: #0A2A5E;
-}
-
-/* CRITERIA BOX STYLES */
-.criteria-box {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.criteria-box h3 {
-  color: #0A2A5E;
-  font-size: 1rem;
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.criteria-box ul,
-.criteria-box ol {
-  font-size: 0.9rem;
-  padding-left: 20px;
-  margin-bottom: 10px;
-}
-
-.criteria-box li {
-  margin-bottom: 5px;
-}
-
-/* RESOURCE ACCORDION STYLING */
-.resource-details {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-  transition: box-shadow 0.2s ease;
-}
-
-.resource-details:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-}
-
-.resource-summary {
-  background-color: #f8f9fa;
-  color: #0A2A5E;
-  cursor: pointer;
-  padding: 15px 20px;
-  width: 100%;
-  text-align: left;
-  font-size: 16px;
-  font-weight: 600;
-  list-style: none;
-}
-
-.resource-summary::marker {
-  display: none;
-}
-
-.resource-summary::-webkit-details-marker {
-  display: none;
-}
-
-.resource-summary::after {
-  content: "+";
-  float: right;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.resource-summary:hover {
-  background-color: #e9e9e9;
-}
-
-details[open] .resource-summary::after {
-  content: "−";
-}
-
-.link-wrapper {
-  padding: 10px 20px;
-  border-top: 1px solid #f0f0f0;
-  background-color: white;
-}
-
-.link-wrapper:first-of-type {
-  border-top: none;
-}
-
-.resource-link {
-  display: block;
-  color: #1E50A0;
-  text-decoration: none;
-  padding: 5px 0;
-  font-size: 15px;
-}
-
-.resource-link:hover {
-  text-decoration: underline;
-}
-
-.resource-link.pending {
-  color: #999;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.resource-link.pending:after {
-  content: " ⏳";
-  font-size: 14px;
-}
-
-/* TOGGLE LINKS */
-.toggle-link {
-  font-size: 0.85rem !important;
-  color: #1E50A0 !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  margin-top: 0.8rem !important;
-  padding: 0.3rem 0.6rem !important;
-  border-radius: 4px !important;
-  background: rgba(30, 80, 160, 0.05) !important;
-  transition: all 0.2s ease !important;
-}
-
-.toggle-link:hover {
-  background: rgba(30, 80, 160, 0.1) !important;
-  color: #0A2A5E !important;
-  text-decoration: none !important;
-}
-
-/* RESULTS HIGHLIGHT BOX */
-.results-highlight {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-left: 4px solid #0A2A5E;
-  border-radius: 0 12px 12px 0;
-  padding: 1.5rem 2rem;
-  margin: 2rem 0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.results-highlight h3 {
-  color: #0A2A5E;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.results-highlight p {
-  margin: 0;
-  font-weight: 500;
-}
-
-/* SEARCH STRATEGY BOX STYLES */
-.search-strategy-box {
-  border-left: 4px solid #0A2A5E;
-  padding: 15px 20px;
-  margin: 20px 0;
-  font-family: monospace;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-x: auto;
-}
-
-.search-db {
-  font-weight: 600;
-  color: #0A2A5E;
-  display: block;
-  margin-bottom: 5px;
-}
-
-/* PROJECT TOC POSITIONING */
+/* Adjust TOC position on project pages */
 .project-hero-section ~ * .sidebar-navigation {
   margin-top: 8rem;
 }
 
-/* PROCESS STEPS */
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+/* Results container on project pages */
+.results-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.process-step {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.results-header {
+  margin-bottom: 2.5rem;
 }
 
-.process-step:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+/* Key findings section */
+.key-findings-section {
+  margin: 3rem 0;
 }
 
-.process-step .step-icon {
-  width: 50px;
-  height: 50px;
-  background: #0A2A5E;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.process-step h4 {
-  color: #0A2A5E;
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-}
-
-.process-step p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* COMMITTEE MEMBER CARDS */
-.committee-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.committee-card {
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-  border-left: 3px solid #0A2A5E;
-}
-
-.committee-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: rgba(240, 246, 255, 0.5);
-}
-
-.committee-card strong {
-  display: block;
-  font-size: 1rem;
+.key-findings-title {
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #0A2A5E;
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
+  color: #111827;
+  margin-bottom: 1.5rem;
 }
 
-.committee-card > *:not(strong) {
+/* Grid for finding cards */
+.findings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Effect size badges */
+.effect-size-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
   font-size: 0.85rem;
-  line-height: 1.4;
-  color: #555;
-  margin: 0;
+  font-weight: 500;
+  margin-left: 0.5rem;
 }
 
+.positive-effect {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.neutral-effect {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+
+/* ===============================================
+   6.3 CONTACT PAGE STYLES
+   
+   Two-column layout with contact info and logo
+   =============================================== */
+
+/* Main contact container */
+.contact-container {
+  background: transparent !important;
+  border-radius: 12px;
+  padding: 0;
+  margin: 0.3rem auto;
+  max-width: 2000px;
+  width: 85%;
+  height: 600px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* Two equal columns */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large logo watermark on right side
+   Different from body::before/after logos */
+.contact-container::before {
+  content: '' !important;
+  position: absolute !important;
+  right: -15% !important;
+  top: 0 !important;
+  width: 65% !important;
+  height: 100% !important;
+  background: url('assets/images/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
+  background-size: contain !important;
+  background-position: center !important;
+  filter: brightness(0) invert(1) opacity(0.3) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+/* Left column - contact information */
+.contact-section {
+  padding: 2rem 2.5rem 2rem 3rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  color: #0A2A5E;
+  margin-bottom: 1.2rem;
+  text-align: left;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.contact-section p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+/* Contact list styling */
+.contact-section ul {
+  background: none;
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0;
+}
+
+.contact-section li {
+  background: none;
+  margin: 0.8rem 0;
+  padding: 0;
+  border: none;
+  color: #2d3748;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.contact-section li strong {
+  color: #0A2A5E;
+  font-weight: 600;
+}
+
+/* Contact button container */
+.contact-buttons {
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-buttons .primary-button {
+  background: #0A2A5E;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.contact-buttons .primary-button:hover {
+  background: #1E50A0;
+}
+
+
+/* ===============================================
+   6.4 ABOUT PAGE STYLES
+   
+   Tabbed interface for mission/team/LMAs
+   =============================================== */
+
+/* Tab container */
+.about-tabs-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 0 auto 2rem;
+  max-width: 1200px;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* Tab navigation bar */
+.tab-navigation {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+/* Note: .tab-button styles in Section 5.2 */
+
+/* Tab content area */
+.tab-content {
+  padding: 2rem;
+  min-height: 400px;
+}
+
+/* Individual tab panes */
+.about-tabs-container .tab-content .tab-pane {
+  display: none;
+}
+
+.about-tabs-container .tab-content .tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Committee members section spacing */
 #committee-members {
   margin-top: 4rem !important;
 }
 
-/* OTHER PAGE STYLING */
-.panel-tabset {
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(8px);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
+
+/* ===============================================
+   6.5 RESOURCES PAGE STYLES
+   
+   Standalone resource list page
+   =============================================== */
+
+.title-space {
+  margin-top: 2rem;
 }
 
-.requirements-box {
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(8px);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1.5rem auto;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: all 0.2s ease;
+/* Special heading color for resources page */
+h2[data-anchor-id="resourcepage"] {
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px 8px 0 0 !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
 }
 
-.requirements-box:hover {
-  background: rgba(240, 246, 255, 0.5) !important;
+.resource-list {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
-.requirements-box li {
+/* Resource items on standalone page */
+.standalone-resources-page .resource-item {
+  background: #fff;
+  backdrop-filter: blur(5px);
+  border-left: 4px solid #0A2A5E;
+  padding: 1.5rem 2rem;
   margin-bottom: 2rem;
-  list-style-type: none;
-  color: var(--accent-1);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.resource-item h3 {
+  color: #0A2A5E;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.resource-item p {
+  margin-bottom: 1.2rem;
   line-height: 1.6;
 }
 
-.requirements-box strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--primary-color);
-  font-size: 1.1rem;
-}
 
-.tab-header {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
+/* ===============================================
+   6.6 GUIDELINES PAGE (Wizard)
+   
+   Step-by-step workflow interface
+   =============================================== */
 
-/* GUIDELINES PAGE */
+/* Main wizard container */
 .wizard-container {
   display: flex;
   gap: 2rem;
@@ -1649,6 +2875,7 @@ details[open] .resource-summary::after {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Left sidebar - step navigation */
 .wizard-nav {
   flex: 0 0 300px;
   background: #f8f9fa;
@@ -1665,6 +2892,7 @@ details[open] .resource-summary::after {
   border-bottom: 1px solid #dee2e6;
 }
 
+/* Step list */
 .step-list {
   list-style: none;
   padding: 0;
@@ -1694,6 +2922,7 @@ details[open] .resource-summary::after {
   color: white;
 }
 
+/* Circular step number */
 .step-number {
   width: 28px;
   height: 28px;
@@ -1711,6 +2940,7 @@ details[open] .resource-summary::after {
   font-size: 0.95rem;
 }
 
+/* Right side - step content */
 .wizard-content {
   flex: 1;
   padding: 2rem;
@@ -1732,64 +2962,18 @@ details[open] .resource-summary::after {
   margin-bottom: 1.5rem;
 }
 
-.content-box {
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(8px);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  transition: all 0.2s ease;
-}
 
-.content-box:hover {
-  background: rgba(240, 246, 255, 0.5) !important;
-}
+/* ===============================================
+   6.7 PROTOCOL CHECKLIST PAGE
+   
+   Interactive checklist with PDF download
+   =============================================== */
 
-/* RESOURCES PAGE */
-.title-space {
-  margin-top: 2rem;
-}
-
-h2[data-anchor-id="resourcepage"] {
-  color: white !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 8px 8px 0 0 !important;
-  margin-bottom: 0 !important;
-  border-bottom: none !important;
-}
-
-.resource-list {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-}
-
-.standalone-resources-page .resource-item {
-  background: #fff;
-  backdrop-filter: blur(5px);
-  border-left: 4px solid #0A2A5E;
-  padding: 1.5rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
-
-.resource-item h3 {
-  color: #0A2A5E;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.resource-item p {
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
-}
-
-/* PROTOCOL CHECKLIST */
 .white-text {
   color: white !important;
 }
 
+/* Checklist main container */
 .checklist-container {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
@@ -1813,93 +2997,281 @@ h2[data-anchor-id="resourcepage"] {
   margin-top: 0.5rem;
 }
 
-.checklist-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  background: #f8f9fa;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
+/* Note: .checklist-item and .checklist-item-checkbox in Section 5.2 */
 
-.checklist-item:hover {
-  background: rgba(240, 246, 255, 0.5);
-}
-
-.checklist-item-title {
-  font-weight: 500;
-  color: var(--accent-1);
-}
-
-.checklist-item-description {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 0.25rem;
-  font-style: italic;
-  max-width: 90%;
-}
-
-.checklist-item-checkbox {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  border: 2px solid #0A2A5E;
-  border-radius: 2px;
-  display: inline-block;
-  position: relative;
-  background: white;
-  margin-top: 3px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  transition: all 0.2s ease;
-}
-
-.checklist-item-checkbox:hover {
-  border-color: #1E50A0;
-}
-
-.checklist-item-checkbox.checked {
-  background: #0A2A5E;
-}
-
-.checklist-item-checkbox.checked:after {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 12px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
+/* Download button container */
 .download-button-container {
   margin: 2rem 0;
 }
 
-#downloadPDF {
-  display: inline-block;
-  color: #1E50A0;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.4rem 0;
-  border: none;
+/* Note: #downloadPDF styles in Section 5.1 */
+
+
+/* ===============================================
+   6.8 TAB SYSTEM (Multiple Pages)
+   
+   Generic tabbed interface used on various pages
+   =============================================== */
+
+.panel-tabset {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.tab-header {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ===============================================
+   6.9 RESOURCES CONTAINER (Tabbed Resources)
+   
+   Multi-tab resource display with categories
+   Used on project pages
+   =============================================== */
+
+.resources-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Tab navigation specific to resources */
+.resources-container .tab-navigation {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.resources-container .tab-button {
+  flex: 1;
+  padding: 16px 24px;
   background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.resources-container .tab-button.active {
+  color: #2563eb;
+  background: white;
+}
+
+.resources-container .tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #2563eb;
+}
+
+.resources-container .tab-button:hover:not(.active) {
+  color: #374151;
+  background: #f3f4f6;
+}
+
+/* Tab content area */
+.resources-container .tab-content {
+  display: none;
+  padding: 32px;
+}
+
+.resources-container .tab-content.active {
+  display: block;
+}
+
+/* Resource categories within tabs */
+.resource-category {
+  margin-bottom: 32px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.category-icon {
+  width: 24px;
+  height: 24px;
+  color: #2563eb;
+}
+
+.category-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Individual resource item */
+.resource-item {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.resource-item:hover {
+  border-color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+/* Resource header */
+.resource-header {
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.resource-info {
+  flex-grow: 1;
+}
+
+.resource-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.resource-description {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* Resource links */
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resource-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   transition: all 0.2s ease;
 }
 
-#downloadPDF:hover {
-  color: #0A2A5E;
-  border-bottom-color: #0A2A5E;
-  text-decoration: none;
-  transform: translateY(-1px);
+.resource-link:hover {
+  border-color: #2563eb;
+  background: #f0f4ff;
 }
 
-/* DEVELOPMENT NOTICE BANNER */
+.link-title {
+  font-weight: 500;
+  color: #2563eb;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.link-doi {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.link-url {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Status badges */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-published {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-coming-soon {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-future {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+/* Notice banners */
+.coming-soon-notice {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.future-notice {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: white;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.timeline-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+
+/* ===============================================
+   6.10 DEVELOPMENT NOTICE BANNER
+   
+   Yellow warning banner for work-in-progress pages
+   =============================================== */
+
 .development-notice {
   background-color: #fff3cd;
   color: #664d03;
@@ -1911,23 +3283,225 @@ h2[data-anchor-id="resourcepage"] {
   font-weight: 500;
 }
 
-/* ===========================================================================
+
+/*=============================================
+=     7. UTILITY CLASSES                      =
+=                                             =
+=  Helper classes for common styling needs.  =
+=  Can be applied to any element.            =
+=============================================*/
+
+/* No specific utility classes currently defined
+   But here's where you'd add them:
    
+   EXAMPLES OF UTILITY CLASSES:
    
-                             RESPONSIVE DESIGN
+   .text-center { text-align: center; }
+   .mt-1 { margin-top: 1rem; }
+   .mb-2 { margin-bottom: 2rem; }
+   .p-3 { padding: 3rem; }
+   .hidden { display: none; }
+   .visible { display: block; }
+   .flex { display: flex; }
+   .grid { display: grid; }
    
+   ADD UTILITIES AS NEEDED FOR COMMON PATTERNS
+*/
+
+
+/*=============================================
+=     8. ANIMATIONS & TRANSITIONS            =
+=                                             =
+=  Keyframe animations and reusable          =
+=  transition effects used throughout site.  =
+=============================================*/
+
+
+/* ===============================================
+   8.1 GRADIENT SHIFT (Background Animation)
    
-=========================================================================== */
+   Slowly moves the gradient background
+   Creates dynamic, living feel to the site
+   Duration: 15 seconds per cycle
+   =============================================== */
+
+@keyframes gradientShift {
+  0% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+  100% { 
+    background-position: 0% 50%; 
+  }
+}
+
+
+/* ===============================================
+   8.2 FLOAT (Logo Watermarks)
+   
+   Gentle floating motion for decorative logos
+   Creates subtle movement without distraction
+   =============================================== */
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(2deg); 
+  }
+}
+
+
+/* ===============================================
+   8.3 SUBTLE FLOAT (Hero Overlays)
+   
+   Lighter version of float animation
+   Used for background overlays in hero sections
+   =============================================== */
+
+@keyframes subtleFloat {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+
+/* ===============================================
+   8.4 FADE IN (Content Appearance)
+   
+   Smooth fade and slide up effect
+   Used when switching tabs or revealing content
+   =============================================== */
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(5px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+
+/* ===============================================
+   8.5 REDUCED MOTION SUPPORT
+   
+   Respects user's motion preferences
+   Disables animations for accessibility
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  body {
+    animation: none !important;
+  }
+  
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+}
+
+
+/* ===============================================
+   8.6 HIGH CONTRAST MODE
+   
+   Adjustments for users with contrast preferences
+   Ensures readability in high contrast mode
+   =============================================== */
+
+@media (prefers-contrast: high) {
+  .feature-box {
+    border: 2px solid var(--primary-color) !important;
+  }
+  
+  .contact-container::before {
+    display: none !important;
+  }
+}
+
+
+/* ===============================================
+   8.7 USAGE NOTES
+   
+   ANIMATION PRINCIPLES:
+   - Subtle and purposeful, not distracting
+   - Durations between 0.2s - 15s depending on purpose
+   - Always provide reduced-motion alternative
+   
+   TO ADD NEW ANIMATION:
+   1. Define @keyframes with descriptive name
+   2. Apply to element: animation: name duration easing iteration
+   3. Test with reduced-motion preference enabled
+   
+   TRANSITION VS ANIMATION:
+   - Transition: responds to state change (hover, focus)
+   - Animation: runs independently or on loop
+   
+   PERFORMANCE TIPS:
+   - Animate transform and opacity (GPU accelerated)
+   - Avoid animating width, height, margin (causes reflow)
+   - Use will-change sparingly for complex animations
+   
+   ACCESSIBILITY:
+   - Always respect prefers-reduced-motion
+   - Don't rely solely on animation to convey information
+   - Provide alternative indicators when needed
+   =============================================== */
+   
+   /*=============================================
+=     9. RESPONSIVE DESIGN                    =
+=                                             =
+=  Media queries for different screen sizes. =
+=  Mobile-first approach with breakpoints.   =
+=                                             =
+=  BREAKPOINTS:                              =
+=  - 1600px+  : Extra large (TV screens)     =
+=  - 1200-1599: Large (Desktop)              =
+=  - 992-1199 : Medium (Small laptop)        =
+=  - 768-991  : Tablet                       =
+=  - 576-767  : Large phone                  =
+=  - 481-575  : Medium phone                 =
+=  - 0-480    : Small phone                  =
+=                                             =
+=  ORDER: Largest to smallest screens        =
+=============================================*/
+
+
+/* ===============================================
+   9.1 EXTRA LARGE SCREENS (1600px and up)
+   
+   TV screens, large monitors
+   Everything scales UP from base sizes
+   =============================================== */
 
 @media (min-width: 1600px) {
-  html { font-size: 18px; }
+  /* Base font size increase */
+  html { 
+    font-size: 18px;              /* Up from 16px */
+  }
   
-  h1 { font-size: 2.5rem; }
+  /* Heading size increases */
+  h1 { font-size: 2.5rem; }       /* Larger titles */
   h2 { font-size: 2rem; }
   h3 { font-size: 1.6rem; }
   
+  /* Homepage elements */
   .header-logo {
-    max-width: 350px;
+    max-width: 350px;             /* Larger logo */
     margin: 2.5rem auto;
   }
   
@@ -1946,10 +3520,12 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.1rem;
   }
   
+  /* Content sections */
   .content-section {
     padding: 0 3.5rem;
   }
   
+  /* Feature grid */
   .feature-grid {
     gap: 2.5rem;
     margin: 2.5rem 0;
@@ -1965,6 +3541,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.6rem;
   }
   
+  /* Hero sections */
   .hero-section {
     height: 28vh !important;
     min-height: 280px;
@@ -1979,6 +3556,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.6rem !important;
   }
   
+  /* Project hero */
   .project-hero-section {
     height: 38vh !important;
     min-height: 320px;
@@ -1990,17 +3568,39 @@ h2[data-anchor-id="resourcepage"] {
   }
 }
 
+
+/* ===============================================
+   9.2 LARGE SCREENS (1200px - 1599px)
+   
+   Standard desktop monitors
+   Slight increase from base sizes
+   =============================================== */
+
 @media (min-width: 1200px) and (max-width: 1599px) {
-  html { font-size: 17px; }
+  html { 
+    font-size: 17px;              /* Slightly larger than base */
+  }
 }
 
+
+/* ===============================================
+   9.3 MEDIUM SCREENS (768px - 1199px)
+   
+   Tablets in landscape, small laptops
+   Moderate size reduction and layout adjustments
+   =============================================== */
+
 @media (min-width: 768px) and (max-width: 1199px) {
-  html { font-size: 15px; }
+  html { 
+    font-size: 15px;              /* Smaller base */
+  }
   
+  /* Heading adjustments */
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
   h3 { font-size: 1.3rem; }
   
+  /* Homepage elements */
   .header-logo {
     max-width: 255px;
     margin: 1.7rem auto;
@@ -2025,6 +3625,7 @@ h2[data-anchor-id="resourcepage"] {
     padding: 0 2.6rem;
   }
   
+  /* Feature grid */
   .feature-grid {
     gap: 1.7rem;
     margin: 1.7rem 0;
@@ -2040,15 +3641,18 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.2rem;
   }
   
+  /* Contact page */
   .contact-container {
     height: 510px;
     width: 88%;
   }
   
+  /* Project info grid - 2 columns instead of 4 */
   .project-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  /* Hero sections */
   .hero-section {
     height: 23vh !important;
     min-height: 200px;
@@ -2074,13 +3678,25 @@ h2[data-anchor-id="resourcepage"] {
   }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  html { font-size: 14px; }
+
+/* ===============================================
+   9.4 LARGE PHONES (576px - 767px)
+   
+   Large phones in landscape, small tablets in portrait
+   Significant layout changes begin here
+   =============================================== */
+
+@media (min-width: 576px) and (max-width: 767px) {
+  html { 
+    font-size: 14px;
+  }
   
+  /* Headings */
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.4rem; }
   h3 { font-size: 1.2rem; }
   
+  /* Homepage */
   .header-logo {
     max-width: 210px;
     margin: 1.4rem auto;
@@ -2091,6 +3707,7 @@ h2[data-anchor-id="resourcepage"] {
     margin: 1.05rem 0 2.1rem 0 !important;
   }
   
+  /* Buttons stack vertically */
   .header-links {
     flex-direction: column;
     align-items: center;
@@ -2109,6 +3726,7 @@ h2[data-anchor-id="resourcepage"] {
     padding: 0 2.1rem;
   }
   
+  /* Feature grid - 2 columns */
   .feature-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1.4rem;
@@ -2125,6 +3743,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1rem;
   }
   
+  /* Navbar */
   .navbar .navbar-brand img {
     max-height: 42px;
   }
@@ -2133,15 +3752,10 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.8rem;
   }
   
+  /* Contact page - single column layout */
   .contact-container {
     grid-template-columns: 1fr;
-    height: 420px;
-    width: 92%;
-  }
-  
-  .contact-container {
-    grid-template-columns: 1fr;
-    height: auto; /* Changed from fixed */
+    height: auto;
     min-height: 450px;
     width: 90%;
     margin: 1.5rem auto;
@@ -2156,11 +3770,11 @@ h2[data-anchor-id="resourcepage"] {
   }
   
   .contact-section {
-    padding: 2rem 2rem; /* More breathing room */
+    padding: 2rem 2rem;
   }
   
   .contact-section h2 {
-    font-size: 1.6rem; /* Slightly smaller than desktop */
+    font-size: 1.6rem;
     margin-bottom: 1rem;
   }
   
@@ -2180,10 +3794,12 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.95rem;
   }
   
+  /* Project info - 2 columns */
   .project-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
+  /* Hero sections */
   .hero-section {
     height: 22vh !important;
     min-height: 180px;
@@ -2204,35 +3820,20 @@ h2[data-anchor-id="resourcepage"] {
     padding: 2.1rem 1.4rem;
   }
   
-  /* .project-hero-section {
-    min-height: 28vh;
-    padding: 2.1rem 1.4rem;
-  } */
-  
-   /* .project-hero-section {
-    min-height: 280px !important;
-    height: auto !important;
-    padding: 2rem 1rem;
-  } 
-  
-  /*.project-hero-content {
-    font-size: 1.3rem !important;
-  } */ 
-  
-  /* Project hero title scaling for tablets */
   .project-hero-content {
     max-width: 95%;
-    font-size: 1.4rem !important;  // Add this line
+    font-size: 1.4rem !important;
     padding-top: 0.5rem !important;
   }
   
   .project-hero-title {
-    font-size: 1.3rem !important;  // Slightly larger than 1.2rem for tablets
+    font-size: 1.3rem !important;
     line-height: 1.35 !important;
     padding-bottom: 1rem !important;
   }
   
-    .resources-container {
+  /* Resources container */
+  .resources-container {
     margin: 0 0.7rem;
     border-radius: 8px;
   }
@@ -2242,7 +3843,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.85rem;
   }
   
- .resources-container .tab-content {
+  .resources-container .tab-content {
     padding: 1.4rem 1.05rem;
   }
   
@@ -2250,8 +3851,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1rem;
   }
   
-  /*----------------------------------------------
-  /* Scale down ALL body text and content */
+  /* Scale down body text */
   body {
     font-size: 0.9rem !important;
   }
@@ -2260,7 +3860,6 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.9rem !important;
   }
   
-  /* Section headings */
   h2 {
     font-size: 1.3rem !important;
   }
@@ -2269,13 +3868,11 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 1.1rem !important;
   }
   
-  /* Project hero title */
   .project-hero-content,
   .project-hero-content p {
     font-size: 1.4rem !important;
   }
   
-  /* Main content areas */
   .main-content-container,
   .main-content-container p,
   .abstract-section p,
@@ -2284,28 +3881,36 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.9rem !important;
   }
   
-  /* Lists */
   ul li,
   ol li {
     font-size: 0.85rem !important;
   }
   
-  /* Info cards */
   .info-card p,
   .info-card div {
     font-size: 0.75rem !important;
   }
 }
-  
 
 
-@media (max-width: 480px) {
-  html { font-size: 13px; }
+/* ===============================================
+   9.5 SMALL PHONES (up to 575px)
+   
+   Standard mobile phones
+   Single column layout, maximum simplification
+   =============================================== */
+
+@media (max-width: 575px) {
+  html { 
+    font-size: 13px;
+  }
   
+  /* Headings */
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1.2rem; }
   h3 { font-size: 1rem; }
   
+  /* Homepage */
   .header-logo {
     max-width: 150px;
     margin: 1rem auto;
@@ -2338,6 +3943,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.9rem;
   }
   
+  /* Feature grid - single column */
   .feature-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -2354,6 +3960,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.9rem;
   }
   
+  /* Navbar */
   .navbar {
     padding: 0.5rem 0.75rem;
   }
@@ -2367,35 +3974,23 @@ h2[data-anchor-id="resourcepage"] {
     max-width: 150px;
   }
   
+  /* Contact page */
   .contact-container {
     width: 95%;
-    height: 300px;
-    margin: 0.5rem auto;
-  }
-  
-  .contact-container::before {
-    width: 35%;
-    height: 25%;
-    bottom: -5%;
-    right: -5%;
-  }
-  
-  .contact-container {
-    width: 95%;
-    height: auto; /* Remove fixed height */
-    min-height: 450px; /* Ensure enough space */
+    height: auto;
+    min-height: 450px;
     margin: 1rem auto;
-    grid-template-columns: 1fr; /* Single column - remove logo side */
+    grid-template-columns: 1fr;
     padding: 0;
   }
   
-  /* Hide the decorative logo on mobile - it interferes with readability */
+  /* Hide decorative logo on mobile */
   .contact-container::before {
     display: none !important;
   }
   
   .contact-section {
-    padding: 1.8rem 1.5rem; /* Good padding for text */
+    padding: 1.8rem 1.5rem;
     min-height: auto;
   }
   
@@ -2428,12 +4023,9 @@ h2[data-anchor-id="resourcepage"] {
   .contact-buttons .primary-button {
     padding: 0.8rem 1.3rem;
     font-size: 0.95rem;
-  }  
-  /*.project-hero-section {
-    min-height: 20vh;
-    padding: 1.5rem 1rem;
-  } */ 
+  }
   
+  /* Project hero */
   .project-hero-section {
     min-height: 260px !important;
     height: auto !important;
@@ -2447,6 +4039,7 @@ h2[data-anchor-id="resourcepage"] {
     padding-bottom: 0.75rem !important;
   }
   
+  /* Project info - single column */
   .project-info-grid {
     grid-template-columns: 1fr;
   }
@@ -2465,6 +4058,7 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.6rem;
   }
   
+  /* Hero sections */
   .hero-section {
     height: 20vh !important;
     min-height: 160px;
@@ -2473,7 +4067,6 @@ h2[data-anchor-id="resourcepage"] {
   
   .hero-title {
     font-size: 1.2rem !important;
-    
   }
   
   .hero-tagline {
@@ -2488,11 +4081,11 @@ h2[data-anchor-id="resourcepage"] {
   
   .project-hero-content {
     font-size: 1rem !important;
-  } 
+  }
   
-  /* ==========================================
-     RESOURCES CONTAINER - COMPLETE MOBILE RULES
-     ========================================== */
+  /* ========================================
+     RESOURCES CONTAINER - COMPLETE MOBILE 
+     ======================================== */
   
   /* Main container */
   .resources-container {
@@ -2511,7 +4104,7 @@ h2[data-anchor-id="resourcepage"] {
     width: 100% !important;
   }
   
-  /* Tab Navigation */
+  /* Tab Navigation - stack vertically */
   .tab-navigation {
     flex-direction: column !important;
     width: 100% !important;
@@ -2527,7 +4120,7 @@ h2[data-anchor-id="resourcepage"] {
     min-height: 3rem !important;
   }
   
-.resources-container .tab-content {
+  .resources-container .tab-content {
     padding: 1rem 0.75rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -2641,7 +4234,7 @@ h2[data-anchor-id="resourcepage"] {
     padding: 0 0.75rem !important;
   }
   
-  /* Scale down ALL body text and content for mobile */
+  /* Scale down ALL body text for mobile */
   body {
     font-size: 0.85rem !important;
   }
@@ -2650,7 +4243,6 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.85rem !important;
   }
   
-  /* Section headings - make them smaller */
   h2 {
     font-size: 1.1rem !important;
   }
@@ -2659,13 +4251,11 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.95rem !important;
   }
   
-  /* Project hero title */
   .project-hero-content,
   .project-hero-content p {
     font-size: 1.1rem !important;
   }
   
-  /* Main content areas */
   .main-content-container,
   .main-content-container p,
   .abstract-section p,
@@ -2677,7 +4267,6 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.8rem !important;
   }
   
-  /* Lists */
   ul li,
   ol li {
     font-size: 0.75rem !important;
@@ -2699,7 +4288,6 @@ h2[data-anchor-id="resourcepage"] {
   .criteria-box li {
     font-size: 0.75rem !important;
   }
-  
   
   /* Fix process steps wrapping */
   .process-steps {
@@ -2754,30 +4342,165 @@ h2[data-anchor-id="resourcepage"] {
 }
 
 
+/* ===============================================
+   9.6 EXTRA SMALL PHONES (up to 400px)
+   
+   Very small devices
+   Further size reductions
+   =============================================== */
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+@media (max-width: 400px) {
+  .container-fluid {
+    padding: 0 0.25rem;
   }
   
-  body {
-    animation: none !important;
+  .title {
+    font-size: 1.4rem;
   }
   
-  body::before,
-  body::after {
-    animation: none !important;
+  .search-section {
+    padding: 0.5rem;
+  }
+  
+  .filter-tab {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .form-control, .search-input {
+    padding: 0.6rem;
+    font-size: 16px;              /* Prevent iOS zoom */
+  }
+  
+  .lma-entry {
+    padding: 0.75rem;
+  }
+  
+  .lma-title {
+    font-size: 1.1rem;
+  }
+  
+  .lma-meta {
+    font-size: 0.7rem;
+  }
+  
+  .lma-abstract {
+    font-size: 0.8rem;
   }
 }
 
-@media (prefers-contrast: high) {
-  .feature-box {
-    border: 2px solid var(--primary-color) !important;
+
+/* ===============================================
+   9.7 LARGE SCREENS (1400px and up)
+   
+   TV screens and very large monitors
+   Additional scaling for readability
+   =============================================== */
+
+@media (min-width: 1400px) {
+  .container-fluid {
+    max-width: 1600px;
+    padding: 0 3rem;
   }
   
-  .contact-container::before {
-    display: none !important;
+  .search-section {
+    padding: 2.5rem;
+  }
+  
+  .filter-tab {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .form-control, .search-input {
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .lma-entry {
+    padding: 3rem;
+  }
+  
+  .lma-title {
+    font-size: 2rem;
+  }
+  
+  .lma-meta {
+    font-size: 1.1rem;
+  }
+  
+  .lma-abstract {
+    font-size: 1.2rem;
   }
 }
+
+
+/* ===============================================
+   9.8 LANDSCAPE ORIENTATION (Mobile)
+   
+   Mobile devices in landscape mode
+   Specific adjustments for horizontal screens
+   =============================================== */
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .search-section {
+    padding: 0.75rem 1rem;
+  }
+  
+  .filter-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .lma-entry {
+    padding: 1rem;
+  }
+  
+  .filter-panels.show {
+    max-height: 200px;
+  }
+}
+
+
+/* ===============================================
+   9.9 RESPONSIVE DESIGN NOTES
+   
+   BREAKPOINT STRATEGY:
+   - Mobile-first approach (base styles for mobile)
+   - Progressive enhancement for larger screens
+   - Focus on readability at all sizes
+   
+   COMMON PATTERNS:
+   - Grids: 3+ columns → 2 columns → 1 column
+   - Text: Larger on big screens, smaller on mobile
+   - Spacing: More padding on desktop, less on mobile
+   - Navigation: Horizontal on desktop, vertical/hamburger on mobile
+   
+   TOUCH TARGETS:
+   - Minimum 44x44px for clickable elements on mobile
+   - Larger buttons and links on touch devices
+   - More spacing between interactive elements
+   
+   FONT SIZING:
+   - Use 16px minimum on inputs to prevent iOS zoom
+   - Scale base font-size via html element
+   - Use rem units for proportional scaling
+   
+   TESTING CHECKLIST:
+   □ Test on actual devices, not just browser resize
+   □ Check both portrait and landscape orientations
+   □ Verify touch targets are adequate size
+   □ Ensure text is readable without zooming
+   □ Test with different font size preferences
+   □ Check for horizontal scrolling issues
+   
+   WHY !important IN SOME MOBILE STYLES:
+   Ensures mobile styles override desktop defaults
+   Use only when cascade alone isn't sufficient
+   
+   PERFORMANCE CONSIDERATIONS:
+   - Mobile users may have slower connections
+   - Consider lazy loading images
+   - Minimize animation on mobile
+   - Test on actual mobile networks
+   =============================================== */
