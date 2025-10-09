@@ -9,6 +9,52 @@ Stuff I need to add somewhere
 
 -   If you want to add a file that you do not want to render or deploy add it to .gitignore. And the quarto.yml file that structures the platform has been directed to ignore files that begins with underscore \_ e.g. I have the \_recoveryfile.qmd that I use to save script before doing bigger changes so that if the new changes messes up something I can very easily retrieve the old code that did work. I also use this for the template to the project pages.
 
+-   CSS shorthand rules
+
+    -   margin shorthand rules:
+
+        **1 value:** `margin: 10px;`
+
+        -   
+
+        -   All 4 sides get 10px
+
+        -   
+
+        **2 values:** `margin: 10px 20px;`
+
+        -   
+
+        -   First value (10px) = top AND bottom
+
+        -   
+
+        -   Second value (20px) = left AND right
+
+        -   
+
+        **3 values:** `margin: 10px 20px 30px;`
+
+        -   
+
+        -   First = top
+
+        -   
+
+        -   Second = left AND right
+
+        -   
+
+        -   Third = bottom
+
+        -   
+
+        **4 values:** `margin: 10px 20px 30px 40px;`
+
+        -   
+
+        -   Goes clockwise: top, right, bottom, left (like a clock starting at 12)
+
 ### Table of content
 
 1.  Important information

@@ -1,5 +1,4 @@
 ---
-title: "Living Meta-Analysis Directory"
 format: 
   html:
     page-layout: full 

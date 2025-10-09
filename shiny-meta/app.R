@@ -61,7 +61,8 @@ ui <- fluidPage(
       
       /* ===== SEARCH INPUT STYLING ===== */
       .form-control, .search-input {
-        border: 2px solid var(--primary-blue) !important;
+        border: var(--gray-600) !important;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;
         border-radius: 6px;
         padding: 0.75rem 1rem;
         transition: all 0.3s ease;
@@ -70,10 +71,10 @@ ui <- fluidPage(
       }
 
       .form-control:focus, .search-input:focus {
-        border-color: var(--primary-blue) !important;
-        box-shadow: 0 0 0 0.2rem rgba(10, 42, 94, 0.25) !important;
-        outline: none;
-        background: white;
+        border-color: var(--gray-600) !important;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05) !important;
+        outline: none !important;
+        background: #fafafa;
       }
 
       .form-control::placeholder, .search-input::placeholder {
@@ -85,7 +86,7 @@ ui <- fluidPage(
       .title {
         font-size: 2.5rem;
         color: var(--primary-blue);
-        margin: 1rem 0;
+        margin: 9rem 0 0.5rem 0;
         font-weight: 700;
         text-align: center;
         letter-spacing: -0.025em;
@@ -104,9 +105,11 @@ ui <- fluidPage(
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         margin: 1rem auto;
         max-width: 1600px;
+        width: 100%;
+        box-sizing: border-box;
         flex-shrink: 0;
       }
-      
+            
       /* Horizontal filter tabs - simplified design */
       .filter-tabs {
         display: flex;
@@ -198,11 +201,22 @@ ui <- fluidPage(
         color: var(--gray-700);
         margin-bottom: 0.5rem;
         cursor: pointer;
-        transition: color 0.2s ease;
+        transition: all 0.2s ease;
         font-size: 1.2rem;
         display: flex;
         align-items: center;
         line-height: 1.4;
+        touch-action: manipulation;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        white-space: normal;
+        border-radius: 4px;
+      }
+      
+      .shiny-input-checkboxgroup label:hover {
+        background: rgba(10, 42, 94, 0.05);
       }
       
       .shiny-input-checkboxgroup label:hover {
@@ -505,6 +519,31 @@ ui <- fluidPage(
           text-align: center;
           margin: 0;
         }
+        
+        .selectize-dropdown {
+          position: fixed !important;
+          z-index: 10000 !important;
+          max-height: 300px !important;
+          overflow-y: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+        }
+  
+        .selectize-input {
+          z-index: 9999 !important;
+        }
+        
+  /* Prevent dropdown from closing too quickly */
+  .selectize-dropdown-content {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Make dropdown items more touchable */
+  .selectize-dropdown .option {
+    padding: 12px 15px !important;
+    min-height: 44px !important;
+    line-height: 20px !important;
+  }
         
         .search-section {
           padding: 1rem;
@@ -1140,11 +1179,11 @@ ui <- fluidPage(
   });
 "))
 )  
-  
+
 #====================================================== Server section ==============================# 
 server <- function(input, output, session) {
-    # Extend session timeout
-    session$allowReconnect(TRUE)
+  # Extend session timeout
+  session$allowReconnect(TRUE)
   `%||%` <- function(x, y) {
     if (is.null(x)) y else x
   }
@@ -1745,7 +1784,7 @@ server <- function(input, output, session) {
     }
     
     # Hide template entry unless specifically searching for it
-    template_files <- c("lma-template.qmd", "template.qmd", "Template.qmd")
+    template_files <- c("_lma-template.qmd", "lma-template.qmd", "template.qmd", "Template.qmd")
     if (!grepl("template", tolower(input$search_text %||% ""))) {
       meta_df <- meta_df[!meta_df$Filename %in% template_files, ]
       # Also check title for template patterns
