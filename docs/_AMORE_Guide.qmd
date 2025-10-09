@@ -196,7 +196,18 @@ cd AMORE-webpage
 
 **Install all required packages:**
 
-Open `Setup.R` and run the entire script. This installs:
+Open `Setup.R` and run the entire script.
+
+```{r}
+#| label: Setup script for dependencies 
+#| direction: copy paste into r console 
+#| eval: false 
+#| echo: true 
+
+source("Setup.R")
+```
+
+The setup.R script installs:
 
 **Core packages:**
 
@@ -218,23 +229,9 @@ Open `Setup.R` and run the entire script. This installs:
 
 -   Loading libraries
 
--   Setting up TinyTeX distribution
-
-**Run once after cloning:**
-
-```{r}
-#| label: Setup script for dependencies 
-#| eval: false 
-#| echo: true 
-
-source("Setup.R")
-```
-
-### 2.3 Verify Installation
+-   Setting up TinyTeX distribution2.3 Verify Installation
 
 **Test that everything works:**
-
-r console
 
 ```{r}
 #| label: Verify installation in r console 
@@ -253,18 +250,43 @@ source("Setup.R") sync_styles() # Test sync_styles function
 #| eval: false
 #| echo: true 
 
-AMORE/
+AMORE-webpage/
 ├── index.qmd                          # Homepage (root level)
-├── _quarto.yml                        # Main config
+├── _quarto.yml                        # Main configuration file
 ├── LICENSE
 ├── README.md
 ├── .gitignore
+├── .node-version
 ├── package.json
-├── AMORE.Rproj
+├── netlify.toml                       # Netlify deployment config
+├── netlify-setup-quarto.sh            # Quarto setup for Netlify
+├── install-quarto.sh                  # Quarto installation script
+├── AMORE.Rproj                        # RStudio project file
+│
+├── $HOME/                             # Home directory cache
+│   └── .local/
+│       └── bin/
+│
+├── .quarto/                           # Quarto build cache (auto-generated)
+│   ├── idx/                           # Index files
+│   ├── xref/                          # Cross-references
+│   ├── listing/
+│   ├── preview/
+│   └── _freeze/
 │
 ├── assets/
 │   ├── favicons/                      # All favicon files
+│   │   ├── favicon.ico
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-96x96.png
+│   │   ├── site.webmanifest
+│   │   └── amore.favicon.ico
+│   │
 │   ├── images/                        # Logo and visual assets
+│   │   ├── logo.unfinished_nowhite- Copy.png
+│   │   ├── LiMAs.jpg
+│   │   └── [other image files]
+│   │
 │   └── styles/
 │       └── styles.scss                # Main stylesheet
 │
@@ -278,53 +300,115 @@ AMORE/
 │   └── Standardization.qmd
 │
 ├── LMAs/                              # Living Meta-Analysis projects
-│   ├── lma-template.qmd
+│   ├── _lma-template.qmd              # Template for new LMAs
 │   ├── Kang_non-social_executive_function.qmd
-│   ├── moxnes_perinatal_oxytocin.qmd
-│   └── styles.scss                    #
+│   └── moxnes_perinatal_oxytocin.qmd
 │
-├── docs/                              # Documentation
-│   ├── AMORE_Guide.qmd
-│   └── Testfile.qmd
+├── docs/                              # Documentation (working files)
+│   ├── _AMORE_Guide.qmd               # Website management guide
+│   ├── _recoveryfile.app.qmd
+│   └── _recoveryfile.qmd
 │
 ├── scripts/                           # Utility scripts
-│   ├── Setup.R
-│   └── sync-styles.bat
-│
-├── deployment/                        # Deployment configs
-│   ├── netlify.toml
-│   ├── netlify-setup-quarto.sh
-│   └── install-quarto.sh
+│   └── Setup.R                        # R dependencies installer
 │
 ├── shiny-meta/                        # Shiny application
-│   ├── app.R
-│   ├── deploy.R
-│   ├── README.md
-│   ├── rsconnect/
-│   └── www/
+│   ├── app.R                          # Main Shiny app
+│   ├── deploy.R                       # Deployment script
+│   ├── README.md                      # Shiny app documentation
+│   │
+│   ├── rsconnect/                     # Shiny deployment config
+│   │   └── shinyapps.io/
+│   │       └── meta-oxytocin/
+│   │           └── shiny-meta.dcf
+│   │
+│   └── www/                           # Shiny app assets
+│       └── amore.favicon.ico
 │
-└── _site/                             # Generated site (output)
+└── _site/                             # Generated website (DO NOT EDIT)
+    ├── index.html
+    ├── search.json
+    ├── assets/
+    ├── pages/
+    ├── LMAs/
+    ├── shiny-meta/
+    └── site_libs/
 ```
 
-## 3.? File-by-file breakdown
+### 3.1 File-by-file breakdown
 
-### 3.1 .gitignore Explained
+#### 3.1.1 Root files (files that are in the root folder AMORE-webpage) 
+
+**3.1.1.1 index.qmd**
+
+**3.1.1.2 \_quarto.yml**
+
+**3.1.1.3 LICENSE**
+
+**3.1.1.4 README.md**
+
+**3.1.1.5 .gitignore**
 
 **Purpose:** Tells Git which files to ignore (not track/commit).
 
-**Current exclusions:**
-
-```{bash}
+```{r}
 #| label: .gitignore contents
 #| eval: false
 #| echo: true
 
-.Rproj.user/      # RStudio project files
-.Rhistory         # R command history
-.RData            # R workspace data
-.Ruserdata        # User-specific R settings
-/_quarto/         # Quarto cache
-**/_quarto_internal_scss_error.scss  # Temporary error files
+# R files
+*.log
+*.tex
+*.aux
+.Rproj.user
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Quarto and website specific files
+_site/
+/.quarto/
+*_cache/
+*.bak
+*_error.scss
+*.backup
+*.ipynb
+/_site/
+/_freeze/
+/_book/
+/*_files/
+
+# Generated HTML files in SOURCE directories (not _site)
+/*.html
+/pages/*.html
+/LMAs/*.html
+/docs/*.html
+
+# Generated dependency folders in SOURCE directories
+/*_files/
+/pages/*_files/
+/LMAs/*_files/
+/docs/*_files/
+
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+
+docs/_recoveryfile.qmd
+docs/_recoveryfile.app.qmd
+
+# Generated files
+_quarto_internal_scss_error.scss
+
+# Backup files
+*.backup
+*.bak
 ```
 
 **Why exclude these:**
@@ -345,9 +429,7 @@ AMORE/
 
 -   Assets (images, logos)
 
-### 3.2 styles.scss Deep Dive
-
-3.3 How the app.R filter and search functions with the app.R
+### 
 
 ## 4. Styling system SCSS
 
