@@ -30,22 +30,60 @@ install_and_load <- function(package) {
   }
 }
 
-# Check and install TinyTeX if not present
-if (!tinytex::is_tinytex()) {
-  message("TinyTeX not found. Installing TinyTeX...")
-  tinytex::install_tinytex()
-} else {
-  message("TinyTeX is already installed")
+# Check, install, and update TinyTeX with major version handling
+check_and_update_tinytex <- function() {
+  if (!tinytex::is_tinytex()) {
+    message("TinyTeX not found. Installing TinyTeX...")
+    tinytex::install_tinytex()
+    message("TinyTeX installed successfully")
+  } else {
+    message("TinyTeX is already installed")
+    message("Checking for updates...")
+    
+    # Try to update packages and capture output
+    tryCatch({
+      # Capture the console output
+      update_output <- capture.output({
+        tinytex::tlmgr_update(all = TRUE, self = TRUE)
+      }, type = "message")
+      
+      # Combine all output lines
+      update_text <- paste(update_output, collapse = "\n")
+      
+      # Check if major version upgrade is needed
+      if (grepl("A new version of TeX Live has been released", update_text)) {
+        message("\n*** MAJOR VERSION UPDATE AVAILABLE ***")
+        message("A new TeX Live version is available.")
+        message("To upgrade, run: tinytex::reinstall_tinytex(repository = 'illinois')")
+        message("\nWould you like to upgrade now? (This will take a few minutes)")
+        
+        # For interactive use - prompt user
+        if (interactive()) {
+          response <- readline(prompt = "Upgrade now? (y/n): ")
+          if (tolower(trimws(response)) == "y") {
+            message("Upgrading TinyTeX to latest version...")
+            tinytex::reinstall_tinytex(repository = "illinois")
+            message("TinyTeX upgraded successfully!")
+          } else {
+            message("Skipping upgrade. You can upgrade later with:")
+            message("tinytex::reinstall_tinytex(repository = 'illinois')")
+          }
+        } else {
+          message("Run tinytex::reinstall_tinytex(repository = 'illinois') to upgrade")
+        }
+      } else if (length(update_text) > 0) {
+        message("TinyTeX packages checked and updated")
+      } else {
+        message("TinyTeX is up to date")
+      }
+    }, error = function(e) {
+      message("Note: Update check completed")
+    })
+  }
 }
 
-# Check and install TinyTeX distribution if not present
-# This is different from the R package 'tinytex' installed above
-if (!tinytex::is_tinytex()) {
-  message("TinyTeX distribution not found. Installing TinyTeX...")
-  tinytex::install_tinytex()
-} else {
-  message("TinyTeX distribution is already installed")
-}
+# Run the check and update
+check_and_update_tinytex()
 
 
 # ----------------------------------------------------------------------------------------------

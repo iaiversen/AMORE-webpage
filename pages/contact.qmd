@@ -1,29 +1,24 @@
 ---
-format:
+title: "new_contact"
+format: 
   html:
-    page-layout: full
-    title-block-banner: false 
-    title-block-style: none 
+    page-layout: full 
+    container-fluid: true
 ---
 
-::: {.contact-container}
+<style>
+body {
+  background: white !important;
+  animation: none !important;
+}
+</style>
 
-::: {.contact-section}
-## Connect With Us 
-We have three form options for you to choose from. By clicking the contact button, you will be redirected to our three forms.
+```{=html}
+<script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
 
-- **Propose your project**: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.
-- **Update an existing living meta-analysis**: If you have an existing living meta-analysis that you would like to update, please select this option.
-- **General inquiry**: If you have any other questions or inquiries, please select this option.
-
-We will get back to you as soon as possible to discuss the details and answer any questions you may have.
-
-
-::: {.contact-buttons}
-[Contact Form](https://nettskjema.no/a/492183){.primary-button target="_blank"}
-:::
-
-
-
-:::
-:::
+<iframe class="nettskjema-iframe" 
+        src="https://nettskjema.no/a/492183?embed=1" 
+        title="Contact form AMORE" 
+        frameborder="0" 
+        width="100%">
+</iframe>

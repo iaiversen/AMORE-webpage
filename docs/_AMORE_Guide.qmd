@@ -5,7 +5,7 @@ format: pdf
 editor: visual
 ---
 
-### List of stuff I need to add somewhere into this document: 
+### List of stuff I need to add somewhere into this document:
 
 -   If you want to add a file that you do not want to render or deploy add it to .gitignore. Also, the quarto.yml file that structures the platform has been directed to ignore files that begins with underscore \_ e.g. I have the \_recoveryfile.qmd that I use to save script before doing bigger changes so that if the new changes messes up something I can very easily retrieve the old code that did work. I also use this for the template to the project pages.
 
@@ -13,7 +13,7 @@ editor: visual
 
 1.  Important information
 2.  Getting started
-3.  Project structure overview
+3.  Project structure and file explanations
 4.  Styling system SCSS
 5.  Adding new projects
 6.  website maintenance
@@ -47,21 +47,21 @@ AMORE-webpage repository has the MIT license. It gives open access. The LICENSE 
 
 Three platforms work together:
 
-#### GitHub (Version Control & Collaboration)
+**GitHub (Version Control & Collaboration)**
 
 Repository: iaiversen/AMORE-webpage Stores all source code Tracks changes with commit history Enables collaboration through pull requests Important: Never commit sensitive data (API keys, passwords)
 
-#### ShinyApps.io (Shiny App Hosting)
+**ShinyApps.io (Shiny App Hosting)**
 
 Hosts the Living Meta-Analysis directory (app.R) Free tier limitations: limited active hours, connection timeouts URL: https://meta-oxytocin.shinyapps.io/shiny-meta/ Embedded in Living_meta-analysis_Directory.qmd via iframe
 
-#### Netlify (Website Hosting)
+**Netlify (Website Hosting)**
 
 Automatically deploys from GitHub Builds site from \_site folder after Quarto render Domain: amore-project.org Configuration in netlify.toml
 
-#### Deployment workflow:
+**Deployment workflow:**
 
-Make changes locally in RStudio Test by rendering (quarto render or Render button) Commit and push to GitHub. Netlify automatically rebuilds and deploys. For Shiny app: Deploy separately using rsconnect::deployApp()
+Make changes locally in RStudio. Test by rendering (quarto render or Render button) Commit and push to GitHub. Netlify automatically rebuilds and deploys. For Shiny app: Deploy separately using rsconnect::deployApp() or push publish button in the right top corner of the terminal.
 
 #### 1.3.1 Netlify login and important
 
@@ -90,32 +90,6 @@ The languages used:
 -   R: Shiny app backend, data processing, and setup scripts
 
 -   HTML: Embedded within Quarto files for custom components Shell scripts: Deployment and automation tasks
-
-#### 1.4.2
-
-To use a specific language just encompass the code chunk in the right way for example like the r code here or html. Quarto specific language does not need any specifications.
-
-```{r}
-#| label: Setup script for dependencies 
-#| eval: false 
-#| echo: true 
-
-Here I write r code
-```
-
-````{=html}
-To write html code encapsle the code in 
-
-```{=html}
-
-Inside here write html code 
-
-```
-````
-
-#### Why multiple languages? Each serves a specific purpose:
-
-Quarto allows academic content with citations and technical writing SCSS provides maintainable, organized styling with variables JavaScript enables interactivity (filter tabs, pagination) R powers the dynamic Living Meta-Analysis directory HTML gives precise control over structure when needed
 
 ### 1.5 Nettskjema
 
@@ -243,7 +217,7 @@ quarto::quarto_render("index.qmd") # Test rendering a single page
 source("Setup.R") sync_styles() # Test sync_styles function
 ```
 
-## 3. Project structure overview
+## 3. Project structure and file explanations
 
 ```{bash}
 #| label: Root folder (AMORE-webpage) and the file structure
@@ -262,10 +236,6 @@ AMORE-webpage/
 ├── netlify-setup-quarto.sh            # Quarto setup for Netlify
 ├── install-quarto.sh                  # Quarto installation script
 ├── AMORE.Rproj                        # RStudio project file
-│
-├── $HOME/                             # Home directory cache
-│   └── .local/
-│       └── bin/
 │
 ├── .quarto/                           # Quarto build cache (auto-generated)
 │   ├── idx/                           # Index files
@@ -335,21 +305,101 @@ AMORE-webpage/
     └── site_libs/
 ```
 
-### 3.1 File-by-file breakdown
+### 3.1 Root files
 
-#### 3.1.1 Root files (files that are in the root folder AMORE-webpage) 
+Root files are located directly in the `AMORE-webpage/` folder. These files control the fundamental behavior, configuration, and metadata of the entire website project. They define how the site is built, deployed, and maintained.
 
-**3.1.1.1 index.qmd**
+**Key characteristics of root files:**
 
-**3.1.1.2 \_quarto.yml**
+-   Control project-wide settings and behavior
 
-**3.1.1.3 LICENSE**
+-   Required for the website to function properly
 
-**3.1.1.4 README.md**
+-   Should be modified carefully as changes affect the entire site
 
-**3.1.1.5 .gitignore**
+-   Most are configuration or metadata files (not content)
 
-**Purpose:** Tells Git which files to ignore (not track/commit).
+#### **3.1.1 index.qmd**
+
+The homepage of the AMORE website. This is the first page visitors see when they navigate to <https://amore-project.org>.
+
+**Type:** Quarto markdown document (content file)
+
+**CSS classes used directly in index.qmd:**
+
+-   `.content-section` - Main container with transparent background on gradient
+
+-   `.header-logo` - Logo image styling (centering, max-width)
+
+-   `.subtitle-text` - Centered white subtitle text with specific font size
+
+-   `.primary-button` - Call-to-action button styling
+
+-   `.contact-buttons` - Button container for centering
+
+-   `.BNL-text` - Text styling for lab attribution
+
+**Global styles that also affect this page:**
+
+-   `body` - Gradient animated background (visible behind `.content-section`)
+
+-   Typography rules (`p`, `a`, headings)
+
+-   `.primary-button:hover` - Hover effects on the CTA button
+
+-   Responsive breakpoints that adjust layout on mobile/tablet
+
+#### **3.1.2 \_quarto.yml**
+
+The main configuration file that controls how the entire website is built and structured.
+
+**Type:** YAML configuration file
+
+**Important notes:**
+
+-   Changes here affect the **entire site**
+
+-   Always test after editing with `quarto preview`
+
+-   Incorrect YAML indentation will break the site
+
+-   Navbar order controls menu item order
+
+#### **3.1.3 LICENSE**
+
+Defines the legal terms under which the AMORE website code and content can be used, modified, and distributed.
+
+**Type:** Plain text legal document
+
+**License**: MIT open source license. [MIT license explanations](https://tlo.mit.edu/understand-ip/exploring-mit-open-source-license-comprehensive-guide).
+
+#### **3.1.1.4 README.md**
+
+Brief description of the AMORE website project displayed on the GitHub repository page.
+
+**Type:** Markdown document
+
+**Purpose:**
+
+-   First thing people see on GitHub
+
+-   Explains what the project is
+
+#### **3.1.5 .gitignore**
+
+**Purpose:** Tells Git which files and folders to ignore (not track or upload to GitHub).
+
+**Type:** Plain text configuration file
+
+**Purpose:**
+
+-   Keeps repository clean
+
+-   Prevents uploading generated/temporary files
+
+-   Reduces repository size
+
+-   Protects sensitive information
 
 ```{r}
 #| label: .gitignore contents
@@ -429,7 +479,410 @@ _quarto_internal_scss_error.scss
 
 -   Assets (images, logos)
 
-### 
+#### **3.1.6 .node-version**
+
+Specifies which Node.js version to use for building the website.
+
+**Type:** Plain text version file
+
+**Purpose:**
+
+-   Ensures consistent Node.js version across environments
+
+-   Used by Netlify during deployment
+
+-   Prevents version compatibility issues
+
+**Current content:**
+
+-   Single line with Node.js version number (e.g., "16")
+
+**When to edit:**
+
+-   Updating Node.js requirements
+
+-   Fixing deployment issues related to Node.js version
+
+-   Usually leave unchanged unless necessary
+
+#### 3.1.7 Package.json
+
+Defines npm scripts and Node.js dependencies for building and deploying the website.
+
+**Type:** JSON configuration file
+
+**Purpose:**
+
+-   Contains build scripts for Netlify automated deployment
+
+-   Manages project metadata
+
+-   Defines commands to install Quarto and render the site
+
+**Key sections:**
+
+-   `name:` - Project identifier "amore-project"
+
+-   `version:` - Project version number
+
+-   `scripts:` - Build commands
+
+    -   `prebuild` - Installs Quarto before building
+
+    -   `build` - Renders the Quarto site
+
+#### 3.1.8 netlify.toml
+
+Configuration file for Netlify deployment settings.
+
+**Type:** TOML configuration file
+
+**Purpose:**
+
+-   Tells Netlify how to build and deploy the website
+
+-   Specifies build commands and output directory
+
+-   Sets environment variables
+
+**Key settings:**
+
+-   `publish = "_site"` - Where built files are located
+
+-   `command = "npm run build"` - Build command to execute
+
+-   `NODE_VERSION = "16"` - Node.js version for building
+
+#### 3.1.9 netlify-setup-quarto.sh
+
+Bash script that installs Quarto on Netlify's build servers.
+
+**Type:** Shell script (`.sh`)
+
+**Purpose:**
+
+-   Downloads and installs specific Quarto version
+
+-   Runs during Netlify build process
+
+-   Ensures Quarto is available for rendering
+
+**Key actions:**
+
+-   Downloads Quarto v1.3.450 tarball
+
+-   Extracts and installs to `~/.local/quarto`
+
+-   Creates symbolic link to binary
+
+-   Verifies installation
+
+**Version note:**
+
+-   Script uses v1.3.450 for Netlify deployment
+
+-   Local development can use newer Quarto versions
+
+-   Version mismatch did not cause issued for myself, but if rendering issues, perhaps look into this
+
+**Important:**
+
+-   Called by `package.json` prebuild script
+
+-   Must be executable (`chmod +x`)
+
+#### **3.1.10 install-quarto.sh**
+
+Bash script that installs Quarto locally (alternative installation method).
+
+**Type:** Shell script (`.sh`)
+
+**Purpose:**
+
+-   Downloads and installs Quarto v1.6.40
+
+-   For local development setup
+
+-   Installs to user's home directory
+
+**Key actions:**
+
+-   Downloads Quarto tarball from GitHub
+
+-   Extracts to `$HOME/.local/bin`., a temporary cache directory created during local Quarto installation. The \$HOME directory is safe to delete.
+
+    **Type:** System directory
+
+-   Adds to PATH
+
+-   Verifies installation with `quarto --version`
+
+**When to use:**
+
+-   Setting up development environment
+
+-   Alternative to downloading from Quarto website
+
+-   Linux/Unix systems
+
+**When to edit:**
+
+-   Updating to newer Quarto version
+
+**Note:**
+
+-   Different version than `netlify-setup-quarto.sh`
+
+-   Not used in deployment (local only)
+
+### 3.2.quarto/ folder
+
+Quarto's build cache and internal processing files (auto-generated).
+
+**Type:** System cache directory
+
+**Purpose:**
+
+-   Stores rendering cache for faster builds
+
+-   Contains cross-reference indexes
+
+-   Holds frozen computation results
+
+-   Internal Quarto processing files
+
+**Structure:**
+
+**Important notes:**
+
+-   Auto-generated - recreated on each render
+
+-   Already excluded in `.gitignore`
+
+-   **NB!** Never edit manually
+
+-   Safe to delete if troubleshooting build issues
+
+-   Speeds up subsequent renders
+
+**When to delete:**
+
+-   Fixing strange rendering errors
+
+-   Clearing cache after major changes
+
+-   Will be recreated automatically on next `quarto render`
+
+### 3.3 assets/ folder
+
+Contains all static files used across the website (images, styles, icons).
+
+Seperated into three subfolders:
+
+-   **favicorns**
+
+    -   Contains all browser icons and Progressive Web App (PWA) assets.
+
+    -   Utilized in \_quarto.yml file
+
+-   **images**
+
+    -   all images across the website are saved in this folder
+
+-   **styles**
+
+    -   Contains the styles.scss sheet that instructs the rendering process of design rules for the website
+
+### 3.4 pages/ folder
+
+Contains all main content pages of the website (except homepage).
+
+**Type:** Content directory
+
+**Purpose:**
+
+-   Houses all `.qmd` files for site pages
+
+-   Each file = one webpage
+
+-   Linked from navbar in `_quarto.yml`
+
+**Files:**
+
+-   `about.qmd` - About AMORE, mission, team, steering committee
+
+-   `contact.qmd` - Contact form links
+
+-   `guidelines.qmd` - Step-by-step workflow for publishing LMAs
+
+-   `Living_meta-analysis_Directory.qmd` - Embedded Shiny app directory
+
+-   `Protocol_checklist.qmd` - Interactive checklist tool
+
+-   `Resources.qmd` - External resources and tools
+
+-   `Standardization.qmd` - AMORE framework requirements
+
+### **3.5 LMAs/ folder**
+
+Contains all Living Meta-Analysis project pages.
+
+**Type:** Content directory (project pages)
+
+**Purpose:**
+
+-   Individual `.qmd` file for each LMA project
+
+-   Template file for creating new projects
+
+-   Fetched by Shiny app for directory listing
+
+**YAML metadata structure:** Each project file contains metadata that the Shiny app reads:
+
+**Important notes:**
+
+-   Shiny app reads these files via GitHub API
+
+-   Metadata must follow template structure
+
+-   Files starting with `_` are excluded from rendering
+
+### **3.6 docs/ folder**
+
+Contains internal documentation and working files (not published to website).
+
+**Type:** Documentation directory
+
+**Purpose:**
+
+-   Working documents for website management
+
+-   Draft files and recovery backups
+
+-   Internal guides and notes
+
+**Files:**
+
+-   `_AMORE_Guide.qmd` - Website management guide (this document)
+
+-   `_recoveryfile.qmd` - Backup/recovery file
+
+-   `_recoveryfile.app.qmd` - Backup/recovery file
+
+**Important notes:**
+
+-   Files starting with `_` are **not rendered** to website
+
+-   Already excluded in `.gitignore` (for `.html` versions)
+
+-   For internal use only
+
+-   Not linked in navbar
+
+-   Safe to add more documentation files here
+
+**When to use:**
+
+-   Creating internal documentation
+
+-   Draft content before moving to pages/
+
+-   Testing new features
+
+-   Reference materials for maintainers
+
+### **3.7 scripts/ folder**
+
+Contains utility scripts for project setup and maintenance.
+
+**Type:** Utility scripts directory
+
+**Purpose:**
+
+-   Automate setup tasks
+
+-   Maintenance scripts
+
+-   Helper utilities
+
+**Files:**
+
+-   `Setup.R` - Installs all required R packages and dependencies
+
+**Key functions in Setup.R:**
+
+-   Installs R packages (rmarkdown, knitr, shiny, quarto, etc.)
+
+-   Installs TinyTeX for PDF generation
+
+-   Checks for existing installations before installing
+
+-   Loads required libraries
+
+### **3.8 shiny-meta/ folder**
+
+Contains the Shiny application for the Living Meta-Analysis Directory.
+
+**Type:** Shiny app directory
+
+**Purpose:**
+
+-   Interactive searchable directory of all LMA projects
+
+-   Fetches project data from GitHub
+
+-   Filters and displays LMA metadata
+
+-   Deployed on shinyapps.io
+
+**Structure:**
+
+```{bash}
+#| label: shiny-meta directory 
+#| eval: false
+#| echo: true 
+
+shiny-meta/
+├── app.R           # Main Shiny application code
+├── deploy.R        # Deployment script for shinyapps.io
+├── README.md       # Shiny app documentation
+├── rsconnect/      # Deployment configuration
+└── www/            # Static assets (favicon)
+```
+
+**Key files:**
+
+-   `app.R` - Complete UI and server logic
+
+-   `deploy.R` - Contains shinyapps.io account credentials
+
+-   `rsconnect/` - Auto-generated deployment settings
+
+**How it works:**
+
+1.  app.R fetches `.qmd` files from `LMAs/` folder via GitHub API
+
+2.  Extracts YAML metadata from each project
+
+3.  Provides filtering by outcomes, population, methodology
+
+4.  Displays paginated results with links to project pages
+
+**Deployment:**
+
+-   Hosted at: <https://meta-oxytocin.shinyapps.io/shiny-meta/>
+
+-   Non-paid server at shinyapps.io, paid server will improve page loading
+
+-   Embedded in: `pages/Living_meta-analysis_Directory.qmd`
+
+**Important notes:**
+
+-   Updates automatically when new LMA files added to GitHub
+
+-   Requires shinyapps.io account for deployment
+
+-   `deploy.R` contains sensitive credentials (not for public sharing)
 
 ## 4. Styling system SCSS
 
@@ -460,3 +913,47 @@ _quarto_internal_scss_error.scss
         **4 values:** `margin: 10px 20px 30px 40px;`
 
         -   Goes clockwise: top, right, bottom, left (like a clock starting at 12)
+
+#### 4.1 styles.scss
+
+`styles.scss` - Main stylesheet (SCSS format, compiled to CSS by Quarto)
+
+**What styles.scss controls:**
+
+-   Global variables (colors, fonts)
+
+-   Typography system
+
+-   Layout components (hero sections, grids, cards)
+
+-   Navigation and footer
+
+-   Interactive elements (tabs, filters, buttons)
+
+-   Page-specific styles (index, contact, project pages)
+
+-   Responsive breakpoints (mobile, tablet, desktop)
+
+-   Animations (gradient shifts, hover effects)
+
+**Linked in:**
+
+-   `_quarto.yml` under `theme:` and `css:`
+
+-   Applied to all pages automatically
+
+**Important notes:**
+
+-   Changes affect **entire website**
+
+-   Test thoroughly after edits
+
+-   Uses SCSS features (variables, nesting)
+
+-   Compiled during `quarto render`
+
+## 5. Adding new projects
+
+## 6. Website maintenance
+
+You find the correct scss classes for the different pages under the 3.1 File-by-file breakdown under each file explanation.
