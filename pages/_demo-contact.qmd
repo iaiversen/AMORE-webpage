@@ -1,0 +1,24 @@
+---
+title: "new_contact"
+format: 
+  html:
+    page-layout: full 
+    container-fluid: true
+---
+
+<style>
+body {
+  background: white !important;
+  animation: none !important;
+}
+</style>
+
+```{=html}
+<script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
+
+<iframe class="nettskjema-iframe" 
+        src="https://nettskjema.no/a/492183?embed=1" 
+        title="Contact form AMORE" 
+        frameborder="0" 
+        width="100%">
+</iframe>
