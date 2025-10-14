@@ -21,6 +21,7 @@ When creating a project proposal for a Living Meta-Analysis in AMORE, it is esse
 ::: 
 
 ## Statistical Resources {#resourcepage}
+
 ::: {.resource-list}
 ::: {.resource-item}
 ### R and RStudio {#r-rstudio}
@@ -57,6 +58,7 @@ This textbook provides a comprehensive introduction to the principles and practi
 
 [Access the textbook](https://onlinelibrary.wiley.com/doi/epdf/10.1002/9780470743386){.resource-link target="_blank"}
 ::: 
+:::
 
 ## Additional Resources {#resourcepage}
 
