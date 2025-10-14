@@ -20,6 +20,43 @@ When creating a project proposal for a Living Meta-Analysis in AMORE, it is esse
 :::
 ::: 
 
+## Statistical Resources {#resourcepage}
+::: {.resource-list}
+::: {.resource-item}
+### R and RStudio {#r-rstudio}
+R is a programming language and software environment for statistical computing and graphics. RStudio is an integrated development environment (IDE) for R that provides a user-friendly interface for writing and executing R code. Together, they are widely used in data analysis, statistical modeling, and visualization.
+
+[Visit R Project](https://www.r-project.org/){.resource-link target="_blank"}
+[Visit RStudio](https://posit.co/download/rstudio-desktop/){.resource-link target="_blank"}
+:::
+
+### A Review of Meta-Analysis Packages in R {#r-meta-analysis-packages}
+Numerous R packages are available for conducting meta-analyses, each with its own strengths and weaknesses. This review provides an overview of some of the most commonly used packages. It discusses their features, capabilities, and limitations, helping researchers choose the most appropriate package for their specific needs.
+
+[Read the review](https://journals.sagepub.com/doi/10.3102/1076998616674315?icid=int.sj-full-text.similar-articles.2){.resource-link target="_blank"}
+::: 
+
+::: {.resource-item}
+### JASP {#jasp}
+JASP is a free and open-source statistical software that provides a user-friendly interface for conducting statistical analyses. It is designed to be easy to use, even for those with limited statistical knowledge, and offers a range of statistical tests and visualizations. 
+
+[Visit JASP](https://jasp-stats.org/){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
+### Adjusting for Publication Bias in JASP and R: Selection Models, PET-PEESE, and Robust Bayesian Meta-Analysis
+This article provides a comprehensive overview of methods for adjusting for publication bias in meta-analyses using JASP and R. It covers selection models, PET-PEESE, and robust Bayesian meta-analysis, providing practical guidance on how to implement these methods in both software environments.
+
+[Read the article](https://journals.sagepub.com/doi/10.1177/25152459221109259){.resource-link target="_blank"}
+::: 
+
+::: {.resource-item}
+### Introduction to Meta-analysis textbook {#introduction-meta-analysis}
+This textbook provides a comprehensive introduction to the principles and practices of meta-analysis. It covers topics such as effect size estimation, heterogeneity, publication bias, and advanced meta-analytic techniques. The book is suitable for researchers and students who want to learn how to conduct and interpret meta-analyses. 
+
+[Access the textbook](https://onlinelibrary.wiley.com/doi/epdf/10.1002/9780470743386){.resource-link target="_blank"}
+::: 
+
 ## Additional Resources {#resourcepage}
 
 ::: {.resource-list}
