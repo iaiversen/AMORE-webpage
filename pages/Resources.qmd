@@ -30,6 +30,7 @@ R is a programming language and software environment for statistical computing a
 [Visit RStudio](https://posit.co/download/rstudio-desktop/){.resource-link target="_blank"}
 :::
 
+::: {.resource-item}
 ### A Review of Meta-Analysis Packages in R {#r-meta-analysis-packages}
 Numerous R packages are available for conducting meta-analyses, each with its own strengths and weaknesses. This review provides an overview of some of the most commonly used packages. It discusses their features, capabilities, and limitations, helping researchers choose the most appropriate package for their specific needs.
 
