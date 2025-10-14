@@ -884,7 +884,131 @@ shiny-meta/
 
 -   `deploy.R` contains sensitive credentials (not for public sharing)
 
+### **3.1.10 \_site/ folder**
+
+Contains the generated/rendered website files (auto-generated, do not edit).
+
+**Type:** Build output directory
+
+**Purpose:**
+
+-   Final HTML files ready for deployment
+
+-   Compiled CSS and JavaScript
+
+-   Copied assets and resources
+
+-   Generated during build process
+
+**Structure:**
+
+```{bash}
+#| label: _site directory 
+#| eval: false
+#| echo: true 
+
+_site/
+├── index.html          # Rendered homepage
+├── search.json         # Search index
+├── assets/             # Copied assets
+├── pages/              # Rendered page HTML files
+├── LMAs/               # Rendered LMA project pages
+├── shiny-meta/         # Copied Shiny app files
+└── site_libs/          # Quarto dependencies (Bootstrap, JS)
+
+```
+
+**Important notes:**
+
+-   **Auto-generated** - recreated on every `quarto render`
+
+-   **Never edit files here** - changes will be overwritten
+
+-   Already excluded from Git (in `.gitignore`)
+
+**Two separate build processes:**
+
+**Local build (your computer):**
+
+-   Purpose: Preview and test changes
+
+-   Command: `quarto preview` or `quarto render`
+
+-   Creates: `_site/` folder locally
+
+-   Result: For testing only, not deployed
+
+**Netlify build (production):**
+
+-   Purpose: Deploy live website
+
+-   Triggered: Automatically on GitHub push
+
+-   Process: Netlify clones repo → runs `npm run build` → generates fresh `_site/`
+
+-   Result: This is what visitors see at amore-project.org
+
 ## 4. Styling system SCSS
+
+### **4.1 Overview**
+
+The AMORE website uses SCSS (Sassy CSS) for styling, which provides more power and flexibility than regular CSS. The main stylesheet is located at `assets/styles/styles.scss`. This file is automatically compiled to CSS when you render the Quarto site.
+
+**How SCSS Works**
+
+**SCSS vs CSS**
+
+SCSS is a more powerful version of CSS that allows you to:
+
+-   **Use variables** - Define colors once and reuse them everywhere
+
+-   **Nest selectors** - Organize related styles together
+
+-   **Write comments** - Document your code with `/* comment */` or `// comment`
+
+-   **Use calculations** - Perform math operations directly in your styles
+
+### File Paths in SCSS
+
+When referencing images or other files in your SCSS, understanding file paths is crucial:
+
+```{SCSS}
+
+
+/* CORRECT - Goes up one folder level from assets/styles/ to assets/ */
+background-image: url('../images/logo.png');
+
+/* INCORRECT - Would look in assets/styles/images/ */
+background-image: url('images/logo.png');
+```
+
+## Structure of styles.scss
+
+The file is organized into logical sections marked with comments:
+
+1.  
+
+2.  **Global Variables** - Colors, fonts, and sizing used throughout
+
+3.  
+
+4.  **Body & Animations** - Background effects and page-level styling
+
+5.  
+
+6.  **Typography** - All text styling (headings, paragraphs, links)
+
+7.  
+
+8.  **Components** - Reusable pieces (buttons, cards, navigation)
+
+9.  
+
+10. **Page-Specific** - Styles for particular pages (contact, about, etc.)
+
+11. 
+
+12. **Responsive Design** - Adjustments for different screen sizes
 
 #### 4.? SCSS shorthand rules
 
