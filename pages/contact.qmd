@@ -13,7 +13,7 @@ format:
   <!-- Tab Navigation -->
   <div class="form-tabs">
     <button class="form-tab-btn active" onclick="showForm('propose', this)">
-      Propose Your Project
+      Propose Project
     </button>
     <button class="form-tab-btn" onclick="showForm('update', this)">
       Update Existing Project
