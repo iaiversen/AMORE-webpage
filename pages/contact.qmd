@@ -153,7 +153,6 @@ body::after {
   }
 }
 </style>
-
 <script>
 function showForm(formId, clickedButton) {
   // Hide all panels
@@ -172,5 +171,12 @@ function showForm(formId, clickedButton) {
   // Add active state to clicked button
   clickedButton.classList.add('active');
 }
+
+// Handle direct linking to feedback tab
+window.addEventListener('load', function() {
+  if (window.location.hash === '#feedback-form') {
+    showForm('feedback', document.querySelector('[onclick*="feedback"]'));
+  }
+});
 </script>
 ```

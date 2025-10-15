@@ -40,6 +40,10 @@ format:
         <span class="step-number">7</span>
         <span class="step-text">Regular Updates</span>
       </li>
+      <li class="step-item" data-step="8">
+        <span class="step-number">8</span>
+        <span class="step-text">Provide Feedback</span>
+      </li>
     </ul>
   </div>
 
@@ -149,6 +153,32 @@ format:
           </ul>
           <li>Follow original protocol for consistency</li>
         </ul>
+      </div>
+    </div>
+    
+    <!-- Step 8: Provide Feedback -->
+    <div class="step-content" id="step8">
+      <h2>Step 8: Provide Feedback</h2>
+      <div class="content-box">
+        <h3>Help Us Improve</h3>
+        <p>
+          Your experience publishing on AMORE is valuable! We welcome feedback on:
+        </p>
+        <ul>
+          <li>The publication workflow and process</li>
+          <li>Platform functionality and user experience</li>
+          <li>Documentation and guidance clarity</li>
+          <li>Thoughts on the standardised framework</li>
+          <li>Any challenges you encountered</li>
+        </ul>
+        <p>
+          Your input helps us continuously improve AMORE for the research community.
+        </p>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="contact.html#feedback-form" class="primary-button">
+            Share Your Feedback
+          </a>
+        </div>
       </div>
     </div>
 
@@ -342,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update button states
         prevButton.disabled = stepNumber === 1;
-        nextButton.disabled = stepNumber === 7; // Changed from 8 to 7
+        nextButton.disabled = stepNumber === 8;
         
         currentStep = stepNumber;
     }
@@ -363,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     nextButton.addEventListener('click', () => {
-        if (currentStep < 7) { // Changed from 8 to 7
+        if (currentStep < 8) { 
             setActiveStep(currentStep + 1);
         }
     });
