@@ -8,7 +8,6 @@ format:
 <div class="contact-forms-container">
   <div class="forms-intro">
     <h2>Contact AMORE</h2>
-    <p>Select the form that best matches your needs:</p>
   </div>
 
   <!-- Tab Navigation -->

@@ -830,6 +830,14 @@ h6 > a[href^="#"] {
   color: var(--primary-color) !important;  /* Brand blue on hover */
 }
 
+/* Active page indicator - underline current page */
+.navbar .nav-link.active,
+.navbar .navbar-nav-scroll .nav-link.active {
+  color: var(--primary-color) !important;
+  border-bottom: 2px solid var(--primary-color);  /* Blue underline for active page */
+  font-weight: 500;               /* Slightly bolder */
+}
+
 
 /* ===============================================
    4.2.3 NAVBAR BRAND (Logo + Title)
@@ -843,14 +851,20 @@ h6 > a[href^="#"] {
   margin-right: 10px;             /* Space between logo and title */
 }
 
-/* Prevent hover effects on brand/title
-   These should not change color like nav links */
-.navbar-brand:hover,
-.navbar-title:hover {
-  color: inherit !important;      /* Keep original color */
-  text-decoration: none !important;  /* No underline */
+/* Navbar brand container - align vertically */
+.navbar-brand {
+  display: flex;
+  align-items: Left;            /* Vertically center logo + title */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
+/* Site title text styling */
+.navbar-title {
+  display: flex;
+  align-items: center;            /* Center text vertically */
+  font-size: 1rem;             /* 20px */
+}
 
 /* ===============================================
    4.2.4 MOBILE MENU (Hamburger)
@@ -3625,6 +3639,11 @@ h2[data-anchor-id="resourcepage"] {
     padding: 0 2.6rem;
   }
   
+  /* Hide navbar title on tablets */
+  .navbar-title {
+    display: none !important;
+  }
+  
   /* Feature grid */
   .feature-grid {
     gap: 1.7rem;
@@ -3724,6 +3743,11 @@ h2[data-anchor-id="resourcepage"] {
   
   .content-section {
     padding: 0 2.1rem;
+  }
+  
+  /* Hide navbar title on large phones */
+  .navbar-title {
+    display: none !important;
   }
   
   /* Feature grid - 2 columns */
@@ -3941,6 +3965,11 @@ h2[data-anchor-id="resourcepage"] {
   
   .content-section p {
     font-size: 0.9rem;
+  }
+  
+  /* Hide navbar title on large phones */
+  .navbar-title {
+    display: none !important;
   }
   
   /* Feature grid - single column */
