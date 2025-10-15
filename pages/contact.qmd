@@ -1,29 +1,177 @@
 ---
-format:
+format: 
   html:
-    page-layout: full
-    title-block-banner: false 
-    title-block-style: none 
+    page-layout: full 
+    container-fluid: true
 ---
+```{=html}
+<div class="contact-forms-container">
+  <div class="forms-intro">
+    <h2>Contact AMORE</h2>
+    <p>Select the form that best matches your needs:</p>
+  </div>
 
-::: {.contact-container}
+  <!-- Tab Navigation -->
+  <div class="form-tabs">
+    <button class="form-tab-btn active" onclick="showForm('propose', this)">
+      Propose Your Project
+    </button>
+    <button class="form-tab-btn" onclick="showForm('update', this)">
+      Update Existing Project
+    </button>
+    <button class="form-tab-btn" onclick="showForm('feedback', this)">
+      Get Help or Feedback
+    </button>
+  </div>
 
-::: {.contact-section}
-## Connect With Us 
-We have three form options for you to choose from. By clicking the contact button, you will be redirected to our three forms.
+  <!-- Form Panels -->
+  <div class="form-panels">
+    <!-- Propose Project Form -->
+    <div id="propose-form" class="form-panel active">
+      <script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
+      <iframe class="nettskjema-iframe"
+              src="https://nettskjema.no/a/516751?embed=1"
+              title="Propose Your Project"
+              frameborder="0"
+              width="100%"></iframe>
+    </div>
 
-- **Propose your project**: If you have a new living meta-analysis project that you would like to publish on AMORE, please select this option.
-- **Update an existing living meta-analysis**: If you have an existing living meta-analysis that you would like to update, please select this option.
-- **General inquiry**: If you have any other questions or inquiries, please select this option.
+    <!-- Update Project Form -->
+    <div id="update-form" class="form-panel">
+      <script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
+      <iframe class="nettskjema-iframe"
+              src="https://nettskjema.no/a/535098?embed=1"
+              title="Update an existing living meta-analysis"
+              frameborder="0"
+              width="100%"></iframe>
+    </div>
 
-We will get back to you as soon as possible to discuss the details and answer any questions you may have.
+    <!-- Feedback Form -->
+    <div id="feedback-form" class="form-panel">
+      <script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
+      <iframe class="nettskjema-iframe"
+              src="https://nettskjema.no/a/516802?embed=1"
+              title="Get help or share feedback"
+              frameborder="0"
+              width="100%"></iframe>
+    </div>
+  </div>
+</div>
 
+<style>
+body {
+  background: white !important;
+  animation: none !important;
+}
 
-::: {.contact-buttons}
-[Contact Form](https://nettskjema.no/a/492183){.primary-button target="_blank"}
-:::
+body::before,
+body::after {
+  display: none !important;
+}
 
+.contact-forms-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: white !important; 
+}
 
+.forms-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-:::
-:::
+.forms-intro h2 {
+  color: #0A2A5E;
+  margin-bottom: 0.5rem;
+}
+
+.form-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  bottom: -2px;
+}
+
+.form-tab-btn:hover {
+  color: #0A2A5E;
+  background: #f0f6ff;
+}
+
+.form-tab-btn.active {
+  color: #0A2A5E;
+  border-bottom-color: #0A2A5E;
+}
+
+.form-panels {
+  position: relative;
+  min-height: 600px;
+}
+
+.form-panel {
+  display: none;
+}
+
+.form-panel.active {
+  display: block;
+}
+
+/* Responsive tabs */
+@media (max-width: 768px) {
+  .form-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: none;
+  }
+  
+  .form-tab-btn {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    text-align: left;
+    border-radius: 6px;
+  }
+  
+  .form-tab-btn.active {
+    border-left-color: #0A2A5E;
+    border-bottom: none;
+    background: #f0f6ff;
+  }
+}
+</style>
+
+<script>
+function showForm(formId, clickedButton) {
+  // Hide all panels
+  document.querySelectorAll('.form-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
+  
+  // Remove active state from all buttons
+  document.querySelectorAll('.form-tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Show selected panel
+  document.getElementById(formId + '-form').classList.add('active');
+  
+  // Add active state to clicked button
+  clickedButton.classList.add('active');
+}
+</script>
+```
