@@ -19,7 +19,7 @@ format:
       Update Existing Project
     </button>
     <button class="form-tab-btn" onclick="showForm('feedback', this)">
-      Get Help or Feedback
+      Get Help or Share Feedback
     </button>
   </div>
 
