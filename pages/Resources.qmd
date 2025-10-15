@@ -66,6 +66,7 @@ Equivalence tests are statistical tests used to determine whether two groups are
 [Read the article](https://journals.sagepub.com/doi/10.1177/2515245918770963){.resource-link target="_blank"}
 [Read the article](https://journals.sagepub.com/doi/full/10.1177/1948550617697177){.resource-link target="_blank"}
 :::
+:::
 
 ## Additional Resources {#resourcepage}
 
