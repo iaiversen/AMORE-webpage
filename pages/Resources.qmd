@@ -24,6 +24,13 @@ When creating a project proposal for a Living Meta-Analysis in AMORE, it is esse
 
 ::: {.resource-list}
 ::: {.resource-item}
+### Introduction to Meta-analysis textbook {#introduction-meta-analysis}
+This textbook provides a comprehensive introduction to the principles and practices of meta-analysis. It covers topics such as effect size estimation, heterogeneity, publication bias, and advanced meta-analytic techniques. The book is suitable for researchers and students who want to learn how to conduct and interpret meta-analyses. 
+
+[Access the textbook](https://onlinelibrary.wiley.com/doi/epdf/10.1002/9780470743386){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
 ### R and RStudio {#r-rstudio}
 R is a programming language and software environment for statistical computing and graphics. RStudio is an integrated development environment (IDE) for R that provides a user-friendly interface for writing and executing R code. Together, they are widely used in data analysis, statistical modeling, and visualization.
 
@@ -46,18 +53,18 @@ JASP is a free and open-source statistical software that provides a user-friendl
 :::
 
 ::: {.resource-item}
-### Adjusting for Publication Bias in JASP and R: Selection Models, PET-PEESE, and Robust Bayesian Meta-Analysis
+### Adjusting for Publication Bias in JASP and R: Selection Models, PET-PEESE, and Robust Bayesian Meta-Analysis {#publication-bias-jasp-r}
 This article provides a comprehensive overview of methods for adjusting for publication bias in meta-analyses using JASP and R. It covers selection models, PET-PEESE, and robust Bayesian meta-analysis, providing practical guidance on how to implement these methods in both software environments.
 
 [Read the article](https://journals.sagepub.com/doi/10.1177/25152459221109259){.resource-link target="_blank"}
 ::: 
 
 ::: {.resource-item}
-### Introduction to Meta-analysis textbook {#introduction-meta-analysis}
-This textbook provides a comprehensive introduction to the principles and practices of meta-analysis. It covers topics such as effect size estimation, heterogeneity, publication bias, and advanced meta-analytic techniques. The book is suitable for researchers and students who want to learn how to conduct and interpret meta-analyses. 
+### Equivalence Tests {#equivalence-tests}
+Equivalence tests are statistical tests used to determine whether two groups are equivalent, rather than simply different. These articles provides a practical introduction to equivalence testing. The articles enables psychologists to perform equivalence tests (and power analyses). 
 
-[Access the textbook](https://onlinelibrary.wiley.com/doi/epdf/10.1002/9780470743386){.resource-link target="_blank"}
-::: 
+[Read the article](https://journals.sagepub.com/doi/10.1177/2515245918770963){.resource-link target="_blank"}
+[Read the article](https://journals.sagepub.com/doi/full/10.1177/1948550617697177){.resource-link target="_blank"}
 :::
 
 ## Additional Resources {#resourcepage}
