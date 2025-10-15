@@ -63,8 +63,8 @@ This article provides a comprehensive overview of methods for adjusting for publ
 ### Equivalence Tests {#equivalence-tests}
 Equivalence tests are statistical tests used to determine whether two groups are equivalent, rather than simply different. These articles provides a practical introduction to equivalence testing. The articles enables psychologists to perform equivalence tests (and power analyses). 
 
-[Read the article](https://journals.sagepub.com/doi/10.1177/2515245918770963){.resource-link target="_blank"}
-[Read the article](https://journals.sagepub.com/doi/full/10.1177/1948550617697177){.resource-link target="_blank"}
+[Equivalence Testing for Psychological Research: A Tutorial](https://journals.sagepub.com/doi/10.1177/2515245918770963){.resource-link target="_blank"}
+[Equivalence Tests: A Practical Primer for t Tests, Correlations, and Meta-Analyses](https://journals.sagepub.com/doi/full/10.1177/1948550617697177){.resource-link target="_blank"}
 :::
 :::
 
