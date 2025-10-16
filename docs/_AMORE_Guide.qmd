@@ -954,93 +954,7 @@ _site/
 
 The AMORE website uses SCSS (Sassy CSS) for styling, which provides more power and flexibility than regular CSS. The main stylesheet is located at `assets/styles/styles.scss`. This file is automatically compiled to CSS when you render the Quarto site.
 
-**How SCSS Works**
-
-**SCSS vs CSS**
-
-SCSS is a more powerful version of CSS that allows you to:
-
--   **Use variables** - Define colors once and reuse them everywhere
-
--   **Nest selectors** - Organize related styles together
-
--   **Write comments** - Document your code with `/* comment */` or `// comment`
-
--   **Use calculations** - Perform math operations directly in your styles
-
-### File Paths in SCSS
-
-When referencing images or other files in your SCSS, understanding file paths is crucial:
-
-```{SCSS}
-
-
-/* CORRECT - Goes up one folder level from assets/styles/ to assets/ */
-background-image: url('../images/logo.png');
-
-/* INCORRECT - Would look in assets/styles/images/ */
-background-image: url('images/logo.png');
-```
-
-## Structure of styles.scss
-
-The file is organized into logical sections marked with comments:
-
-1.  
-
-2.  **Global Variables** - Colors, fonts, and sizing used throughout
-
-3.  
-
-4.  **Body & Animations** - Background effects and page-level styling
-
-5.  
-
-6.  **Typography** - All text styling (headings, paragraphs, links)
-
-7.  
-
-8.  **Components** - Reusable pieces (buttons, cards, navigation)
-
-9.  
-
-10. **Page-Specific** - Styles for particular pages (contact, about, etc.)
-
-11. 
-
-12. **Responsive Design** - Adjustments for different screen sizes
-
-#### 4.? SCSS shorthand rules
-
--   CSS shorthand rules
-
-    -   margin shorthand rules:
-
-        **1 value:** `margin: 10px;`
-
-        -   All 4 sides get 10px
-
-        **2 values:** `margin: 10px 20px;`
-
-        -   First value (10px) = top AND bottom
-
-        -   Second value (20px) = left AND right
-
-        **3 values:** `margin: 10px 20px 30px;`
-
-        -   First = top
-
-        -   Second = left AND right
-
-        -   Third = bottom
-
-        **4 values:** `margin: 10px 20px 30px 40px;`
-
-        -   Goes clockwise: top, right, bottom, left (like a clock starting at 12)
-
-#### 4.1 styles.scss
-
-`styles.scss` - Main stylesheet (SCSS format, compiled to CSS by Quarto)
+[Here you find scss rules](https://sass-lang.com/documentation/style-rules/)
 
 **What styles.scss controls:**
 
@@ -1056,7 +970,7 @@ The file is organized into logical sections marked with comments:
 
 -   Page-specific styles (index, contact, project pages)
 
--   Responsive breakpoints (mobile, tablet, desktop)
+-   Responsive breakpoints (mobile, tablet, desktop). This means the layout adjusts to different screen sizes.
 
 -   Animations (gradient shifts, hover effects)
 
@@ -1070,11 +984,41 @@ The file is organized into logical sections marked with comments:
 
 -   Changes affect **entire website**
 
--   Test thoroughly after edits
+-   Test thoroughly after edits and before commiting
 
 -   Uses SCSS features (variables, nesting)
 
 -   Compiled during `quarto render`
+
+**File Paths in SCSS**
+
+When referencing images or other files in your SCSS, understanding file paths is crucial:
+
+```{SCSS}
+
+
+/* CORRECT - Goes up one folder level from assets/styles/ to assets/ */
+background-image: url('../images/logo.png');
+
+/* INCORRECT - Would look in assets/styles/images/ */
+background-image: url('images/logo.png');
+```
+
+### Structure of styles.scss 
+
+The file is organized into logical sections marked with comments:
+
+1.  **Global Variables** - Colors, fonts, and sizing used throughout
+
+2.  **Body & Animations** - Background effects and page-level styling
+
+3.  **Typography** - All text styling (headings, paragraphs, links)
+
+4.  **Components** - Reusable pieces (buttons, cards, navigation)
+
+5.  **Page-Specific** - Styles for particular pages (contact, about, etc.)
+
+6.  **Responsive Design** - Adjustments for different screen sizes
 
 ## 5. Adding new projects
 

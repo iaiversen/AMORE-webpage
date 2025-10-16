@@ -27,7 +27,14 @@ When creating a project proposal for a Living Meta-Analysis in AMORE, it is esse
 ### Introduction to Meta-analysis textbook {#introduction-meta-analysis}
 This textbook provides a comprehensive introduction to the principles and practices of meta-analysis. It covers topics such as effect size estimation, heterogeneity, publication bias, and advanced meta-analytic techniques. The book is suitable for researchers and students who want to learn how to conduct and interpret meta-analyses. 
 
-[Access the textbook](https://onlinelibrary.wiley.com/doi/epdf/10.1002/9780470743386){.resource-link target="_blank"}
+[Access the textbook](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470743386){.resource-link target="_blank"}
+:::
+
+::: {.resource-item}
+### Doing Meta-Analysis with R: A Hands-On Guide {#doing-meta-analysis-r}
+This book provides a practical guide to conducting meta-analyses using R. It covers the basics of meta-analysis, including effect size calculation, heterogeneity assessment, and publication bias detection. The book also includes advanced topics such as multilevel meta-analysis and bayesian meta-analysis.
+
+[Access the textbook](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/#cite-the-packages){.resource-link target="_blank"}
 :::
 
 ::: {.resource-item}
