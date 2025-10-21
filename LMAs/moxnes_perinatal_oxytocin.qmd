@@ -11,10 +11,6 @@ population:
   age_group: "Children" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
   clinical_type: null # If applicable for clinical populations
 outcomes:
-  biological:
-    - "Neurological" # Brain activity, neural networks, connectivity (maps to "Neurological functions", "Brain development")
-  psychological_behavioral:
-    - "Cognition & Memory" # Learning, attention, executive function (maps to "Cognitive function")
   clinical:
     - "Neurodevelopmental" # Autism, ADHD, developmental delays (maps to "Autism", "ADHD", "Neurodevelopmental disorders")
 update-frequency: "24 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
