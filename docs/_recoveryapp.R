@@ -2132,15 +2132,15 @@ server <- function(input, output, session) {
     
     # Calculate total active filters for badge display
     total_active_filters <- length(input$biological_outcomes) +
-      length(input$psychological_behavioral_outcomes) +
-      length(input$clinical_outcomes) +
-      length(input$oxytocin_intervention) +
-      length(input$assessment_method) +
-      length(input$oxytocin_route) +
-      length(input$oxytocin_dosage) +
-      length(input$population_status) +
-      length(input$population_age) +
-      length(input$analysis_framework)
+                            length(input$psychological_behavioral_outcomes) +
+                            length(input$clinical_outcomes) +
+                            length(input$oxytocin_intervention) +
+                            length(input$assessment_method) +
+                            length(input$oxytocin_route) +
+                            length(input$oxytocin_dosage) +
+                            length(input$population_status) +
+                            length(input$population_age) +
+                            length(input$analysis_framework)
     
     div(class = "lma-container",
         lapply(1:nrow(data), function(i) {

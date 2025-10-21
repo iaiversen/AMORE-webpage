@@ -1,18 +1,18 @@
 ---
 title: "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis" 
-status: "Published"
 analytical_framework: "Mixed Methods"
 oxytocin:
-  intervention: "Intranasal oxytocin administration"
+  intervention: ["Intranasal oxytocin administration", "Oral oxytocin administration", "Intravenous/injection oxytocin administration"]
   assessment_method: "Behavioral assessment"
-  route: "Central"
+  route: "Various administration routes"
   dosage: "24 IU"
 population:
   status: "Mixed"
-  age_group: "Adults"
-  clinical_type: "Various clinical conditions"
+  age_group: "Mixed age groups"
+  clinical_type: null
 outcomes:
   psychological_behavioral:
+    - "Cognition & Memory"
     - "Executive Function"
     - "Working Memory"
     - "Cognitive Flexibility"

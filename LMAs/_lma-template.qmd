@@ -1,9 +1,13 @@
 ---
 title: "The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic Review and Meta-Analysis" 
-status: "Preregistered" # Options: Preregistered, Published, Retired
-analytical_framework: "Frequentist" # Options: Frequentist, Bayesian, Mixed Methods
+analytical_framework: "Frequentist" # Options: Frequentist, Bayesian, Mixed methods
 oxytocin:
-  intervention: "Intranasal oxytocin administration" # Options: Intranasal oxytocin administration, Peripheral oxytocin intervention (Intravenous/injection), Environmental/behavioral oxytocin manipulation, Perinatal oxytocin exposure
+  intervention: # Choose one or more:
+    - Intranasal oxytocin administration
+    - Oral oxytocin administration                          # NEW
+    - Intravenous/injection oxytocin administration         # NEW (was part of "Peripheral")
+    - Environmental/behavioral oxytocin manipulation
+    - Perinatal oxytocin exposure
   assessment_method: "Behavioral assessment" # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
   route: "Central" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
   dosage: "24 IU" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage
@@ -23,7 +27,7 @@ update-frequency: "12 months" # Options: 3 months, 6 months, 12 months, 18 month
 dois:
   preregistration: "10.XXXX/template-prereg"
   preprint: "10.XXXX/template-preprint"
-  publication: "10.XXXX/template-publication"
+  publication: "10.XXXX/template-publication"    -
 format:
   html:
     page-layout: full
@@ -49,8 +53,8 @@ The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic 
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
-    <strong>[First Author Name]</strong> ([Primary Affiliation])<br>
-    <strong>[Second Author Name]</strong> ([Secondary Affiliation])<br>
+    <strong>[First Author Name]</strong> ([Affiliation])<br>
+    <strong>[Second Author Name]</strong> ([Affiliation])<br>
     <strong>[Senior Author Name]</strong> ([Multiple Affiliations Separated by | Pipes])
   </div>
   

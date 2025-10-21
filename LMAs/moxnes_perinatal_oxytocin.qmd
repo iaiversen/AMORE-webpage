@@ -1,14 +1,13 @@
 ---
 title: "Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxytocin: A Living Systematic Review and Meta-Analysis" 
-status: "Preregistered" # Options: Preregistered, Published, Retired
 analytical_framework: ["Mixed Methods", "Frequentist", "Bayesian"] # Options: Frequentist, Bayesian, Mixed Methods
 oxytocin:
   intervention: "Perinatal oxytocin exposure" # Options: Intranasal oxytocin administration, Peripheral oxytocin intervention (Intravenous/injection), Environmental/behavioral oxytocin manipulation, Perinatal oxytocin exposure
-  assessment_method: "Biological sample collection" # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
-  route: ["Administration method unspecified", "Central", "Peripheral", "Various administration routes"] # Options: Central, Peripheral, Various administration routes, Administration method unspecified
-  dosage: ["Variable dosage", "8 IU", "16 IU", "24 IU", "32 IU", "40 IU"]
+  assessment_method: null # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
+  route: null # Options: Central, Peripheral, Various administration routes, Administration method unspecified
+  dosage: null
 population:
-  status: ["Mixed", "Healthy", "Clinical"] # Options: Healthy, Clinical, Mixed
+  status: "Healthy" # Options: Healthy, Clinical, Mixed
   age_group: "Children" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
   clinical_type: null # If applicable for clinical populations
 outcomes:
