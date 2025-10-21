@@ -7,7 +7,7 @@ oxytocin:
   route: null # Options: Central, Peripheral, Various administration routes, Administration method unspecified
   dosage: null
 population:
-  status: "Healthy" # Options: Healthy, Clinical, Mixed
+  status: null
   age_group: "Children" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
   clinical_type: null # If applicable for clinical populations
 outcomes:
