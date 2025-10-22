@@ -6,6 +6,17 @@ format:
 ---
 ```{=html}
 <style>
+
+body {
+  background: white !important;
+  animation: none !important;
+}
+
+body::before,
+body::after {
+  display: none !important;
+}
+
 /* Remove all container constraints */
 #quarto-content,
 .page-columns,
