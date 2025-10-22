@@ -1044,23 +1044,47 @@ Just for me:
 
 -    Need
 
-### 5.1 Using template to fill in project information
+### 5.1 Using template to fill in project information section for section
 
 #### YAML section
 
+\# List with dashes without quotes
+
 ```{r}
-#| label: YAML section for new projects  
+#| label: YAML format rules  
 #| eval: false 
 #| echo: true 
 
-oxytocin:
+# The YAML format is very important. Incorrect indentation will result in error, or the filter system of the app.R (directory of projects) will be unable to correctly read the neccessary information. 
+
+## if a metadata class is irrelevant for the project there are several steps to ignore the class: 
+oxytocin: #example class 
   route: null           # ← Won't show
   dosage: NA            # ← Won't show  
   assessment_method:    # ← Empty/missing, won't show
+# XinterventionX        # remove class 
+    
+    
+YAML array format: # All three options should in theory work 
+
+# List with dashes without quotes
+analytical_framework:  
+  - Frequentist
+  - Bayesian
+  - Mixed methods
+
+# List with dashes AND quotes     
+analytical_framework: 
+  - "Frequentist"
+  - "Bayesian"
+  - "Mixed methods"
+
+# Inline array with brackets AND quotes
+analytical_framework: ["Frequentist", "Bayesian", "Mixed methods"] 
 ```
 
 ```{r}
-#| label: YAML section for new projects  
+#| label: YAML section for projects options 
 #| eval: false 
 #| echo: true 
 
@@ -1070,7 +1094,10 @@ oxytocin:
 
 ---
 title: "Write title here" 
-analytical_framework: "Frequentist" # Options: Frequentist, Bayesian, Mixed Methods
+analytical_framework: # Choose one or more 
+  - Frequentist
+  - Bayesian
+  - Mixed methods
 oxytocin:
   intervention: "Intranasal oxytocin administration" # Options: Intranasal oxytocin administration, Peripheral oxytocin intervention (Intravenous/injection), Environmental/behavioral oxytocin manipulation, Perinatal oxytocin exposure
   assessment_method: "Behavioral assessment" # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
@@ -1208,7 +1235,7 @@ The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing 
 #| eval: false 
 #| echo: true 
 
-
+### Add html with different containers that the new users can "shop", just copy paste to projects they make. 
 ## Current Results {#current-results}
 
 <body>

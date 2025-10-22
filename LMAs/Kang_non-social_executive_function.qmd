@@ -5,7 +5,7 @@ oxytocin:
   intervention: ["Intranasal oxytocin administration", "Oral oxytocin administration", "Intravenous/injection oxytocin administration"]
   assessment_method: "Behavioral assessment"
   route: "Various administration routes"
-  dosage: "24 IU"
+  dosage: "Variable dosage"
 population:
   status: "Mixed"
   age_group: "Mixed age groups"

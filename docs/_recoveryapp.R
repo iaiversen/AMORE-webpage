@@ -100,8 +100,18 @@ ui <- fluidPage(
         border-radius: 6px;
         padding: 0.75rem 1rem;
         transition: all 0.3s ease;
-        font-size: 1rem;
+        font-size: 1.2rem;
         background: white;
+      }
+      
+      /* Add spacing around search input */
+      .search-section .row {
+        margin-bottom: 1rem;
+      }
+      
+      .search-section .col-12 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
 
       .form-control:focus, .search-input:focus {
@@ -506,13 +516,24 @@ ui <- fluidPage(
           padding: 0 1.5rem;
         }
         
+        .title {
+          font-size: 2.2rem;
+          padding-top: 2.5rem
+        }
+        
+        .form-control, .search-input {
+          font-size: 1.1rem;
+          padding: 0.8rem 1.25rem;
+        }
+        
         .filter-tab {
           padding: 0.8rem 1.5rem;
-          font-size: 1rem;
+          font-size: 0.8rem;
         }
         
         .search-section {
           padding: 1.5rem;
+          margin: 1rem 0;
         }
         
         .lma-entry {
@@ -532,6 +553,12 @@ ui <- fluidPage(
         
         .title {
           font-size: 2rem;
+          padding-top: 2.5rem;
+        }
+        
+         .form-control, .search-input {
+          font-size: 1.1rem;
+          padding: 0.8rem 1.25rem;
         }
         
         .filter-tabs {
@@ -542,7 +569,7 @@ ui <- fluidPage(
         
         .filter-tab {
           padding: 0.7rem 1.2rem;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           min-width: 150px;
           text-align: center;
         }
@@ -576,7 +603,13 @@ ui <- fluidPage(
         }
         
         .title {
-          font-size: 1.8rem;
+          font-size: 1.5rem;
+          padding-top: 2.5rem;
+        }
+        
+         .form-control, .search-input {
+          font-size: 0.9rem;
+          padding: 0.8rem 1.25rem;
         }
         
         .filter-tabs {
@@ -591,6 +624,7 @@ ui <- fluidPage(
           text-align: center;
           margin: 0;
         }
+        
         
         .selectize-dropdown {
           position: fixed !important;
@@ -623,8 +657,8 @@ ui <- fluidPage(
         }
         
         .form-control, .search-input {
-          font-size: 16px; /* Prevents zoom on iOS */
-          padding: 0.75rem;
+          font-size: 1.1rem;
+          padding: 0.8rem 1.25rem;
         }
         
         .lma-entry {
@@ -666,17 +700,23 @@ ui <- fluidPage(
         
         .title {
           font-size: 1.6rem;
-          margin: 0.5rem 0;
+          padding-top: 2.5rem;
+        }
+        
+        .form-control, .search-input {
+          font-size: 1.1rem;
+          padding: 0.8rem 1.25rem;
         }
         
         .filter-tabs {
           flex-direction: column;
           gap: 0.5rem;
+          font-size: 0.7rem;
         }
         
         .filter-tab {
           padding: 0.75rem 1rem;
-          font-size: 0.85rem;
+          font-size: 0.7rem;
           border-radius: 6px;
           text-align: center;
         }
@@ -689,11 +729,6 @@ ui <- fluidPage(
           padding: 0.75rem;
           margin: 0.5rem 0;
           border-radius: 8px;
-        }
-        
-        .form-control, .search-input {
-          font-size: 16px;
-          padding: 0.75rem;
         }
         
         .filter-panel {
@@ -771,20 +806,16 @@ ui <- fluidPage(
         
         .title {
           font-size: 1.4rem;
-        }
-        
-        .search-section {
-          padding: 0.5rem;
-        }
-        
-        .filter-tab {
-          padding: 0.6rem 0.8rem;
-          font-size: 0.8rem;
+          padding-top: 2rem;
         }
         
         .form-control, .search-input {
-          padding: 0.6rem;
-          font-size: 16px;
+          font-size: 1.1rem;
+          padding: 0.8rem 1.25rem;
+        }
+      
+        .search-section {
+          padding: 0.5rem;
         }
         
         .lma-entry {
@@ -798,7 +829,7 @@ ui <- fluidPage(
         .lma-meta {
           font-size: 0.7rem;
         }
-        
+      
         .lma-abstract {
           font-size: 0.8rem;
         }
@@ -955,8 +986,7 @@ ui <- fluidPage(
                                                      "Mood Disorders" = "mood_disorders", 
                                                      "Psychotic Disorders" = "psychotic_disorders",
                                                      "Addiction and Substance Use" = "addiction_substance",
-                                                     "Eating Disorders" = "eating_disorders",
-                                                     "Other Clinical Conditions" = "other_clinical"),
+                                                     "Eating Disorders" = "eating_disorders"),
                                          selected = NULL
                       )
                   )
@@ -2132,15 +2162,15 @@ server <- function(input, output, session) {
     
     # Calculate total active filters for badge display
     total_active_filters <- length(input$biological_outcomes) +
-                            length(input$psychological_behavioral_outcomes) +
-                            length(input$clinical_outcomes) +
-                            length(input$oxytocin_intervention) +
-                            length(input$assessment_method) +
-                            length(input$oxytocin_route) +
-                            length(input$oxytocin_dosage) +
-                            length(input$population_status) +
-                            length(input$population_age) +
-                            length(input$analysis_framework)
+      length(input$psychological_behavioral_outcomes) +
+      length(input$clinical_outcomes) +
+      length(input$oxytocin_intervention) +
+      length(input$assessment_method) +
+      length(input$oxytocin_route) +
+      length(input$oxytocin_dosage) +
+      length(input$population_status) +
+      length(input$population_age) +
+      length(input$analysis_framework)
     
     div(class = "lma-container",
         lapply(1:nrow(data), function(i) {

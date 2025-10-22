@@ -1,20 +1,28 @@
 ---
-title: "The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic Review and Meta-Analysis" 
-analytical_framework: "Frequentist" # Options: Frequentist, Bayesian, Mixed methods
+title: "Write title here" 
+analytical_framework: # Choose one or more 
+  - "Frequentist"
+  - "Bayesian"
+  - "Mixed methods"
 oxytocin:
-  intervention: # Choose one or more:
+  intervention: # Choose one or more: 
     - Intranasal oxytocin administration
-    - Oral oxytocin administration                          # NEW
-    - Intravenous/injection oxytocin administration         # NEW (was part of "Peripheral")
+    - Oral oxytocin administration
+    - Intravenous/injection oxytocin administration 
     - Environmental/behavioral oxytocin manipulation
     - Perinatal oxytocin exposure
-  assessment_method: "Behavioral assessment" # Options: Biological sample collection, Behavioral assessment, Physiological response, Genetic studies, Neural/imaging measurement
-  route: "Central" # Options: Central, Peripheral, Various administration routes, Administration method unspecified
-  dosage: "24 IU" # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage
+  assessment_method: # Choose one or more:
+    - "Behavioral assessment"
+    - "Physiological response"
+    - "Biological sample collection"
+    - "Genetic studies"
+    - "Neural/imaging measurement"
+  route: # Options: Central, Peripheral, Various administration routes, 
+  dosage: # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage
 population:
-  status: "Healthy" # Options: Healthy, Clinical, Mixed
-  age_group: "Adults" # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
-  clinical_type: null # If applicable for clinical populations
+  status: # Options: Healthy, Clinical, Mixed
+  age_group: # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
+  clinical_type: 
 outcomes:
   biological:
     - "Cardiovascular" # Heart rate, blood pressure, HRV (maps to "Cardiovascular measures")
@@ -22,25 +30,25 @@ outcomes:
     - "Social Cognition" # Theory of mind, empathy, emotion recognition (maps to "Social behavior")
     - "Trust & Cooperation" # Economic games, interpersonal trust (maps to "Trust behavior")
   clinical:
-    - "Autism" # ASD symptoms, social communication (maps to "Autism")
-update-frequency: "12 months" # Options: 3 months, 6 months, 12 months, 18 months, 24 months
+    - # Neurodevelopmental, Mood Disorders, Psychotic Disorders, Addiction and Substance Use, Eating Disorders"Autism" 
+update-frequency: 
 dois:
   preregistration: "10.XXXX/template-prereg"
   preprint: "10.XXXX/template-preprint"
-  publication: "10.XXXX/template-publication"    -
-format:
-  html:
-    page-layout: full
-    toc: true
-    toc-title: "On this page"
-    toc-location: right
-    toc-depth: 3
+  publication: "10.XXXX/template-publication"
+format: ### NB!  This is important to not touch but include ## 
+  html: ### NB!  This is important to not touch but include ##
+    page-layout: full ### NB!  This is important to not touch but include ##
+    toc: true ### NB!  This is important to not touch but include ##
+    toc-title: "On this page" ### NB!  This is important to not touch but include ##
+    toc-location: right ### NB!  This is important to not touch but include ##
+    toc-depth: 3 ### NB!  This is important to not touch but include ##
 ---
 
 ::: {.project-hero-section}
 ::: {.project-hero-content}
 ::: {.project-hero-title}
-The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic Review and Meta-Analysis
+Write title here, this is the title that shows in the blue hero section 
 :::
 :::
 :::
@@ -53,7 +61,7 @@ The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic 
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
-    <strong>[First Author Name]</strong> ([Affiliation])<br>
+    <strong>[First Author Name]</strong> ([Affiliation])<br> 
     <strong>[Second Author Name]</strong> ([Affiliation])<br>
     <strong>[Senior Author Name]</strong> ([Multiple Affiliations Separated by | Pipes])
   </div>
@@ -114,9 +122,7 @@ The Effects of [INTERVENTION] on [OUTCOME] in [POPULATION]: A Living Systematic 
 
 ## Abstract {#abstract}
 
-This living meta-analysis investigates the relationship between [INTERVENTION DESCRIPTION] and [OUTCOME MEASURES] in [TARGET POPULATION]. [Brief background on why this research question is important and relevant statistics about prevalence or current practices].
-
-The analysis employs a [frequentist/bayesian/mixed methods] approach, utilizing [specific statistical methods] to synthesize findings across the literature. The project addresses whether [SPECIFIC RESEARCH QUESTION]. This living meta-analysis will be updated every [XX] months, ensuring the incorporation of emerging evidence.
+Write abstract here. This should be a concise summary of the living meta-analysis, including the research question, methodology, and significance of the study.
 
 ## Current Results {#current-results}
 
