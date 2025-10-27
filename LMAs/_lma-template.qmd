@@ -5,44 +5,82 @@ analytical_framework: # Choose one or more
   - "Bayesian"
   - "Mixed methods"
 oxytocin:
-  intervention: # Choose one or more: 
-    - Intranasal oxytocin administration
-    - Oral oxytocin administration
-    - Intravenous/injection oxytocin administration 
-    - Environmental/behavioral oxytocin manipulation
-    - Perinatal oxytocin exposure
-  assessment_method: # Choose one or more:
+  intervention: # if applicable, choose one or more:   
+    - "Intranasal oxytocin administration"
+    - "Oral oxytocin administration"
+    - "Intravenous/injection oxytocin administration" 
+    - "Environmental/behavioral oxytocin manipulation"
+    - "Perinatal oxytocin exposure"
+  assessment_method: # if applicable, choose one or more: 
     - "Behavioral assessment"
     - "Physiological response"
     - "Biological sample collection"
     - "Genetic studies"
     - "Neural/imaging measurement"
-  route: # Options: Central, Peripheral, Various administration routes, 
-  dosage: # Options: 8 IU, 16 IU, 24 IU, 32 IU, 40 IU, Variable dosage
+  route: # Choose one or more:# if applicable, choose one or more: 
+    - "Central"
+    - "Peripheral" 
+    - "Various administration routes"
+    - "Administration method unspecified"
+  dosage: # if applicable, choose one or more: 
+    - "8 IU"
+    - "16 IU"
+    - "24 IU"
+    - "32 IU"
+    - "40 IU"
+    - "Variable dosage"
 population:
-  status: # Options: Healthy, Clinical, Mixed
-  age_group: # Options: Children, Adolescents, Adults, Older Adults, Mixed Age Groups
-  clinical_type: 
+  status: # if applicable, choose one or more: 
+    - "Healthy"
+    - "Clinical"
+    - "Mixed"
+  age_group: # if applicable, choose one or more: 
+    - "Children"
+    - "Adolescents"
+    - "Adults"
+    - "Older Adults"
+    - "Mixed Age Groups"
+  clinical_type: # Describe if applicable (e.g., "Autism Spectrum Disorder", "Depression")
 outcomes:
-  biological:
-    - "Cardiovascular" # Heart rate, blood pressure, HRV (maps to "Cardiovascular measures")
-  psychological_behavioral:
-    - "Social Cognition" # Theory of mind, empathy, emotion recognition (maps to "Social behavior")
-    - "Trust & Cooperation" # Economic games, interpersonal trust (maps to "Trust behavior")
-  clinical:
-    - # Neurodevelopmental, Mood Disorders, Psychotic Disorders, Addiction and Substance Use, Eating Disorders"Autism" 
-update-frequency: 
+  biological: # if applicable, choose one or more: 
+    - "Cardiovascular"
+    - "Neuroendocrine"
+    - "Neurological"
+    - "Metabolic"
+    - "Immune and Inflammatory"
+    - "Pain and Sensory"
+    - "Sleep and Circadian"
+  psychological_behavioral: # if applicable, choose one or more: 
+    - "Mood and Emotion"
+    - "Cognition and Memory"
+    - "Stress and Coping"
+    - "Eating and Appetite"
+    - "Risk and Decision-Making"
+    - "Sleep Behavior and Quality"
+    - "Bonding and Attachment"
+    - "Trust and Cooperation"
+    - "Communication and Empathy"
+    - "Aggression and Conflict"
+  clinical: # if applicable, choose one or more: 
+    - "Neurodevelopmental"
+    - "Mood Disorders"
+    - "Psychotic Disorders"
+    - "Addiction and Substance Use"
+    - "Eating Disorders"
+update-frequency: # Choose one:
+  - "Every 6 months"
+  - "Every 12 months"
+  - "Every 18 months"
+  - "Every 24 months"
 dois:
   preregistration: "10.XXXX/template-prereg"
   preprint: "10.XXXX/template-preprint"
   publication: "10.XXXX/template-publication"
-format: ### NB!  This is important to not touch but include ## 
-  html: ### NB!  This is important to not touch but include ##
-    page-layout: full ### NB!  This is important to not touch but include ##
-    toc: true ### NB!  This is important to not touch but include ##
-    toc-title: "On this page" ### NB!  This is important to not touch but include ##
-    toc-location: right ### NB!  This is important to not touch but include ##
-    toc-depth: 3 ### NB!  This is important to not touch but include ##
+format:
+  html:
+    page-layout: full
+    toc-title: "On this page"
+    toc-location: right
 ---
 
 ::: {.project-hero-section}
@@ -124,45 +162,30 @@ Write title here, this is the title that shows in the blue hero section
 
 Write abstract here. This should be a concise summary of the living meta-analysis, including the research question, methodology, and significance of the study.
 
-## Current Results {#current-results}
-
-```{=html}
-<body>
-    <div class="current-results-container">
-        <div class="preregistered-notice">
-            <p><strong>This is a pre-registered protocol.</strong> Initial analysis has not yet been conducted. Results will be posted when the analysis is completed and the pre-print is published.</p>
-            
-            <p>This living meta-analysis will provide updated evidence on [RESEARCH TOPIC] incorporating the latest research findings as they become available.</p>
-        </div>
-
-        <div class="previous-research">
-            <div class="previous-research-title">Previous Research Context</div>
-            <div class="previous-research-content">
-                A previous meta-analysis by [Author et al. (YEAR)] concluded that [summary of previous findings]. This living meta-analysis will update those findings with new research and provide ongoing evidence synthesis.
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-```
-
 ## Resources {#resources}
-
-```{=html}
+```{=html}  
 <body>
     <div class="resources-container">
+        
+        <!-- TAB NAVIGATION BUTTONS -->
         <div class="tab-navigation">
             <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
             <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
             <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
         </div>
 
+
+        <!-- INITIAL PUBLICATION TAB -->
         <div id="initial" class="tab-content active">
+            
+            <!-- Timeline indicator for initial publication -->
             <div class="timeline-indicator">
-                <div class="status-badge status-preregistered">Preregistered</div>
-                <span>[Registration Date]</span>
+                <div class="status-badge status-published">Published</div>
+                <span>[Month Year]</span>
             </div>
 
+
+            <!-- PROTOCOL & PUBLICATION CATEGORY -->
             <div class="resource-category">
                 <div class="category-header">
                     <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,30 +194,48 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                     <h3 class="category-title">Protocol & Publication</h3>
                 </div>
 
+                <!-- Study Protocol Item -->
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
                             <div class="resource-title">Study Protocol</div>
-                            <div class="resource-description">Pre-registered analysis plan and methodology</div>
+                            <div class="resource-description">[Write short description of study protocol, e.g., "Preregistered analysis plan outlining inclusion criteria and analytical approach"]</div>
                             <div class="resource-links">
-                                <a href="[ACTUAL PREREGISTRATION URL]" class="resource-link" target="_blank">
-                                    <div class="link-title">Pre-registration on [Platform]</div>
-                                    <div class="link-url">[URL identifier]</div>
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Link name, e.g., "Preregistration on OSF"]</div>
+                                    <div class="link-url">[Clean URL, e.g., "osf.io/8fzdy"]</div>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Published Article Item -->
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
                             <div class="resource-title">Published Article</div>
-                            <div class="resource-description">Peer-reviewed publication [journal name]</div>
+                            <div class="resource-description">[Write description of published article, e.g., "Peer-reviewed article published in Molecular Psychiatry"]</div>
                             <div class="resource-links">
-                                <a href="#" class="resource-link pending" target="_blank">
-                                    <div class="link-title">Published Article (Pending)</div>
-                                    <div class="link-url">DOI will be assigned upon publication</div>
+                                <a href="[INSERT_FULL_DOI_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Link name, e.g., "Molecular Psychiatry Article"]</div>
+                                    <div class="link-doi">[DOI, e.g., "10.1038/s41380-024-02871-4"]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preprint Version Item -->
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-info">
+                            <div class="resource-title">Preprint Version</div>
+                            <div class="resource-description">[Write description, e.g., "Open access preprint with full supplementary materials"]</div>
+                            <div class="resource-links">
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Link name, e.g., "OSF Preprint"]</div>
+                                    <div class="link-url">[Clean URL, e.g., "osf.io/hjyfjygg"]</div>
                                 </a>
                             </div>
                         </div>
@@ -202,6 +243,8 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 </div>
             </div>
 
+
+            <!-- DATA & ANALYSIS CATEGORY -->
             <div class="resource-category">
                 <div class="category-header">
                     <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -210,38 +253,32 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                     <h3 class="category-title">Data & Analysis</h3>
                 </div>
 
+                <!-- Complete Dataset Item -->
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Complete Dataset & Scripts</div>
-                            <div class="resource-description">Raw data, processed data, and analysis scripts</div>
+                            <div class="resource-title">Complete Dataset</div>
+                            <div class="resource-description">[Short description of data, e.g., "Raw and cleaned data files with codebook"]</div>
                             <div class="resource-links">
-                                <a href="#" class="resource-link pending" target="_blank">
-                                    <div class="link-title">Complete Dataset (Pending)</div>
-                                    <div class="link-url">Will be available upon analysis completion</div>
-                                </a>
-                                <a href="#" class="resource-link pending" target="_blank">
-                                    <div class="link-title">Analysis Scripts (Pending)</div>
-                                    <div class="link-url">Will be available upon analysis completion</div>
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Link name, e.g., "OSF Data Repository"]</div>
+                                    <div class="link-url">[Clean URL, e.g., "osf.io/6hsjfg"]</div>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Analysis Scripts Item -->
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Protocol Documentation</div>
-                            <div class="resource-description">PRISMA checklist and deviation reports</div>
+                            <div class="resource-title">Analysis Scripts</div>
+                            <div class="resource-description">[Description of scripts, e.g., "R scripts for all meta-analytic models and sensitivity analyses"]</div>
                             <div class="resource-links">
-                                <a href="#" class="resource-link pending" target="_blank">
-                                    <div class="link-title">PRISMA Checklist (Pending)</div>
-                                    <div class="link-url">Will be available upon publication</div>
-                                </a>
-                                <a href="#" class="resource-link pending" target="_blank">
-                                    <div class="link-title">Deviation Report (Pending)</div>
-                                    <div class="link-url">Will document any protocol changes</div>
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Link name, e.g., "R Analysis Scripts"]</div>
+                                    <div class="link-url">[Clean URL or DOI]</div>
                                 </a>
                             </div>
                         </div>
@@ -249,6 +286,8 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 </div>
             </div>
 
+
+            <!-- RELATED RESEARCH CATEGORY -->
             <div class="resource-category">
                 <div class="category-header">
                     <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,50 +296,66 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                     <h3 class="category-title">Related Research</h3>
                 </div>
 
+                <!-- Related Research Item -->
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
                             <div class="resource-title">Theoretical Background</div>
-                            <div class="resource-description">Key theoretical papers informing this meta-analysis</div>
+                            <div class="resource-description">[Description, e.g., "Key theoretical papers informing this meta-analysis"]</div>
                             <div class="resource-links">
-                                <a href="[RELATED STUDY 1 URL]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Author et al. (YEAR)] - [Brief description]</div>
-                                    <div class="link-doi">DOI: [DOI if available]</div>
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Paper title or description]</div>
+                                    <div class="link-doi">[DOI, e.g., "10.1234/example"]</div>
                                 </a>
-                                <a href="[RELATED STUDY 2 URL]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Author et al. (YEAR)] - [Brief description]</div>
-                                    <div class="link-doi">DOI: [DOI if available]</div>
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Second paper title or description]</div>
+                                    <div class="link-doi">[DOI, e.g., "10.5678/example"]</div>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
+
+        <!-- UPDATE 1 TAB -->
         <div id="update1" class="tab-content">
+            
+            <!-- Coming soon notice -->
             <div class="coming-soon-notice">
-                <strong>Update 1 Coming Soon</strong> • Expected: [XX] months after initial publication
+                <strong>Update 1 Coming Soon</strong> • Expected: [Month Year] (updates every [XX] months)
             </div>
 
+            <!-- Timeline indicator for update 1 -->
             <div class="timeline-indicator">
                 <div class="status-badge status-coming-soon">In Development</div>
-                <span>Next update scheduled</span>
+                <span>Next update within 24 months</span>
             </div>
         </div>
 
+
+        <!-- UPDATE 2 TAB -->
         <div id="update2" class="tab-content">
+            
+            <!-- Future notice -->
             <div class="future-notice">
-                <strong>Future Update</strong> • Expected: [XX] months after Update 1
+                <strong>Future Update</strong> • Expected: [Month Year]
             </div>
 
+            <!-- Timeline indicator for update 2 -->
             <div class="timeline-indicator">
                 <div class="status-badge status-future">Future</div>
                 <span>Long-term update planning</span>
             </div>
         </div>
+
+
     </div>
 
+
+    <!-- JAVASCRIPT FOR TAB SWITCHING -->
     <script>
         function switchTab(tabId) {
             // Hide all tab contents
@@ -318,8 +373,215 @@ Write abstract here. This should be a concise summary of the living meta-analysi
             event.target.classList.add('active');
         }
     </script>
+
 </body>
 </html>
+```
+
+
+## Current Results {#current-results}
+```{=html}
+<body> 
+    <div class="results-container">
+    
+        
+        <!-- OVERALL FINDINGS OPTIONS -->
+        
+        
+        <!-- Option A: No Overall Effect -->
+        <div class="overall-findings" style="background: #f0f9ff; border-left: 4px solid #3b82f6;">
+            <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).
+        </div>
+
+
+
+        <!-- Option B: Significant Positive Effect -->
+        <div class="overall-findings" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+            <p>The meta-analysis found a <strong>significant positive effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).</p>
+            <p>This effect was [consistent across domains / varied by subdomain], with [ADDITIONAL CONTEXT].</p>
+        </div>
+
+
+
+        <!-- Option C: Significant Negative Effect -->
+        <div class="overall-findings" style="background: #fef2f2; border-left: 4px solid #ef4444;">
+            <p>The meta-analysis found a <strong>significant negative effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).</p>
+            <p>This effect suggests that oxytocin [INTERPRETATION OF NEGATIVE EFFECT].</p>
+        </div>
+
+
+
+        <!-- Option D: Mixed/Heterogeneous Effects -->
+        <div class="overall-findings" style="background: #fffbeb; border-left: 4px solid #f59e0b;">
+            <p>The meta-analysis revealed <strong>substantial heterogeneity</strong> in oxytocin's effects on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], I² = [VALUE]%).</p>
+            <p>Effects varied significantly by [MODERATOR], suggesting that oxytocin's impact is highly context-dependent.</p>
+        </div>
+
+
+
+        <!-- KEY FINDINGS SECTION WRAPPER -->
+        <div class="key-findings-section">
+            <h3 class="key-findings-title">Key Findings by Domain</h3>
+            
+            <div class="findings-grid">
+                
+                <!-- FINDING CARD OPTIONS -->
+
+
+                
+                <!-- Card Type A: Significant Positive Effect -->
+                <div class="finding-card significant" style="background: #f0fdf4;">
+                    <div class="finding-domain">
+                        [DOMAIN NAME]
+                        <span class="effect-size-badge positive-effect">Significant Effect</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = [VALUE]</div>
+                    <div class="finding-significance">p = [P-VALUE] • Statistically significant positive effect</div>
+                </div>
+
+
+
+                <!-- Card Type B: No Significant Effect -->
+                <div class="finding-card non-significant" style="background: #f9fafb;">
+                    <div class="finding-domain">
+                        [DOMAIN NAME]
+                        <span class="effect-size-badge neutral-effect">No Effect</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = [VALUE]</div>
+                    <div class="finding-significance">No significant effect detected</div>
+                </div>
+
+
+
+                <!-- Card Type C: Significant Negative Effect -->
+                <div class="finding-card negative-significant" style="background: #fef2f2;">
+                    <div class="finding-domain">
+                        [DOMAIN NAME]
+                        <span class="effect-size-badge negative-effect">Significant Negative Effect</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = [NEGATIVE VALUE]</div>
+                    <div class="finding-significance">p = [P-VALUE] • Statistically significant negative effect</div>
+                </div>
+
+
+
+                <!-- Card Type D: Trending/Marginal Effect -->
+                <div class="finding-card non-significant" style="background: #fffbeb;">
+                    <div class="finding-domain">
+                        [DOMAIN NAME]
+                        <span class="effect-size-badge neutral-effect">Trending</span>
+                    </div>
+                    <div class="finding-effect">Hedges' g = [VALUE]</div>
+                    <div class="finding-significance">p = [P-VALUE] • Marginally significant trend</div>
+                </div>
+
+
+                
+            </div>
+        </div>
+
+
+
+
+        <!-- BAYESIAN ANALYSIS OPTIONS -->
+
+
+        
+        <!-- Option A: Evidence Against Effect (Null Result) -->
+        <div class="bayesian-analysis" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+            <div class="bayesian-title">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+                </svg>
+                Bayesian Meta-Analysis Results
+            </div>
+            <div class="bayesian-content">
+                The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an effect</strong> (BF₁₀ = [VALUE]) and <strong>[moderate/strong] evidence against publication bias</strong> (BF_PB = [VALUE]). These findings strengthen confidence in the null result.
+            </div>
+        </div>
+
+
+
+        <!-- Option B: Evidence For Effect -->
+        <div class="bayesian-analysis" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+            <div class="bayesian-title">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+                </svg>
+                Bayesian Meta-Analysis Results
+            </div>
+            <div class="bayesian-content">
+                The Robust Bayesian Meta-Analysis provided <strong>strong evidence for the effect</strong> (BF₁₀ = [VALUE]), supporting the frequentist findings. [ADDITIONAL INTERPRETATION].
+            </div>
+        </div>
+
+
+
+
+        <!-- Option C: Inconclusive Bayesian Evidence -->
+        <div class="bayesian-analysis" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+            <div class="bayesian-title">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+                </svg>
+                Bayesian Meta-Analysis Results
+            </div>
+            <div class="bayesian-content">
+                The Robust Bayesian Meta-Analysis provided <strong>inconclusive evidence</strong> (BF₁₀ = [VALUE]), suggesting the data cannot clearly distinguish between the presence and absence of an effect.
+            </div>
+        </div>
+
+
+
+
+        <!-- STATISTICAL NOTES OPTIONS -->
+        
+        <!-- Power Analysis Note -->
+        <div class="statistical-note" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
+            <div class="statistical-note-title">Statistical Power Analysis</div>
+            <div class="statistical-note-content">
+                Individual studies were generally <strong>underpowered</strong> ([PERCENT]% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects.
+            </div>
+        </div>
+
+
+
+        <!-- Heterogeneity Note -->
+        <div class="statistical-note" style="background: #fef3c7; border-left: 3px solid #f59e0b;">
+            <div class="statistical-note-title">Heterogeneity Analysis</div>
+            <div class="statistical-note-content">
+                Substantial heterogeneity was observed across studies (I² = [VALUE]%, τ² = [VALUE]), suggesting that [INTERPRETATION OF HETEROGENEITY SOURCE].
+            </div>
+        </div>
+
+
+
+        <!-- Publication Bias Note -->
+        <div class="statistical-note" style="background: #dbeafe; border-left: 3px solid #3b82f6;">
+            <div class="statistical-note-title">Publication Bias Assessment</div>
+            <div class="statistical-note-content">
+                [Evidence of publication bias was/was not detected] using [METHOD]. [INTERPRETATION AND IMPLICATIONS].
+            </div>
+        </div>
+
+
+
+        <!-- FIGURE SECTION -->
+        <div class="figure-section" style="margin: 3rem 0; text-align: center;">
+            <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+                <img src="[IMAGE_URL]" 
+                     alt="[DESCRIPTIVE ALT TEXT]" 
+                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
+                    <strong>Figure [NUMBER]: [FIGURE TITLE].</strong> [DETAILED CAPTION DESCRIBING THE FIGURE AND KEY FINDINGS]
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
 ```
 
 ## Inclusion and Exclusion Criteria {#criteria}
@@ -327,19 +589,19 @@ Write abstract here. This should be a concise summary of the living meta-analysi
 ::: {.criteria-box}
 ### Inclusion Criteria
 
-- **Type of Studies:** [Study designs included, e.g., "Randomized controlled trials", "Original research written in English"]
-- **Intervention:** [Specific intervention criteria, e.g., "Intranasal oxytocin administration"]
-- **Population:** [Target population, e.g., "Healthy adults aged 18-65"]
-- **Outcomes:** [Primary and secondary outcomes, e.g., "Social behavior measures", "Validated scales for trust"]
-- **Data Requirements:** [Statistical requirements, e.g., "Must report means and standard deviations or effect sizes"]
+- **Type of Studies:** Study designs included, e.g., "Randomized controlled trials", "Original research written in English"
+- **Intervention:** Specific intervention criteria, e.g., "Intranasal oxytocin administration"
+- **Population:** Target population, e.g., "Healthy adults aged 18-65"
+- **Outcomes:** Primary and secondary outcomes, e.g., "Social behavior measures", "Validated scales for trust"
+- **Data Requirements:** Statistical requirements, e.g., "Must report means and standard deviations or effect sizes"
 :::
 
 ::: {.criteria-box}
 ### Exclusion Criteria
 
-- [Specific exclusion criteria relevant to the research question]
-- [Additional exclusion criteria]
-- [Overlap/duplicate publication handling]
+- Specific exclusion criteria relevant to the research question
+- Additional exclusion criteria
+- Overlap/duplicate publication handling
 :::
 
 ## Methodology Summary {#methodology}
@@ -353,8 +615,14 @@ Statistical analyses will be conducted using [statistical software] with the [sp
 ## Search Strategy {#search-strategy}
 
 ::: {.search-strategy-box}
-<span class="search-db">[DATABASE 3]:</span>
-[Search string for database 3]
+<span class="search-db">Write search engine here e.g. PubMed:</span>
+the search string used in e.g pubmed here 
+
+<span class="search-db">Write search engine here:</span>
+search string here 
+
+<span class="search-db">Write search engine here:</span>
+search string here
 :::
 
 ## Update Protocol {#update-protocol}
@@ -367,15 +635,6 @@ This is a living meta-analysis that will be updated every [XX] months for a mini
 4. [Statistical correction methods]
 5. [Additional relevant procedures]
 
-### Updates Log {#updates-log}
-
-- Initial pre-registration: [YEAR]
-- First analysis and publication: [Status/Date]
-- [Additional updates as they occur]
-
-### Next Update {#next-update}
-Scheduled for: [Date or "XX months after initial publication"]  
-Contact: [contact.email@institution.edu]
 
 ## References {#references}
 
@@ -417,43 +676,3 @@ Contact: [contact.email@institution.edu]
 ```
 
 :::
-
----
-
-## INSTRUCTIONS FOR USE:
-
-### YAML Header Instructions:
-- **title**: Replace with your specific research question
-- **status**: Choose from "Preregistered", "Published", "Retired"
-- **analytical_framework**: Choose from "Frequentist", "Bayesian", "Mixed Methods"
-- **oxytocin.intervention**: Choose from provided options
-- **oxytocin.assessment_method**: Choose from provided options  
-- **oxytocin.route**: Choose from provided options
-- **oxytocin.dosage**: Choose from provided options or specify
-- **population.status**: Choose from "Healthy", "Clinical", "Mixed"
-- **population.age_group**: Choose from provided options
-- **outcomes**: Select relevant categories and map to app.R outcomes
-- **update-frequency**: Choose from provided options
-- **dois**: Update with actual DOIs when available
-
-### Content Instructions:
-- Replace all [BRACKETED PLACEHOLDERS] with actual content
-- Update author information in both visible and hidden sections
-- Provide actual URLs for resources or use "#" with "pending" class
-- Customize inclusion/exclusion criteria for your research question
-- Update methodology section with your specific approach
-- Provide actual search strategies for your databases
-- Update contact information and timeline
-- Add your actual references in the specified format
-
-### CSS Classes to Remember:
-- Use `.pending` class for unavailable resources
-- Author toggle functionality is already implemented
-- Reference toggle functionality is already implemented
-- All styling will be applied automatically through the SCSS file 1]:</span>
-[Search string for database 1]
-
-<span class="search-db">[DATABASE 2]:</span>
-[Search string for database 2]
-
-<span class="search-db">[DATABASE

@@ -54,7 +54,7 @@ format:
       <div class="content-box">
         <h3>Contact us</h3>
         <p>
-        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact form. There is no commitment in reaching out, and we will answer questions about conducting analysis, our standardization framework or preparing protocols. The contact form will redirect you to the right form for project proposal or questions. 
+        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact forms. There is no commitment in reaching out, and we will answer questions about conducting analysis, our standardization framework or preparing protocols. The contact forms are found <a href="contact.html">here</a>.
         </p>
         <h3>What to include:</h3>
         <ul>

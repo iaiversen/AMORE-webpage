@@ -2254,6 +2254,12 @@ body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
   background: linear-gradient(to right, #f9fafb, #ffffff);
 }
 
+/* Negative significant finding - red accent */
+.finding-card.negative-significant {
+  border-left: 4px solid #dc2626;
+  background: linear-gradient(to right, #f9fafb, #ffffff);
+}
+
 /* Finding card elements */
 .finding-domain {
   font-weight: 600;
@@ -2281,6 +2287,10 @@ body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
 
 .non-significant .finding-significance {
   color: #6b7280;               /* Grey for non-significant */
+}
+
+.negative-significant .finding-significance {
+  color: #dc2626;               /* Grey for non-significant */
 }
 
 
@@ -2646,6 +2656,11 @@ details[open] .resource-summary::after {
 .positive-effect {
   background: #dcfce7;
   color: #166534;
+}
+
+.negative-effect {
+    background: #f3f4f6;
+    color: #dc2626;
 }
 
 .neutral-effect {
