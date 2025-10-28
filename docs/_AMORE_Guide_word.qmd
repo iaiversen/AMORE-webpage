@@ -22,8 +22,8 @@ format:
           commandchars=\\\{\}
         }
 execute:
-  echo: true      # Show all code chunks
-  eval: false     # Don't run code
+  echo: true      
+  eval: false     
   warning: false
   message: false
 ---

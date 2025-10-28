@@ -1,0 +1,491 @@
+---
+title: "AMORE Website Guide - Usability Test"
+subtitle: "Testing the Guide Document"
+author: "Behavioral Neuroendocrinology Lab"
+date: today
+format: 
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github
+  pdf:
+    toc: true
+    number-sections: true
+    highlight-style: github
+    code-block-bg: true
+    fontfamily: bookman
+    geometry:
+      - margin=1in
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Test Objective
+
+This is a **usability test** to evaluate whether the "Guide for Managing
+AMORE Website" document is clear and comprehensive enough for lab
+members to successfully create project pages.
+
+**Your task:** Create a dummy Living Meta-Analysis (LMA) project page
+using **ONLY** the guide document for instructions.
+
+## Purpose
+
+-   Test if the guide provides sufficient information
+-   Identify gaps or unclear sections
+-   Improve documentation before full rollout
+
+## Important Notes
+
+-   The guide is **still under development** - finding unclear parts
+    helps improve it!
+-   This is **NOT** a test of your abilities - it's a test of the
+    documentation
+-   If something is confusing, that's valuable feedback!
+
+------------------------------------------------------------------------
+
+# Before You Begin
+
+## What You'll Need
+
+### Software & Access
+
+-   ✅ **RStudio** installed on your computer
+-   ✅ **Git** - You need Git installed locally (not just browser
+    access)
+    -   Check if installed: Open Terminal/Command Prompt and type
+        `git --version`
+    -   If not installed, download from: https://git-scm.com/downloads
+-   ✅ **GitHub account** with collaborator access to
+    `iaiversen/AMORE-webpage`
+-   ✅ **The AMORE Guide PDF** (the document is saved in:
+    [Documents/General Manuscripts/AMORE/Website
+    technicals/\_AMORE_Guide_pdf.pdf](https://uio.sharepoint.com/:b:/r/sites/BehavioralNeuroendocrinologylab/Delte%20dokumenter/General/Manuscripts/AMORE/Website%20technicals/_AMORE_Guide_pdf.pdf?csf=1&web=1&e=8D1JQV)
+    in Teams
+
+### Verify Your Access
+
+1.  Go to: https://github.com/iaiversen/AMORE-webpage
+2.  You should see the repository (not a 404 error)
+3.  You should be able to click on files and see their content
+
+If you **cannot** access the repository, contact Ingebjørg **before**
+starting the test.
+
+------------------------------------------------------------------------
+
+# Test Rules
+
+## ✅ You MAY:
+
+-   Use the guide document as much as needed
+-   Search the guide PDF (Ctrl+F / Cmd+F)
+-   Use Google for general technical issues (e.g., "how to use git
+    clone")
+-   Test and experiment freely
+
+## ❌ You MAY NOT:
+
+-   Ask Ingebjørg for help with creating the page (this defeats the test
+    purpose!)
+
+## ⚠️ EXCEPTION:
+
+If you encounter a **blocker** (something that completely prevents you
+from continuing), you may:
+
+-   Contact Ingebjørg to unblock you
+
+------------------------------------------------------------------------
+
+# Your Assignment
+
+## Task Overview
+
+Create a **fictional** Living Meta-Analysis project page about oxytocin
+research.
+
+### File Naming Convention
+
+Your file MUST be named:
+
+-   **Alina:** `_test_alina.qmd`
+-   **Heemin:** `_test_heemin.qmd`
+
+**Important:** The underscore `_` at the beginning prevents the file
+from going live on the website.
+
+### Content Requirements
+
+Use **completely fictional data** for your dummy project:
+
+-   Make up a research question about oxytocin
+-   Invent plausible metadata (dosage, population, outcomes)
+-   Create a fictional abstract
+-   Write example criteria and methodology
+
+------------------------------------------------------------------------
+
+## Step-by-Step Tasks
+
+### Task 1: Set Up Your Workspace
+
+Using the guide document:
+
+1.  Clone the AMORE repository to your computer
+2.  Open the project in RStudio
+3.  Verify you can see the project structure
+
+**Checkpoint:** You should see folders like `LMAs/`, `pages/`, `assets/`
+
+------------------------------------------------------------------------
+
+### Task 2: Create Your Project File
+
+1.  Navigate to the `LMAs/` folder
+2.  Locate the template file
+3.  Create your new file named `_test_[yourname].qmd`
+4.  save file to `LMAs/` folder
+
+**Checkpoint:** Your file is in the `LMAs/` folder with correct naming
+
+------------------------------------------------------------------------
+
+### Task 3: Fill in YAML Metadata
+
+Complete YAML metadata fields at the top of your file:
+
+**Required fields:**
+
+-   `title`
+-   `analytical_framework`
+-   `oxytocin` section (intervention, assessment_method, route, dosage)
+-   `population` section (status, age_group)
+-   `outcomes` section (biological, psychological_behavioral, clinical)
+
+**Important:** Use fictional but plausible values. For example:
+
+-   Dosage: Pick from actual options like "24 IU"
+-   Population: Make up realistic criteria
+
+**Checkpoint:** YAML fields are filled with valid options (check guide
+for valid choices)
+
+------------------------------------------------------------------------
+
+### Task 4: Fill in Content Sections
+
+Complete **ALL** mandatory sections:
+
+#### Mandatory Sections:
+
+1.  **Hero Section**
+    -   Project hero with title
+2.  **Abstract**
+    -   Write a fictional 150-250 word abstract
+    -   Include: research question, methodology, status
+3.  **Resources**
+    -   List fictional resources (e.g., "Fictional Dataset 2024",
+        "Oxytocin Studies Repo")
+
+#### Optional Sections:
+
+Choose at least **ONE** optional section to include:
+
+3.  **Current Results** (choose one):
+    -   If status is "Preregistered": Use the preregistered notice
+    -   If status is "Published": Create fictional results (you can keep
+        it simple)
+4.  **Inclusion and Exclusion Criteria**
+    -   Create fictional but realistic criteria
+    -   Both inclusion AND exclusion sections
+5.  **Methodology Summary**
+    -   Brief description of fictional methodology
+    -   Mention analysis software (make it up)
+6.  **Search Strategy**
+    -   Create at least 2 fictional search strings for different
+        databases
+    -   Use the proper format shown in template- Timeline section
+
+**Checkpoint:** All mandatory sections are present and filled with
+content
+
+------------------------------------------------------------------------
+
+### Task 5: Preview Your Page
+
+This part is **tricky** - you need to preview with styling, but the `_`
+prefix in the file title that keeps the project page from going live
+also keeps the file from recieving styling commands from the styles.scss
+when rendering.
+
+**The Challenge:**
+
+-   Files starting with `_` are hidden from rendering
+-   But you need to see styling to verify your page looks correct
+
+**Your Task:** remove the `_` prefix temporarily in the file name to
+preview with styling, then add it back after verifying. You will find
+reference images in the appendix to compare your styling against. The
+reference images are in browser size.
+
+**Checkpoint:** You can see your page rendered with proper AMORE styling
+
+------------------------------------------------------------------------
+
+### Task 6: Final Verification
+
+Run through this checklist:
+
+**File Structure:** - \[ \] File is named correctly:
+`_test_[yourname].qmd` - \[ \] File is in the `LMAs/` folder - \[ \]
+File still has the `_` prefix (NOT going live)
+
+**Content Sections:** - \[ \] Abstract is written (150-250 words)
+
+**Rendering:** - \[ \] Page renders without errors - \[ \] Styling looks
+correct (matches reference) - \[ \] No broken links or missing images
+
+------------------------------------------------------------------------
+
+### Task 7: Save Your Work
+
+1.  Ensure your file is saved in RStudio
+2.  **Do NOT delete your file** - it will be reviewed by Ingebjørg
+
+------------------------------------------------------------------------
+
+# What to Submit
+
+## 1. Your Project File
+
+-   File: `_test_[yourname].qmd` (add the \`\_\` back before pushing to
+    GitHub after previewing)
+-   Location: Should remain in `LMAs/` folder
+-   push to Github repository AMORE-webpage
+
+## 3. Feedback Form
+
+Complete the feedback form (see next section)
+
+------------------------------------------------------------------------
+
+# Feedback Form
+
+Please provide feedback about using the guide document.
+
+## Part A: Process Questions
+
+### 1. Time Taken
+
+**How long did it take you to complete this task?**
+
+**Actual time:** \_\_\_\_\_\_\_\_\_\_ hours
+
+### 2. Overall Clarity
+
+**How clear was the guide document overall?**
+
+-   [ ] Very clear - I understood everything
+-   [ ] Mostly clear - only minor confusion
+-   [ ] Somewhat clear - needed to search/experiment
+-   [ ] Confusing - struggled to find information
+-   [ ] Very confusing - could not complete without help
+
+**If confusing, please explain:** **text answer:**
+
+------------------------------------------------------------------------
+
+### 3. Task Completion
+
+**Were you able to complete all tasks?**
+
+-   [ ] Yes, completed everything
+-   [ ] Mostly - skipped optional parts only
+-   [ ] Partially - could not complete some mandatory parts
+-   [ ] No - encountered blockers
+
+**If no/partially, what stopped you?**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Part B: Section-Specific Feedback
+
+For each task, rate how well the guide helped you:
+
+**Rating Scale:** - 5 = Excellent - Found exactly what I needed
+quickly - 4 = Good - Found information with some searching - 3 =
+Adequate - Eventually figured it out - 2 = Poor - Information was
+unclear or incomplete - 1 = Missing - Could not find information
+
+### Task 1: Setting Up Workspace (Cloning repository)
+
+**Rating:** \[ \] 1 \[ \] 2 \[ \] 3 \[ \] 4 \[ \] 5
+
+**What was unclear or missing?**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+### Task 2: Creating Project File
+
+**Rating:** \[ \] 1 \[ \] 2 \[ \] 3 \[ \] 4 \[ \] 5
+
+**What was unclear or missing?**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+### Task 3: Filling YAML Metadata
+
+**Rating:** \[ \] 1 \[ \] 2 \[ \] 3 \[ \] 4 \[ \] 5
+
+**What was unclear or missing?**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+**Specific metadata fields that were confusing:**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+### Task 4: Filling Content Sections
+
+**Rating:** \[ \] 1 \[ \] 2 \[ \] 3 \[ \] 4 \[ \] 5
+
+**What was unclear or missing?**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+**Which sections were most confusing?**
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Part C: Content Gaps
+
+### What information was completely missing from the guide?
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+### What information was present but not detailed enough?
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+### What information was confusing or contradictory?
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Part D: Suggestions for Improvement
+
+### What would have made the guide more helpful?
+
+-   [ ] More examples
+-   [ ] More screenshots
+-   [ ] Step-by-step checklists
+-   [ ] Troubleshooting section
+-   [ ] Video tutorials
+-   [ ] Quick reference guide
+-   [ ] Better organization
+-   [ ] Other:
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+### Specific improvements you recommend:
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Part E: Additional Comments
+
+### Any other feedback, questions, or observations?
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+# Appendix: Reference Images
+
+## Reference Images: Example Project Page
+
+![](images/refrence project page .png)
+
+![](images/refrence project page2 .png)
+
+![](images/refrence image 3 .png)
+
+![](images/refrence 4 .png)
+
+------------------------------------------------------------------------
+
+# Thank You!
+
+Your participation helps make the AMORE website more accessible and the
+documentation more useful for future lab members and collaborators.
+
+Good luck! 🧪
+
+------------------------------------------------------------------------
+
+**Version:** 1.0\
+**Last updated:** {{{\<28/10/25\>}}}

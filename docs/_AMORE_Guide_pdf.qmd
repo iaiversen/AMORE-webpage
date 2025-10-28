@@ -22,8 +22,8 @@ format:
           commandchars=\\\{\}
         }
 execute:
-  echo: true      # Show all code chunks
-  eval: false     # Don't run code
+  echo: true
+  eval: false 
   warning: false
   message: false
 ---
@@ -163,6 +163,8 @@ Emails of responses to any of these forms goes to:
 -   Quarto - Document publishing system for creating websites or reports
 
 -   Github account
+
+-   Git version installed on your computer (not browser version)
 
 ### Two Access Methods to Git
 
