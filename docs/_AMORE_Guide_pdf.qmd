@@ -44,7 +44,25 @@ AMORE is a website created by Ingebjørg Anjadatter Iversen for the behavioral N
 
 This document instructs the management of AMORE webpage.
 
-AMORE was built using RStudio and Quarto. Netlify deploys the webiste, and GitHub is used to host and share script. Netlify is accessing the script from the github repository for AMORE. Nettskjema is used as a medium between users and the AMORE team or the lab with different contacting forms.
+AMORE was built using RStudio and Quarto. Git is used for version control, collaboration and hosting website in GitHub repository. Netlify is deploying the website and accessing the script from the github repository. Shinyapp host the app.R (backend to the directory hosting living meta-analysis on AMORE). Nettskjema delivers contact forms used as medium between platform users and the AMORE team.
+
+## Who this guide is for: 
+
+-   Lab members adding new LMA projects
+
+-   Website administrators maintaining platform
+
+## Git, Shinyapp, and netlify
+
+The AMORE platform consists of three interconnected services:
+
+### **Git (Version Control & Collaboration)**
+
+Repository: iaiversen/AMORE-webpage.
+
+Stores all source code. Tracks changes with commit history. Enables collaboration through pull requests.
+
+**Important**: Never commit sensitive data (API keys, passwords)
 
 ### GitHub repository
 
@@ -54,25 +72,19 @@ Repository URL: https://github.com/iaiversen/AMORE-webpage
 
 Created by github account: iaiversen (Ingebjørg Anjadatter Iversen)
 
-Collaborators: dsquintana (Daniel quintana)
+Collaborators: dsquintana (Daniel quintana), AMSartorius (Alina Sartorius), HeeminK (Heemin Kang)
 
 #### Repository License
 
 AMORE-webpage repository has the MIT license. It gives open access. The LICENSE file is in the root folder (AMORE-webpage).
 
-### Github, ShinyApps.io and Netlify
-
-Three platforms work together:
-
-**GitHub (Version Control & Collaboration)**
-
-Repository: iaiversen/AMORE-webpage Stores all source code Tracks changes with commit history Enables collaboration through pull requests Important: Never commit sensitive data (API keys, passwords)
-
-**ShinyApps.io (Shiny App Hosting)**
+### **ShinyApps.io (Shiny App Hosting)**
 
 Hosts the Living Meta-Analysis directory (app.R) Free tier limitations: limited active hours, connection timeouts URL: https://meta-oxytocin.shinyapps.io/shiny-meta/ Embedded in Living_meta-analysis_Directory.qmd via iframe
 
-**Netlify (Website Hosting)**
+#### Shinyapp.io login and important
+
+### **Netlify (Website Hosting)**
 
 Automatically deploys from GitHub Builds site from \_site folder after Quarto render Domain: amore-project.org Configuration in netlify.toml
 
@@ -84,9 +96,7 @@ Make changes locally in RStudio. Test by rendering (quarto render or Render butt
 
 two-step authenticator
 
-#### Shinyapp.io login and important
-
-### RStudio and Quarto
+## RStudio and Quarto
 
 RStudio is your primary development environment. Install:
 
@@ -96,7 +106,7 @@ R (version 4.0.0+) from CRAN RStudio Desktop from Posit Quarto CLI - Usually bun
 
 The AMORE website is built using multiple programming languages and frameworks that work together: Quarto is multilingual, Just specify in the code chunk what language is used.
 
-The languages used:
+Languages in use:
 
 -   Quarto Markdown (.qmd): Primary content files for pages
 
@@ -108,39 +118,41 @@ The languages used:
 
 -   HTML: Embedded within Quarto files for custom components Shell scripts: Deployment and automation tasks
 
-### Nettskjema
+## Nettskjema
 
-Ediorial right for nettskjema forms:
+**Ediorial right for nettskjema forms:\*\***
 
 -   ingebjai\@uio.no
 
 -   danielqu\@uio.no
 
-The users reach out to the AMORE team through Nettskjema. They find the nettskjema through links on the AMORE website.
+The users reach out to the AMORE team through Nettskjema. They find the nettskjema through links on the AMORE website or directly on the contact page.
 
-The nettskjema forms are:
+**The Nettskjema forms are:**
 
 1.  Contact form AMORE
 
-    -   First form users get to.
+    -   Contact button on home page (index.qmd) transfers platform users to this form.
 
-    -   Redirects to the other three forms
+    -   Redirects to the other three forms (Propose your project, Update an existing living meta-analysis or Get help or share feedback).
 
 2.  Propose your project
 
-3.  General inquiry
+3.  Get help or share feedback
 
 4.  Update an existing living meta-analysis
 
-Emails of responses to any of these forms goes to:
+**Emails of responses to any of these forms goes to:**
 
 -   ingebjai\@student.sv.uio.no
 
 -   daniel.quintana\@psykologi.no
 
-    -   Dan streamlines the response to the relevant people for evaluation of project or getting in contact with the right people. (Rest of AMORE team).
+NB! Dan streamlines the nettskjema responses to the AMORE expert steering committee for evaluation of projects or other inquiries.
 
-# Getting started
+------------------------------------------------------------------------
+
+# Getting started 
 
 ### Prerequisites
 

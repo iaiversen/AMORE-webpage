@@ -34,6 +34,11 @@ _site/
 /LMAs/*_files/
 /docs/*_files/
 
+# Security 
+.Renviron
+.Rprofile
+rsconnect/
+*.dcf
 
 
 # OS files
