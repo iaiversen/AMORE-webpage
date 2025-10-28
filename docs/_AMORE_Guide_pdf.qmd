@@ -30,33 +30,21 @@ execute:
 
 **Contributors to this guide document:**
 
--   Ingebjørg Anjadatter Iversen
+-   **Ingebjørg Anjadatter Iversen**
 
--   Alina
+-   Alina Sartorius
 
--   Heemin
-
-------------------------------------------------------------------------
-
-**Table of content**
-
-1.  Important information
-2.  Getting started
-3.  Project structure and file explanations
-4.  Styling system SCSS
-5.  Adding new projects
-6.  Troubleshooting
-7.  Website maintenance
+-   Heemin Kang
 
 ------------------------------------------------------------------------
 
-## Important information
+# Introduction 
 
 AMORE is a website created by Ingebjørg Anjadatter Iversen for the behavioral Neuroendocrinology Lab to host living meta-analysis for oxytocin research investigating biobehavioral outcomes.
 
-This document instructs about MAINTANCE, ADDING PROJECTS, and AMORE project INFRASTRUCTURE
+This document instructs the management of AMORE webpage.
 
-AMORE was built using RStudio and Quarto. Netlify deploys the webiste, and GitHub is used to host and share script. Netlify is accessing the script from the github repository for AMORE. Nettskjema is used as a medium between users and the AMORE team or the lab with different contacting forms
+AMORE was built using RStudio and Quarto. Netlify deploys the webiste, and GitHub is used to host and share script. Netlify is accessing the script from the github repository for AMORE. Nettskjema is used as a medium between users and the AMORE team or the lab with different contacting forms.
 
 ### GitHub repository
 
@@ -152,7 +140,7 @@ Emails of responses to any of these forms goes to:
 
     -   Dan streamlines the response to the relevant people for evaluation of project or getting in contact with the right people. (Rest of AMORE team).
 
-## Getting started
+# Getting started
 
 ### Prerequisites
 
@@ -391,7 +379,7 @@ source("Setup.R") sync_styles() # Test sync_styles function
 
 ------------------------------------------------------------------------
 
-## Project structure and file explanations
+# Project structure and file explanations
 
 ``` bash
 {bash}
@@ -1131,7 +1119,7 @@ _site/
 
 ------------------------------------------------------------------------
 
-## Styling system SCSS
+# Styling system SCSS
 
 ### Overview
 
@@ -1208,7 +1196,7 @@ The file is organized into logical sections marked with comments:
 
 ------------------------------------------------------------------------
 
-## Adding new projects
+# Adding new projects
 
 This section guides you through adding a new living meta-analysis project to the AMORE website. Each project requires a `.qmd` file with properly formatted metadata that allows the Shiny app directory to filter and display your project correctly.
 
@@ -2079,7 +2067,7 @@ write [search AND string] here
 
 ------------------------------------------------------------------------
 
-## Troubleshooting
+# Troubleshooting
 
 This section provides solutions to common problems you may encounter when creating or updating project pages.
 
@@ -2112,7 +2100,7 @@ Include:
 
 ------------------------------------------------------------------------
 
-## Website maintenance
+# Website maintenance
 
 You find the correct scss classes for the different pages under the 3.1 File-by-file breakdown under each file explanation.
 
