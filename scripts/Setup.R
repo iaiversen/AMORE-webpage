@@ -16,7 +16,6 @@
 # 
 # 3. Installing packages is global in RStudio, but loading libraries is specific to each script. 
 
-(sass = TRUE)
 
 # ----------------------------------------------------------------------------------------------
 # Individualized functions for AMORE 
@@ -87,8 +86,36 @@ check_and_update_tinytex()
 
 
 # ----------------------------------------------------------------------------------------------
+# Check Quarto CLI Installation
+# ----------------------------------------------------------------------------------------------
+
+check_quarto_installation <- function() {
+  quarto_installed <- tryCatch({
+    system("quarto --version", intern = TRUE, ignore.stderr = TRUE)
+    TRUE
+  }, error = function(e) {
+    FALSE
+  })
+  
+  if (!quarto_installed) {
+    message("\n*** QUARTO CLI NOT FOUND ***")
+    message("Quarto CLI is required to render .qmd files.")
+    message("Please install Quarto from: https://quarto.org/docs/get-started/")
+    message("\nAfter installation, restart RStudio.")
+    warning("Quarto CLI not found - manual installation required")
+  } else {
+    version <- system("quarto --version", intern = TRUE)
+    message(paste("✓ Quarto CLI version", version, "detected"))
+  }
+}
+
+check_quarto_installation()
+
+
+# ----------------------------------------------------------------------------------------------
 # Neccessary packages for R Markdown, Quarto, and Shiny 
 # installed and/or loaded with the function above
+# Some packages and libaries installed also loaded directly in scripts
 # ----------------------------------------------------------------------------------------------
 
 
@@ -136,4 +163,14 @@ install_and_load("jsonlite")
 
 # For handling HTTP requests if your Shiny app makes API calls
 install_and_load("httr")
+
+# sass: Compile Sass/SCSS to CSS (needed for styles.scss)
+install_and_load("sass")
+(sass = TRUE)
+
+# For base64 encoding (used in Shiny app for GitHub API)
+install_and_load("base64enc")
+
+# For fuzzy string matching in search functionality (app.R)
+install_and_load("stringdist")
 

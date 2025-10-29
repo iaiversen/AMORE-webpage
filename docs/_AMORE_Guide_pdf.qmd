@@ -38,7 +38,7 @@ execute:
 
 ------------------------------------------------------------------------
 
-# Introduction 
+# Introduction
 
 AMORE is a website created by Ingebjørg Anjadatter Iversen for the behavioral Neuroendocrinology Lab to host living meta-analysis for oxytocin research investigating biobehavioral outcomes.
 
@@ -46,7 +46,7 @@ This document instructs the management of AMORE webpage.
 
 AMORE was built using RStudio and Quarto. Git is used for version control, collaboration and hosting website in GitHub repository. Netlify is deploying the website and accessing the script from the github repository. Shinyapp host the app.R (backend to the directory hosting living meta-analysis on AMORE). Nettskjema delivers contact forms used as medium between platform users and the AMORE team.
 
-## Who this guide is for: 
+## Who this guide is for:
 
 -   Lab members adding new LMA projects
 
@@ -102,7 +102,7 @@ RStudio is your primary development environment. Install:
 
 R (version 4.0.0+) from CRAN RStudio Desktop from Posit Quarto CLI - Usually bundled with RStudio, or install from quarto.org
 
-#### The Different Languages
+### The Different Languages
 
 The AMORE website is built using multiple programming languages and frameworks that work together: Quarto is multilingual, Just specify in the code chunk what language is used.
 
@@ -152,9 +152,39 @@ NB! Dan streamlines the nettskjema responses to the AMORE expert steering commit
 
 ------------------------------------------------------------------------
 
-# Getting started 
+# Getting started
 
-### Prerequisites
+This section guides you through setting up your development environment, providing the essential setup instructions.
+
+### Code block types and what they mean in this guide document 
+
+Throughout this guide, you'll see code blocks with different labels that indicate where or how to run the code.
+
+#### {r} - R block 
+
+This code block is used to indicate that the content of the code block belongs to a script or file inside the AMORE.Rproj. It does not necessarily mean that the language used is R, since quarto is multilingual and uses multiple languages in the same files.
+
+#### {bash} - bash block 
+
+The bash code block indiactes that the content is for a command line interface. (I personally use Windows Powersehll as my terminal).
+
+The code is used for Git commands.
+
+Git commands work in both Bash and Powershell.
+
+#### {html} and {scss} blocks 
+
+Html or Scss code block indicates that the content in the code block is written using the specified language. The languages are used across different files and scripts all withing the AMORE.Rproj project.
+
+#### **Quick reference:** 
+
+-   **See `{r} {html} {scss}`** → Code belongs inside AMORE.Rproj and if html or scss indicates the languaged used.
+
+<!-- -->
+
+-   **See `{bash}`** → Open Terminal (Git Bash on Windows recommended)
+
+## Prerequisites
 
 -   R (Version 4.0.0 or higher) - programming language
 
@@ -164,15 +194,15 @@ NB! Dan streamlines the nettskjema responses to the AMORE expert steering commit
 
 -   Github account
 
--   Git version installed on your computer (not browser version)
+-   Git version installed on your computer (not browser version).
 
-### Two Access Methods to Git
+## Three Access Methods to Git
 
-#### **Method 1: Collaborator Access (For Core Lab Members)**
+Choose the method that matches your access level and preferred workflow:
+
+### **Method 1: Collaborator Access (For Core Lab Members)**
 
 **If you are a direct collaborator with write access:**
-
-**Initial Setup (One Time):**
 
 ``` bash
 {bash}
@@ -218,11 +248,11 @@ git push origin main
 
 ------------------------------------------------------------------------
 
-#### **Method 2: Fork & Pull Request Workflow (For Contributors Without Direct Access)**
+### **Method 2: Fork & Pull Request Workflow (For Contributors Without Direct Access)**
 
 **If you are NOT a direct collaborator:**
 
-#### **Initial Setup (One Time):**
+**Initial Setup (One Time):**
 
 **Step 1: Fork the Repository** 1. Go to [`https://github.com/iaiversen/AMORE-webpage`](https://github.com/iaiversen/AMORE-webpage) 2. Click the **Fork** button (top right corner) 3. This creates your own copy at: [`https://github.com/[YOUR-USERNAME]/AMORE-webpage`](https://github.com/%5BYOUR-USERNAME%5D/AMORE-webpage)
 
@@ -259,9 +289,49 @@ git remote -v
 # upstream  https://github.com/iaiversen/AMORE-webpage.git (main repo)
 ```
 
-### Save and Push Your Project to GitHub
+### Method 3: RStudio Git Integration (Recommended for R Users)
 
-After creating your project page, you must push it to the GitHub repository so it appears on the live website.
+**\*\*Works for both Method 1 and Method 2 users\*\***
+
+RStudio has built-in Git integration that simplifies the workflow. This method is recommended if you're comfortable working in RStudio.
+
+#### Cloning the Repository (First Time Setup)
+
+**\*\*Important:\*\*** The AMORE repository already contains an R project file (\`AMORE.Rproj\`). When you clone the repository, RStudio will automatically recognize and open this existing project—you won't create a nested project.
+
+**\*\*Steps:\*\*** 1. In RStudio: **\*\*File → New Project → Version Control → Git\*\*** 2. **\*\*Repository URL:\*\*** - **\*\*If collaborator (Method 1):\*\*** \`https://github.com/iaiversen/AMORE-webpage\` - **\*\*If using fork (Method 2):\*\*** \`https://github.com/\[YOUR-USERNAME\]/AMORE-webpage\` 3. **\*\*Project directory name:\*\*** Leave as \`AMORE-webpage\` (or rename if desired) 4. **\*\*Create project as subdirectory of:\*\*** Choose where to save it on your computer (e.g., \`Documents/\`) 5. Click **\*\*Create Project\*\***
+
+**\*\*What This Does:\*\*** - Downloads all files from the GitHub repository - Opens the existing \`AMORE.Rproj\` project file - Automatically connects Git for version control - Sets up your working directory
+
+**\*\*Result:\*\*** You'll have one AMORE project folder with Git already connected—ready to work with!
+
+#### Using Git in RStudio
+
+Once set up, you'll see a **\*\*Git tab\*\*** in RStudio (usually upper-right pane):
+
+**\*\*To commit and push changes:\*\*** 1. Modify files in your project 2. **\*\*Git tab:\*\*** Check boxes next to changed files 3. Click **\*\*Commit\*\*** 4. Write a descriptive commit message 5. Click **\*\*Commit\*\*** button 6. Click **\*\*Push\*\*** to send changes to GitHub
+
+**\*\*To pull latest changes:\*\***
+
+\- Click the **\*\*Pull\*\*** button (blue down arrow) in the Git tab
+
+**\*\*Note:\*\*** If using Method 2 (fork workflow), you'll need to set up the upstream remote in RStudio Terminal:
+
+``` bash
+{bash}
+
+git remote add upstream https://github.com/iaiversen/AMORE-webpage.git
+```
+
+#### Opening the Project Later
+
+After initial setup: - **File → Open Project → Navigate to `AMORE.Rproj`** - Or double-click `AMORE.Rproj` in your file system
+
+RStudio will remember the Git connection automatically.
+
+### Save and Push Your work to GitHub with command line Git (Method 1 and 2) 
+
+After you are finished working on the files in the project, you must push it to the GitHub repository so the changes are integrated on the website.
 
 **Important: Always Pull Before You Push**
 
@@ -285,7 +355,7 @@ git pull origin main
 **Why this matters:** Someone else may have added or updated projects since you last synced. Pulling first ensures you're working with the most current version.
 
 \
-**2. Stage Your New Project File**
+**2. Stage Your New File**
 
 ``` bash
 {bash}
@@ -297,10 +367,10 @@ git pull origin main
 # Add ALL changes in current directory and subdirectories
 git add .
 
-# Add specific file
+# Add specific file from specific folder (using LMAs as example folder)
 git add LMAs/yourfile.qmd
 
-# Add all files in a specific folder
+# Add all files in a specific folder (using LMAs as example folder)
 git add LMAs/
 
 # Add multiple specific files
@@ -334,7 +404,7 @@ git commit -m "Add new LMA: [Brief but specific description]"
 git push origin main
 ```
 
-### Dependencies
+## Dependencies
 
 **Install all required packages:**
 
@@ -347,7 +417,9 @@ Open `Setup.R` and run the entire script.
 #| eval: false 
 #| echo: true 
 
-source("Setup.R")
+#You need to be in the root folder AMORE 
+source("scripts/Setup.R") # write this in console 
+# Or just find the script yoursekf and run it. 
 ```
 
 The setup.R script installs:
@@ -364,29 +436,18 @@ The setup.R script installs:
 
 -   `tinytex` - LaTeX/PDF support
 
-**The script handles:**
-
--   Checking if packages are already installed
-
--   Installing missing packages
-
--   Loading libraries
-
--   Setting up TinyTeX distribution
-
 #### Verify Installation
 
 **Test that everything works:**
 
-``` r
-{r}
+``` bash
+{bash}
 #| label: Verify installation in r console 
 #| eval: false 
 #| echo: true 
 
 ("quarto --version") # Check Quarto system
 quarto::quarto_render("index.qmd") # Test rendering a single page 
-source("Setup.R") sync_styles() # Test sync_styles function
 ```
 
 ------------------------------------------------------------------------
@@ -1038,9 +1099,7 @@ shiny-meta/
 
 -   **.Renviron** **\*\*Security critical file\*\*** containing:
 
-    \* \`SHINYAPPS_ACCOUNT\` - Your shinyapps.io account name
-    \* \`SHINYAPPS_TOKEN\` - Authentication token for deployment
-    \* \`SHINYAPPS_SECRET\` - Secret key for deployment
+    \* \`SHINYAPPS_ACCOUNT\` - Your shinyapps.io account name \* \`SHINYAPPS_TOKEN\` - Authentication token for deployment \* \`SHINYAPPS_SECRET\` - Secret key for deployment
 
 ### **How app.R works:**
 
@@ -1068,21 +1127,11 @@ This file is personal with the tokens from the shinyapp account needed to deploy
 
 **\*\*Setting up deployment credentials for shinyapp:\*\***
 
-1. Create a \`.Renviron\` file in the \`shiny-meta/\` directory:
-\`\`\`bash
-\# .Renviron file structure
-SHINYAPPS_ACCOUNT=your-account-name
-SHINYAPPS_TOKEN=your-token-here
-SHINYAPPS_SECRET=your-secret-here
-\`\`\`
+1.  Create a \`.Renviron\` file in the \`shiny-meta/\` directory: \`\`\`bash \# .Renviron file structure SHINYAPPS_ACCOUNT=your-account-name SHINYAPPS_TOKEN=your-token-here SHINYAPPS_SECRET=your-secret-here \`\`\`
 
-2. Get your credentials from shinyapps.io:
-\* Log in to https://www.shinyapps.io/
-\* Navigate to Account meta-oxytocin → Tokens
-\* Show/Generate token
-\* Copy the account name, token, and secret
+2.  Get your credentials from shinyapps.io: \* Log in to https://www.shinyapps.io/ \* Navigate to Account meta-oxytocin → Tokens \* Show/Generate token \* Copy the account name, token, and secret
 
-3. In R, run \`deploy.R\` which will use these credentials
+3.  In R, run \`deploy.R\` which will use these credentials
 
 **Important notes:**
 
@@ -1237,13 +1286,13 @@ The file is organized into logical sections marked with comments:
 
 This section guides you through adding a new living meta-analysis project to the AMORE website. Each project requires a `.qmd` file with properly formatted metadata that allows the Shiny app directory to filter and display your project correctly.
 
-### Getting Started:
+## Getting Started:
 
 1.  **Locate the template:** Find `_lma-template.qmd` in the **LMAs** folder of your project directory
 
 2.  **Create your project file:**
 
-    -   Duplicate the template file and rename it with a descriptive name
+    -   Duplicate the template file and rename it with a descriptive name.
 
     -   **Naming convention:** Use lowercase letters with underscores, no spaces
 
@@ -1251,69 +1300,45 @@ This section guides you through adding a new living meta-analysis project to the
 
 3.  **Save location:** Keep the new file in the **LMAs** folder alongside other project files
 
-**What do you fill in?**
+4.  **Alternatively:** create new .qmd file that you save in the **LMAs** folder. Write scripts yourself or copy paste from this guide or template the necessary code components that you want to include.
 
-1.  The template contains sections that are either required or optional for new project pages:
+Do NOT push to GitHub repository before the project page is finished. If you need to push your work for version control and to secure your work, add a \`\_\` prefix to the name. Like this ✅ \_`smith_social_cognition.qmd`. The prefix prevents the page from rendering correctly. The file loses access to the styles instructions from styles.scss, this means that the prefix should only be added after the preview but before pushing to Git repository.
 
-    **Mandatory Sections** (must be included):
+### **What do you fill in?**
 
-    -   **YAML header** - Contains all metadata for filtering and display
+1.  **Mandatory and Optional information**
 
-    -   **Information container** - The blue panel at the top with project details (timeline, team, links)
+2.  **Fill inn the brackets** \[ with the information requested inside the brackets\] or under headers where you are explicitly told to provide information. Leave the rest of the code as it is. \### Authors or \### Timeline are headers and not comments inside the template and should not be removed.
 
-    -   **Abstract** - Brief overview of the meta-analysis
-
-    -   **Resources** - Links to preregistration, data, scripts, and publications
-
-    **Optional Sections** (include if relevant):
-
-    -   Current Results
-
-    -   Methodology Summary
-
-    -   Inclusion and Exclusion Criteria
-
-    -   Search Strategy
-
-    -   Study Characteristics
-
-    -   References
-
-2.  Fill inn the brackets \[ with the information requested inside the brackets\] or under headers where you are explicitly told to provide information. Leave the rest of the code as it is. \### Authors or \### Timeline are headers and not comments inside the template and should not be removed.
-
-3.  Everything under #\| echo: true in the {r} code chunks should be included. If you are uncertain use the \_lma-template.qmd to visualise what the script should look like.
+3.  **Scripts**: Everything under #\| echo: true in the **{r} code blocks** should be included. If you are uncertain use the \_lma-template.qmd to visualise what the script should look like.
 
 4.  When the script is created, **Render** to preview
 
-![render button](images/render%20button.png){width="357"}
+#### **Mandatory information** (must be included):
 
-![the correct render preview settings](images/setting%20render.png){width="338"}
+-   **YAML header** - Contains all metadata for filtering and display
 
-### Push Your Project to GitHub
+-   **Information container** - The blue panel at the top with project details (timeline, team, links)
 
-After creating and testing your project page, you need to push it to GitHub so it appears on the live website.
+-   **Abstract** - Brief overview of the meta-analysis
 
-**Basic Workflow**
+-   **Resources** - Links to preregistration, data, scripts, and publications
 
-``` bash
-{bash}
-# 1. Pull latest changes first
-git pull origin main
+#### **Optional information** (include if relevant):
 
+-   Current Results
 
-# 2. Add your new project file
-git add LMAs/yourname_topic.qmd
+-   Methodology Summary
 
-# 3. Commit with a descriptive message
-git commit -m "Add [YourName] [Topic] living meta-analysis"
+-   Inclusion and Exclusion Criteria
 
-# 4. Push to GitHub
-git push origin main
+-   Search Strategy
 
-# Verify your push by visting the browser repository to see the new project file in the LMAs folder. 
-```
+-   Study Characteristics
 
-### Build the template
+-   References
+
+### Format rules 
 
 ``` r
 {r}
@@ -1358,9 +1383,11 @@ format:
     # ... rest of format settings
 ```
 
-#### **Mandatory sections**
+## Build the template 
 
-**YAML header**
+### **Mandatory sections**
+
+#### **YAML header**
 
 ``` r
 {r}
@@ -1458,7 +1485,7 @@ format: ### NB!  This is important to include ##
 ---
 ```
 
-**Information container**
+#### **Information container**
 
 ``` r
 {r}
@@ -1542,7 +1569,7 @@ Write title here
 :::
 ```
 
-**Abstract**
+#### **Abstract**
 
 ``` r
 {r}
@@ -1556,7 +1583,7 @@ Write title here
 write abstract under abstract header  
 ```
 
-**Resources**
+#### **Resources**
 
 ``` html
 {.html}
@@ -1780,33 +1807,33 @@ write abstract under abstract header
 </html>
 ```
 
-**Screenshots from the template**: The neon green text is where you need to customize the content.
+**Screenshots from the template of the resources html section**: The neon green text is where you can or need to customize the html code.
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/first-01.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/first-01.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/second.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/second.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/third.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/third.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/third.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/third.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/fourth.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/fourth.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/fourth.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/fourth.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/fifth.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/fifth.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/sixth.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/sixth.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/seventh.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/seventh.png){fig-align="center" width="489"}
 
-![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/seventh.png)
+![screenshot of resources section. Neongreeen font is where you need to customize the code.](images/seventh.png){fig-align="center" width="489"}
 
-![Visual of resources section](images/resources%20image.png){width="459"}
+![Visual of resources section](images/resources%20image.png){fig-align="center" width="360"}
 
-#### Optional sections
+### Optional sections
 
-**Current results**
+#### **Current results**
 
 ``` html
 {.html}
@@ -2025,7 +2052,7 @@ write abstract under abstract header
 </body>
 ```
 
-**Inclusion and exclusion criteria**
+#### **Inclusion and exclusion criteria**
 
 ``` r
 {r}
@@ -2056,7 +2083,7 @@ write abstract under abstract header
 :::
 ```
 
-**Methodology summary**
+#### **Methodology summary**
 
 ``` r
 {r}
@@ -2074,7 +2101,7 @@ The quality of included studies will be assessed using [specific quality assessm
 Statistical analyses will be conducted using [statistical software] with the [specific packages]. [Type of effects model] will be used with [specific estimator]. Heterogeneity will be evaluated by calculating [heterogeneity measures]. Publication bias will be assessed using [bias assessment methods].
 ```
 
-**Search strategy**
+#### **Search strategy**
 
 ``` r
 {r}
@@ -2101,6 +2128,8 @@ write [search AND string] here
 
 :::
 ```
+
+## Previewing your work 
 
 ------------------------------------------------------------------------
 
@@ -2134,6 +2163,8 @@ Include:
 -   Search/Filter Not Working
 
     -   \[To be expanded: How project metadata connects to the Shiny app search\]
+
+-   Do you wrap the code correctly? Especially html is very strict here
 
 ------------------------------------------------------------------------
 

@@ -468,13 +468,13 @@ unclear or incomplete - 1 = Missing - Could not find information
 
 ## Reference Images: Example Project Page
 
-![](images/refrence project page .png)
+![](images/refrence%20project%20page%20.png)
 
-![](images/refrence project page2 .png)
+![](images/refrence%20project%20page2%20.png)
 
-![](images/refrence image 3 .png)
+![](images/refrence%20image%203%20.png)
 
-![](images/refrence 4 .png)
+![](images/refrence%204%20.png)
 
 ------------------------------------------------------------------------
 
