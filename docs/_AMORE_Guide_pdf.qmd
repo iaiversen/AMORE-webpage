@@ -40,17 +40,29 @@ execute:
 
 # Introduction
 
-AMORE is a website created by Ingebjørg Anjadatter Iversen for the behavioral Neuroendocrinology Lab to host living meta-analysis for oxytocin research investigating biobehavioral outcomes.
+The AMORE (Active Monitoring of Oxytocin Research Evidence) website is a platform for hosting and managing living meta-analyses for oxytocin research. This guide provides comprehensive instructions for lab members and administrators to manage, update, and maintain the website.
 
-This document instructs the management of AMORE webpage.
+**Live Website:** <https://amore-project.org>
 
-AMORE was built using RStudio and Quarto. Git is used for version control, collaboration and hosting website in GitHub repository. Netlify is deploying the website and accessing the script from the github repository. Shinyapp host the app.R (backend to the directory hosting living meta-analysis on AMORE). Nettskjema delivers contact forms used as medium between platform users and the AMORE team.
-
-## Who this guide is for:
+### **Who this guide is for:**
 
 -   Lab members adding new LMA projects
 
 -   Website administrators maintaining platform
+
+### **Important contacts** 
+
+**Ingebjørg A. Iversen**
+
+**email:** iaiversen\@hotmail.com, ingebjai\@uio.no
+
+**Daniel Quintana**
+
+**email:** daniel.quintana\@psykologi.uio.no, danielqu\@uio.no
+
+## How AMORE website is programmed and hosted
+
+AMORE was built using RStudio and Quarto. Git is used for version control, collaboration and hosting website in GitHub repository. Netlify is deploying the website and accessing the script from the github repository. Shinyapp host the app.R (backend to the directory hosting living meta-analysis on AMORE). Nettskjema delivers contact forms used as medium between platform users and the AMORE team.
 
 ## Git, Shinyapp, and netlify
 
@@ -94,7 +106,7 @@ Make changes locally in RStudio. Test by rendering (quarto render or Render butt
 
 #### Netlify login and important
 
-two-step authenticator
+two-step authenticator connected to
 
 ## RStudio and Quarto
 
@@ -150,31 +162,37 @@ The users reach out to the AMORE team through Nettskjema. They find the nettskje
 
 NB! Dan streamlines the nettskjema responses to the AMORE expert steering committee for evaluation of projects or other inquiries.
 
+If you need editorial right to the nettskjema, reach out to Dan or Ingebjørg.
+
 ------------------------------------------------------------------------
 
 # Getting started
 
 This section guides you through setting up your development environment, providing the essential setup instructions.
 
-### Code block types and what they mean in this guide document 
+### Code block types throughout this guide and what they mean in the document
 
-Throughout this guide, you'll see code blocks with different labels that indicate where or how to run the code.
+Throughout this guide, you'll see code blocks with different labels that indicate language used, or where/how to run the code.
 
 #### {r} - R block 
 
 This code block is used to indicate that the content of the code block belongs to a script or file inside the AMORE.Rproj. It does not necessarily mean that the language used is R, since quarto is multilingual and uses multiple languages in the same files.
 
-#### {bash} - bash block 
+#### {bash} - bash blocks 
 
-The bash code block indiactes that the content is for a command line interface. (I personally use Windows Powersehll as my terminal).
+The bash code block indiactes that the content is for a command line interface. Bash, powershell and RStudio Terminal are all command line interfaces. (I personally use Windows Powersehll as my terminal).
 
-The code is used for Git commands.
+The blocks contains git commands. Git commands work in Bash, Powershell and RStudio Terminal.
 
-Git commands work in both Bash and Powershell.
+Shift+Alt+T or Shift+Option+M on mac opens Terminal in RStudio.
 
-#### {html} and {scss} blocks 
+#### {html} and {scss} and {yaml} blocks 
 
-Html or Scss code block indicates that the content in the code block is written using the specified language. The languages are used across different files and scripts all withing the AMORE.Rproj project.
+Html and scss code blocks indicates that the content in the code block is written using the specified language. The languages are used across different files and scripts all withing the AMORE.Rproj project. Scss is mainly found in the styles.scss script but is also used in other scripts.
+
+#### {yaml} - yaml blocks 
+
+YAML is a format for storing structured information, like filling out a form with specific fields. In AMORE, the YAML header at the top of each project file contains all the searchable metadata that allows the Shiny app to find, filter, and display projects correctly. Yaml code is always wrapped, and the code blocks contains the information that would be inside the yaml formation.
 
 #### **Quick reference:** 
 
@@ -182,7 +200,7 @@ Html or Scss code block indicates that the content in the code block is written 
 
 <!-- -->
 
--   **See `{bash}`** → Open Terminal (Git Bash on Windows recommended)
+-   **See `{bash}`** → Open Terminal (Git Bash, Windows powershell, or RStudio Terminal)
 
 ## Prerequisites
 
@@ -1123,7 +1141,7 @@ shiny-meta/
 
 This file is personal with the tokens from the shinyapp account needed to deploy the app. All users that will deploy anew the app.R to the server on the shinyapp account meta-oxytocin must create their own .Renviron file with personal token and secret. Which is collected by login in to the account at shinyapp.io.
 
-**The meta-oxytocin account uses unpaid version, to enable multiple account users, the account subscription must be upgraded to *professional plan*.**
+**The meta-oxytocin account on shinyapp.io from Posit uses unpaid version, to enable multiple account users, the account subscription must be upgraded to *professional plan*.**
 
 **\*\*Setting up deployment credentials for shinyapp:\*\***
 
@@ -1340,8 +1358,8 @@ Do NOT push to GitHub repository before the project page is finished. If you nee
 
 ### Format rules 
 
-``` r
-{r}
+``` yaml
+{yaml}
 #| label: YAML header format rules 
 #| description: This is not supposed to be inlcuded anywhere! It is just for explanatory purposes. Below is the YAML header as it should be inlcuded.  
 #| eval: false 
@@ -1389,8 +1407,8 @@ format:
 
 #### **YAML header**
 
-``` r
-{r}
+``` yaml
+{yaml}
 #| label: YAML header 
 #| description: This should be at the very beginning of the project file. The filters options are matched with app.R. If you want to include new options this must also be added to the app's filter logic.# When research groups propose new projects through nettskjema "Propose your project", they are instructed to VOLUNTARY choose metadata options for their project to increase their visibility. If they choose not to answer this part of the form leave the sections blank or write null. 
 #| eval: false 
@@ -2131,44 +2149,299 @@ write [search AND string] here
 
 ## Previewing your work 
 
+It is very important to preview the work BEFORE pushing to Github repository.
+
+You can preview by clicking the render button located at the the top bar of the RStudio interface, or by writing quarto preview in the terminal.
+
+You can preview in Viewer pane OR in browser version. I recommend adjusting the viewer pane size when previewing to check how the content adjusts to different screen sizes.
+
+![](images/Screenshot 2025-10-30 133047.png){width="414"}
+
 ------------------------------------------------------------------------
 
 # Troubleshooting
 
-This section provides solutions to common problems you may encounter when creating or updating project pages.
+This section proposes different solutions to common errors and problems you mey encounter when working on AMORE-website.
 
-Include:
+## Recovery 
 
--   \_recoveryfile.qmd, \_recoveryapp.R, styles.scss.backup
+**Important**: All files starting with `_` are in `.gitignore` and won’t be committed to version control.
 
-    -   \_recoveryapp.R, is used to test updates to app.R before publishing to shinyapp.io, once updates are complete, copy paste script to app.R, always keep backup with bigger changes.
+Git ensures version control so earlier version pushed to Git can be retrieved.
 
-    -   If you want to use any of these files to preview changes, the underscore \_ must be removed from the name temporary so that the file gets access to styles.scss when rendering, once the changes are as you wish, include the \_ at the beginning of the file name to hide it again. Files starting with \_ has been added to .gitignore
+Ctrl+Shift+Z undo changes, and is easy to use for smaller changes you want to undo.
 
--   Styling Problems
+### **Recovery Files**
 
-    -   \[To be expanded: Issues with formatting, colors, or layout\]
-    -   Inspect element
+The project includes backup/testing files for safe experimentation:
 
--   cache and restart
+#### **`_recoveryfile.qmd`**
 
--   YAML syntax error
+-   **Purpose**: Test major page changes before applying to live files
 
-    -   \[To be expanded: Common YAML formatting mistakes and how to fix them\]
+-   **Usage**: Remove `_` to render, test, then re-add `_` to hide
 
--   Image Display Issues
+-   **Location**: **/docs folder**
 
-    -   \[To be expanded: Problems with figures and images not showing\]
+#### **`_recoveryapp.R`**
 
--   Search/Filter Not Working
+-   **Purpose**: Test Shiny app updates before deploying
 
-    -   \[To be expanded: How project metadata connects to the Shiny app search\]
+-   **Usage**:
 
--   Do you wrap the code correctly? Especially html is very strict here
+    1.  Copy `app.R` to `_recoveryapp.R`
+
+    2.  Make changes to `_recoveryapp.R`
+
+    3.  Test by running app from `_recoveryapp.R`
+
+    4.  If successful, copy code back to `app.R`
+
+-   **Location**: `/docs`
+
+## **Common Problems and Solutions**
+
+### **YAML Syntax Errors**
+
+**Symptoms**: - Render fails with “YAML error” message - Page shows blank content - Console shows parsing errors
+
+**Common Causes**:
+
+``` yaml
+{yaml}
+#| label: YAML troybleshooting 
+#| description: If the YAML header shows error try to see if any of these troubleshooting steps helps solve your problem. 
+#| eval: false 
+#| echo: true 
+
+# β—Œ Missing quotes
+status: Preregistered
+
+# βœ" Correct
+status: "Preregistered"
+
+# β—Œ Incorrect array syntax
+intervention: "Value 1", "Value 2"
+
+# βœ" Correct
+intervention: 
+  - "Value 1"
+  - "Value 2"
+
+# β—Œ Inconsistent indentation
+outcomes:
+  biological:
+  - "Item"  # Wrong indent
+
+# βœ" Correct
+outcomes:
+  biological:
+    - "Item"  # Correct indent
+```
+
+**Solution**: 1. Check R console for specific error line 2. Validate YAML at: <http://www.yamllint.com/> 3. Ensure consistent 2-space indentation 4. Use quotes for all string values
+
+### **Styling Problems**
+
+**Symptoms**: - Colors don’t match - Layout broken - Responsive design fails - Changes don’t appear
+
+**Solution Steps**:
+
+#### **Inspect element** 
+
+**What is Inspect Element?**
+
+**Inspect Element** is a powerful browser tool that lets you peek "under the hood" of any webpage to see exactly how it's built and styled. Think of it as X-ray vision for websites.
+
+**What Inspect Element Shows You:**
+
+1.  **HTML Structure**: The actual code that creates the page
+
+2.  **CSS Styles**: All the styling rules affecting each element
+
+3.  **Which styles are actually applied**: When multiple rules conflict, see which one "wins"
+
+4.  **Box model**: Margins, padding, and spacing around elements
+
+5.  **Console errors**: JavaScript errors or warnings
+
+**How to Open Inspect Element**
+
+**In Any Browser:**
+
+-   **Right-click** on any element → Select **"Inspect"** or **"Inspect Element"**
+
+**In RStudio Preview:**
+
+1.  Render your page (it opens in Viewer or browser)
+
+2.  Click "Show in new window" icon (opens in system browser)
+
+3.  Now use inspect element as normal
+
+4.  ⚠️ **Note**: RStudio's built-in viewer has limited inspect functionality
+
+![Inspect element in browser](images/Screenshot 2025-10-30 134418.png){fig-align="center"}
+
+#### **Cache Issues**: 
+
+1.  Save all files in RStudio
+
+2.  Restart R: `Session >> Restart R`
+
+3.  Render to browser preview - Right-click page Inspect Element
+
+4.  Clear browser cache: -  - Right-click refresh button - “Empty Cache and Hard Refresh”
+
+5.   Re-render page
+
+![](images/Screenshot 2025-10-30 140616.png)
+
+#### **CSS Specificity**:
+
+``` scss
+{scss}
+#| label: scss troubleshooting 
+#| description: see if changing specificity will help  
+#| eval: false 
+#| echo: true 
+
+/* Too general - might not apply */ 
+.box {   
+  color: red; }  
+  
+/* More specific - will apply */ 
+.content-section .box {   
+  color: red !important;  /* Use !important sparingly */ }
+  
+  
+```
+
+#### **Syntax Errors**:
+
+``` scss
+{scss}
+#| label: scss troubleshooting 
+#| description: look for syntax error  
+#| eval: false 
+#| echo: true 
+
+/* Missing semicolon */ 
+.class {
+  color: red   
+  margin: 10px; }  
+
+/* Correct */ 
+.class {  
+  color: red; 
+  margin: 10px; }
+  
+```
+
+## **Recovering Previous Versions**
+
+#### **Undo uncommitted changes:**
+
+``` bash
+{bash}
+#| label: Undo committed changes with git command
+#| description: write code into command line interface (Bash, Powershell, RStudio Terminal)
+#| eval: false
+#| echo: true
+
+# Discard changes to specific file 
+git checkout -- filename.qmd  
+
+# Discard all uncommitted changes 
+git reset --hard HEAD
+```
+
+#### **Restore file to previous version:**
+
+``` bash
+{bash}
+#| label: Restore file to previous versions with git command
+#| description: write code into command line interface (Bash, Powershell, RStudio Terminal)
+#| eval: false
+#| echo: true
+
+# Find the commit hash 
+git log --oneline  
+
+# Restore file from specific commit git checkout [commit-hash] -- filename.qmd  
+
+# Example: 
+git checkout a1b2c3d -- LMAs/project.qmd
+```
+
+## **Recovering from Mistakes**
+
+#### **Accidentally deleted file:**
+
+``` bash
+{bash}
+#| label: Version control with Git - recover accidentally deleted file 
+#| description: write code into command line interface (Bash, Powershell, RStudio Terminal).  
+#| eval: false
+#| echo: true
+
+# Restore from last commit 
+git checkout HEAD -- filename.qmd
+```
+
+#### **Committed wrong files:**
+
+``` bash
+{bash}
+#| label: Version control with Git - commited wrong file 
+#| description: write code into command line interface (Bash, Powershell, RStudio Terminal)
+#| eval: false
+#| echo: true
+
+# Undo last commit, keep changes 
+git reset --soft HEAD~1  
+
+# Re-stage correct files 
+git add correct-files.qmd git commit -m "Corrected commit"
+```
+
+#### **Pushed broken code:**
+
+``` bash
+{bash}
+#| label: Version control with Git - go back to last committed version 
+#| description: write code into command line interface (Bash, Powershell, RStudio Terminal)
+#| eval: false
+#| echo: true
+
+# Revert to previous working commit 
+git revert [commit-hash] git push origin main
+```
 
 ------------------------------------------------------------------------
 
 # Website maintenance
+
+``` r
+#| label: quarterly-package-updates
+#| description: Update R packages to latest stable versions
+#| eval: false
+#| echo: true
+
+# Check for outdated packages
+old_packages <- old.packages()
+print(old_packages)
+
+# Update specific packages (test individually first)
+update.packages(c("quarto", "rmarkdown", "shiny", "rsconnect"), 
+                ask = FALSE, 
+                checkBuilt = TRUE)
+
+# After updating, test critical functionality:
+# 1. Render a project page: quarto render LMAs/example.qmd
+# 2. Test Shiny app locally: shiny::runApp("shiny-meta/app.R")
+# 3. If tests pass, commit and push updates
+```
 
 You find the correct scss classes for the different pages under the 3.1 File-by-file breakdown under each file explanation.
 
@@ -2236,12 +2509,6 @@ This section covers maintenance tasks for the AMORE website.
 
 **Missing critical content in this document:**
 
-1.  **Emergency contacts** - Who to contact if site goes down
+1.  **Domain management** - How to manage amore-project.org
 
-2.  **Rollback procedures** - How to undo problematic changes
-
-3.  **Testing protocols** - How to test changes before going live
-
-4.  **Domain management** - How to manage amore-project.org
-
-5.  **Access management** - How to add/remove collaborators
+2.  **Access management** - How to add/remove collaborators
