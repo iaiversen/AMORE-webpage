@@ -113,7 +113,7 @@ cat("\n========================================\n")
 cat("SECTION 2: UPDATE PACKAGES\n")
 cat("========================================\n\n")
 
-# Ask user which update strategy to use
+# Ask user which update strategy to use (You must run this section)
 cat("Choose update strategy:\n")
 cat("  1 = Update ONLY critical AMORE packages (safest)\n")
 cat("  2 = Update critical + high priority packages (recommended)\n")
@@ -218,7 +218,7 @@ test_results <- list()
 # 3.1: Test basic rendering
 cat("3.1 Testing basic page rendering...\n")
 tryCatch({
-  quarto::quarto_render("index.qmd", quiet = TRUE)
+  quarto::quarto_render("index.qmd", quiet = TRUE, as_job = FALSE)
   cat("✓ index.qmd renders successfully\n")
   test_results$index_render <- "PASS"
 }, error = function(e) {
@@ -230,7 +230,7 @@ tryCatch({
 # 3.2: Test project page rendering
 cat("3.2 Testing project page rendering...\n")
 lma_files <- list.files("LMAs", pattern = "\\.qmd$", full.names = TRUE)
-lma_files <- lma_files[!grepl("^_", basename(lma_files))]  # Exclude templates
+lma_files <- lma_files[!grepl("^_", basename(lma_files, ))]  # Exclude templates
 
 if (length(lma_files) > 0) {
   test_file <- lma_files[1]  # Test first available LMA file
@@ -252,7 +252,7 @@ if (length(lma_files) > 0) {
 cat("3.3 Testing full site render...\n")
 cat("   (This may take a few minutes...)\n")
 tryCatch({
-  quarto::quarto_render(quiet = TRUE)
+  quarto::quarto_render(quiet = TRUE, as_job = FALSE)
   cat("✓ Full site renders successfully\n")
   test_results$full_render <- "PASS"
 }, error = function(e) {

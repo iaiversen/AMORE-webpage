@@ -1,0 +1,27 @@
+AMORE Website Maintenance Log
+Date: 2025-10-31
+Time: 2025-10-31 17:07:13.454519
+
+========================================
+PACKAGES UPDATED
+========================================
+Updated packages: quarto, rmarkdown, knitr, bslib, shiny, rsconnect, DT, jsonlite, sass, tinytex, data.table, ggplot2, curl, httr2, cli, gert, purrr, stringr, fs
+
+========================================
+TEST RESULTS
+========================================
+                                     Test Result Status
+index_render                 index_render   PASS ✓ PASS
+lma_render                     lma_render   PASS ✓ PASS
+full_render                   full_render   PASS ✓ PASS
+shinyapps_connection shinyapps_connection   PASS ✓ PASS
+
+========================================
+OVERALL STATUS
+========================================
+Overall: PASS
+
+========================================
+NOTES
+========================================
+Add any additional observations here...

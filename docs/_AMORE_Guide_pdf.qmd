@@ -1129,6 +1129,10 @@ shiny-meta/
 
 4.  Displays paginated results with links to project pages
 
+-   Adding New Filter Categories
+
+    -   \[To be expanded: Updating the Shiny app to include new metadata fields\]
+
 #### **Deployment:**
 
 -   Hosted at: <https://meta-oxytocin.shinyapps.io/shiny-meta/>
@@ -1297,6 +1301,14 @@ The file is organized into logical sections marked with comments:
 5.  **Page-Specific** - Styles for particular pages (contact, about, etc.)
 
 6.  **Responsive Design** - Adjustments for different screen sizes
+
+-   Advanced Customization
+
+    -   This section covers advanced modifications for experienced users.
+
+-   Custom CSS Modifications
+
+    -   \[To be expanded: How to modify styles.scss for custom designs\]
 
 ------------------------------------------------------------------------
 
@@ -2422,54 +2434,81 @@ git revert [commit-hash] git push origin main
 
 # Website maintenance
 
-``` r
-#| label: quarterly-package-updates
-#| description: Update R packages to latest stable versions
-#| eval: false
-#| echo: true
+This section provides the correct information needed to maintain a smooth running website. The section provides instructions on updating packages and installations necessary for the project, and the necessary maintenance of third party services used to host and deploy AMORE.
 
-# Check for outdated packages
-old_packages <- old.packages()
-print(old_packages)
+Domain management: Netlify deployment and domain name (Must be paid for)
 
-# Update specific packages (test individually first)
-update.packages(c("quarto", "rmarkdown", "shiny", "rsconnect"), 
-                ask = FALSE, 
-                checkBuilt = TRUE)
+R/Rstudio management: maintenance script
 
-# After updating, test critical functionality:
-# 1. Render a project page: quarto render LMAs/example.qmd
-# 2. Test Shiny app locally: shiny::runApp("shiny-meta/app.R")
-# 3. If tests pass, commit and push updates
-```
+Shinyapp.io
 
-You find the correct scss classes for the different pages under the 3.1 File-by-file breakdown under each file explanation.
+Github - transfer Github repository to Dan, make sure all paths are correct if needed.
 
-This section covers maintenance tasks for the AMORE website.
+Nettskjema - the forms are only active for so long, this must be expanded or new identical forms must be made. The forms today are functioning until 2028 (Check precise date)
 
--   Adding New Projects
+## Automated Maintenance Script
 
-    -   \[To be expanded: Complete workflow from proposal to publication\]
+### Overview
 
--   Updating Existing Projects
+The AMORE project includes a comprehensive maintenance script (`scripts/Maintenance.R`) that automates the process of updating R packages and testing the website functionality. This script is designed to make maintenance safer and more systematic by:
 
-    -   \[To be expanded: How to add new data, update results, or revise content\]
+-   Creating automatic backups before changes
 
--   Managing the Shiny App Directory
+-   Offering different update strategies based on risk tolerance
 
-    -   \[To be expanded: How the search/filter app reads project metadata\]
+-   Running comprehensive post-update tests
 
--   Version Control Best Practices
+-   Generating detailed maintenance logs
 
-    -   \[To be expanded: Git workflow, branching, and pull requests\]
+-   Providing clear guidance on next steps
 
--   Reviewing and Approving Changes
+### Explanation of script: 
 
-    -   \[To be expanded: Steering committee review process\]
+The script will run interactively, prompting you for decisions at key points.
 
--   Handling Retractions
+**Important:** Always commit all your work to Git before running maintenance updates.
 
-    -   \[To be expanded: Process for removing or updating retracted research\]
+**Section 1: Pre-Update Checks and Backup**
+
+The script first performs safety checks:
+
+1.  **Git Status Check**: Ensures your working directory is clean
+
+2.  **Package Backup**: Creates a snapshot of all current package versions
+
+    -   Saved as `docs/packages-backup-YYYYMMDD.csv`
+
+    -   Allows you to rollback if something breaks
+
+3.  **Outdated Packages**: Identifies which packages need updating
+
+    -   Shows current vs. available versions
+
+    -   Flags major version updates (higher risk)
+
+4.  **Critical Packages**: Highlights AMORE-essential packages
+
+**Section 2: Package Updates**
+
+You'll be presented with 6 update strategies
+
+**Section 3: Post-Update Testing**
+
+After updates, the script runs comprehensive tests:
+
+1.  **Basic Page Rendering**: Tests `index.qmd` renders correctly
+
+2.  **Project Page Rendering**: Tests an LMA file renders correctly
+
+3.  **Full Site Render**: Renders entire website (can take a few minutes)
+
+4.  **Shiny App Loading**: Verifies the Shiny app loads without errors
+
+5.  **ShinyApps.io Connection**: Tests deployment credentials (if configured)
+
+6.  **Link Checking**: Optionally scans for broken links (can be slow)
+
+-   Version control
 
 -   Monitoring Site Performance
 
@@ -2479,18 +2518,6 @@ This section covers maintenance tasks for the AMORE website.
 
     -   \[To be expanded: How data is backed up and how to restore if needed\]
 
--   Advanced Customization
-
-    -   This section covers advanced modifications for experienced users.
-
--   Custom CSS Modifications
-
-    -   \[To be expanded: How to modify styles.scss for custom designs\]
-
--   Adding New Filter Categories
-
-    -   \[To be expanded: Updating the Shiny app to include new metadata fields\]
-
 -   Creating New Page Components
 
     -   \[To be expanded: Building reusable HTML components for project pages\]
@@ -2499,16 +2526,8 @@ This section covers maintenance tasks for the AMORE website.
 
     -   \[To be expanded: Updating the base template for all new projects\]
 
--   Nettskjema
+-   How to handle feedback from forms
 
--   netlify
-
--   shinyapps server and user
+-   
 
 ------------------------------------------------------------------------
-
-**Missing critical content in this document:**
-
-1.  **Domain management** - How to manage amore-project.org
-
-2.  **Access management** - How to add/remove collaborators
