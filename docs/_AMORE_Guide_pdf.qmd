@@ -2492,6 +2492,15 @@ The script first performs safety checks:
 
 You'll be presented with 6 update strategies
 
+| Option | Strategy | Risk Level | Recommended For |
+|:--------------:|:---------------|:----------------|:-----------------------|
+| **0** | Skip updates (just test) | None | Testing current setup |
+| **1** | Critical AMORE packages only | 🟢 Lowest | Regular maintenance |
+| **2** | Critical + high priority | 🟡 Low | Recommended approach |
+| **3** | All packages except major versions | 🟠 Medium | Comprehensive updates |
+| **4** | Everything including major versions | 🔴 High | When major changes needed |
+| **5** | Custom selection | Variable | Advanced users |
+
 **Section 3: Post-Update Testing**
 
 After updates, the script runs comprehensive tests:
