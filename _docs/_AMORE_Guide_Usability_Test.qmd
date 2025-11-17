@@ -468,13 +468,13 @@ unclear or incomplete - 1 = Missing - Could not find information
 
 ## Reference Images: Example Project Page
 
-![](images/refrence%20project%20page%20.png)
+![](images/refrence%20project%20page%20.png){fig-align="center"}
 
-![](images/refrence%20project%20page2%20.png)
+![](images/refrence%20project%20page2%20.png){fig-align="center"}
 
-![](images/refrence%20image%203%20.png)
+![](images/refrence%20image%203%20.png){fig-align="center"}
 
-![](images/refrence%204%20.png)
+![](images/refrence%204%20.png){fig-align="center"}
 
 ------------------------------------------------------------------------
 
@@ -487,5 +487,5 @@ Good luck! 🧪
 
 ------------------------------------------------------------------------
 
-**Version:** 1.0\
-**Last updated:** {{{\<28/10/25\>}}}
+**Version:** 2.0\
+**Last updated:** {{{\<11/12/25\>}}}

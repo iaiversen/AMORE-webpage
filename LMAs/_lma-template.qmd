@@ -21,7 +21,6 @@ oxytocin:
     - "Central"
     - "Peripheral" 
     - "Various administration routes"
-    - "Administration method unspecified"
   dosage: # if applicable, choose one or more: 
     - "8 IU"
     - "16 IU"
@@ -67,11 +66,6 @@ outcomes:
     - "Psychotic Disorders"
     - "Addiction and Substance Use"
     - "Eating Disorders"
-update-frequency: # Choose one:
-  - "Every 6 months"
-  - "Every 12 months"
-  - "Every 18 months"
-  - "Every 24 months"
 dois:
   preregistration: "10.XXXX/template-prereg"
   preprint: "10.XXXX/template-preprint"
@@ -83,19 +77,19 @@ format:
     toc-location: right
 ---
 
-::: {.project-hero-section}
-::: {.project-hero-content}
-::: {.project-hero-title}
-Write title here, this is the title that shows in the blue hero section 
+::::: project-hero-section
+:::: project-hero-content
+::: project-hero-title
+\[Write title here, this is the title that shows in the blue hero section\]
 :::
-:::
-:::
+::::
+:::::
 
-::: {.project-info-panel}
-::: {.project-info-grid}
-
+:::::::: project-info-panel
+::::::: project-info-grid
 ::: {.info-card .authors-card}
 ### Authors
+
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
@@ -135,35 +129,37 @@ Write title here, this is the title that shows in the blue hero section
 
 ::: {.info-card .timeline-card}
 ### Timeline
-**Pre-registered:** [Month DD, YYYY]  
-**Last update:** [Status of current analysis]  
-**Next update:** [Planned date or "To be determined" (XX-month update cycle)]
+
+**Pre-registered:** \[Month DD, YYYY\]\
+**Last update:** \[Status of current analysis\]\
+**Next update:** \[Planned date or "To be determined" (XX-month update cycle)\]
 :::
 
 ::: {.info-card .identifiers-card}
 ### Identifiers
-**DOI:** [https://doi.org/ACTUAL_DOI](https://doi.org/ACTUAL_DOI)
 
-**Keywords:** [keyword1], [keyword2], [keyword3], [methodology], [population]
+**DOI:** <https://doi.org/ACTUAL_DOI>
+
+**Keywords:** \[keyword1\], \[keyword2\], \[keyword3\], \[methodology\], \[population\]
 :::
 
 ::: {.info-card .contact-card}
 ### Contact
-**Principal Investigator:** [PI Full Name]  
-**Email:** [pi.email@institution.edu](mailto:pi.email@institution.edu)
-:::
 
+**Principal Investigator:** \[PI Full Name\]\
+**Email:** \[write email here\]
 :::
-:::
+:::::::
+::::::::
 
-::: {.main-content-container}
-
+:::::: main-content-container
 ## Abstract {#abstract}
 
-Write abstract here. This should be a concise summary of the living meta-analysis, including the research question, methodology, and significance of the study.
+\[Write abstract here. This should be a concise summary of the living meta-analysis, including the research question, methodology, and significance of the study.\]
 
 ## Resources {#resources}
-```{=html}  
+
+```{=html}
 <body>
     <div class="resources-container">
         
@@ -198,12 +194,12 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Study Protocol</div>
-                            <div class="resource-description">[Write short description of study protocol, e.g., "Preregistered analysis plan outlining inclusion criteria and analytical approach"]</div>
+                            <div class="resource-title">[Resource Type Name]</div>
+                            <div class="resource-description">[Write short description of this resource]</div>
                             <div class="resource-links">
                                 <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name, e.g., "Preregistration on OSF"]</div>
-                                    <div class="link-url">[Clean URL, e.g., "osf.io/8fzdy"]</div>
+                                    <div class="link-title">[Link name or title]</div>
+                                    <div class="link-url">[Clean display URL]</div>
                                 </a>
                             </div>
                         </div>
@@ -214,12 +210,12 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Published Article</div>
-                            <div class="resource-description">[Write description of published article, e.g., "Peer-reviewed article published in Molecular Psychiatry"]</div>
+                            <div class="resource-title">[Resource Type Name]</div>
+                            <div class="resource-description">[Write short description of this resource]</div>
                             <div class="resource-links">
-                                <a href="[INSERT_FULL_DOI_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name, e.g., "Molecular Psychiatry Article"]</div>
-                                    <div class="link-doi">[DOI, e.g., "10.1038/s41380-024-02871-4"]</div>
+                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
+                                    <div class="link-title">[Link name or title]</div>
+                                    <div class="link-doi">[DOI if applicable]</div>
                                 </a>
                             </div>
                         </div>
@@ -230,12 +226,12 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Preprint Version</div>
-                            <div class="resource-description">[Write description, e.g., "Open access preprint with full supplementary materials"]</div>
+                            <div class="resource-title">[Resource Type Name]</div>
+                            <div class="resource-description">[Write short description of this resource]</div>
                             <div class="resource-links">
                                 <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name, e.g., "OSF Preprint"]</div>
-                                    <div class="link-url">[Clean URL, e.g., "osf.io/hjyfjygg"]</div>
+                                    <div class="link-title">[Link name or title]</div>
+                                    <div class="link-url">[Clean display URL]</div>
                                 </a>
                             </div>
                         </div>
@@ -257,12 +253,12 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Complete Dataset</div>
-                            <div class="resource-description">[Short description of data, e.g., "Raw and cleaned data files with codebook"]</div>
+                            <div class="resource-title">[Resource Type Name]</div>
+                            <div class="resource-description">[Write short description of this resource]</div>
                             <div class="resource-links">
                                 <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name, e.g., "OSF Data Repository"]</div>
-                                    <div class="link-url">[Clean URL, e.g., "osf.io/6hsjfg"]</div>
+                                    <div class="link-title">[Link name or title]</div>
+                                    <div class="link-url">[Clean display URL]</div>
                                 </a>
                             </div>
                         </div>
@@ -273,12 +269,12 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Analysis Scripts</div>
-                            <div class="resource-description">[Description of scripts, e.g., "R scripts for all meta-analytic models and sensitivity analyses"]</div>
+                            <div class="resource-title">[Resource Type Name]</div>
+                            <div class="resource-description">[Write short description of this resource]</div>
                             <div class="resource-links">
                                 <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name, e.g., "R Analysis Scripts"]</div>
-                                    <div class="link-url">[Clean URL or DOI]</div>
+                                    <div class="link-title">[Link name or title]</div>
+                                    <div class="link-url">[Clean display URL or DOI]</div>
                                 </a>
                             </div>
                         </div>
@@ -296,20 +292,20 @@ Write abstract here. This should be a concise summary of the living meta-analysi
                     <h3 class="category-title">Related Research</h3>
                 </div>
 
-                <!-- Related Research Item -->
+                <!-- Related Research Item with Multiple Links -->
                 <div class="resource-item">
                     <div class="resource-header">
                         <div class="resource-info">
-                            <div class="resource-title">Theoretical Background</div>
-                            <div class="resource-description">[Description, e.g., "Key theoretical papers informing this meta-analysis"]</div>
+                            <div class="resource-title">[Resource Type Name]</div>
+                            <div class="resource-description">[Write short description of this resource]</div>
                             <div class="resource-links">
                                 <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Paper title or description]</div>
-                                    <div class="link-doi">[DOI, e.g., "10.1234/example"]</div>
+                                    <div class="link-title">[Link name or paper title]</div>
+                                    <div class="link-doi">[DOI if applicable]</div>
                                 </a>
                                 <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Second paper title or description]</div>
-                                    <div class="link-doi">[DOI, e.g., "10.5678/example"]</div>
+                                    <div class="link-title">[Link name or paper title]</div>
+                                    <div class="link-doi">[DOI if applicable]</div>
                                 </a>
                             </div>
                         </div>
@@ -324,14 +320,14 @@ Write abstract here. This should be a concise summary of the living meta-analysi
         <div id="update1" class="tab-content">
             
             <!-- Coming soon notice -->
-            <div class="coming-soon-notice">
+            <div class="future-notice">
                 <strong>Update 1 Coming Soon</strong> • Expected: [Month Year] (updates every [XX] months)
             </div>
 
             <!-- Timeline indicator for update 1 -->
             <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">In Development</div>
-                <span>Next update within 24 months</span>
+                <div class="status-badge status-coming-soon">Coming Soon</div>
+                <span>Next update within [XX] months</span>
             </div>
         </div>
 
@@ -339,15 +335,15 @@ Write abstract here. This should be a concise summary of the living meta-analysi
         <!-- UPDATE 2 TAB -->
         <div id="update2" class="tab-content">
             
-            <!-- Future notice -->
+            <!-- Coming soon notice -->
             <div class="future-notice">
-                <strong>Future Update</strong> • Expected: [Month Year]
+                <strong>Update 2</strong> • Expected: [Month Year] (updates every [XX] months)
             </div>
 
             <!-- Timeline indicator for update 2 -->
             <div class="timeline-indicator">
-                <div class="status-badge status-future">Future</div>
-                <span>Long-term update planning</span>
+                <div class="status-badge future-notice">Coming Soon</div>
+                <span>Next update within [XX] months</span>
             </div>
         </div>
 
@@ -378,8 +374,8 @@ Write abstract here. This should be a concise summary of the living meta-analysi
 </html>
 ```
 
-
 ## Current Results {#current-results}
+
 ```{=html}
 <body> 
     <div class="results-container">
@@ -586,55 +582,51 @@ Write abstract here. This should be a concise summary of the living meta-analysi
 
 ## Inclusion and Exclusion Criteria {#criteria}
 
-::: {.criteria-box}
+::: criteria-box
 ### Inclusion Criteria
 
-- **Type of Studies:** Study designs included, e.g., "Randomized controlled trials", "Original research written in English"
-- **Intervention:** Specific intervention criteria, e.g., "Intranasal oxytocin administration"
-- **Population:** Target population, e.g., "Healthy adults aged 18-65"
-- **Outcomes:** Primary and secondary outcomes, e.g., "Social behavior measures", "Validated scales for trust"
-- **Data Requirements:** Statistical requirements, e.g., "Must report means and standard deviations or effect sizes"
+-   **Type of Studies:** Study designs included, e.g., "Randomized controlled trials", "Original research written in English"
+-   **Intervention:** Specific intervention criteria, e.g., "Intranasal oxytocin administration"
+-   **Population:** Target population, e.g., "Healthy adults aged 18-65"
+-   **Outcomes:** Primary and secondary outcomes, e.g., "Social behavior measures", "Validated scales for trust"
+-   **Data Requirements:** Statistical requirements, e.g., "Must report means and standard deviations or effect sizes"
 :::
 
-::: {.criteria-box}
+::: criteria-box
 ### Exclusion Criteria
 
-- Specific exclusion criteria relevant to the research question
-- Additional exclusion criteria
-- Overlap/duplicate publication handling
+-   Specific exclusion criteria relevant to the research question
+-   Additional exclusion criteria
+-   Overlap/duplicate publication handling
 :::
 
 ## Methodology Summary {#methodology}
 
-This living meta-analysis follows the PRISMA guidelines for systematic reviews. Our methodology is pre-registered and will incorporate [relevant previous research if applicable].
+This living meta-analysis follows the PRISMA guidelines for systematic reviews. Our methodology is pre-registered and will incorporate \[relevant previous research if applicable\].
 
-The quality of included studies will be assessed using [specific quality assessment tool, e.g., "Cochrane Risk of Bias tool for RCTs"]. Studies will be independently rated by two reviewers [describe rating categories and scoring system].
+The quality of included studies will be assessed using \[specific quality assessment tool, e.g., "Cochrane Risk of Bias tool for RCTs"\]. Studies will be independently rated by two reviewers \[describe rating categories and scoring system\].
 
-Statistical analyses will be conducted using [statistical software] with the [specific packages]. [Type of effects model] will be used with [specific estimator]. Heterogeneity will be evaluated by calculating [heterogeneity measures]. Publication bias will be assessed using [bias assessment methods].
+Statistical analyses will be conducted using \[statistical software\] with the \[specific packages\]. \[Type of effects model\] will be used with \[specific estimator\]. Heterogeneity will be evaluated by calculating \[heterogeneity measures\]. Publication bias will be assessed using \[bias assessment methods\].
 
 ## Search Strategy {#search-strategy}
 
-::: {.search-strategy-box}
-<span class="search-db">Write search engine here e.g. PubMed:</span>
-the search string used in e.g pubmed here 
+::: search-strategy-box
+[Write search engine here e.g. PubMed:]{.search-db} the search string used in e.g pubmed here
 
-<span class="search-db">Write search engine here:</span>
-search string here 
+[Write search engine here:]{.search-db} search string here
 
-<span class="search-db">Write search engine here:</span>
-search string here
+[Write search engine here:]{.search-db} search string here
 :::
 
 ## Update Protocol {#update-protocol}
 
-This is a living meta-analysis that will be updated every [XX] months for a minimum of [XX] years ([number] updates after initial publication). Updates will include:
+This is a living meta-analysis that will be updated every \[XX\] months for a minimum of \[XX\] years (\[number\] updates after initial publication). Updates will include:
 
-1. [Specific update procedures]
-2. [Search strategy updates]
-3. [Analysis protocol]
-4. [Statistical correction methods]
-5. [Additional relevant procedures]
-
+1.  \[Specific update procedures\]
+2.  \[Search strategy updates\]
+3.  \[Analysis protocol\]
+4.  \[Statistical correction methods\]
+5.  \[Additional relevant procedures\]
 
 ## References {#references}
 
@@ -674,5 +666,4 @@ This is a living meta-analysis that will be updated every [XX] months for a mini
   </script>
 </div>
 ```
-
-:::
+::::::

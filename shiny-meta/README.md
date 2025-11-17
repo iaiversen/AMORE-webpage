@@ -2,7 +2,7 @@
 ## Shinyapps.io Account Information
 - Account Name: meta-oxytocin
 - Account URL: https://www.shinyapps.io/admin/#/dashboard
-- Account ID: 2889222
+- Account ID: 14204186
 
 ## Deployment Information
 The Shiny application for AMORE's Living Meta-Analysis Directory is hosted on shinyapps.io. 

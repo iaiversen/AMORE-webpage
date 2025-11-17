@@ -29,20 +29,19 @@ format:
     toc-location: right
 ---
 
-::: {.project-hero-section}
-::: {.project-hero-content}
-::: {.project-hero-title}
+::::: project-hero-section
+:::: project-hero-content
+::: project-hero-title
 Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis
 :::
+::::
+:::::
 
-:::
-:::
-
-::: {.project-info-panel}
-::: {.project-info-grid}
-
+:::::::: project-info-panel
+::::::: project-info-grid
 ::: {.info-card .authors-card}
 ### Authors
+
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
@@ -78,17 +77,19 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
   </script>
 </div>
 ```
-::: 
+:::
 
 ::: {.info-card .timeline-card}
 ### Timeline
-**Pre-registered:** July 29, 2022  
-**Published:** January 18, 2025  
+
+**Pre-registered:** July 29, 2022\
+**Published:** January 18, 2025\
 **Next update:** Transforming meta-analysis protocol into living meta-analysis protocol in progress
 :::
 
 ::: {.info-card .identifiers-card}
 ### Identifiers
+
 **DOI:** <a href="https://doi.org/10.1038/s41380-024-02871-4" target="_blank">10.1038/s41380-024-02871-4</a>
 
 **Keywords:** oxytocin, executive function, meta-analysis, cognitive flexibility, working memory, inhibitory control
@@ -96,24 +97,23 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
 
 ::: {.info-card .contact-card}
 ### Contact
-**Principal Investigator:** Daniel S. Quintana  
-**Email:** daniel.quintana@psykologi.uio.no
-:::
 
+**Principal Investigator:** Daniel S. Quintana\
+**Email:** daniel.quintana\@psykologi.uio.no
 :::
-:::
+:::::::
+::::::::
 
-::: {.main-content-container}
-
+:::::: main-content-container
 ## Abstract {#abstract}
 
 This preregistered systematic review and meta-analysis investigates the effects of oxytocin administration on non-social executive functions in humans. While oxytocin has received considerable attention for its role in social behaviors, emerging evidence suggests broader cognitive effects beyond social contexts.
 
 The analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies.
 
-
 ## Resources {#resources}
-```{=html}  
+
+```{=html}
 <body>
     <div class="resources-container">
         <div class="tab-navigation">
@@ -293,7 +293,6 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
 </html>
 ```
 
-
 ## Current Results {#current-results}
 
 ```{=html}
@@ -372,30 +371,29 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
 </html>
 ```
 
-
 ## Inclusion and Exclusion Criteria {#criteria}
 
-::: {.criteria-box}
+::: criteria-box
 ### Inclusion Criteria
 
-- **Type of Studies:** Human studies measuring effects of oxytocin administration on executive function using non-social stimuli
-- **Intervention:** Oxytocin administered intranasally, orally, or intravenously regardless of dosage
-- **Population:** Both clinical and neurotypical participants (no age restrictions)
-- **Outcomes:** Executive function measures (working memory, inhibitory control, cognitive flexibility) using non-social stimuli such as abstract shapes
-- **Design:** Placebo-controlled studies
-- **Language:** Publications in English language
-- **Data Requirements:** Sufficient statistical information to calculate effect sizes
+-   **Type of Studies:** Human studies measuring effects of oxytocin administration on executive function using non-social stimuli
+-   **Intervention:** Oxytocin administered intranasally, orally, or intravenously regardless of dosage
+-   **Population:** Both clinical and neurotypical participants (no age restrictions)
+-   **Outcomes:** Executive function measures (working memory, inhibitory control, cognitive flexibility) using non-social stimuli such as abstract shapes
+-   **Design:** Placebo-controlled studies
+-   **Language:** Publications in English language
+-   **Data Requirements:** Sufficient statistical information to calculate effect sizes
 :::
 
-::: {.criteria-box}
+::: criteria-box
 ### Exclusion Criteria
 
-- Non-human animal studies
-- Studies investigating only endogenous oxytocin levels (no administration)
-- Studies measuring only somatic functions
-- Executive function tasks using social stimuli (e.g., emotional faces, social scenarios)
-- Studies without placebo control conditions
-- Insufficient statistical data for meta-analysis
+-   Non-human animal studies
+-   Studies investigating only endogenous oxytocin levels (no administration)
+-   Studies measuring only somatic functions
+-   Executive function tasks using social stimuli (e.g., emotional faces, social scenarios)
+-   Studies without placebo control conditions
+-   Insufficient statistical data for meta-analysis
 :::
 
 ## Methodology Summary {#methodology}
@@ -408,26 +406,24 @@ Statistical analyses were implemented in R Studio 4.2.2 using the metafor packag
 
 ## Search Strategy {#search-strategy}
 
-::: {.search-strategy-box}
-<span class="search-db">PubMed:</span>
-Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes
+::: search-strategy-box
 
-<span class="search-db">Europe PubMed Central:</span>
-Customized search terms adapted for database specifications
+[PubMed:]{.search-db} Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes
 
-<span class="search-db">Bielefeld Academic Search Engine (BASE):</span>
-Comprehensive search strategy including grey literature and preprints
+[Europe PubMed Central:]{.search-db} Customized search terms adapted for database specifications
+
+[Bielefeld Academic Search Engine (BASE):]{.search-db} Comprehensive search strategy including grey literature and preprints
 :::
 
 ## Study Characteristics {#study-characteristics}
 
-- **Included studies:** The final meta-analysis included 13 studies with 20 effect estimates
-- **Total participants:** 729 (284 in within-participant studies, 445 in between-group studies)
-- **Mean age:** 31.64 years (within-participant studies), 25.68 years (between-group studies)
-- **Oxytocin dosage:** Predominantly 24 IU intranasal (76.92% of studies)
-- **Administration routes:** Intranasal (92.3%), oral (7.7%)
-- **Publication status:** 76.92% peer-reviewed articles, 23.07% letters to editor
-- **Study designs:** 6 within-participant, 7 between-group studies
+-   **Included studies:** The final meta-analysis included 13 studies with 20 effect estimates
+-   **Total participants:** 729 (284 in within-participant studies, 445 in between-group studies)
+-   **Mean age:** 31.64 years (within-participant studies), 25.68 years (between-group studies)
+-   **Oxytocin dosage:** Predominantly 24 IU intranasal (76.92% of studies)
+-   **Administration routes:** Intranasal (92.3%), oral (7.7%)
+-   **Publication status:** 76.92% peer-reviewed articles, 23.07% letters to editor
+-   **Study designs:** 6 within-participant, 7 between-group studies
 
 ## References {#references}
 
@@ -469,5 +465,4 @@ Comprehensive search strategy including grey literature and preprints
   </script>
 </div>
 ```
-
-:::
+::::::

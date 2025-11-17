@@ -137,7 +137,7 @@ install_and_load("shiny")
 # quarto package for shiny.qmd. files for interactiveness
 install_and_load("quarto")
 
-# shiny app package to deploy and manage shiny applications directly from my local envitonment
+# shiny app package to deploy and manage shiny applications directly from local environment 
 install_and_load("rsconnect")
 
 # Additional useful packages for Shiny apps
@@ -166,7 +166,6 @@ install_and_load("httr")
 
 # sass: Compile Sass/SCSS to CSS (needed for styles.scss)
 install_and_load("sass")
-(sass = TRUE)
 
 # For base64 encoding (used in Shiny app for GitHub API)
 install_and_load("base64enc")
