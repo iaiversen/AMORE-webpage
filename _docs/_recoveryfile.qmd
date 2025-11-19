@@ -1,0 +1,68 @@
+---
+title: "Guide for Managing AMORE Website"
+author: "Ingebjørg A. Iversen"
+format: 
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github
+    code-block-bg: "#f8f8ff" 
+    code-block-border-left: "#184db9"
+    fontfamily: "bookman"
+    monofont: "Consolas"
+    geometry:
+      - margin=1in
+    include-in-header:
+      text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          breaklines,
+          breakanywhere,
+          fontsize=\small, 
+          commandchars=\\\{\}
+        }
+execute:
+  echo: true      
+  eval: false     
+  warning: false
+  message: false
+---
+
+---
+title: "Guide for Managing AMORE Website"
+author: "Ingebjørg A. Iversen"
+date: "11/18/25"
+thanks: "Thanks to Alina and Heemin for your contributions in developing this guide."
+format: 
+  pdf:
+    toc: true
+    number-sections: true
+    toc-depth: 3 
+    number-depth: 3 
+    highlight-style: github
+    code-block-bg: "#f8f8ff" 
+    code-block-border-left: "#184db9"
+    fontfamily: "bookman"
+    monofont: "Consolas"
+    linkcolor: blue
+    filecolor: blue
+    urlcolor: blue
+    documentclass: report
+    geometry: 
+      - margin=1in
+    include-in-header:
+      text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,fontsize=\small,commandchars=\\\{\}}
+        \usepackage{fontspec}
+        \usepackage{sectsty}
+        \sectionfont{\Large\bfseries}
+        \subsectionfont{\large\bfseries}
+        \subsubsectionfont{\normalsize\bfseries}
+    pdf-engine: xelatex    
+execute:
+  echo: true
+  eval: false 
+  warning: false
+  message: false
+---

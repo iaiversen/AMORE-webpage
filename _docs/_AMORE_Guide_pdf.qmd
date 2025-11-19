@@ -45,13 +45,13 @@ The AMORE (Active Monitoring of Oxytocin Research Evidence) website is a platfor
 
 **Live Website:** <https://amore-project.org>
 
-### **Who this guide is for:**
+### Who this guide is for:
 
 -   Lab members adding new LMA projects
 
 -   Website administrators maintaining platform
 
-### **Important contacts**
+### Important contacts
 
 **Ingebjørg A. Iversen**
 
@@ -69,7 +69,7 @@ AMORE was built using RStudio and Quarto. Git is used for version control, colla
 
 The AMORE platform consists of three interconnected services:
 
-### **Git (Version Control & Collaboration)**
+### Git (Version Control & Collaboration)
 
 Repository: iaiversen/AMORE-webpage.
 
@@ -105,15 +105,15 @@ Collaborators: dsquintana (Daniel quintana), AMSartorius (Alina Sartorius), Heem
 
 AMORE-webpage repository has the MIT license. It gives open access. The LICENSE file is in the root folder (AMORE-webpage).
 
-### **ShinyApps.io (Shiny App Hosting)**
+### ShinyApps.io (Shiny App Hosting)
 
 Hosts the Living Meta-Analysis directory (app.R) Free tier limitations: limited active hours, connection timeouts URL: https://meta-oxytocin.shinyapps.io/shiny-meta/ Embedded in Living_meta-analysis_Directory.qmd via iframe
 
 #### Shinyapp.io login credentials (only for BNE lab members)
 
-info found In Teams –\> manuscript –\> AMORE –\> Website technicals –\> AMORE_credentials.xlsx
+Info found in Teams –\> manuscript –\> AMORE –\> Website technicals –\> AMORE_credentials.xlsx
 
-### **Netlify (Website Hosting)**
+### Netlify (Website Hosting)
 
 Automatically deploys from GitHub Builds site from \_site folder after Quarto render Domain: amore-project.org Configuration in netlify.toml
 
@@ -204,7 +204,7 @@ Throughout this guide, you'll see code blocks with different labels that indicat
 
 -   Quarto - Document publishing system for creating websites or reports
 
--   Github account
+-   Github account - (needs to be authenticated on your computer)
 
 -   Git version installed on your computer (not browser version).
 
@@ -338,9 +338,9 @@ ssh -T git@github.com
 
 You should see a message like: "Hi \[username\]! You've successfully authenticated..."
 
-**\*\*That's it for initial setup!\*\*** When you clone repositories using SSH URLs (like \`git\@github.com:...\`), they'll automatically use your SSH keys.
+**That's it for initial setup!** When you clone repositories using SSH URLs (like \`git\@github.com:...\`), they'll automatically use your SSH keys.
 
-### **Method 1:** For Collaborators (Command Line in bash or powershell)
+### Method 1: For Collaborators (Command Line in bash or powershell)
 
 **If you are a direct collaborator with write access:**
 
@@ -390,7 +390,7 @@ git push origin main
 
 ------------------------------------------------------------------------
 
-### **Method 2:** or External Contributors (Command Line in bash or powershell - Fork Workflow)
+### Method 2: or External Contributors (Command Line in bash or powershell - Fork Workflow)
 
 **If you are NOT a direct collaborator:**
 
@@ -790,7 +790,7 @@ The homepage of the AMORE website. This is the first page visitors see when they
 
 -   Responsive breakpoints that adjust layout on mobile/tablet
 
-### **\_quarto.yml**
+### \_quarto.yml
 
 The main configuration file that controls how the entire website is built and structured.
 
@@ -1033,7 +1033,7 @@ Bash script that installs Quarto on Netlify's build servers.
 
 -   Must be executable (`chmod +x`)
 
-### **install-quarto.sh**
+### install-quarto.sh
 
 Bash script that installs Quarto locally (alternative installation method).
 
@@ -1306,7 +1306,7 @@ shiny-meta/
 
     \* \`SHINYAPPS_ACCOUNT\` - Your shinyapps.io account name \* \`SHINYAPPS_TOKEN\` - Authentication token for deployment \* \`SHINYAPPS_SECRET\` - Secret key for deployment
 
-### **How app.R works:**
+### How app.R works:
 
 1.  app.R fetches `.qmd` files from `LMAs/` folder via GitHub API
 
@@ -2610,7 +2610,7 @@ Therefore, three steps must be completed to include a new metadata option:
 
 -   Add to Nettskjema
 
-## Add a new filter category 
+## Add a new filter category
 
 If you are adding a new subcategory to an existing field (like adding "Eating Disorders" under Clinical Outcomes), you can **skip this step**. However, if you are creating an entirely new metadata category (for example, a new top-level filter like "Geographic Region" or "Funding Source"), you need to complete these steps:
 
@@ -2638,7 +2638,7 @@ If you are adding a new subcategory to an existing field (like adding "Eating Di
 
 -   **Step 5: Metadata extraction** - Update the functions that parse .qmd files to extract your new field from YAML
 
-![Filter tabs on the directory website page. If you want to include a new filter category here, this must be added to app.R and the YAML header.](images/directory filter tabs.png){fig-align="center"}
+![Filter tabs on the directory website page. If you want to include a new filter category here, this must be added to app.R and the YAML header.](images/directory%20filter%20tabs.png){fig-align="center"}
 
 ``` yaml
 ---
@@ -2664,7 +2664,7 @@ oxytocin:
     - "add category options"
 ```
 
-### Step 1: Filter tab button 
+### Step 1: Filter tab button
 
 In the code below, the existing tabs in app.R are shown as examples. Add your new tab at the end, following the same format, as shown here with the brackets \[your new metadata field\]:
 
@@ -2703,7 +2703,7 @@ In the code below, the existing tabs in app.R are shown as examples. Add your ne
           
 ```
 
-### Step 2: Filter panels 
+### Step 2: Filter panels
 
 After adding your filter tab button, you need to create the actual panel that will appear when users click on that tab. This panel contains the filter section(s) with checkboxes or other input options.
 
@@ -2758,9 +2758,9 @@ Below, the Psychological & Behavioral panel is shown as an example, followed by 
 
 -   The display text is what users see; the internal value is what gets stored in the data
 
-### **Step 3: Filter section(s)**
+### Step 3: Filter section(s)
 
-![A filter panel can contain one or more sections. This illustrates a panel "Oxytocin Assessment" with multiple sections.](images/filter panels sections.png){fig-align="center"}
+![A filter panel can contain one or more sections. This illustrates a panel "Oxytocin Assessment" with multiple sections.](images/filter%20panels%20sections.png){fig-align="center"}
 
 A filter panel can contain one or multiple filter sections. Each filter section has its own title and set of checkbox options. This is useful when a metadata category has multiple related dimensions.
 
@@ -2870,7 +2870,7 @@ If your new metadata category has multiple related dimensions, you can add multi
 
 -   Each section's checkbox choices follow the same format: `"Display Text" = "internal_value"`
 
-### **Step 4: Server logic**
+### Step 4: Server logic
 
 After creating the UI elements for your new filter, you need to add the corresponding server-side logic so that the filter actually works. This involves three main updates to the server code:
 
@@ -2886,7 +2886,7 @@ Each of these updates ensures your new filter integrates seamlessly with the exi
 
 When users change any filter, the app should reset to page 1 of the results. To enable this for your new filter, add it to the `observeEvent` list that monitors filter changes.
 
-Below, the existing filters are shown, followed by where to add your new filter:
+Below, the existing filters are shown, followed by where to add your new filter showed with \[brackets\]:
 
 ``` r
   # Reset to page 1 when filters change
@@ -3200,7 +3200,6 @@ categorize_outcome <- function(outcome_text, category_type) {
   
   return(FALSE)
 }
-
 ```
 
 #### For hierarchical matching:
@@ -3284,9 +3283,9 @@ checkboxGroupInput("[field_id]", NULL,
 
 **Most fields don't need this step.** Only add categorization logic if:
 
-\- Your field uses semantic matching (like Biological, Psychological/Behavioral, and Clinical Outcomes)
+-   Your field uses semantic matching (like Biological, Psychological/Behavioral, and Clinical Outcomes)
 
-\- You want the filter to match various related terms in the metadata
+-   You want the filter to match various related terms in the metadata
 
 For fields with exact matching (like Oxytocin Dosage, Population Age, Analytical Framework), **skip this step entirely**.
 
@@ -3325,7 +3324,7 @@ categorize_outcome <- function(outcome_text, category_type) {
 
 **Important notes:**
 
--    The `category_type` must match the internal value from Step 1
+-   The `category_type` must match the internal value from Step 1
 
 -   Add keywords that should trigger a match (lowercase)
 
@@ -3525,7 +3524,7 @@ This section proposes different solutions to common errors and problems you may 
 
 Git ensures version control so earlier version pushed to Git can be retrieved.
 
-### **Recovery Files**
+### Recovery Files
 
 The project includes backup/testing files for safe experimentation:
 
@@ -3553,7 +3552,7 @@ The project includes backup/testing files for safe experimentation:
 
 -   **Location**: `/docs`
 
-## **Common Problems and Solutions**
+## Common Problems and Solutions
 
 #### Authentication Error: "Invalid username or password" or "Password authentication is not supported"
 
@@ -3670,7 +3669,7 @@ You should see: "Hi \[username\]! You've successfully authenticated..."
 
 ------------------------------------------------------------------------
 
-### **YAML Syntax Errors**
+### YAML Syntax Errors
 
 **Symptoms**: - Render fails with “YAML error” message - Page shows blank content - Console shows parsing errors
 
@@ -3710,13 +3709,13 @@ outcomes:
 
 **Solution**: 1. Check R console for specific error line 2. Validate YAML at: <http://www.yamllint.com/> 3. Ensure consistent 2-space indentation 4. Use quotes for all string values
 
-### **Styling Problems**
+### Styling Problems
 
 **Symptoms**: - Colors don’t match - Layout broken - Responsive design fails - Changes don’t appear
 
 **Solution Steps**:
 
-#### **Inspect element**
+#### Inspect element
 
 **What is Inspect Element?**
 
@@ -3752,7 +3751,7 @@ outcomes:
 
 ![Inspect element in browser](images/Screenshot%202025-10-30%20134418.png){fig-align="center"}
 
-#### **Cache Issues**:
+#### Cache Issues:
 
 1.  Save all files in RStudio
 
@@ -3766,7 +3765,7 @@ outcomes:
 
 ![](images/Screenshot%202025-10-30%20140616.png)
 
-#### **CSS Specificity**:
+#### CSS Specificity:
 
 ``` scss
 {scss}
@@ -3786,7 +3785,7 @@ outcomes:
   
 ```
 
-#### **Syntax Errors**:
+#### Syntax Errors:
 
 ``` scss
 {scss}
@@ -3807,9 +3806,9 @@ outcomes:
   
 ```
 
-## **Recovering Previous Versions**
+## Recovering Previous Versions
 
-#### **Undo uncommitted changes:**
+#### Undo uncommitted changes:
 
 ``` bash
 {bash}
@@ -3825,7 +3824,7 @@ git checkout -- filename.qmd
 git reset --hard HEAD
 ```
 
-#### **Restore file to previous version:**
+#### Restore file to previous version:
 
 ``` bash
 {bash}
@@ -3843,9 +3842,9 @@ git log --oneline
 git checkout a1b2c3d -- LMAs/project.qmd
 ```
 
-## **Recovering from Mistakes**
+## Recovering from Mistakes
 
-#### **Accidentally deleted file:**
+#### Accidentally deleted file:
 
 ``` bash
 {bash}
@@ -3858,7 +3857,7 @@ git checkout a1b2c3d -- LMAs/project.qmd
 git checkout HEAD -- filename.qmd
 ```
 
-#### **Committed wrong files:**
+#### Committed wrong files:
 
 ``` bash
 {bash}
@@ -3874,7 +3873,7 @@ git reset --soft HEAD~1
 git add correct-files.qmd git commit -m "Corrected commit"
 ```
 
-#### **Pushed broken code:**
+#### **Pushed** broken **code:**
 
 ``` bash
 {bash}
@@ -3905,7 +3904,7 @@ AMORE's infrastructure relies on several third-party services. Each service has 
 
 -   **Website**: <https://www.netlify.com>
 
-#### **Maintenance Tasks**:
+#### Maintenance Tasks:
 
 -   Renew domain name annually (Needs updated billing information, billing can be autorenewed after billing information is updated)
 
@@ -3925,7 +3924,7 @@ AMORE's infrastructure relies on several third-party services. Each service has 
 
 -   **URL**: <https://meta-oxytocin.shinyapps.io/shiny-meta/>
 
-#### **Maintenance Tasks**:
+#### Maintenance Tasks:
 
 -   Monitor app usage (free tier has limits, might be necessary with paid version to improve server capacity). Free tier usage limits:
 
@@ -3947,7 +3946,7 @@ AMORE's infrastructure relies on several third-party services. Each service has 
 
 -   **Cost**: Free
 
-#### **Maintenance Tasks**:
+#### Maintenance Tasks:
 
 -   Regularly commit and push changes
 
@@ -3967,7 +3966,7 @@ AMORE's infrastructure relies on several third-party services. Each service has 
 
 -   **Renewal**: Requires renewal after a set period of active years (check in Nettskjema)
 
-#### **Maintenance Tasks**:
+#### Maintenance Tasks:
 
 -   Ensure form links are working
 
@@ -3995,7 +3994,7 @@ Nothing else needs to be done. quarto.yml will fetch the file named contact.qmd.
 
 -   **Importance**: Critical - this email provides access to necessary services
 
-#### **Maintenance Tasks**:
+#### Maintenance Tasks:
 
 -   Keep email account secure
 
