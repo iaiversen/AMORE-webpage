@@ -60,10 +60,8 @@ using **ONLY** the guide document for instructions.
     -   If not installed, download from: https://git-scm.com/downloads
 -   ✅ **GitHub account** with collaborator access to
     `iaiversen/AMORE-webpage`
--   ✅ **The AMORE Guide PDF** (the document is saved in:
-    [Documents/General Manuscripts/AMORE/Website
-    technicals/\_AMORE_Guide_pdf.pdf](https://uio.sharepoint.com/:b:/r/sites/BehavioralNeuroendocrinologylab/Delte%20dokumenter/General/Manuscripts/AMORE/Website%20technicals/_AMORE_Guide_pdf.pdf?csf=1&web=1&e=8D1JQV)
-    in Teams
+-   ✅ **The AMORE Guide PDF** (the document is saved in
+    [Teams](https://uio.sharepoint.com/:b:/r/sites/BehavioralNeuroendocrinologylab/Delte%20dokumenter/General/Manuscripts/AMORE/Project%20administration/Project%20administration%20Guide%20doc/_AMORE_Guide_pdf.pdf?csf=1&web=1&e=ITYPyL))
 
 ### Verify Your Access
 
@@ -181,7 +179,7 @@ Complete **ALL** mandatory sections:
 
 #### Mandatory Sections:
 
-1.  **Hero Section**
+1.  **Title and information container**
     -   Project hero with title
 2.  **Abstract**
     -   Write a fictional 150-250 word abstract
@@ -195,22 +193,12 @@ Complete **ALL** mandatory sections:
 Choose at least **ONE** optional section to include:
 
 3.  **Current Results** (choose one):
-    -   If status is "Preregistered": Use the preregistered notice
-    -   If status is "Published": Create fictional results (you can keep
-        it simple)
 4.  **Inclusion and Exclusion Criteria**
-    -   Create fictional but realistic criteria
-    -   Both inclusion AND exclusion sections
 5.  **Methodology Summary**
-    -   Brief description of fictional methodology
-    -   Mention analysis software (make it up)
 6.  **Search Strategy**
-    -   Create at least 2 fictional search strings for different
-        databases
-    -   Use the proper format shown in template- Timeline section
 
-**Checkpoint:** All mandatory sections are present and filled with
-content
+**Checkpoint:** All mandatory sections and at least one optional section
+are present and filled with content
 
 ------------------------------------------------------------------------
 
@@ -243,7 +231,7 @@ Run through this checklist:
 `_test_[yourname].qmd` - \[ \] File is in the `LMAs/` folder - \[ \]
 File still has the `_` prefix (NOT going live)
 
-**Content Sections:** - \[ \] Abstract is written (150-250 words)
+**Content Sections:** - \[ \] Abstract is written
 
 **Rendering:** - \[ \] Page renders without errors - \[ \] Styling looks
 correct (matches reference) - \[ \] No broken links or missing images
@@ -442,28 +430,6 @@ unclear or incomplete - 1 = Missing - Could not find information
 
 ------------------------------------------------------------------------
 
-## Part E: Additional Comments
-
-### Any other feedback, questions, or observations?
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
 # Appendix: Reference Images
 
 ## Reference Images: Example Project Page
@@ -488,4 +454,4 @@ Good luck! 🧪
 ------------------------------------------------------------------------
 
 **Version:** 2.0\
-**Last updated:** {{{\<11/12/25\>}}}
+**Last updated:** {{{\<18/11/25\>}}}

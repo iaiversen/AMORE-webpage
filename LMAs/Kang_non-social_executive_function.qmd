@@ -406,8 +406,7 @@ Statistical analyses were implemented in R Studio 4.2.2 using the metafor packag
 
 ## Search Strategy {#search-strategy}
 
-::: search-strategy-box
-
+::: search-string-box
 [PubMed:]{.search-db} Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes
 
 [Europe PubMed Central:]{.search-db} Customized search terms adapted for database specifications

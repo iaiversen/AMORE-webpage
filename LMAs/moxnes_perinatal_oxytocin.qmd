@@ -27,20 +27,19 @@ format:
     toc-depth: 3
 ---
 
-::: {.project-hero-section}
-::: {.project-hero-content}
-::: {.project-hero-title}
+::::: project-hero-section
+:::: project-hero-content
+::: project-hero-title
 Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxytocin: A Living Systematic Review and Meta-Analysis
 :::
+::::
+:::::
 
-:::
-:::
-
-::: {.project-info-panel}
-::: {.project-info-grid}
-
+:::::::: project-info-panel
+::::::: project-info-grid
 ::: {.info-card .authors-card}
 ### Authors
+
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
@@ -86,29 +85,30 @@ Assessing the Likelihood of Neurodevelopmental Conditions After Birth with Oxyto
 
 ::: {.info-card .timeline-card}
 ### Timeline
-**Pre-registered:** February 04, 2025  
-**Last update:** First analysis not yet conducted  
+
+**Pre-registered:** February 04, 2025\
+**Last update:** First analysis not yet conducted\
 **Next update:** To be determined (24-month update cycle)
 :::
 
 ::: {.info-card .identifiers-card}
 ### Identifiers
-**DOI:** [https://osf.io/preprints/osf/9gx6s_v1](https://osf.io/preprints/osf/9gx6s_v1)
+
+**DOI:** <https://osf.io/preprints/osf/9gx6s_v1>
 
 **Keywords:** autism, ADHD, oxytocin, meta-analysis, systematic review
 :::
 
 ::: {.info-card .contact-card}
 ### Contact
-**Principal Investigator:** Daniel S. Quintana  
-**Email:** [daniel.quintana@psykologi.uio.no](mailto:daniel.quintana@psykologi.uio.no)
-:::
 
+**Principal Investigator:** Daniel S. Quintana\
+**Email:** [daniel.quintana\@psykologi.uio.no](mailto:daniel.quintana@psykologi.uio.no)
 :::
-:::
+:::::::
+::::::::
 
-::: {.main-content-container}
-
+:::::: main-content-container
 ## Abstract {#abstract}
 
 This living meta-analysis investigates the relationship between perinatal exposure to exogenous oxytocin and the likelihood of neurodevelopmental conditions such as attention-deficit/hyperactivity disorder (ADHD) and autism in children. Oxytocin is commonly used to induce and augment labor, with up to 50% of births in developed countries and varying rates (0.7% to 97.0%) in low- and lower-middle-income countries associated with synthetic oxytocin use.
@@ -316,21 +316,21 @@ The analysis employs a frequentist approach, utilizing random effects models wit
 
 ## Inclusion and Exclusion Criteria {#criteria}
 
-::: {.criteria-box}
+::: criteria-box
 ### Inclusion Criteria
 
-- **Type of Studies:** Original research written in English
-- **Exposure:** Perinatal synthetic oxytocin exposure
-- **Outcomes:** Any childhood neurodevelopmental outcome listed in DSM-5 or ICD-10 (including F-diagnoses and supplementary somatic diagnoses for delayed development: R41.8, R62, R62.0, R62.9)
-- **Outcomes:** Dimensional measures of psychiatric symptom severity
-- **Data Requirements:** Must report a risk estimate or data that would enable calculation of a risk estimate (e.g., frequencies or percentages)
+-   **Type of Studies:** Original research written in English
+-   **Exposure:** Perinatal synthetic oxytocin exposure
+-   **Outcomes:** Any childhood neurodevelopmental outcome listed in DSM-5 or ICD-10 (including F-diagnoses and supplementary somatic diagnoses for delayed development: R41.8, R62, R62.0, R62.9)
+-   **Outcomes:** Dimensional measures of psychiatric symptom severity
+-   **Data Requirements:** Must report a risk estimate or data that would enable calculation of a risk estimate (e.g., frequencies or percentages)
 :::
 
-::: {.criteria-box}
+::: criteria-box
 ### Exclusion Criteria
 
-- Studies that describe pharmacological induction without specifying the use of synthetic oxytocin
-- In cases of publications using the same sample and outcomes, later publications will be excluded
+-   Studies that describe pharmacological induction without specifying the use of synthetic oxytocin
+-   In cases of publications using the same sample and outcomes, later publications will be excluded
 :::
 
 ## Methodology Summary {#methodology}
@@ -343,35 +343,33 @@ Statistical analyses will be conducted using R statistical software with the met
 
 ## Search Strategy {#search-strategy}
 
-::: {.search-strategy-box}
-<span class="search-db">EMBASE:</span>
-'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric'
+::: search-string-box
+[EMBASE:]{.search-db} `'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric'`
 
-<span class="search-db">Web of Science:</span>
-('Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric') AND ('delivery' AND 'augment*' OR 'induc*')
+[Web of Science:]{.search-db} `('Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric') AND ('delivery' AND 'augment*' OR 'induc*')`
 
-<span class="search-db">MEDLINE:</span>
-'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric' AND 'antepartum'
+[MEDLINE:]{.search-db} `'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric' AND 'antepartum'`
 :::
 
 ## Update Protocol {#update-protocol}
 
 This is a living meta-analysis that will be updated every 24 months for a minimum of six years (three updates after initial publication). Updates will include:
 
-1. New database searches using the original search strategy
-2. Screening of new studies using identical inclusion/exclusion criteria
-3. Data extraction and quality assessment following pre-registered protocols
-4. Updated analysis incorporating all eligible studies
-5. Application of a conservative Bonferroni correction for four tests (p = 0.01 threshold for statistical significance)
+1.  New database searches using the original search strategy
+2.  Screening of new studies using identical inclusion/exclusion criteria
+3.  Data extraction and quality assessment following pre-registered protocols
+4.  Updated analysis incorporating all eligible studies
+5.  Application of a conservative Bonferroni correction for four tests (p = 0.01 threshold for statistical significance)
 
 ### Updates Log {#updates-log}
 
-- Initial pre-registration: 2025
-- First analysis and publication: Pending
+-   Initial pre-registration: 2025
+-   First analysis and publication: Pending
 
 ### Next Update {#next-update}
-Scheduled for: 24 months after initial publication  
-Contact: daniel.quintana@psykologi.uio.no
+
+Scheduled for: 24 months after initial publication\
+Contact: daniel.quintana\@psykologi.uio.no
 
 ## References {#references}
 
@@ -417,5 +415,4 @@ Contact: daniel.quintana@psykologi.uio.no
   </script>
 </div>
 ```
-
-:::
+::::::

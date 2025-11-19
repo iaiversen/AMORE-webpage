@@ -1,7 +1,7 @@
 ---
 title: "Guide for Managing AMORE Website"
 author: "Ingebjørg A. Iversen"
-date: "11.13.25"
+date: "11/18/25"
 thanks: "Thanks to Alina and Heemin for your contributions in developing this guide."
 format: 
   pdf:
@@ -192,7 +192,7 @@ This section guides you through setting up your development environment, providi
 Throughout this guide, you'll see code blocks with different labels that indicate language used, or where/how to run the code. An important note is that the bash blocks indicate Git commands, but the interface does not need to be Bash. It needs to be a Git friendly Terminal such as Bash, Powershell, or RStudio Terminal.
 
 | bash blocks |
-|--------------------------------------------------------------------|
+|------------------------------------------------------------------------|
 | {bash} |
 | The bash code blocks indicates commands are for command line interfaces. Bash, powershell and RStudio Terminal are all command line interfaces. (I personally use Windows powershell as my terminal). The blocks contain Git commands that work in all mentioned command interfaces. |
 
@@ -1604,9 +1604,9 @@ Follow this section to include all mandatory and relevant optional sections for 
 
 ------------------------------------------------------------------------
 
-## **Mandatory sections**
+## Mandatory sections
 
-### **YAML header**
+### YAML header
 
 the YAML header is the metadata section at the very top of each project file that controls how the meta-analysis project appears and gets filtered in the AMORE directory. The YAML header in not visible on the project page.
 
@@ -1702,17 +1702,17 @@ dois:
   preregistration: "10.XXXX/template-prereg"
   preprint: "10.XXXX/template-preprint"
   publication: "10.XXXX/template-publication"
-format: ### NB!  This is important to include ## 
-  html: ### NB!  This is important to include ##
-    page-layout: full ### NB!  This is important to include ##
-    toc: true ### NB!  This is important to include ##
-    toc-title: "On this page" ### NB!  This is important to include ##
-    toc-location: right ### NB!  This is important to include ##
-    toc-depth: 3 ### NB!  This is important to include ##
+format: ### NB!  The format field must be included. 
+  html: 
+    page-layout: full 
+    toc: true 
+    toc-title: "On this page" 
+    toc-location: right 
+    toc-depth: 3 
 ---
 ```
 
-### **Title and Information container**
+### Title and Information container
 
 The title and information container is the first visible section of the project page. It contains the projects main title and information such as authors, timeline and contact. Insert correct information in the \[brackets\].
 
@@ -1800,7 +1800,7 @@ The title and information container is the first visible section of the project 
 :::
 ```
 
-### **Abstract**
+### Abstract
 
 ![Reference image: Abstract](images/abstract.png){fig-align="center"}
 
@@ -2598,11 +2598,922 @@ You can preview in Viewer pane OR in browser version. I recommend adjusting the 
 
 # Adding new metadata alternatives
 
-add to app.R
+If you plan on expanding or adjusting the metadata options, there are three steps needed to complete that task.
 
-add to \_lma.template.qmd
+The directory's backend is app.R, and app.R collects information from the YAML header in each .qmd file. To maintain control over and provide overview of all YAML metadata options, new categories or category options must be logged and written into the guide document's YAML header options with explanations. Lastly, the options must be made available to project proposals in Nettskjema.
 
-add to nettskjema
+Therefore, three steps must be completed to include a new metadata option:
+
+-   Add to app.R
+
+-   Add to guide document YAML header in Chapter "Adding new projects" (and preferably also \_lma.template.qmd)
+
+-   Add to Nettskjema
+
+## Add a new filter category 
+
+If you are adding a new subcategory to an existing field (like adding "Eating Disorders" under Clinical Outcomes), you can **skip this step**. However, if you are creating an entirely new metadata category (for example, a new top-level filter like "Geographic Region" or "Funding Source"), you need to complete these steps:
+
+-   **Step 1: Filter tab button** - Add a clickable tab in the UI
+
+<!-- -->
+
+-   **Step 2: Filter panel** - Create the actual panel that opens when the tab is clicked
+
+<!-- -->
+
+-   **Step 3: Filter section(s)** - Add the checkbox groups or other inputs within the panel
+
+<!-- -->
+
+-   **Step 4: Server logic** - Add the new filter to:
+
+    -   The `observeEvent` that resets pagination when filters change
+
+    -   The scoring/filtering logic in `filtered_data()` reactive
+
+    -   The search text combination (if it should be searchable)
+
+<!-- -->
+
+-   **Step 5: Metadata extraction** - Update the functions that parse .qmd files to extract your new field from YAML
+
+![Filter tabs on the directory website page. If you want to include a new filter category here, this must be added to app.R and the YAML header.](images/directory filter tabs.png){fig-align="center"}
+
+``` yaml
+---
+title: "Write title here" 
+analytical_framework: # Choose one or more 
+  - "Frequentist"
+  - "Bayesian"
+  - "Mixed methods"
+oxytocin:
+  intervention: # if applicable, choose one or more:   
+    - "Intranasal oxytocin administration"
+    - "Oral oxytocin administration"
+    - "Intravenous/injection oxytocin administration" 
+    - "Environmental/behavioral oxytocin manipulation"
+    - "Perinatal oxytocin exposure"
+  assessment_method: # if applicable, choose one or more: 
+    - "Behavioral assessment"
+    - "Physiological response"
+    - "Biological sample collection"
+    - "Genetic studies"
+    - "Neural/imaging measurement"
+  new_metadata_category: 
+    - "add category options"
+```
+
+### Step 1: Filter tab button 
+
+In the code below, the existing tabs in app.R are shown as examples. Add your new tab at the end, following the same format, as shown here with the brackets \[your new metadata field\]:
+
+``` r
+# Filter tabs with simpler approach
+          div(class = "filter-tabs",
+              tags$button("Biological Outcomes", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "biological"),
+              tags$button("Psychological and Behavioral", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "psychological"),
+              tags$button("Clinical Outcomes", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "clinical"),
+              tags$button("Oxytocin Assessment", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "oxytocin"),
+              tags$button("Study Population", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "population"),
+              tags$button("Study Details", 
+                          class = "filter-tab", 
+                          type = "button",
+                          `data-target` = "details")
+              tags$button("[your new metadata field]",
+                          class = "filter-tab",
+                          type = "button",
+                          `data-target` = "[datatarget]")
+          ),
+          
+```
+
+### Step 2: Filter panels 
+
+After adding your filter tab button, you need to create the actual panel that will appear when users click on that tab. This panel contains the filter section(s) with checkboxes or other input options.
+
+The panel's `id` must match the `data-target` value you used in Step 1. For example, if your `data-target` was "geographic_region", your panel `id` should be "geographic_region-panel".
+
+Below, the Psychological & Behavioral panel is shown as an example, followed by a template for your new panel:
+
+``` r
+ # Psychological & Behavioral Panel
+              div(class = "filter-panel", id = "psychological-panel",
+                  div(class = "filter-section",
+                      h4("Psychological and Behavioral Outcomes", class = "filter-title"),
+                      checkboxGroupInput("psychological_behavioral_outcomes", NULL,
+                                         choices = c("Mood and Emotion" = "mood_emotion",
+                                                     "Cognition and Memory" = "cognition_memory", 
+                                                     "Stress and Coping" = "stress_coping", 
+                                                     "Eating and Appetite" = "eating_appetite", 
+                                                     "Risk and Decision-Making" = "risk_decision",
+                                                     "Sleep Behavior and Quality" = "sleep_behavior_quality",
+                                                     "Bonding and Attachment" = "bonding_attachment",
+                                                     "Trust and Cooperation" = "trust_cooperation",
+                                                     "Communication and Empathy" = "communication_empathy",
+                                                     "Aggression and Conflict" = "aggression_conflict"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+              
+              # New Panel
+              div(class = "filter-panel", id = "[datatarget-panel]",
+                  div(class = "filter-section",
+                      h4("[Title of category]", class = "filter-title"),
+                      checkboxGroupInput("[relevant_to_title_outcome]", NULL,
+                                         choices = c("[Subcategory option]" = "[subcategory_option]", 
+                                                     "[Subcategory option]" = "[subcategory_option]", 
+                                                     "[Subcategory option]" = "[subcategory_option]",
+                                                     "[Subcategory option]" = "[subcategory_option]",
+                                                     "[Subcategory option]" = "[subcategory_option]"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+```
+
+**Important notes:**
+
+-   The panel `id` format is: `[your_datatarget]-panel` (e.g., "geographic_region-panel")
+
+-   The `checkboxGroupInput` ID (first parameter) should be descriptive and match what you'll use in server logic (e.g., "geographic_region_filter")
+
+-   In the `choices`, the format is `"Display Text" = "internal_value"`
+
+-   The display text is what users see; the internal value is what gets stored in the data
+
+### **Step 3: Filter section(s)**
+
+![A filter panel can contain one or more sections. This illustrates a panel "Oxytocin Assessment" with multiple sections.](images/filter panels sections.png){fig-align="center"}
+
+A filter panel can contain one or multiple filter sections. Each filter section has its own title and set of checkbox options. This is useful when a metadata category has multiple related dimensions.
+
+For example, the Oxytocin Assessment panel contains four separate sections: Intervention, Assessment Method, Route, and Dosage. Each section filters on a different aspect of oxytocin assessment.
+
+If your new metadata category has multiple related dimensions, you can add multiple `filter-section` divs within the same panel. Below, the Oxytocin Assessment panel with its four sections is shown as an example, followed by a template for your new panel with multiple sections:
+
+``` r
+# Oxytocin Assessment Panel
+              div(class = "filter-panel", id = "oxytocin-panel",
+                  div(class = "filter-section",
+                      h4("Oxytocin Intervention", class = "filter-title"),
+                      checkboxGroupInput("oxytocin_intervention", NULL,
+                                         choices = c("Intranasal oxytocin administration", 
+                                                     "Oral oxytocin administration",
+                                                     "Intravenous/injection oxytocin administration", 
+                                                     "Environmental/behavioral oxytocin manipulation",
+                                                     "Perinatal oxytocin exposure"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Oxytocin Assessment Method", class = "filter-title"),
+                      checkboxGroupInput("assessment_method", NULL,
+                                         choices = c("Biological sample collection", 
+                                                     "Behavioral assessment", 
+                                                     "Physiological response",
+                                                     "Genetic studies", 
+                                                     "Neural/imaging measurement"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Oxytocin Route", class = "filter-title"),
+                      checkboxGroupInput("oxytocin_route", NULL,
+                                         choices = c("Central", 
+                                                     "Peripheral", 
+                                                     "Various administration routes"), 
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("Oxytocin Dosage", class = "filter-title"),
+                      checkboxGroupInput("oxytocin_dosage", NULL,
+                                         choices = c("8 IU", 
+                                                     "16 IU", 
+                                                     "24 IU",
+                                                     "32 IU",
+                                                     "40 IU",
+                                                     "Variable dosage"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+
+              
+              
+# New Panel
+              div(class = "filter-panel", id = "[datatarget-panel]",
+                  div(class = "filter-section",
+                      h4("[Title of category]", class = "filter-title"),
+                      checkboxGroupInput("[relevant_to_title_outcome]", NULL,
+                                         choices = c("[Subcategory option]", 
+                                                     "[Subcategory option]",
+                                                     "[Subcategory option]", 
+                                                     "[Subcategory option]",
+                                                     "[Subcategory option]"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("[Title of category]", class = "filter-title"),
+                      checkboxGroupInput("[relevant_to_title_outcome]", NULL,
+                                         choices = c("[Subcategory option]", 
+                                                     "[Subcategory option]",
+                                                     "[Subcategory option]"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("[Title of category]", class = "filter-title"),
+                      checkboxGroupInput("[relevant_to_title_outcome]", NULL,
+                                         choices = c("[Subcategory option]", 
+                                                     "[Subcategory option]",
+                                                     "[Subcategory option]"),
+                                         selected = NULL
+                      )
+                  ),
+                  div(class = "filter-section",
+                      h4("[Title of category]", class = "filter-title"),
+                      checkboxGroupInput("[relevant_to_title_outcome]", NULL,
+                                         choices = c("[Subcategory option]", 
+                                                     "[Subcategory option]",
+                                                     "[Subcategory option]",
+                                                     "[Subcategory option]"),
+                                         selected = NULL
+                      )
+                  )
+              ),
+```
+
+**Important notes:**
+
+-   Each `checkboxGroupInput` needs a unique ID (the first parameter)
+
+-   You can have as many or as few filter sections as needed - just one section is perfectly fine
+
+-   Each section's checkbox choices follow the same format: `"Display Text" = "internal_value"`
+
+### **Step 4: Server logic**
+
+After creating the UI elements for your new filter, you need to add the corresponding server-side logic so that the filter actually works. This involves three main updates to the server code:
+
+1.  **Reset pagination observer** - Add your new filter to the list that triggers page reset when changed
+
+2.  **Filtering and scoring logic** - Add logic to filter entries and calculate relevance scores based on your new metadata
+
+3.  **Search text combination** - Include your new field in the searchable text so users can find it through the search bar
+
+Each of these updates ensures your new filter integrates seamlessly with the existing search and filtering functionality.
+
+#### Step 4a: Reset pagination observer
+
+When users change any filter, the app should reset to page 1 of the results. To enable this for your new filter, add it to the `observeEvent` list that monitors filter changes.
+
+Below, the existing filters are shown, followed by where to add your new filter:
+
+``` r
+  # Reset to page 1 when filters change
+  observeEvent(list(
+    input$search_text,
+    input$biological_outcomes,
+    input$psychological_behavioral_outcomes,
+    input$clinical_outcomes,
+    input$oxytocin_intervention,
+    input$assessment_method,
+    input$oxytocin_route,
+    input$oxytocin_dosage,
+    input$population_status,
+    input$population_age,
+    input$analysis_framework,
+    [input$newfilter_id]
+  ), {
+    current_page(1)
+  })
+  
+  
+```
+
+**Important note:**
+
+-   The input ID must match the `checkboxGroupInput` ID you created in Step 2 or 3
+
+#### Step 4b, Part 1: Initialize the data frame structure
+
+When the app starts, it creates an empty data frame to store metadata from all LMA files. You need to add a column for your new metadata field here.
+
+Find the `parse_qmd_metadata` function and locate where `meta_df` is initialized. Add your new field to this list:
+
+``` r
+# Initialize empty data frame
+meta_df <- data.frame(
+  Title = character(),
+  Status = character(),
+  Framework = character(),
+  OxytocinIntervention = character(),
+  AssessmentMethod = character(),
+  OxytocinRoute = character(),
+  OxytocinDosage = character(),
+  PopulationStatus = character(),
+  PopulationAge = character(),
+  PopulationClinicalType = character(),
+  BiologicalOutcomes = character(),
+  PsychologicalBehavioralOutcomes = character(),
+  ClinicalOutcomes = character(),
+  [NewField] = character(),
+  LastUpdated = character(),
+  Abstract = character(),
+  Filename = character(),
+  stringsAsFactors = FALSE
+)
+```
+
+**Important notes:**
+
+-   Add your field in a logical location (e.g., group it with similar fields)
+
+-   Use `character()` as the data type
+
+#### Step 4b, Part 2: Extract from YAML
+
+After initializing the data frame, you need to tell the app how to extract your new field from the YAML header of each .qmd file. This happens in the same `parse_qmd_metadata` function.
+
+Find the section where fields are extracted and add your extraction code:
+
+``` r
+# Extract multi-value fields with array support
+oxytocin_intervention <- safe_extract(meta, c("oxytocin", "intervention"))
+oxytocin_intervention_str <- extract_array_as_string(oxytocin_intervention)
+
+assessment_method <- safe_extract(meta, c("oxytocin", "assessment_method"))
+assessment_method_str <- extract_array_as_string(assessment_method)
+
+# Extract your new field
+new_field <- safe_extract(meta, c("[parent_category]", "[field_name]"))
+new_field_str <- extract_array_as_string(new_field)
+```
+
+**Important notes:**
+
+-   Replace `[parent_category]` with the top-level YAML key (e.g., "oxytocin", "population", "outcomes")
+
+-   Replace `[field_name]` with your specific field (e.g., "intervention", "route")
+
+-   The `_str` variable converts the data to a string format for storage
+
+#### Step 4b, Part 3: Add to the entry list
+
+After extracting the data from YAML, you need to add it to the entry list that gets created for each .qmd file. This happens further down in the same function.
+
+Find the section where the entry list is created and add your new field:
+
+``` r
+entry <- list(
+  Title = meta$title %||% "Untitled",
+  Status = status,
+  Framework = framework_str,
+  OxytocinIntervention = oxytocin_intervention_str,
+  AssessmentMethod = assessment_method_str,
+  OxytocinRoute = oxytocin_route_str,
+  OxytocinDosage = oxytocin_dosage_str,
+  PopulationStatus = population_status_str,
+  PopulationAge = population_age_str,
+  PopulationClinicalType = safe_extract(meta, c("population", "clinical_type")),
+  BiologicalOutcomes = biological_outcomes_str,
+  PsychologicalBehavioralOutcomes = psychological_behavioral_outcomes_str,
+  ClinicalOutcomes = clinical_outcomes_str,
+  [NewField] = [new_field_str],
+  LastUpdated = last_updated,
+  Abstract = abstract,
+  Filename = filename
+)
+```
+
+**Important notes:**
+
+-   The name on the left (e.g., `NewField`) should match what you used in Part 1
+
+-   The value on the right should be the `_str` variable you created in Part 2
+
+#### Step 4b, Part 4: Add to the data frame conversion
+
+After creating entry lists for all files, the app converts them into a data frame. You need to add your new field to this conversion.
+
+Find the section where the data frame is created from the entry list and add your field:
+
+``` r
+meta_df <- do.call(rbind, lapply(meta_list, function(x) {
+  data.frame(
+    Title = x$Title,
+    Status = x$Status,
+    Framework = x$Framework,
+    OxytocinIntervention = x$OxytocinIntervention,
+    AssessmentMethod = x$AssessmentMethod,
+    OxytocinRoute = x$OxytocinRoute,
+    OxytocinDosage = x$OxytocinDosage,
+    PopulationStatus = x$PopulationStatus,
+    PopulationAge = x$PopulationAge,
+    PopulationClinicalType = x$PopulationClinicalType,
+    BiologicalOutcomes = x$BiologicalOutcomes,
+    PsychologicalBehavioralOutcomes = x$PsychologicalBehavioralOutcomes,
+    ClinicalOutcomes = x$ClinicalOutcomes,
+    [NewField] = x$[NewField],
+    LastUpdated = x$LastUpdated,
+    Abstract = x$Abstract,
+    Filename = x$Filename,
+    stringsAsFactors = FALSE
+  )
+}))
+```
+
+**Important notes:**
+
+-   The field name must match exactly what you used in Parts 1 and 3
+
+-   The format is `FieldName = x$FieldName`
+
+#### Step 4b, Part 5: Add scoring logic
+
+The app ranks search results by how many filter criteria each LMA matches. You need to add scoring logic for your new filter so it contributes to the relevance ranking.
+
+Find the `filtered_data` reactive and locate the scoring section. Add your scoring code after the existing filters:
+
+``` r
+# Score for analysis framework
+if (length(input$analysis_framework) > 0) {
+  framework_scores <- sapply(1:nrow(meta_df), function(i) {
+    as.numeric(check_multi_value_match(meta_df$Framework[i], 
+                                       input$analysis_framework))
+  })
+  score_vector <- score_vector + framework_scores
+}
+
+# Score for [your new filter]
+if (length(input$[newfilter_id]) > 0) {
+  new_scores <- sapply(1:nrow(meta_df), function(i) {
+    as.numeric(check_multi_value_match(meta_df$[NewField][i], 
+                                       input$[newfilter_id]))
+  })
+  score_vector <- score_vector + new_scores
+}
+```
+
+**Important notes:**
+
+-   Replace `[newfilter_id]` with the input ID from your checkboxGroupInput (Step 3)
+
+-   Replace `[NewField]` with the column name from your data frame (Part 1)
+
+-   This gives 1 point per match for ranking
+
+#### Step 4b, Part 6: Add to search text combination
+
+To make your new field searchable through the main search bar, add it to the combined search text.
+
+Find the text search section in `filtered_data` and add your field:
+
+``` r
+# Apply enhanced text search
+if (!is.null(input$search_text) && input$search_text != "") {
+  search_text_combined <- paste(
+    meta_df$Title, 
+    meta_df$Abstract,
+    meta_df$BiologicalOutcomes,
+    meta_df$PsychologicalBehavioralOutcomes,
+    meta_df$ClinicalOutcomes,
+    meta_df$OxytocinIntervention,
+    meta_df$AssessmentMethod,
+    meta_df$OxytocinRoute,
+    meta_df$OxytocinDosage,
+    meta_df$PopulationStatus,
+    meta_df$PopulationAge,
+    meta_df$PopulationClinicalType,
+    meta_df$Framework,
+    meta_df$[NewField],
+    sep = " "
+  )
+```
+
+#### Step 4b, Part 7: Add to total active filters count
+
+The relevance badge shows how many criteria an LMA matches. Add your filter to the count calculation.
+
+Find the `total_active_filters` calculation and add your filter:
+
+``` r
+# Calculate total active filters for badge display
+total_active_filters <- length(input$biological_outcomes) +
+  length(input$psychological_behavioral_outcomes) +
+  length(input$clinical_outcomes) +
+  length(input$oxytocin_intervention) +
+  length(input$assessment_method) +
+  length(input$oxytocin_route) +
+  length(input$oxytocin_dosage) +
+  length(input$population_status) +
+  length(input$population_age) +
+  length(input$analysis_framework) +
+  length(input$[newfilter_id])
+```
+
+#### Step 4c: Add to display output
+
+To make your new metadata field visible in the search results, add it to the display section where LMA entries are shown to users.
+
+Find the `output$lma_list` section and locate where metadata is displayed. Add your field in a logical location:
+
+``` r
+div(class = "lma-meta",
+    if (!is_empty_value(data$Framework[i])) span("Analytical Framework: ", format_display_value(data$Framework[i])),
+    if (!is_empty_value(data$OxytocinIntervention[i])) span("Oxytocin Intervention: ", format_display_value(data$OxytocinIntervention[i])),
+    if (!is_empty_value(data$AssessmentMethod[i])) span("Oxytocin Assessment: ", format_display_value(data$AssessmentMethod[i])),
+    if (!is_empty_value(data$OxytocinRoute[i])) span("Oxytocin Route: ", format_display_value(data$OxytocinRoute[i])),
+    if (!is_empty_value(data$OxytocinDosage[i])) span("Oxytocin Dosage: ", format_display_value(data$OxytocinDosage[i])),
+    if (!is_empty_value(data$BiologicalOutcomes[i])) span("Biological Outcomes: ", format_display_value(data$BiologicalOutcomes[i])),
+    if (!is_empty_value(data$PsychologicalBehavioralOutcomes[i])) span("Psychological and Behavioral Outcomes: ", format_display_value(data$PsychologicalBehavioralOutcomes[i])),
+    if (!is_empty_value(data$ClinicalOutcomes[i])) span("Clinical Outcomes: ", format_display_value(data$ClinicalOutcomes[i])),
+    if (!is_empty_value(data$[NewField][i])) span("[Display Label]: ", format_display_value(data$[NewField][i])),
+    if (!is_empty_value(data$PopulationStatus[i])) span("Population Status: ", format_display_value(data$PopulationStatus[i])),
+    if (!is_empty_value(data$PopulationAge[i])) span("Population Age: ", format_display_value(data$PopulationAge[i])),
+    if (!is_empty_value(data$PopulationClinicalType[i])) span("Clinical Type: ", format_display_value(data$PopulationClinicalType[i])),
+    if (!is_empty_value(data$LastUpdated[i])) span("Last Updated: ", data$LastUpdated[i])
+),
+```
+
+**Important notes:**
+
+-   Replace `[NewField]` with your field name from the data frame
+
+-   Replace `[Display Label]` with the user-friendly text you want to show (e.g., "Geographic Region: ")
+
+-   Place it in a logical location among related fields
+
+### Step 5: Add categorization logic (optional)
+
+Most fields work with simple direct matching and **don't need this step**. However, if your new field has:
+
+-   Subcategories that should match various related terms (like "cardiovascular" matching "heart rate", "blood pressure", etc.)
+
+-   Hierarchical relationships (like "Variable dosage" being a parent that matches all specific dosages (8IU, 24IU))
+
+Then you need to add categorization logic.
+
+#### For subcategory matching:
+
+Find the `categorize_outcome` function and add your new category type:
+
+``` r
+categorize_outcome <- function(outcome_text, category_type) {
+  if (is.na(outcome_text)) return(FALSE)
+  
+  outcome_lower <- tolower(outcome_text)
+  
+  if (category_type == "cardiovascular") {
+    return(any(sapply(c("hrv", "heart rate", "blood pressure", "cardiac", "cardiovascular"), 
+                      function(term) grepl(term, outcome_lower))))
+  } else if (category_type == "neuroendocrine") {
+    return(any(sapply(c("cortisol", "hormone", "endocrine", "stress marker", "testosterone", "estrogen"), 
+                      function(term) grepl(term, outcome_lower))))
+  }
+  
+  # your new category 
+  } else if (category_type == "[your_category_type]") {
+    return(any(sapply(c("[keyword1]", "[keyword2]", "[keyword3]", "[keyword4]"), 
+                    function(term) grepl(term, outcome_lower))))  
+  
+  # ... other categories ...
+  
+  return(FALSE)
+}
+
+```
+
+#### For hierarchical matching:
+
+Find the `check_hierarchical_match` function and add parent categories if needed:
+
+``` r
+hierarchical_parents <- list(
+  dosage = c("Variable dosage"),
+  route = c("Various administration routes"),
+  population_status = c("Mixed"),
+  analytical_framework = ("Mixed methods"),
+  population_age = c("Mixed age groups"),
+  [your_field] = c("[Parent Category Name]")
+)
+```
+
+**Important notes:**
+
+-   Skip this step entirely if your field uses simple exact matching
+
+-   Only add categorization if users need to search by broader terms
+
+-   Only add hierarchical matching if you have parent categories that should match all children
+
+## Adding a new subcategory to an existing field
+
+**When to use:** Adding a new option to an existing filter category (e.g., adding "Eating Disorders" under Clinical Outcomes, or adding "48 IU" to Oxytocin Dosage)
+
+### Overview
+
+Adding a subcategory only requires updating three locations in app.R:
+
+1\. The checkbox choices in the filter panel UI
+
+2\. The categorization logic (if using semantic matching)
+
+3\. No changes to data extraction or server logic are needed
+
+------------------------------------------------------------------------
+
+### Step 1: Update checkbox choices
+
+Find your filter panel in the UI section and add your new option to the `choices` list.
+
+**Example - Adding "Eating Disorders" to Clinical Outcomes:**
+
+``` r
+# Clinical Outcomes Panel
+div(class = "filter-panel", id = "clinical-panel",
+    div(class = "filter-section",
+        h4("Clinical Outcomes", class = "filter-title"),
+        checkboxGroupInput("clinical_outcomes", NULL,
+                           choices = c("Neurodevelopmental" = "neurodevelopmental", 
+                                       "Mood Disorders" = "mood_disorders", 
+                                       "Psychotic Disorders" = "psychotic_disorders",
+                                       "Addiction and Substance Use" = "addiction_substance",
+                                       "Eating Disorders" = "eating_disorders"),  # â† Already added
+                           selected = NULL
+        )
+    )
+),
+```
+
+**Template - Add your new subcategory:**
+
+``` r
+checkboxGroupInput("[field_id]", NULL,
+                   choices = c("[Existing Option 1]" = "[existing_option_1]", 
+                               "[Existing Option 2]" = "[existing_option_2]",
+                               "[Your New Option]" = "[your_new_option]"),  # â† Add here
+                   selected = NULL
+)
+```
+
+**Important notes:** - The format is `"Display Text" = "internal_value"` - Display text is what users see in the checkbox - Internal value should use lowercase with underscores (e.g., "eating_disorders") - Don't forget the comma after the previous line!
+
+------------------------------------------------------------------------
+
+### Step 2: Add categorization logic (if applicable)
+
+**Most fields don't need this step.** Only add categorization logic if:
+
+\- Your field uses semantic matching (like Biological, Psychological/Behavioral, and Clinical Outcomes)
+
+\- You want the filter to match various related terms in the metadata
+
+For fields with exact matching (like Oxytocin Dosage, Population Age, Analytical Framework), **skip this step entirely**.
+
+------------------------------------------------------------------------
+
+#### When categorization is needed
+
+Find the `categorize_outcome` function and add your new category with relevant search terms.
+
+**Example - The existing "eating_disorders" categorization:**
+
+``` r
+categorize_outcome <- function(outcome_text, category_type) {
+  if (is.na(outcome_text)) return(FALSE)
+  
+  outcome_lower <- tolower(outcome_text)
+  
+  # ... other categories ...
+  
+  } else if (category_type == "eating_disorders") {
+    return(any(sapply(c("anorexia", "bulimia", "eating disorder", "binge"), 
+                      function(term) grepl(term, outcome_lower))))
+  }
+  
+  return(FALSE)
+}
+```
+
+**Template - Add your new categorization:**
+
+``` r
+  } else if (category_type == "[your_new_option]") {
+    return(any(sapply(c("[keyword1]", "[keyword2]", "[keyword3]", "[keyword4]"), 
+                      function(term) grepl(term, outcome_lower))))
+```
+
+**Important notes:**
+
+-    The `category_type` must match the internal value from Step 1
+
+-   Add keywords that should trigger a match (lowercase)
+
+-   Keywords can be single words or phrases
+
+-   The function searches for partial matches, so "eating disorder" will match "eating disorders"
+
+## Update the guide document YAML header
+
+After adding your new metadata field to app.R, you must document the available options in the guide so that project creators know what values they can use.
+
+### Location
+
+The YAML metadata documentation is in the **"Adding new projects"** chapter of the guide document (`_AMORE_Guide_pdf.qmd`).
+
+### What to update
+
+Find the section titled **"YAML header"** which contains a complete example of all available metadata options. This is the reference that users consult when creating their project files.
+
+------------------------------------------------------------------------
+
+#### Example: Adding "Eating Disorders" to Clinical Outcomes
+
+Locate the relevant section in the YAML header documentation and add your new option:
+
+``` yaml
+outcomes:
+  clinical: # if applicable, choose one or more: 
+    - "Neurodevelopmental"
+    - "Mood Disorders"
+    - "Psychotic Disorders"
+    - "Addiction and Substance Use"
+    - "Eating Disorders"  # ← Added
+```
+
+**Important notes:** - Keep the formatting consistent with existing entries - Include the option in quotes if other options use quotes - Maintain alphabetical order if the list is alphabetized - Add clarifying comments if the option needs explanation
+
+------------------------------------------------------------------------
+
+### For new top-level categories
+
+If you added a completely new filter category (not just a subcategory), you need to add the entire section to the YAML documentation.
+
+**Example: Adding a new "Geographic Region" category:**
+
+``` yaml
+geographic_region: # if applicable, choose one or more:
+  - "North America"
+  - "Europe"
+  - "Asia"
+  - "South America"
+  - "Africa"
+  - "Australia/Oceania"
+  - "Multiple regions"
+```
+
+Place it in a logical location within the YAML structure, typically grouped with related metadata fields.
+
+------------------------------------------------------------------------
+
+## Update \_lma.template.qmd (Recommended)
+
+While updating the guide document is mandatory, updating the template file is highly recommended. The template file (`_lma.template.qmd` in the LMAs folder) is what project creators copy when creating new project pages.
+
+### Why update the template?
+
+-   Provides immediate reference for users
+-   Reduces errors from typing options manually
+-   Shows the exact format needed
+-   Makes it easier for users to select valid options
+
+### What to update
+
+The template contains the same YAML header structure as documented in the guide. Update it in the same way:
+
+**Location:** `/LMAs/_lma.template.qmd`
+
+**Section:** YAML header at the very top of the file
+
+#### Example: Adding "Eating Disorders"
+
+``` yaml
+---
+title: "Write title here" 
+analytical_framework: 
+  - "Frequentist"
+  - "Bayesian"
+  - "Mixed methods"
+# ... other sections ...
+outcomes:
+  clinical: # if applicable, choose one or more: 
+    - "Neurodevelopmental"
+    - "Mood Disorders"
+    - "Psychotic Disorders"
+    - "Addiction and Substance Use"
+    - "Eating Disorders"  # ← Add here
+# ... rest of template ...
+---
+```
+
+**Important notes:** - The template YAML must match what's documented in the guide - The template YAML must match what app.R expects - Any mismatch will cause confusion or errors
+
+------------------------------------------------------------------------
+
+## Update Nettskjema contact form
+
+The final step is updating the Nettskjema form so that new project proposals can include your new metadata option.
+
+### Which form to update
+
+**Form name:** "Propose your project"
+
+**Who has edit access:** - ingebjai\@uio.no (Ingebjørg) - danielqu\@uio.no (Daniel Quintana)
+
+### Why update Nettskjema?
+
+When researchers propose new projects, they fill out a Nettskjema form that collects metadata about their project. This metadata is then used to create their project page. If your new option isn't available in the form, users can't select it during project proposal.
+
+------------------------------------------------------------------------
+
+### What to update
+
+The form has a section for metadata selection where users choose from predefined options that match the YAML structure.
+
+### Steps to update the form:
+
+1.  **Log into Nettskjema** at nettskjema.no with appropriate credentials
+
+2.  **Find the "Propose your project" form**
+
+3.  **Locate the metadata question section** - this is where users select their project's metadata (outcomes, population, oxytocin details, etc.)
+
+4.  **Add your new option** in the same style as the previous option
+
+5.  **Save and test** the form to ensure the new option appears
+
+------------------------------------------------------------------------
+
+### Important considerations
+
+**Consistency is critical:** The options in Nettskjema must exactly match: - The options in app.R filter checkboxes - The options documented in the guide - The options in \_lma.template.qmd
+
+**Formatting:** - Use the display text (e.g., "Eating Disorders") not the internal value (e.g., "eating_disorders") - Match capitalization and punctuation exactly - Keep the same order as in the template when possible
+
+**Optional vs Required:** - Metadata questions in Nettskjema are voluntary - Users can skip sections that don't apply to their project - This is fine - blank fields simply won't display in the directory
+
+------------------------------------------------------------------------
+
+## Summary: Complete update workflow
+
+To add a new metadata option to the AMORE system:
+
+### 1. Update app.R
+
+-   Add to UI filter choices
+-   Add to server logic (data extraction, scoring, display)
+-   Add categorization if using semantic matching
+
+### 2. Update guide document
+
+-   Document the new option in the YAML header example
+-   Include in the "Adding new projects" chapter
+-   Add explanatory comments if needed
+
+### 3. Update \_lma.template.qmd (recommended)
+
+-   Add the new option to the template YAML header
+-   Ensure formatting matches the guide
+
+### 4. Update Nettskjema
+
+-   Add the new option to the "Propose your project" form
+-   Place in the appropriate metadata section
+-   Test the updated form
+
+### Verification checklist
+
+After completing all updates:
+
+-   [ ] New option appears in directory filters
+-   [ ] Filtering works correctly in the Shiny app
+-   [ ] Option is documented in the guide
+-   [ ] Option is available in the template file
+-   [ ] Option can be selected in Nettskjema
+-   [ ] Test project file with new option displays correctly
+-   [ ] All four sources match exactly (app.R, guide, template, form)
+
+------------------------------------------------------------------------
 
 # Troubleshooting
 

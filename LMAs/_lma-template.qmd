@@ -610,13 +610,17 @@ Statistical analyses will be conducted using \[statistical software\] with the \
 
 ## Search Strategy {#search-strategy}
 
-::: search-strategy-box
+::: search-string-box
 [Write search engine here e.g. PubMed:]{.search-db} the search string used in e.g pubmed here
 
 [Write search engine here:]{.search-db} search string here
 
 [Write search engine here:]{.search-db} search string here
 :::
+
+**Note:** If your search strings contain special characters (quotes, parentheses, ®, etc.), wrap them in backticks like this: `'search string'` to ensure proper formatting.Example:
+
+[MEDLINE:]{.search-db} `'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric' AND 'antepartum'`
 
 ## Update Protocol {#update-protocol}
 
