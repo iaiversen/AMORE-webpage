@@ -503,14 +503,18 @@ h6 > a[href^="#"] {
    Larger, more dramatic than body text
    =============================================== */
 
-.hero-title {
+.hero-title,
+.hero-content .hero-title,
+p.hero-title {
   font-size: 2rem !important;
   font-weight: 400 !important;
   color: white !important;
   line-height: 1.2 !important;
 }
 
-.hero-tagline {
+.hero-tagline,
+.hero-content .hero-tagline,
+p.hero-tagline {
   font-size: 1.3rem !important;
   font-weight: 400 !important;
   color: white !important;
@@ -798,14 +802,24 @@ h6 > a[href^="#"] {
    =============================================== */
 
 .navbar {
-  /* Background with transparency and blur */
-  background: rgba(255, 255, 255, 0.95) !important;  /* 95% opaque white */
-  backdrop-filter: blur(10px);    /* Blurs content behind navbar */
+  /* Fixed positioning for desktop screens */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   
-  /* Shadow for depth */
+  /* styles */
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  /* transition for smooth appearance */
+  transition: all 0.3s ease;
 }
 
+/* subtle shadow when scrolled */
+.navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
 /* ===============================================
    4.2.2 NAVBAR TEXT & LINKS
@@ -3667,11 +3681,15 @@ details[open] .resource-summary::after {
     padding: 4rem 2.5rem;
   }
   
-  .hero-title {
+  .hero-title,
+  .hero-content .hero-title,
+  p.hero-title {
     font-size: 2.4rem !important;
   }
   
-  .hero-tagline {
+  .hero-tagline,
+  .hero-content .hero-tagline,
+  p.hero-tagline {
     font-size: 1.6rem !important;
   }
   
@@ -3800,11 +3818,15 @@ details[open] .resource-summary::after {
     padding: 2.6rem 1.7rem;
   }
   
-  .hero-title {
+  .hero-title,
+  .hero-content .hero-title,
+  p.hero-title {
     font-size: 1.7rem !important;
   }
   
-  .hero-tagline {
+  .hero-tagline,
+  .hero-content .hero-tagline,
+  p.hero-tagline {
     font-size: 1.1rem !important;
   }
   
@@ -3969,11 +3991,15 @@ details[open] .resource-summary::after {
     padding: 2.1rem 1.4rem;
   }
   
-  .hero-title {
+  .hero-title,
+  .hero-content .hero-title,
+  p.hero-title {
     font-size: 1.4rem !important;
   }
   
-  .hero-tagline {
+  .hero-tagline,
+  .hero-content .hero-tagline,
+  p.hero-tagline {
     font-size: 1rem !important;
   }
   
@@ -4014,14 +4040,6 @@ details[open] .resource-summary::after {
     font-size: 1rem;
   }
   
-  /* Scale down body text */
-  body {
-    font-size: 0.9rem !important;
-  }
-  
-  p {
-    font-size: 0.9rem !important;
-  }
   
   h2 {
     font-size: 1.3rem !important;
@@ -4251,11 +4269,15 @@ details[open] .resource-summary::after {
     padding: 1.5rem 1rem;
   }
   
-  .hero-title {
+  .hero-title,
+  .hero-content .hero-title,
+  p.hero-title {
     font-size: 1.2rem !important;
   }
   
-  .hero-tagline {
+  .hero-tagline,
+  .hero-content .hero-tagline,
+  p.hero-tagline {
     font-size: 0.9rem !important;
   }
   
@@ -4421,13 +4443,6 @@ details[open] .resource-summary::after {
   }
   
   /* Scale down ALL body text for mobile */
-  body {
-    font-size: 0.85rem !important;
-  }
-  
-  p {
-    font-size: 0.85rem !important;
-  }
   
   h2 {
     font-size: 1.1rem !important;
@@ -4437,11 +4452,7 @@ details[open] .resource-summary::after {
     font-size: 0.95rem !important;
   }
   
-  .project-hero-content,
-  .project-hero-content p {
-    font-size: 1.1rem !important;
-  }
-  
+ 
   .main-content-container,
   .main-content-container p,
   .abstract-section p,
