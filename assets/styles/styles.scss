@@ -181,10 +181,10 @@ body {
   letter-spacing: 0.01em;       /* Subtle spacing for readability */
   font-family: $font-family-sans-serif;
   
-  /* ANIMATED GRADIENT BACKGROUND
-     Creates a slow-moving color shift effect
+  /* ANIMATED GRADIENT BACKGROUND #0A2A5E, 
+     Creates a slow-moving color shift effect 
      Colors cycle through the brand palette */
-  background: linear-gradient(-45deg, #0A2A5E, #1E50A0, #3c6997ff, #0A2A5E) !important;
+  background: linear-gradient(-45deg, #001845, #0353A4, #023E7D, #002855) !important;
   background-size: 400% 400% !important;  /* Oversized to allow smooth movement */
   animation: gradientShift 15s ease infinite !important;  /* 15 second cycle */
   
@@ -207,7 +207,7 @@ body {
 body::before {
   content: '';                  /* Required for pseudo-element */
   position: fixed;              /* Stays in place when scrolling */
-  top: 10%;                     /* 10% from top of viewport */
+  top: 20%;                     /* 20% from top of viewport */
   left: 15%;                    /* 15% from left of viewport */
   width: 120px;
   height: 90px;
@@ -231,7 +231,7 @@ body::after {
   bottom: 15%;                  /* 15% from bottom */
   right: 10%;                   /* 10% from right */
   width: 100px;                 /* Slightly smaller than top logo */
-  height: 75px;
+  height: 90px;
   
   background-image: url('assets/images/logo.unfinished_nowhite- Copy.png');
   background-size: contain;
@@ -2537,7 +2537,7 @@ details[open] .resource-summary::after {
 .content-section {
   text-align: center !important;
   background: transparent !important;
-  margin-top: 0 !important;
+  margin-top: -2rem !important;  /* Add negative margin */
   padding: 0 3rem;
   max-width: 1400px;
   margin-left: auto;
@@ -2785,19 +2785,19 @@ details[open] .resource-summary::after {
 }
 
 .contact-buttons .primary-button {
-  background: #0A2A5E;
+  background: #284382;
   color: white;
   padding: 0.8rem 1.6rem;
   font-size: 1rem;
   border-radius: 6px;
   text-decoration: none;
   display: inline-block;
-  border: none;
+  border: 2px solid #08306b;
   transition: background-color 0.3s ease;
 }
 
 .contact-buttons .primary-button:hover {
-  background: #1E50A0;
+  background: #1C559E;
 }
 
 

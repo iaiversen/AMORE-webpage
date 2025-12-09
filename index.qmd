@@ -25,6 +25,6 @@ Designed to advance oxytocin biobehavioral research, a standardized framework en
 <div style="margin-top: 3rem;"></div>
 
 ::: {.BNL-text}
-The AMORE project is initiated by the [Behavioral Neuroendocrinology Lab](https://www.sv.uio.no/psi/english/research/groups/bnl/){target="_blank"} at the University of Oslo.
+The AMORE project is initiated by the [Behavioral Neuroendocrinology Lab](https://www.sv.uio.no/psi/english/research/groups/bnl/){target="_blank"} at the University of Oslo. Read the open access paper describing the development of the platform [here](https://doi.org/10.1016/j.psyneuen.2025.107713){target="_blank"}.
 :::
 ::: 
