@@ -616,7 +616,7 @@ h6 > a[href^="#"] {
   margin-bottom: 0;
   
   /* Gradient background */
-  background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%);
+  background: linear-gradient(135deg, $indigo-dye 0%, $royal-blue 100%);
   
   /* Layout */
   display: flex;
@@ -685,7 +685,7 @@ h6 > a[href^="#"] {
   margin-bottom: 0;
   
   /* Same gradient as standard hero */
-  background: linear-gradient(135deg, #0A2A5E 0%, #1E50A0 50%, #3c6997ff 100%);
+ background: linear-gradient(135deg, $indigo-dye 0%, $royal-blue 100%);
   
   /* Layout - but LEFT aligned unlike standard hero */
   display: flex;
@@ -2837,51 +2837,141 @@ details[open] .resource-summary::after {
 }
 
 
-/* ===============================================
+ /* ===============================================
    6.5 RESOURCES PAGE STYLES
    
-   Standalone resource list page
+   Professional, structured resource page design.
+   White content area with blue animated margins.
+   Easy to maintain card-based layout.
    =============================================== */
 
-.title-space {
-  margin-top: 2rem;
+
+
+/* -----------------------------------------------
+   6.5 Resources Page Content Container
+   ----------------------------------------------- */
+
+.resources-page-content {
+  background: white;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  min-height: 70vh;
 }
 
-/* Special heading color for resources page */
-h2[data-anchor-id="resourcepage"] {
-  color: white !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 8px 8px 0 0 !important;
-  margin-bottom: 0 !important;
-  border-bottom: none !important;
+
+/* -----------------------------------------------
+   6.5 Resources Navigation
+   ----------------------------------------------- */
+
+/* -----------------------------------------------
+   6.5 Resource Category Titles
+   ----------------------------------------------- */
+
+.resource-category-title {
+  color: $indigo-dye;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid $royal-blue;
+  
+  /* First category has no top margin */
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
-.resource-list {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+
+/* -----------------------------------------------
+   6.5 Resource Cards
+   ----------------------------------------------- */
+
+.resource-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  &:hover {
+    border-color: $lapis-lazuli;
+    box-shadow: 0 4px 12px rgba(10, 42, 94, 0.08);
+    transform: translateY(-2px);
+  }
 }
 
-/* Resource items on standalone page */
-.standalone-resources-page .resource-item {
-  background: #fff;
-  backdrop-filter: blur(5px);
-  border-left: 4px solid #0A2A5E;
-  padding: 1.5rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-}
 
-.resource-item h3 {
-  color: #0A2A5E;
-  margin-top: 0;
+/* -----------------------------------------------
+   6.5 Resource Card Components
+   ----------------------------------------------- */
+
+.resource-header {
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  
+  h3 {
+    color: $indigo-dye;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+  }
 }
 
-.resource-item p {
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
+.resource-description {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.resource-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+/* -----------------------------------------------
+   6.5 Resource Buttons
+   ----------------------------------------------- */
+
+.resource-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: $indigo-dye;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid $indigo-dye;
+  
+  &:hover {
+    background: $royal-blue;
+    border-color: $royal-blue;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(10, 42, 94, 0.2);
+  }
+  
+  /* Secondary button variant */
+  &.secondary {
+    background: white;
+    color: $indigo-dye;
+    border: 2px solid $indigo-dye;
+    
+    &:hover {
+      background: $indigo-dye;
+      color: white;
+      border-color: $indigo-dye;
+    }
+  }
 }
 
 
@@ -3595,6 +3685,23 @@ h2[data-anchor-id="resourcepage"] {
   .project-hero-content {
     font-size: 2.2rem !important;
   }
+  
+  
+  /* Resource items */
+  .resource-item {
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+  }
 }
 
 
@@ -3709,6 +3816,23 @@ h2[data-anchor-id="resourcepage"] {
   
   .project-hero-content {
     font-size: 1.5rem !important;
+  }
+  
+
+  /* Resource items */
+  .resource-item {
+    padding: 1.3rem 1.7rem;
+    margin-bottom: 1.7rem;
+    
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.9rem;
+    }
+    
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -3928,6 +4052,24 @@ h2[data-anchor-id="resourcepage"] {
   .info-card p,
   .info-card div {
     font-size: 0.75rem !important;
+  }
+  
+  
+  /* Resource items */
+  .resource-item {
+    padding: 1.05rem 1.4rem;
+    margin-bottom: 1.4rem;
+    
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    p {
+      font-size: 0.85rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
   }
 }
 
@@ -4376,12 +4518,27 @@ h2[data-anchor-id="resourcepage"] {
     font-size: 0.75rem !important;
   }
   
-  .standalone-resources-page .resource-list {
-    padding: 0 1rem !important;
+  
+  /* Resource items mobile */
+  .resource-item {
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      font-size: 0.8rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
   }
   
-  .standalone-resources-page .resource-item {
-    padding: 1.2rem 1rem !important;
+  .resource-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
   }
 }
 
@@ -4431,6 +4588,28 @@ h2[data-anchor-id="resourcepage"] {
   .lma-abstract {
     font-size: 0.8rem;
   }
+  
+  
+  /* Resource items - extra small */
+  .resource-item {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    
+    h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+    
+    p {
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+  
+  .resource-link {
+    font-size: 0.75rem;
+    padding: 0.4rem 0;
+  }
 }
 
 
@@ -4476,6 +4655,27 @@ h2[data-anchor-id="resourcepage"] {
   .lma-abstract {
     font-size: 1.2rem;
   }
+  
+ 
+  /* Resource items - large screens */
+  .resource-item {
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.3rem;
+    }
+    
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+  }
+  
+  .resource-link {
+    font-size: 1rem;
+  }
 }
 
 
@@ -4505,46 +4705,3 @@ h2[data-anchor-id="resourcepage"] {
   }
 }
 
-
-/* ===============================================
-   9.9 RESPONSIVE DESIGN NOTES
-   
-   BREAKPOINT STRATEGY:
-   - Mobile-first approach (base styles for mobile)
-   - Progressive enhancement for larger screens
-   - Focus on readability at all sizes
-   
-   COMMON PATTERNS:
-   - Grids: 3+ columns → 2 columns → 1 column
-   - Text: Larger on big screens, smaller on mobile
-   - Spacing: More padding on desktop, less on mobile
-   - Navigation: Horizontal on desktop, vertical/hamburger on mobile
-   
-   TOUCH TARGETS:
-   - Minimum 44x44px for clickable elements on mobile
-   - Larger buttons and links on touch devices
-   - More spacing between interactive elements
-   
-   FONT SIZING:
-   - Use 16px minimum on inputs to prevent iOS zoom
-   - Scale base font-size via html element
-   - Use rem units for proportional scaling
-   
-   TESTING CHECKLIST:
-   □ Test on actual devices, not just browser resize
-   □ Check both portrait and landscape orientations
-   □ Verify touch targets are adequate size
-   □ Ensure text is readable without zooming
-   □ Test with different font size preferences
-   □ Check for horizontal scrolling issues
-   
-   WHY !important IN SOME MOBILE STYLES:
-   Ensures mobile styles override desktop defaults
-   Use only when cascade alone isn't sufficient
-   
-   PERFORMANCE CONSIDERATIONS:
-   - Mobile users may have slower connections
-   - Consider lazy loading images
-   - Minimize animation on mobile
-   - Test on actual mobile networks
-   =============================================== */

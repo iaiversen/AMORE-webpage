@@ -6,14 +6,12 @@ format:
     container-fluid: true
 ---
 
-
-::: {.white-text}
-This protocol checklist tool serves to help ensure all necessary information in the project proposal form is included. When planning your project use this checklist to see what information we require. This will streamline the process of entering the required details to the "propose your project" form when you are ready to submit
-your project proposal.
-::: 
-
 ```{=html}
 <div class="checklist-container">
+  <p style="color: var(--accent-1); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+    This protocol checklist tool serves to help ensure all necessary information in the project proposal form is included. When planning your project use this checklist to see what information we require. This will streamline the process of entering the required details to the "propose your project" form when you are ready to submit your project proposal.
+  </p>
+
   <div class="download-button-container">
     <a id="downloadPDF" class="resource-link">Download Checklist as PDF</a>
   </div>
@@ -125,6 +123,18 @@ your project proposal.
 <!-- Load the required libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- Add checkbox interactivity -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Make checkboxes interactive
+  document.querySelectorAll('.checklist-item-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('click', function() {
+      this.classList.toggle('checked');
+    });
+  });
+});
+</script>
 
 <!-- Download as pdf -->
 <script>
