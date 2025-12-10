@@ -23,6 +23,7 @@ Building the future of evidence-based research through collaborative living meta
 <button class="tab-button active" onclick="showTab('mission')">Our Mission</button>
 <button class="tab-button" onclick="showTab('living-meta-analyses')">Living Meta Analyses</button>
 <button class="tab-button" onclick="showTab('team')">Expert Steering Committee</button>
+<button class="tab-button" onclick="showTab('Citation')">How To Cite AMORE</button>
 :::
 
 ::: {.tab-content}
@@ -224,8 +225,19 @@ Department of Psychology, University of Oslo, Oslo, Norway
 
 :::
 :::
+
+
+::: {#Citation .tab-pane}
+## How to Cite AMORE
+Please use the following reference to cite AMORE: 
+
+<div style="margin-left: 2rem; text-indent: -2rem; margin-top: 1rem; word-wrap: break-word; overflow-wrap: break-word;">
+Iversen, I. A., Alaerts, K., Bakermans-Kranenburg, M., Becker, B., Blair, R. J., Bartz, J. A., Connelly, J. J., Ditzen, B., Ebner, N. C., Kang, H., Lawson, E. A., Lønfeldt, N. N., Moerkerke, M., Montag, C., Mora-Jensen, A.-R. C., Horta, M., Peled-Avron, L., Procyshyn, T. L., Sartorius, A. I., … Quintana, D. S. (2025). The active monitoring of oxytocin research evidence (AMORE) platform. *Psychoneuroendocrinology*, *107713*. https://doi.org/10.1016/j.psyneuen.2025.107713
+</div>
+
 :::
-::: 
+:::
+:::
 
 <script>
 function showTab(tabName) {
