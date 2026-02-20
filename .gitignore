@@ -34,7 +34,7 @@ _site/
 /LMAs/*_files/
 /docs/*_files/
 
-# Security 
+# Security
 .Renviron
 .Rprofile
 rsconnect/
@@ -56,3 +56,4 @@ _quarto_internal_scss_error.scss
 # Backup files
 *.backup
 *.bak
+**/*.quarto_ipynb

@@ -95,36 +95,80 @@ $font-size-root: 16px;
 /*-- scss:rules --*/
 
 html {
-  font-size: 16px;  /* Base size for rem calculations */
+  /* Fluid base font size: 14px on mobile → 18px on large screens.
+     This makes ALL existing rem-based styles scale automatically.
+     No more discrete font-size jumps at each breakpoint. */
+  font-size: clamp(14px, 13px + 0.3125vw, 18px);
 }
 
 
 
 /* ===============================================
-   1.4 SCSS RULES & CSS CUSTOM PROPERTIES
+   1.4 FLUID DESIGN TOKEN SYSTEM
    
-   Modern CSS variables (--variable-name) that can be
-   accessed in JavaScript and updated dynamically
+   All sizes scale continuously from 320px to 1600px.
+   Formula: clamp(min, intercept + slope*vw, max)
+   
+   USE THESE instead of hardcoded px/rem values.
+   New components auto-scale — no breakpoints needed.
    =============================================== */
 
-/*-- scss:rules --*/
-
 :root {
-  /* Primary color - Main brand identity */
+  /* --- COLORS  --- */
   --primary-color: #{$indigo-dye};
-  
-  /* Secondary color - Supporting brand color */
   --secondary-color: #{$royal-blue};
-  
-  /* Background colors */
-  --background-main: white;           /* Main content areas */
-  --background-alt: #{$body-bg};      /* Alternate sections */
-  
-  /* Accent colors for UI elements */
-  --accent-1: #{$body-color};         /* Default text */
-  --accent-2: #{$lapis-lazuli};       /* Highlights and borders */
-}
+  --accent-color: #{$lapis-lazuli};
+  --background-main: white;
+  --background-alt: #{$body-bg};
+  --text-color: #{$body-color};
 
+  /* --- FLUID TYPOGRAPHY SCALE ---
+     --text-xs  : fine print, labels
+     --text-sm  : nav links, captions
+     --text-base: body text
+     --text-md  : slightly emphasized body
+     --text-lg  : subtitles, hero taglines
+     --text-xl  : card headings
+     --text-2xl : section headings (h2)
+     --text-3xl : page headings (h1)
+     --text-4xl : project hero headings
+     --text-hero: main homepage hero title   */
+  --text-xs:   clamp(0.6875rem, 0.6563rem + 0.156vw,  0.8125rem);
+  --text-sm:   clamp(0.75rem,   0.7110rem + 0.195vw,  0.9063rem);
+  --text-base: clamp(0.875rem,  0.8281rem + 0.234vw,  1.0625rem);
+  --text-md:   clamp(0.9375rem, 0.8906rem + 0.234vw,  1.125rem);
+  --text-lg:   clamp(1.0625rem, 1rem      + 0.3125vw, 1.3125rem);
+  --text-xl:   clamp(1.25rem,   1.1563rem + 0.469vw,  1.625rem);
+  --text-2xl:  clamp(1.5rem,    1.375rem  + 0.625vw,  2rem);
+  --text-3xl:  clamp(1.875rem,  1.6875rem + 0.9375vw, 2.625rem);
+  --text-4xl:  clamp(2.25rem,   2rem      + 1.25vw,   3.25rem);
+  --text-hero: clamp(2.75rem,   2.375rem  + 1.875vw,  4.25rem);
+
+  /* --- FLUID SPACING SCALE ---
+     Use for padding, margin, gap.
+     --space-1 through --space-10: smallest to largest   */
+  --space-1:  clamp(4px,  3.5px + 0.156vw,  6px);
+  --space-2:  clamp(8px,  7px   + 0.3125vw, 12px);
+  --space-3:  clamp(12px, 11px  + 0.3125vw, 16px);
+  --space-4:  clamp(16px, 14.5px + 0.469vw, 22px);
+  --space-5:  clamp(20px, 18px  + 0.625vw,  28px);
+  --space-6:  clamp(24px, 21px  + 0.9375vw, 36px);
+  --space-7:  clamp(32px, 28px  + 1.25vw,   48px);
+  --space-8:  clamp(40px, 34px  + 1.875vw,  64px);
+  --space-9:  clamp(48px, 40px  + 2.5vw,    80px);
+  --space-10: clamp(64px, 54px  + 3.125vw,  104px);
+
+  /* --- COMPONENT TOKENS ---
+     Fluid values for specific components.
+     Change here to update everywhere.           */
+  --navbar-height:    clamp(56px, 52px + 1.25vw,   72px);
+  --navbar-logo:      clamp(36px, 29px + 2.1875vw, 60px);
+  --navbar-max-width: 1600px;   /* Cap content on ultra-wide */
+  --search-width:     clamp(140px, 80px + 7.5vw,   260px);
+  --card-radius:      clamp(8px, 6px + 0.625vw, 16px);
+  --card-padding:     var(--space-5);
+  --content-max-width: 1200px;
+}
 
 /* ===============================================
    1.5 USAGE NOTES
@@ -541,7 +585,7 @@ p.hero-tagline {
    =============================================== */
 
 .project-hero-content {
-  font-size: 1.8rem !important;
+  font-size: clamp(1.15rem, 2.8vw, 2rem) !important;  /* ~18px mobile → 32px desktop */
   font-weight: 400 !important;
   color: white !important;
   margin: 0 !important;
@@ -700,7 +744,13 @@ p.hero-tagline {
   /* Text styling */
   color: white;
   text-align: left;             /* Different from standard hero */
-  padding: 3rem 2rem;
+  /* Bottom padding = top padding + 4rem (the info panel's negative margin overlap).
+     This shifts the flex centering zone up so the title is visually centered
+     in the blue area the user actually sees, not the full hero height. */
+  padding: clamp(1.25rem, 4vw, 3rem)
+           clamp(1rem, 3vw, 2rem)
+           calc(clamp(1.25rem, 4vw, 3rem) + 4rem)
+           clamp(1rem, 3vw, 2rem);
 }
 
 /* Decorative overlay - similar to standard hero but different animation timing */
@@ -763,216 +813,166 @@ p.hero-tagline {
    :::
    :::
    
-   TO CHANGE HERO HEIGHT:
-   Modify the height value:
-   height: 30vh !important;  // Taller
-   height: 20vh !important;  // Shorter
    
    TO CHANGE GRADIENT COLORS:
    Replace the three color values in:
    background: linear-gradient(135deg, COLOR1, COLOR2, COLOR3);
-   
-   WHY calc(-50vw + 50%):
-   This CSS trick breaks the element out of its container
-   to span full viewport width, even when parent has max-width
-   
-   RESPONSIVE BEHAVIOR:
-   Heights adjust at different breakpoints - see Section 9
+
    =============================================== */
    
-   /*=============================================
+/*=============================================
 =     4.2 NAVIGATION                          =
 =                                             =
-=  Top navigation bar (navbar) styling.      =
-=  Includes logo, site title, and nav links. =
-=                                             =
-=  Features:                                 =
-=  - Semi-transparent white background       =
-=  - Blur effect (backdrop-filter)           =
-=  - Responsive hamburger menu on mobile     =
-=  - Special styling for project pages       =
+=  Fluid navbar — scales 320px to 4K.        =
+=  No breakpoint overrides needed elsewhere. =
 =============================================*/
 
-
-/* ===============================================
-   4.2.1 MAIN NAVBAR CONTAINER
-   
-   The navbar spans full width at top of every page
-   Bootstrap-based but heavily customized
-   =============================================== */
-
+/* ---- 4.2.1 Navbar container ---- */
 .navbar {
-  /* Fixed positioning for desktop screens */
   position: sticky;
   top: 0;
   z-index: 1000;
-  
-  /* styles */
+  min-height: var(--navbar-height);
   background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  
-  /* transition for smooth appearance */
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
-/* subtle shadow when scrolled */
 .navbar.scrolled {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ===============================================
-   4.2.2 NAVBAR TEXT & LINKS
-   
-   All text elements in navbar use dark grey
-   (not pure black) for better visual comfort
-   =============================================== */
-
-/* All navigation links and title */
-.navbar .nav-link,
-.navbar .navbar-title, 
-.navbar .navbar-nav-scroll .nav-link {
-  color: #333333 !important;      /* Dark grey, not black */
+/* Cap content width on ultra-wide screens.
+   Keeps the navbar items from spreading across 4K. */
+.navbar > .navbar-container,
+.navbar > .container-fluid {
+  max-width: var(--navbar-max-width);
+  margin: 0 auto;
+  width: 100%;
 }
 
-/* Hover effect on navigation links */
-.navbar .nav-link {
-  transition: all 0.2s ease;      /* Smooth color change */
+/* ---- 4.2.2 Navbar layout: vertically center all elements ---- */
+
+/* Quarto wraps everything in container-fluid — ensure center alignment */
+.navbar .navbar-container.container-fluid,
+.navbar > .container-fluid {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* Quarto adds mx-auto to brand-container, which offsets it from nav links.
+   Override to left-align and vertically center it. */
+.navbar-brand-container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Collapse area (nav links) should center vertically when expanded.
+   Don't set display here — Bootstrap handles show/hide for mobile. */
+.navbar .navbar-collapse {
+  align-items: center;
+}
+
+/* ---- 4.2.3 Brand (logo + title) ---- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  gap: var(--space-2);
+}
+
+/* Fluid logo — scales with viewport, no manual per-breakpoint overrides */
+.navbar .navbar-brand img {
+  height: var(--navbar-logo);
+  width: auto;
+  max-height: none;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Site title — wraps to 2 lines, bold, clearly visible as the site name.
+   Hidden on tablet/mobile via section 4.2.7 and section 9.1 */
+.navbar-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--primary-color) !important;  /* brand blue — distinct from nav links */
+  line-height: 1.2;
+  white-space: normal;      /* allow wrapping to 2 lines */
+  overflow: visible;
+  max-width: 220px;         /* constrain width so title wraps rather than runs long */
+}
+
+/* ---- 4.2.3 Nav links ---- */
+.navbar .nav-link,
+.navbar .navbar-nav-scroll .nav-link {
+  color: #333333 !important;
+  font-size: var(--text-sm);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+  transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .navbar .nav-link:hover {
-  color: var(--primary-color) !important;  /* Brand blue on hover */
+  color: var(--primary-color) !important;
 }
 
-/* Active page indicator - underline current page */
 .navbar .nav-link.active,
 .navbar .navbar-nav-scroll .nav-link.active {
   color: var(--primary-color) !important;
-  border-bottom: 2px solid var(--primary-color);  /* Blue underline for active page */
-  font-weight: 500;               /* Slightly bolder */
+  border-bottom: 2px solid var(--primary-color);
+  font-weight: 500;
 }
 
-
-/* ===============================================
-   4.2.3 NAVBAR BRAND (Logo + Title)
-   
-   Left side of navbar containing logo and site name
-   =============================================== */
-
-/* Logo image */
-.navbar .navbar-brand img {
-  max-height: 60px;               /* Limit logo height */
-  margin-right: 10px;             /* Space between logo and title */
-}
-
-/* Navbar brand container - align vertically */
-.navbar-brand {
-  display: flex;
-  align-items: Left;            /* Vertically center logo + title */
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-/* Site title text styling */
-.navbar-title {
-  display: flex;
-  align-items: center;            /* Center text vertically */
-  font-size: 1rem;             /* 20px */
-}
-
-/* ===============================================
-   4.2.4 MOBILE MENU (Hamburger)
-   
-   On small screens, navigation collapses into
-   a hamburger menu. These styles control its appearance.
-   =============================================== */
-
-/* The hamburger icon (three lines) */
-.navbar .navbar-toggler-icon {
-  /* Custom SVG for the three-line icon */
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-/* The button that wraps the hamburger icon */
-.navbar .navbar-toggler {
-  border-color: rgba(0, 0, 0, 0.2) !important;  /* Subtle border */
-}
-
-
-/* ===============================================
-   4.2.5 PROJECT PAGE NAVBAR OVERRIDE
-   
-   On project (LMA) pages, navbar gets solid white
-   background instead of transparent/blur effect
-   =============================================== */
-
-/* Applies to pages with .project-hero-section but NOT .contact-container */
-body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
-  background: white !important;   /* Solid white, no transparency */
-  backdrop-filter: none;          /* Remove blur effect */
-}
-
-
-/* ===============================================
-   4.2.6 SEARCH COMPONENTS
-   
-   Search box in navbar (if enabled)
-   Quarto's built-in Algolia search styling
-   =============================================== */
-
-/* Main search autocomplete container */
+/* ---- 4.2.4 Search box ---- */
 .aa-Autocomplete {
   color: black !important;
 }
 
-/* Search input field */
 .aa-Input {
   color: black !important;
   background: white !important;
   border: 1px solid #ddd !important;
-  width: 200px !important;        /* Fixed width on desktop */
+  width: var(--search-width) !important;  /* fluid, not fixed 200px */
   visibility: visible !important;
   display: inline-block !important;
+  font-size: var(--text-sm) !important;
 }
 
-/* Search submit icon (magnifying glass) */
 .aa-SubmitIcon {
   color: black !important;
   visibility: visible !important;
 }
 
+/* ---- 4.2.5 Mobile hamburger ---- */
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
 
-/* ===============================================
-   4.2.7 USAGE NOTES
-   
-   TO CHANGE NAVBAR TRANSPARENCY:
-   Modify the rgba value:
-   background: rgba(255, 255, 255, 0.98) !important;  // More opaque
-   background: rgba(255, 255, 255, 0.90) !important;  // More transparent
-   
-   TO DISABLE BLUR EFFECT:
-   Remove or comment out:
-   // backdrop-filter: blur(10px);
-   
-   TO CHANGE LOGO SIZE:
-   Adjust max-height value:
-   max-height: 80px;  // Larger logo
-   max-height: 40px;  // Smaller logo
-   
-   TO CUSTOMIZE HAMBURGER ICON:
-   Replace the data:image/svg+xml URL with your own SVG
-   Or use a different Bootstrap icon class
-   
-   MOBILE BEHAVIOR:
-   Navbar collapses to hamburger menu below 992px
-   Controlled by Bootstrap's responsive classes
-   Additional mobile styling in Section 9
-   
-   WHY backdrop-filter:
-   Creates modern "frosted glass" effect
-   Only works in modern browsers
-   Degrades gracefully to solid background in older browsers
-   =============================================== */
+.navbar .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ---- 4.2.6 Project page override ---- */
+body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
+  background: white !important;
+  backdrop-filter: none;
+}
+
+/* ---- 4.2.7 Tablet: hide title text (768–1199px) ---- */
+@media (max-width: 1199px) {
+  .navbar-title {
+    display: none !important;
+  }
+}
    
   /*=============================================
 =     4.3 CONTAINERS & GRIDS                  =
@@ -3598,958 +3598,149 @@ details[open] .resource-summary::after {
    /*=============================================
 =     9. RESPONSIVE DESIGN                    =
 =                                             =
-=  Media queries for different screen sizes. =
-=  Mobile-first approach with breakpoints.   =
+=  2-breakpoint structural system.            =
+=  Typography & spacing are fluid via tokens  =
+=  (see Section 1.4 CSS custom properties).   =
 =                                             =
-=  BREAKPOINTS:                              =
-=  - 1600px+  : Extra large (TV screens)     =
-=  - 1200-1599: Large (Desktop)              =
-=  - 992-1199 : Medium (Small laptop)        =
-=  - 768-991  : Tablet                       =
-=  - 576-767  : Large phone                  =
-=  - 481-575  : Medium phone                 =
-=  - 0-480    : Small phone                  =
+=  BREAKPOINTS (structural changes only):     =
+=  - max-width: 1199px : tablet layout        =
+=  - max-width: 767px  : mobile layout        =
 =                                             =
-=  ORDER: Largest to smallest screens        =
+=  Everything else auto-scales via clamp()    =
 =============================================*/
 
 
 /* ===============================================
-   9.1 EXTRA LARGE SCREENS (1600px and up)
+   9.1 TABLET AND BELOW (max-width: 1199px)
    
-   TV screens, large monitors
-   Everything scales UP from base sizes
+   Intermediate grid layouts (2-column).
+   Navbar title hidden.
    =============================================== */
 
-@media (min-width: 1600px) {
-  /* Base font size increase */
-  html { 
-    font-size: 18px;              /* Up from 16px */
-  }
-  
-  /* Heading size increases */
-  h1 { font-size: 2.5rem; }       /* Larger titles */
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.6rem; }
-  
-  /* Homepage elements */
-  .header-logo {
-    max-width: 350px;             /* Larger logo */
-    margin: 2.5rem auto;
-  }
-  
-  .subtitle-text {
-    font-size: 1.8rem !important;
-    margin: 1.8rem 0 3.5rem 0 !important;
-  }
-  
-  .header-links {
-    gap: 1.3rem;
-    margin: 2.5rem auto;
-  }
-  
-  .header-links a {
-    padding: 1rem 1.8rem;
-    font-size: 1.1rem;
-  }
-  
-  /* Content sections */
-  .content-section {
-    padding: 0 3.5rem;
-  }
-  
-  /* Feature grid */
+@media (max-width: 1199px) {
+  /* Feature grid: 2 columns on tablet */
   .feature-grid {
-    gap: 2.5rem;
-    margin: 2.5rem 0;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .feature-box {
-    padding: 1.8rem;
-    margin: 1.3rem 0;
-    font-size: 1.1rem;
-  }
-  
-  .feature-box h3 {
-    font-size: 1.6rem;
-  }
-  
-  /* Hero sections */
-  .hero-section {
-    height: 28vh !important;
-    min-height: 280px;
-    padding: 4rem 2.5rem;
-  }
-  
-  .hero-title,
-  .hero-content .hero-title,
-  p.hero-title {
-    font-size: 2.4rem !important;
-  }
-  
-  .hero-tagline,
-  .hero-content .hero-tagline,
-  p.hero-tagline {
-    font-size: 1.6rem !important;
-  }
-  
-  /* Project hero */
-  .project-hero-section {
-    height: 38vh !important;
-    min-height: 320px;
-    padding: 4rem 2.5rem;
-  }
-  
-  .project-hero-content {
-    font-size: 2.2rem !important;
-  }
-  
-  
-  /* Resource items */
-  .resource-item {
-    padding: 2rem 2.5rem;
-    margin-bottom: 2.5rem;
-    
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-    }
-    
-    p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-  }
-}
 
-
-/* ===============================================
-   9.2 LARGE SCREENS (1200px - 1599px)
-   
-   Standard desktop monitors
-   Slight increase from base sizes
-   =============================================== */
-
-@media (min-width: 1200px) and (max-width: 1599px) {
-  html { 
-    font-size: 17px;              /* Slightly larger than base */
-  }
-}
-
-
-/* ===============================================
-   9.3 MEDIUM SCREENS (768px - 1199px)
-   
-   Tablets in landscape, small laptops
-   Moderate size reduction and layout adjustments
-   =============================================== */
-
-@media (min-width: 768px) and (max-width: 1199px) {
-  html { 
-    font-size: 15px;              /* Smaller base */
-  }
-  
-  /* Heading adjustments */
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  h3 { font-size: 1.3rem; }
-  
-  /* Homepage elements */
-  .header-logo {
-    max-width: 255px;
-    margin: 1.7rem auto;
-  }
-  
-  .subtitle-text {
-    font-size: 1.3rem !important;
-    margin: 1.3rem 0 2.6rem 0 !important;
-  }
-  
-  .header-links {
-    gap: 0.85rem;
-    margin: 1.7rem auto;
-  }
-  
-  .header-links a {
-    padding: 0.7rem 1.3rem;
-    font-size: 0.95rem;
-  }
-  
-  .content-section {
-    padding: 0 2.6rem;
-  }
-  
-  /* Hide navbar title on tablets */
-  .navbar-title {
-    display: none !important;
-  }
-  
-  /* Feature grid */
-  .feature-grid {
-    gap: 1.7rem;
-    margin: 1.7rem 0;
-  }
-  
-  .feature-box {
-    padding: 1.3rem;
-    margin: 0.85rem 0;
-    font-size: 0.95rem;
-  }
-  
-  .feature-box h3 {
-    font-size: 1.2rem;
-  }
-  
-  /* Contact page */
-  .contact-container {
-    height: 510px;
-    width: 88%;
-  }
-  
-  /* Project info grid - 2 columns instead of 4 */
+  /* Project info grid: 2 columns on tablet */
   .project-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Hero sections */
-  .hero-section {
-    height: 23vh !important;
-    min-height: 200px;
-    padding: 2.6rem 1.7rem;
-  }
-  
-  .hero-title,
-  .hero-content .hero-title,
-  p.hero-title {
-    font-size: 1.7rem !important;
-  }
-  
-  .hero-tagline,
-  .hero-content .hero-tagline,
-  p.hero-tagline {
-    font-size: 1.1rem !important;
-  }
-  
-  .project-hero-section {
-    height: 32vh !important;
-    min-height: 240px;
-    padding: 2.6rem 1.7rem;
-  }
-  
-  .project-hero-content {
-    font-size: 1.5rem !important;
-  }
-  
 
-  /* Resource items */
-  .resource-item {
-    padding: 1.3rem 1.7rem;
-    margin-bottom: 1.7rem;
-    
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.9rem;
-    }
-    
-    p {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
+  /* Contact container: slightly narrower */
+  .contact-container {
+    width: 88%;
+  }
+
+  /* Navbar title hidden on tablet (also set in 4.2.7) */
+  .navbar-title {
+    display: none !important;
   }
 }
 
 
 /* ===============================================
-   9.4 LARGE PHONES (576px - 767px)
+   9.2 MOBILE (max-width: 767px)
    
-   Large phones in landscape, small tablets in portrait
-   Significant layout changes begin here
+   Single-column layout, stacked elements,
+   full-width containers.
    =============================================== */
 
-@media (min-width: 576px) and (max-width: 767px) {
-  html { 
-    font-size: 14px;
-  }
-  
-  /* Headings */
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.4rem; }
-  h3 { font-size: 1.2rem; }
-  
-  /* Homepage */
-  .header-logo {
-    max-width: 210px;
-    margin: 1.4rem auto;
-  }
-  
-  .subtitle-text {
-    font-size: 1.05rem !important;
-    margin: 1.05rem 0 2.1rem 0 !important;
-  }
-  
+@media (max-width: 767px) {
   /* Buttons stack vertically */
   .header-links {
     flex-direction: column;
     align-items: center;
-    gap: 0.7rem;
-    margin: 1.4rem auto;
   }
-  
-  .header-links a {
-    padding: 0.56rem 1.05rem;
-    font-size: 0.9rem;
-    min-width: 200px;
-    text-align: center;
-  }
-  
-  .content-section {
-    padding: 0 2.1rem;
-  }
-  
-  /* Hide navbar title on large phones */
-  .navbar-title {
-    display: none !important;
-  }
-  
-  /* Feature grid - 2 columns */
+
+  /* Feature grid: single column */
   .feature-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.4rem;
-    margin: 1.4rem 0;
-  }
-  
-  .feature-box {
-    padding: 1.05rem;
-    margin: 0.7rem 0;
-    font-size: 0.9rem;
-  }
-  
-  .feature-box h3 {
-    font-size: 1rem;
-  }
-  
-  /* Navbar */
-  .navbar .navbar-brand img {
-    max-height: 42px;
-  }
-  
-  .navbar-title {
-    font-size: 0.8rem;
-  }
-  
-  /* Contact page - single column layout */
-  .contact-container {
     grid-template-columns: 1fr;
-    height: auto;
-    min-height: 450px;
-    width: 90%;
-    margin: 1.5rem auto;
   }
-  
-  .contact-container::before {
-    width: 40%;
-    height: 35%;
-    bottom: -8%;
-    right: -8%;
-    opacity: 0.25;
-  }
-  
-  .contact-section {
-    padding: 2rem 2rem;
-  }
-  
-  .contact-section h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-  }
-  
-  .contact-section p,
-  .contact-section li {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 0.9rem;
-  }
-  
-  .contact-section ul {
-    margin: 1.2rem 0;
-  }
-  
-  .contact-buttons .primary-button {
-    padding: 0.75rem 1.4rem;
-    font-size: 0.95rem;
-  }
-  
-  /* Project info - 2 columns */
+
+  /* Project info: single column */
   .project-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  /* Hero sections */
-  .hero-section {
-    height: 22vh !important;
-    min-height: 180px;
-    padding: 2.1rem 1.4rem;
-  }
-  
-  .hero-title,
-  .hero-content .hero-title,
-  p.hero-title {
-    font-size: 1.4rem !important;
-  }
-  
-  .hero-tagline,
-  .hero-content .hero-tagline,
-  p.hero-tagline {
-    font-size: 1rem !important;
-  }
-  
-  .project-hero-section {
-    height: 30vh !important;
-    min-height: 220px;
-    padding: 2.1rem 1.4rem;
-  }
-  
-  .project-hero-content {
-    max-width: 95%;
-    font-size: 1.4rem !important;
-    padding-top: 0.5rem !important;
-  }
-  
-  .project-hero-title {
-    font-size: 1.3rem !important;
-    line-height: 1.35 !important;
-    padding-bottom: 1rem !important;
-  }
-  
-  /* Resources container */
-  .resources-container {
-    margin: 0 0.7rem;
-    border-radius: 8px;
-  }
-  
-  .tab-button {
-    padding: 0.85rem 0.7rem;
-    font-size: 0.85rem;
-  }
-  
-  .resources-container .tab-content {
-    padding: 1.4rem 1.05rem;
-  }
-  
-  .resource-title {
-    font-size: 1rem;
-  }
-  
-  
-  h2 {
-    font-size: 1.3rem !important;
-  }
-  
-  h3 {
-    font-size: 1.1rem !important;
-  }
-  
-  .project-hero-content,
-  .project-hero-content p {
-    font-size: 1.4rem !important;
-  }
-  
-  .main-content-container,
-  .main-content-container p,
-  .abstract-section p,
-  .inclusion-exclusion-section p,
-  .results-container p {
-    font-size: 0.9rem !important;
-  }
-  
-  ul li,
-  ol li {
-    font-size: 0.85rem !important;
-  }
-  
-  .info-card p,
-  .info-card div {
-    font-size: 0.75rem !important;
-  }
-  
-  
-  /* Resource items */
-  .resource-item {
-    padding: 1.05rem 1.4rem;
-    margin-bottom: 1.4rem;
-    
-    h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-    }
-    
-    p {
-      font-size: 0.85rem;
-      margin-bottom: 0.9rem;
-      line-height: 1.5;
-    }
-  }
-}
-
-
-/* ===============================================
-   9.5 SMALL PHONES (up to 575px)
-   
-   Standard mobile phones
-   Single column layout, maximum simplification
-   =============================================== */
-
-@media (max-width: 575px) {
-  html { 
-    font-size: 13px;
-  }
-  
-  /* Headings */
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.2rem; }
-  h3 { font-size: 1rem; }
-  
-  /* Homepage */
-  .header-logo {
-    max-width: 150px;
-    margin: 1rem auto;
-  }
-  
-  .subtitle-text {
-    font-size: 0.75rem !important;
-    margin: 0.75rem 0 1.5rem 0 !important;
-  }
-  
-  .header-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 1rem auto;
-  }
-  
-  .header-links a {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.8rem;
-    min-width: 180px;
-    text-align: center;
-  }
-  
-  .content-section {
-    padding: 0 1.5rem;
-  }
-  
-  .content-section p {
-    font-size: 0.9rem;
-  }
-  
-  /* Hide navbar title on large phones */
-  .navbar-title {
-    display: none !important;
-  }
-  
-  /* Feature grid - single column */
-  .feature-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 1rem 0;
   }
-  
-  .feature-box {
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    font-size: 0.8rem;
-  }
-  
-  .feature-box h3 {
-    font-size: 0.9rem;
-  }
-  
-  /* Navbar */
-  .navbar {
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .navbar .navbar-brand img {
-    max-height: 30px;
-  }
-  
-  .navbar-title {
-    font-size: 0.6rem;
-    max-width: 150px;
-  }
-  
-  /* Contact page */
+
+  /* Contact page: single column, full width */
   .contact-container {
-    width: 95%;
-    height: auto;
-    min-height: 450px;
-    margin: 1rem auto;
     grid-template-columns: 1fr;
-    padding: 0;
+    height: auto;
+    width: 95%;
+    margin: var(--space-5) auto;
   }
-  
+
   /* Hide decorative logo on mobile */
   .contact-container::before {
     display: none !important;
   }
-  
-  .contact-section {
-    padding: 1.8rem 1.5rem;
-    min-height: auto;
+
+  /* Resources: tab navigation stacks vertically */
+  .tab-navigation {
+    flex-direction: column !important;
+    width: 100% !important;
   }
-  
-  .contact-section h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+
+  .tab-button {
+    width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
   }
-  
-  .contact-section p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
-  .contact-section li {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-bottom: 0.9rem;
-  }
-  
-  .contact-section ul {
-    margin: 1rem 0;
-    padding-left: 1.3rem;
-  }
-  
-  .contact-buttons {
-    margin-top: 1.5rem;
-  }
-  
-  .contact-buttons .primary-button {
-    padding: 0.8rem 1.3rem;
-    font-size: 0.95rem;
-  }
-  
-  /* Project hero */
-  .project-hero-section {
-    min-height: 260px !important;
-    height: auto !important;
-    padding: 1.5rem 1rem;
-  }
-  
-  .project-hero-title {
-    font-size: 1.3rem !important;
-    font-weight: 600 !important;
-    line-height: 1.35 !important;
-    padding-bottom: 0.75rem !important;
-  }
-  
-  /* Project info - single column */
-  .project-info-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .info-card {
-    padding: 0.75rem;
-    text-align: center;
-  }
-  
-  .info-card h3 {
-    font-size: 0.7rem;
-  }
-  
-  .info-card p,
-  .info-card div {
-    font-size: 0.6rem;
-  }
-  
-  /* Hero sections */
-  .hero-section {
-    height: 20vh !important;
-    min-height: 160px;
-    padding: 1.5rem 1rem;
-  }
-  
-  .hero-title,
-  .hero-content .hero-title,
-  p.hero-title {
-    font-size: 1.2rem !important;
-  }
-  
-  .hero-tagline,
-  .hero-content .hero-tagline,
-  p.hero-tagline {
-    font-size: 0.9rem !important;
-  }
-  
-  .project-hero-section {
-    height: 25vh !important;
-    min-height: 180px;
-    padding: 1.5rem 1rem;
-  }
-  
-  .project-hero-content {
-    font-size: 1rem !important;
-  }
-  
-  /* ========================================
-     RESOURCES CONTAINER - COMPLETE MOBILE 
-     ======================================== */
-  
-  /* Main container */
+
   .resources-container {
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
     border-radius: 0 !important;
   }
-  
-  /* Override Quarto's column system */
+
   .column-page .resources-container,
   #quarto-content .resources-container {
     max-width: 100% !important;
     width: 100% !important;
   }
-  
-  /* Tab Navigation - stack vertically */
-  .tab-navigation {
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-  
-  .tab-button {
-    width: 100% !important;
-    padding: 0.75rem 0.5rem !important;
-    font-size: 0.8rem !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    line-height: 1.3 !important;
-    min-height: 3rem !important;
-  }
-  
-  .resources-container .tab-content {
-    padding: 1rem 0.75rem !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  /* Resource Categories */
-  .resource-category {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-bottom: 1.5rem !important;
-    box-sizing: border-box !important;
-  }
-  
-  /* Category Headers */
-  .category-header {
-    margin-bottom: 0.75rem !important;
-    padding-bottom: 0.5rem !important;
-    gap: 8px !important;
-  }
-  
-  .category-icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
-  
-  .category-title {
-    font-size: 0.95rem !important;
-  }
-  
-  /* Resource Items */
-  .resource-item {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: 0.75rem !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-  }
-  
-  .resource-header {
-    padding: 0.75rem !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  .resource-info {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  .resource-title {
-    font-size: 0.9rem !important;
-    margin-bottom: 0.5rem !important;
-    word-wrap: break-word !important;
-  }
-  
-  .resource-description {
-    font-size: 0.75rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-  
-  /* Resource Links */
-  .resource-links {
-    gap: 0.5rem !important;
-  }
-  
-  .resource-link {
-    padding: 0.6rem 0.5rem !important;
-  }
-  
-  .link-title {
-    font-size: 0.8rem !important;
-    margin-bottom: 0.25rem !important;
-    word-wrap: break-word !important;
-  }
-  
-  .link-doi,
-  .link-url {
-    font-size: 0.65rem !important;
-    padding: 1px 4px !important;
-    word-break: break-all !important;
-    white-space: normal !important;
-  }
-  
-  /* Status Badges */
-  .status-badge {
-    padding: 4px 8px !important;
-    font-size: 0.65rem !important;
-  }
-  
-  /* Timeline Indicator */
-  .timeline-indicator {
-    font-size: 0.75rem !important;
-    margin-bottom: 0.75rem !important;
-    gap: 6px !important;
-  }
-  
-  /* Notice Banners */
-  .coming-soon-notice,
-  .future-notice {
-    padding: 0.75rem 1rem !important;
-    margin-bottom: 1rem !important;
-    font-size: 0.8rem !important;
-  }
-  
-  /* Main content container override */
-  .main-content-container {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 0.75rem !important;
-  }
-  
-  /* Scale down ALL body text for mobile */
-  
-  h2 {
-    font-size: 1.1rem !important;
-  }
-  
-  h3 {
-    font-size: 0.95rem !important;
-  }
-  
- 
-  .main-content-container,
-  .main-content-container p,
-  .abstract-section p,
-  .inclusion-exclusion-section p,
-  .results-container p,
-  .overall-findings p,
-  .bayesian-content,
-  .statistical-note-content {
-    font-size: 0.8rem !important;
-  }
-  
-  ul li,
-  ol li {
-    font-size: 0.75rem !important;
-  }
-  
-  /* Finding cards */
-  .finding-domain {
-    font-size: 0.95rem !important;
-  }
-  
-  .finding-effect,
-  .finding-significance {
-    font-size: 0.75rem !important;
-  }
-  
-  /* Criteria boxes */
-  .criteria-box,
-  .criteria-box p,
-  .criteria-box li {
-    font-size: 0.75rem !important;
-  }
-  
-  /* Fix process steps wrapping */
+
+  /* Process steps: single column */
   .process-steps {
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
   }
-  
-  .process-step {
-    padding: 1rem !important;
-    min-width: 0 !important;
-    word-wrap: break-word !important;
-  }
-  
-  .process-step h4 {
-    font-size: 0.95rem !important;
-    word-wrap: break-word !important;
-  }
-  
-  .process-step p {
-    font-size: 0.8rem !important;
-    word-wrap: break-word !important;
-  }
-  
-  /* Fix committee cards wrapping */
+
+  /* Committee grid: single column */
   .committee-grid {
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
   }
-  
-  .committee-card {
-    min-width: 0 !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
+
+  /* Project hero: auto height on mobile */
+  .project-hero-section {
+    height: auto !important;
+    min-height: 200px;
   }
-  
-  .committee-card strong {
-    font-size: 0.9rem !important;
-    word-wrap: break-word !important;
+}
+
+
+/* ===============================================
+   9.3 ACCESSIBILITY PREFERENCES
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  
-  .committee-card > *:not(strong) {
-    font-size: 0.75rem !important;
+}
+
+@media (prefers-contrast: high) {
+  .navbar {
+    background: white !important;
+    backdrop-filter: none;
+    border-bottom: 2px solid #000;
   }
-  
-  
-  /* Resource items mobile */
-  .resource-item {
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    
-    p {
-      font-size: 0.8rem;
-      margin-bottom: 0.9rem;
-      line-height: 1.5;
-    }
-  }
-  
-  .resource-link {
-    font-size: 0.85rem;
-    padding: 0.5rem 0;
+
+  .nav-link {
+    color: #000 !important;
   }
 }
 
