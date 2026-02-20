@@ -99,6 +99,7 @@ html {
      This makes ALL existing rem-based styles scale automatically.
      No more discrete font-size jumps at each breakpoint. */
   font-size: clamp(14px, 13px + 0.3125vw, 18px);
+  -webkit-text-size-adjust: 100%; /* Prevent iOS Safari from auto-inflating text */
 }
 
 
@@ -234,6 +235,7 @@ body {
   
   min-height: 100vh;            /* Always at least full viewport height */
   position: relative;           /* Creates positioning context for ::before/::after */
+  overflow-x: hidden;           /* Prevent horizontal scroll from 100vw elements on iOS */
 }
 
 
@@ -726,7 +728,7 @@ p.hero-tagline {
   min-height: 30vh;
   height: 35vh !important;      /* Taller than standard hero */
   width: 100vw;
-  
+
   /* Break out of container */
   margin-left: calc(-50vw + 50%);
   margin-top: 0 !important;
