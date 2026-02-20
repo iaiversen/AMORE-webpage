@@ -854,28 +854,31 @@ p.hero-tagline {
 
 /* ---- 4.2.2 Navbar layout: vertically center all elements ---- */
 
-/* Quarto wraps everything in container-fluid — ensure center alignment */
-.navbar .navbar-container.container-fluid,
-.navbar > .container-fluid {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
-/* Quarto adds mx-auto to brand-container, which offsets it from nav links.
-   Override to left-align and vertically center it. */
+/* Brand container: always flex so logo and title align */
 .navbar-brand-container {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-/* Collapse area (nav links) should center vertically when expanded.
-   Don't set display here — Bootstrap handles show/hide for mobile. */
-.navbar .navbar-collapse {
-  align-items: center;
+/* Desktop only: override Quarto's mx-auto on the brand-container and
+   ensure the nav links sit on the same center line as the brand.
+   On mobile Bootstrap correctly centers the logo between hamburger + search
+   using mx-auto — we must not interfere with that. */
+@media (min-width: 992px) {
+  .navbar .navbar-container.container-fluid,
+  .navbar > .container-fluid {
+    align-items: center;
+  }
+
+  .navbar-brand-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .navbar .navbar-collapse {
+    align-items: center;
+  }
 }
 
 /* ---- 4.2.3 Brand (logo + title) ---- */
@@ -2514,20 +2517,20 @@ details[open] .resource-summary::after {
   margin: 2rem auto;
 }
 
-/* AMORE logo on homepage */
+/* AMORE logo on homepage — fluid: 150px on mobile → 300px on desktop */
 .header-logo {
   display: block;
-  margin: 2rem auto;
-  max-width: 300px;
+  margin: clamp(1rem, 3vw, 2rem) auto;
+  max-width: clamp(150px, 40vw, 300px);
   height: auto;
 }
 
-/* Subtitle below hero */
+/* Subtitle below hero — fluid font size */
 .subtitle-text {
   text-align: center !important;
-  font-size: 1.5rem !important;
+  font-size: clamp(1rem, 3vw, 1.5rem) !important;
   color: white !important;
-  margin: 1.5rem 0 3rem 0 !important;
+  margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.5rem, 4vw, 3rem) 0 !important;
   font-weight: 700 !important;
 }
 
