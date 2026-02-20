@@ -550,7 +550,7 @@ h6 > a[href^="#"] {
 .hero-title,
 .hero-content .hero-title,
 p.hero-title {
-  font-size: 2rem !important;
+  font-size: clamp(1.3rem, 5vw, 2rem) !important;  /* ~18px mobile → 32px desktop */
   font-weight: 400 !important;
   color: white !important;
   line-height: 1.2 !important;
@@ -559,10 +559,10 @@ p.hero-title {
 .hero-tagline,
 .hero-content .hero-tagline,
 p.hero-tagline {
-  font-size: 1.3rem !important;
+  font-size: clamp(0.9rem, 2.5vw, 1.3rem) !important;  /* ~13px mobile → 21px desktop */
   font-weight: 400 !important;
   color: white !important;
-  opacity: 0.9;                 /* Slightly transparent for hierarchy */
+  opacity: 0.9;
   line-height: 1.5 !important;
   text-align: center;
 }
@@ -654,30 +654,30 @@ p.hero-tagline {
 .hero-section {
   /* Positioning and size */
   position: relative;
-  width: 100vw;                 /* Full viewport width */
-  height: 25vh !important;      /* 25% of screen height */
-  min-height: 25vh !important;  /* Minimum height maintained */
-  
+  width: 100vw;
+  height: auto;                 /* content + padding determines height */
+  min-height: 25vh;             /* visual minimum on desktop — no !important so mobile can override */
+
   /* Break out of container to span full width */
-  margin-left: calc(-50vw + 50%);  /* Centers and extends to edges */
+  margin-left: calc(-50vw + 50%);
   margin-top: 0 !important;
   margin-bottom: 0;
-  
+
   /* Gradient background */
   background: linear-gradient(135deg, $indigo-dye 0%, $royal-blue 100%);
-  
+
   /* Layout */
   display: flex;
-  align-items: center !important;     /* Vertically center content */
-  justify-content: center !important; /* Horizontally center content */
-  overflow: hidden;                   /* Hide any overflow */
-  
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible;            /* never clip content */
+
   /* Text styling */
   color: white;
   text-align: center !important;
-  
-  /* Spacing */
-  padding: 3rem 2rem;
+
+  /* Fluid padding — shrinks on mobile so content always fits */
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
   border-top: none;
 }
 
