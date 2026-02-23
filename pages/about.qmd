@@ -20,7 +20,7 @@ Building the future of evidence-based research through living meta-analysis and 
 
 ::: {.about-tabs-container}
 ::: {.tab-navigation}
-<button class="tab-button active" onclick="showTab('mission')">Our Mission</button>
+<button class="tab-button active" onclick="showTab('mission')">AMORE Explained</button>
 <button class="tab-button" onclick="showTab('living-meta-analyses')">Living Meta Analyses</button>
 <button class="tab-button" onclick="showTab('team')">Expert Steering Committee</button>
 <button class="tab-button" onclick="showTab('Citation')">How To Cite AMORE</button>
@@ -28,51 +28,122 @@ Building the future of evidence-based research through living meta-analysis and 
 
 ::: {.tab-content}
 ::: {#mission .tab-pane .active}
-## What is the AMORE initiative about?
+## What is AMORE?
 
-The Active Monitoring of Oxytocin Research Evidence (AMORE) platform serves as a living meta-analysis hub for oxytocin research related to biobehavioral outcomes. Living meta analysis is a tool to better understand findings of individual studies and place them in a bigger evidence picture. Whereas traditional meta-analysis becomes outdated, living meta analysis are regularly updated. Retracted papers can be removed and newly published papers can be included in the analysis. This ensures that the newest evidence is reflected in the living meta-analysis.
+AMORE (Active Monitoring of Oxytocin Research Evidence) is a platform that hosts living meta-analyses for oxytocin research investigating biobehavioral outcomes in humans. Each living meta-analysis on AMORE is regularly updated to incorporate new research as it is published, ensuring that the evidence synthesis remains current. All projects on AMORE follow a standardized framework that upholds methodological rigor and transparency.
 
 ### Aims of AMORE
 
-::: {.process-steps}
-::: {.process-step}
-::: {.step-icon}
-1
-:::
-#### Real-time insights 
-Researchers get access to the most current understanding of oxytocin research findings. Unlike traditional meta-analyses that become outdated, our platform continuously incorporates new research findings.
-:::
+```{=html}
+<div class="aims-accordion">
 
-::: {.process-step}
-::: {.step-icon}
-2
-:::
-#### Quality Control
-The expert steering committe oversees the projects ensuring platform standards. Retracted papers are promptly removed, ensuring only reliable evidence informs our conclusions.
-:::
+  <div class="aims-item">
+    <button class="aims-header" onclick="toggleAim(this)">
+      <span class="aims-number">1</span>
+      <span class="aims-title">Up-to-Date Evidence</span>
+      <span class="aims-chevron">&#9660;</span>
+    </button>
+    <div class="aims-body">
+      <p>AMORE provides researchers with access to the most current meta-analytic evidence in oxytocin biobehavioral research. New studies are integrated into the living meta-analyses over time. The update approach is determined by each research team -- some projects update continuously as new studies meeting inclusion criteria are published, others update at set intervals (e.g. every 6, 12, or 24 months), and others update when new evidence is expected to meaningfully change the conclusions. Regardless of the approach, all projects must update within a maximum of 24 months.</p>
+    </div>
+  </div>
 
-::: {.process-step}
-::: {.step-icon}
-3
-:::
-#### Transparent Science 
-Living meta-analysis published on AMORE commit to transparency through pre-registration, pre-prints, open data, deviation reports, and publicly available analysis scripts. Transparent research foster collaboration and repoducibility efforts. 
-:::
-:::
+  <div class="aims-item">
+    <button class="aims-header" onclick="toggleAim(this)">
+      <span class="aims-number">2</span>
+      <span class="aims-title">Quality Control</span>
+      <span class="aims-chevron">&#9660;</span>
+    </button>
+    <div class="aims-body">
+      <p>The expert steering committee reviews all project proposals to ensure they meet the requirements of the AMORE standardized framework. The committee also monitors ongoing projects to ensure continued adherence to the framework throughout the lifetime of each living meta-analysis.</p>
+    </div>
+  </div>
+
+  <div class="aims-item">
+    <button class="aims-header" onclick="toggleAim(this)">
+      <span class="aims-number">3</span>
+      <span class="aims-title">Transparent Science</span>
+      <span class="aims-chevron">&#9660;</span>
+    </button>
+    <div class="aims-body">
+      <p>The AMORE standardized framework requires open science practices for all projects. This includes pre-registration of protocols, use of free and open-source analysis software, public sharing of datasets and analysis scripts, deviation reports documenting any departures from the registered protocol, and publication of pre-prints. These requirements ensure that every step of the research process is transparent and reproducible.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleAim(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  // Close all items
+  var items = document.querySelectorAll('.aims-item');
+  items.forEach(function(i) { i.classList.remove('open'); });
+  // Open clicked item if it was closed
+  if (!isOpen) {
+    item.classList.add('open');
+  }
+}
+</script>
+```
+
+### Who Is AMORE For?
+
+```{=html}
+<div class="audience-grid">
+  <div class="audience-item">
+    <strong>Research Teams</strong>
+    Researchers or research teams who want to publish and maintain a living meta-analysis on oxytocin research investigating biobehavioral outcomes in humans.
+  </div>
+  <div class="audience-item">
+    <strong>Anyone Interested in Oxytocin Research</strong>
+    Anyone who wants to explore up-to-date meta-analytic evidence on oxytocin and biobehavioral outcomes in humans, whether for academic, educational, or general interest.
+  </div>
+  <div class="audience-item">
+    <strong>Clinicians</strong>
+    Clinicians seeking reliable, continuously updated evidence syntheses of human oxytocin research to inform clinical practice and decision-making.
+  </div>
+</div>
+```
+
 :::
 
 
 ::: {#living-meta-analyses .tab-pane}
-## What are Living Meta-Analyses
+## What Are Living Meta-Analyses?
 
-Living meta-analyses are meta-analyses that are updated regularly to include new research findings. This ensures that the meta-analytic evidence reflects the most current research findings. Living meta-analyses are particularly useful in fields where research is rapidly evolving, as they provide a dynamic and up-to-date synthesis of the available evidence. 
+A living meta-analysis is a meta-analysis that is updated over time with a clear, pre-defined intention to incorporate new evidence as it becomes available. Unlike a traditional meta-analysis, which represents a snapshot of the evidence at a single point in time and quickly becomes outdated, a living meta-analysis is designed to remain current.
 
-```{=html}  
+### How Do They Differ from Traditional Meta-Analyses?
+
+A traditional meta-analysis searches the literature up to a fixed date, synthesizes the available evidence, and is published as a final product. As new studies are published after that date, the conclusions may no longer reflect the full body of evidence. A living meta-analysis addresses this by committing to regular updates -- ensuring that the synthesis evolves alongside the growing literature.
+
+It is important to note that "living meta-analysis" does not refer to a specific statistical method or analytical technique. Rather, it describes an approach where any form of meta-analytic methodology can be applied, with the distinguishing feature being the ongoing commitment to updating the analysis over time.
+
+```{=html}
 <div style="text-align: center; margin: 2rem 0;">
   <img src="../assets/images/LiMAs.jpg" alt="Traditional vs. Living Meta-Analysis comparison" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   <p style="font-size: 0.9rem; color: #666; margin-top: 1rem; font-style: italic;">Figure: Traditional vs. Living Meta-Analysis</p>
 </div>
 ```
+
+### Update Strategies
+
+Different living meta-analysis projects may adopt different update strategies depending on the research question and the rate at which new studies are published:
+
+- **Continuous updates**: Some projects update every time a new study meeting the inclusion criteria is published. This approach provides the most current evidence at all times but requires ongoing monitoring of the literature.
+- **Threshold-based updates**: Other projects update when new evidence is expected to meaningfully alter the conclusions -- for example, when a sufficiently large or methodologically important study is published.
+- **Fixed-interval updates**: Some projects update on a set schedule (e.g. every 6, 12, or 24 months), regardless of how many new studies have appeared. This approach is more predictable and easier to plan around.
+
+On AMORE, all projects must update within a maximum of 24 months. The specific update strategy is determined by the research team and documented in their pre-registered protocol.
+
+### Methodological Considerations
+
+When a living meta-analysis is updated multiple times, the repeated testing of the same hypothesis with accumulating data raises statistical considerations. Corrections for multiple rounds of analysis may be necessary to control the overall error rate. Researchers should pre-specify their approach to handling this in their registered protocol.
+
+### Maintaining Evidence Integrity
+
+A key advantage of the living approach is the ability to respond to changes in the literature. When papers included in the analysis are retracted or corrected, the living meta-analysis can be updated to reflect this -- removing retracted studies and re-running the analysis. This ensures that the evidence synthesis is based only on reliable, non-retracted research.
 
 :::
 

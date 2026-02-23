@@ -1,200 +1,266 @@
 ---
-title: "Research Tools and Resources" 
+title: "Research Tools and Resources"
 format:
   html:
-    page-layout: full 
+    page-layout: full
     container-fluid: true
 ---
 
 ::: {.hero-section}
 ::: {.hero-content}
 ::: {.hero-title}
-Research tools and resources 
+Research Tools and Resources
 :::
 
 ::: {.hero-tagline}
-
 Comprehensive tools and resources to support your living meta-analysis research
-
 :::
 
 :::
 :::
 
-::: {.resources-page-content}
+```{=html}
+<div class="resources-page-content">
 
-::: {.resources-navigation}
-**Quick Navigation:**
+  <!-- Filter Bar -->
+  <div class="resource-filter-bar">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All Resources</button>
+      <button class="filter-btn" data-filter="protocol">Protocol Development</button>
+      <button class="filter-btn" data-filter="statistical">Statistical Resources</button>
+      <button class="filter-btn" data-filter="reporting">Reporting &amp; Registration</button>
+      <button class="filter-btn" data-filter="reference">Reference Management</button>
+    </div>
+    <div class="filter-search">
+      <input type="text" id="resourceSearch" placeholder="Search resources..." class="resource-search-input" />
+    </div>
+  </div>
 
-- [Protocol Development](#protocol-development)
-- [Statistical Resources](#statistical-resources)
-- [Reporting and Registration](#reporting-and-registration)
-- [Reference Management and Quality Control](#reference-management-and-quality-control)
-:::
+  <!-- Resource Cards -->
+  <div class="resource-card-grid">
 
-## Protocol Development {.resource-category-title}
+    <!-- Protocol Development -->
+    <div class="resource-card" data-category="protocol" data-type="tool">
+      <div class="resource-header">
+        <h3>Protocol Checklist Tool</h3>
+        <span class="resource-type-badge badge-tool">Tool</span>
+      </div>
+      <div class="resource-description">
+        When creating a project proposal for a Living Meta-Analysis on AMORE, include all necessary information for a smooth review process. This checklist outlines the key components required in your proposal.
+      </div>
+      <div class="resource-links">
+        <a href="Protocol_checklist.html" class="resource-button">Access Checklist</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Protocol Checklist Tool
-:::
-::: {.resource-description}
-When creating a project proposal for a Living Meta-Analysis in AMORE, it is essential to include all necessary information to ensure a smooth review and approval process. The following checklist outlines the key components that should be included in your project proposal.
-:::
-::: {.resource-links}
-[Access the Protocol Checklist Tool](Protocol_checklist.html){.resource-button}
-:::
-:::
+    <!-- Statistical Resources -->
+    <div class="resource-card" data-category="statistical" data-type="textbook">
+      <div class="resource-header">
+        <h3>Introduction to Meta-Analysis</h3>
+        <span class="resource-type-badge badge-textbook">Textbook</span>
+      </div>
+      <div class="resource-description">
+        A comprehensive introduction to the principles and practices of meta-analysis, covering effect size estimation, heterogeneity, publication bias, and advanced techniques.
+      </div>
+      <div class="resource-links">
+        <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9780470743386" class="resource-button" target="_blank">Access Textbook</a>
+      </div>
+    </div>
 
-## Statistical Resources {.resource-category-title}
+    <div class="resource-card" data-category="statistical" data-type="textbook">
+      <div class="resource-header">
+        <h3>Doing Meta-Analysis with R: A Hands-On Guide</h3>
+        <span class="resource-type-badge badge-textbook">Textbook</span>
+      </div>
+      <div class="resource-description">
+        A hands-on guide to conducting meta-analyses in R, covering effect sizes, heterogeneity, publication bias, multilevel meta-analysis, and Bayesian approaches.
+      </div>
+      <div class="resource-links">
+        <a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/" class="resource-button" target="_blank">Access Textbook</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Introduction to Meta-Analysis
-:::
-::: {.resource-description}
-This textbook provides a comprehensive introduction to the principles and practices of meta-analysis. It covers topics such as effect size estimation, heterogeneity, publication bias, and advanced meta-analytic techniques. The book is suitable for researchers and students who want to learn how to conduct and interpret meta-analyses.
-:::
-::: {.resource-links}
-[Access the Textbook](https://onlinelibrary.wiley.com/doi/book/10.1002/9780470743386){.resource-button target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="statistical" data-type="software">
+      <div class="resource-header">
+        <h3>R and RStudio</h3>
+        <span class="resource-type-badge badge-software">Software</span>
+      </div>
+      <div class="resource-description">
+        R is a programming language for statistical computing and graphics. RStudio provides an integrated development environment with a user-friendly interface. Together, they are widely used for data analysis and visualization.
+      </div>
+      <div class="resource-links">
+        <a href="https://www.r-project.org/" class="resource-button" target="_blank">Visit R Project</a>
+        <a href="https://posit.co/download/rstudio-desktop/" class="resource-button secondary" target="_blank">Visit RStudio</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Doing Meta-Analysis with R: A Hands-On Guide
-:::
-::: {.resource-description}
-This book provides a practical guide to conducting meta-analyses using R. It covers the basics of meta-analysis, including effect size calculation, heterogeneity assessment, and publication bias detection. The book also includes advanced topics such as multilevel meta-analysis and Bayesian meta-analysis.
-:::
-::: {.resource-links}
-[Access the Textbook](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/#cite-the-packages){.resource-button target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="statistical" data-type="article">
+      <div class="resource-header">
+        <h3>A Review of Meta-Analysis Packages in R</h3>
+        <span class="resource-type-badge badge-article">Article</span>
+      </div>
+      <div class="resource-description">
+        An overview of commonly used R packages for conducting meta-analyses, discussing features, capabilities, and limitations to help researchers choose the right tool.
+      </div>
+      <div class="resource-links">
+        <a href="https://journals.sagepub.com/doi/10.3102/1076998616674315?icid=int.sj-full-text.similar-articles.2" class="resource-button" target="_blank">Read Article</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### R and RStudio
-:::
-::: {.resource-description}
-R is a programming language and software environment for statistical computing and graphics. RStudio is an integrated development environment (IDE) for R that provides a user-friendly interface for writing and executing R code. Together, they are widely used in data analysis, statistical modeling, and visualization.
-:::
-::: {.resource-links}
-[Visit R Project](https://www.r-project.org/){.resource-button target="_blank"}
-[Visit RStudio](https://posit.co/download/rstudio-desktop/){.resource-button .secondary target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="statistical" data-type="software">
+      <div class="resource-header">
+        <h3>JASP</h3>
+        <span class="resource-type-badge badge-software">Software</span>
+      </div>
+      <div class="resource-description">
+        Free, open-source statistical software with a user-friendly interface for conducting analyses. Suitable for researchers with varying levels of statistical expertise.
+      </div>
+      <div class="resource-links">
+        <a href="https://jasp-stats.org/" class="resource-button" target="_blank">Visit JASP</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### A Review of Meta-Analysis Packages in R
-:::
-::: {.resource-description}
-Numerous R packages are available for conducting meta-analyses, each with its own strengths and weaknesses. This review provides an overview of some of the most commonly used packages. It discusses their features, capabilities, and limitations, helping researchers choose the most appropriate package for their specific needs.
-:::
-::: {.resource-links}
-[Read the Review](https://journals.sagepub.com/doi/10.3102/1076998616674315?icid=int.sj-full-text.similar-articles.2){.resource-button target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="statistical" data-type="article">
+      <div class="resource-header">
+        <h3>Adjusting for Publication Bias in JASP and R</h3>
+        <span class="resource-type-badge badge-article">Article</span>
+      </div>
+      <div class="resource-description">
+        Covers selection models, PET-PEESE, and robust Bayesian meta-analysis for adjusting publication bias, with practical implementation guidance for both JASP and R.
+      </div>
+      <div class="resource-links">
+        <a href="https://journals.sagepub.com/doi/10.1177/25152459221109259" class="resource-button" target="_blank">Read Article</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### JASP
-:::
-::: {.resource-description}
-JASP is a free and open-source statistical software that provides a user-friendly interface for conducting statistical analyses. It is designed to be easy to use, even for those with limited statistical knowledge, and offers a range of statistical tests and visualizations.
-:::
-::: {.resource-links}
-[Visit JASP](https://jasp-stats.org/){.resource-button target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="statistical" data-type="article">
+      <div class="resource-header">
+        <h3>Equivalence Tests</h3>
+        <span class="resource-type-badge badge-article">Article</span>
+      </div>
+      <div class="resource-description">
+        A practical introduction to equivalence testing with guidance on performing equivalence tests and power analyses in psychological research.
+      </div>
+      <div class="resource-links">
+        <a href="https://journals.sagepub.com/doi/full/10.1177/1948550617697177" class="resource-button" target="_blank">Read Article</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Adjusting for Publication Bias in JASP and R
-:::
-::: {.resource-description}
-This article provides a comprehensive overview of methods for adjusting for publication bias in meta-analyses using JASP and R. It covers selection models, PET-PEESE, and robust Bayesian meta-analysis, providing practical guidance on how to implement these methods in both software environments.
-:::
-::: {.resource-links}
-[Read the Article](https://journals.sagepub.com/doi/10.1177/25152459221109259){.resource-button target="_blank"}
-:::
-:::
+    <!-- Reporting & Registration -->
+    <div class="resource-card" data-category="reporting" data-type="tool">
+      <div class="resource-header">
+        <h3>PRISMA for Living Systematic Reviews</h3>
+        <span class="resource-type-badge badge-tool">Tool</span>
+      </div>
+      <div class="resource-description">
+        An extension of the PRISMA statement providing guidance on reporting living systematic reviews. Includes a checklist and flow diagram for best practice.
+      </div>
+      <div class="resource-links">
+        <a href="http://prisma-statement.org/lsr" class="resource-button" target="_blank">Visit PRISMA</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Equivalence Tests
-:::
-::: {.resource-description}
-Equivalence tests are statistical tests used to determine whether two groups are equivalent, rather than simply different. This article provides a practical introduction to equivalence testing, and enables psychologists to perform equivalence tests and power analyses.
-:::
-::: {.resource-links}
-[Read the Article](https://journals.sagepub.com/doi/full/10.1177/1948550617697177){.resource-button target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="reporting" data-type="database">
+      <div class="resource-header">
+        <h3>PROSPERO</h3>
+        <span class="resource-type-badge badge-database">Database</span>
+      </div>
+      <div class="resource-description">
+        A registration platform specifically designed for systematic review protocols focused on health-related research. Provides a standardized format for documenting methods before reviews begin.
+      </div>
+      <div class="resource-links">
+        <a href="https://www.crd.york.ac.uk/prospero/" class="resource-button" target="_blank">Visit PROSPERO</a>
+      </div>
+    </div>
 
-## Reporting and Registration {.resource-category-title}
+    <div class="resource-card" data-category="reporting" data-type="database">
+      <div class="resource-header">
+        <h3>Open Science Framework (OSF)</h3>
+        <span class="resource-type-badge badge-database">Database</span>
+      </div>
+      <div class="resource-description">
+        A free, open-source platform supporting project management, data sharing, pre-registration, and collaboration for transparent research practices.
+      </div>
+      <div class="resource-links">
+        <a href="https://osf.io/" class="resource-button" target="_blank">Visit OSF</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### PRISMA for Living Systematic Reviews
-:::
-::: {.resource-description}
-PRISMA for Living Systematic Reviews (LSR) is an extension of the PRISMA statement that provides guidance on reporting living systematic reviews and meta-analyses. It includes a checklist and flow diagram to help researchers ensure they are following best practices in their reporting.
-:::
-::: {.resource-links}
-[Visit PRISMA-Statement.org](http://prisma-statement.org/lsr){.resource-button target="_blank"}
-:::
-:::
+    <!-- Reference Management -->
+    <div class="resource-card" data-category="reference" data-type="tool">
+      <div class="resource-header">
+        <h3>Retraction Watch</h3>
+        <span class="resource-type-badge badge-tool">Tool</span>
+      </div>
+      <div class="resource-description">
+        Tracks retractions of scientific papers as a window into the scientific process. Essential for maintaining the integrity of living meta-analyses.
+      </div>
+      <div class="resource-links">
+        <a href="https://retractionwatch.com/" class="resource-button" target="_blank">Visit Retraction Watch</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### PROSPERO
-:::
-::: {.resource-description}
-PROSPERO is specifically designed for registering systematic review protocols focused on health-related research. It provides a standardized format for documenting review methods before they begin.
-:::
-::: {.resource-links}
-[Visit PROSPERO](https://www.crd.york.ac.uk/prospero/){.resource-button target="_blank"}
-:::
-:::
+    <div class="resource-card" data-category="reference" data-type="software">
+      <div class="resource-header">
+        <h3>Zotero</h3>
+        <span class="resource-type-badge badge-software">Software</span>
+      </div>
+      <div class="resource-description">
+        Reference management software that helps collect, organize, and cite research. Alerts users when articles have been retracted or corrected.
+      </div>
+      <div class="resource-links">
+        <a href="https://www.zotero.org/" class="resource-button" target="_blank">Visit Zotero</a>
+      </div>
+    </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Open Science Framework (OSF)
-:::
-::: {.resource-description}
-The Open Science Framework (OSF) is a free and open-source platform that supports researchers in managing their projects, sharing their data, and collaborating with others. It provides tools for pre-registration, data sharing, and project management, making it easier for researchers to conduct and share their work transparently.
-:::
-::: {.resource-links}
-[Visit OSF](https://osf.io/){.resource-button target="_blank"}
-:::
-:::
+  </div>
 
-## Reference Management and Quality Control {.resource-category-title}
+  <!-- No results message -->
+  <div class="no-results" style="display: none;">
+    <p>No resources match your search. Try a different keyword or clear the filter.</p>
+  </div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Retraction Watch
-:::
-::: {.resource-description}
-Tracking retractions as a window into the scientific process. This resource monitors and reports on retractions of scientific papers.
-:::
-::: {.resource-links}
-[Visit Retraction Watch](https://retractionwatch.com/){.resource-button target="_blank"}
-:::
-:::
+</div>
 
-::: {.resource-card}
-::: {.resource-header}
-### Zotero
-:::
-::: {.resource-description}
-Reference management software that helps you collect, organize, and cite research. Zotero informs when articles in your libraries have been retracted or corrected, and it can help you keep track of your references and citations.
-:::
-::: {.resource-links}
-[Visit Zotero](https://www.zotero.org/){.resource-button target="_blank"}
-:::
-:::
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var searchInput = document.getElementById('resourceSearch');
+  var cards = document.querySelectorAll('.resource-card');
+  var noResults = document.querySelector('.no-results');
+  var activeFilter = 'all';
 
-:::
+  function filterCards() {
+    var searchTerm = searchInput.value.toLowerCase().trim();
+    var visibleCount = 0;
+
+    cards.forEach(function(card) {
+      var category = card.getAttribute('data-category');
+      var text = card.textContent.toLowerCase();
+      var matchesFilter = (activeFilter === 'all' || category === activeFilter);
+      var matchesSearch = (!searchTerm || text.indexOf(searchTerm) !== -1);
+
+      if (matchesFilter && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter');
+      filterCards();
+    });
+  });
+
+  searchInput.addEventListener('input', filterCards);
+});
+</script>
+```
