@@ -9,38 +9,38 @@ format:
 <div class="wizard-container">
   <div class="wizard-nav">
     <div class="nav-header">
-      AMORE workflow 
+      AMORE Workflow
     </div>
-    <ul class="step-list">
-      <li class="step-item active" data-step="1">
+    <ul class="step-list" role="tablist" aria-label="Workflow steps">
+      <li class="step-item active" data-step="1" role="tab" tabindex="0" aria-selected="true" aria-controls="step1">
         <span class="step-number">1</span>
         <span class="step-text">Propose Your Topic</span>
       </li>
-      <li class="step-item" data-step="2">
+      <li class="step-item" data-step="2" role="tab" tabindex="-1" aria-selected="false" aria-controls="step2">
         <span class="step-number">2</span>
         <span class="step-text">Steering Committee Review</span>
       </li>
-      <li class="step-item" data-step="3">
+      <li class="step-item" data-step="3" role="tab" tabindex="-1" aria-selected="false" aria-controls="step3">
         <span class="step-number">3</span>
         <span class="step-text">Pre-registration</span>
       </li>
-      <li class="step-item" data-step="4">
+      <li class="step-item" data-step="4" role="tab" tabindex="-1" aria-selected="false" aria-controls="step4">
         <span class="step-number">4</span>
         <span class="step-text">Conduct Review</span>
       </li>
-      <li class="step-item" data-step="5">
+      <li class="step-item" data-step="5" role="tab" tabindex="-1" aria-selected="false" aria-controls="step5">
         <span class="step-number">5</span>
         <span class="step-text">Data Deposit</span>
       </li>
-      <li class="step-item" data-step="6">
+      <li class="step-item" data-step="6" role="tab" tabindex="-1" aria-selected="false" aria-controls="step6">
         <span class="step-number">6</span>
         <span class="step-text">Publication</span>
       </li>
-      <li class="step-item" data-step="7">
+      <li class="step-item" data-step="7" role="tab" tabindex="-1" aria-selected="false" aria-controls="step7">
         <span class="step-number">7</span>
         <span class="step-text">Regular Updates</span>
       </li>
-      <li class="step-item" data-step="8">
+      <li class="step-item" data-step="8" role="tab" tabindex="-1" aria-selected="false" aria-controls="step8">
         <span class="step-number">8</span>
         <span class="step-text">Provide Feedback</span>
       </li>
@@ -48,117 +48,154 @@ format:
   </div>
 
   <div class="wizard-content">
+    <!-- Progress bar -->
+    <div class="wizard-progress-bar">
+      <div class="wizard-progress-fill" style="width: 12.5%;"></div>
+    </div>
+
+    <!-- Step counter -->
+    <div class="step-meta">
+      <span class="step-counter">Step <span class="current-step-num">1</span> of 8</span>
+    </div>
+
     <!-- Step 1: Propose Your Topic -->
-    <div class="step-content active" id="step1">
-      <h2>Step 1: Propose Your Topic</h2>
+    <div class="step-content active" id="step1" role="tabpanel">
+      <h2>Propose Your Topic</h2>
       <div class="content-box">
-        <h3>Contact us</h3>
+        <h3>Contact Us</h3>
         <p>
-        If you want to publish your living meta-analysis on the AMORE platform then you can contact us through our contact forms. There is no commitment in reaching out, and we will answer questions about conducting analysis, our standardization framework or preparing protocols. The contact forms are found <a href="contact.html">here</a>.
+          Interested in publishing your living meta-analysis on AMORE? Reach out through our
+          <a href="contact.html">contact form</a> -- there is no commitment required. We are
+          happy to answer questions about the standardization framework, analysis requirements,
+          or protocol preparation.
         </p>
-        <h3>What to include:</h3>
+        <h3>What to Include in Your Proposal</h3>
         <ul>
           <li>A meta-analysis investigating oxytocin related to a biobehavioral outcome</li>
-          <li>Living meta-analysis update frequency (maximum 24 months between updates)</li>
-          <li>Proposal of protocol within our standardization framework. The necessary information we need for evaluating if your meta-analysis project can be implemented on AMORE is found as a checklist on the resources page</li>
+          <li>A proposed update frequency (maximum 24 months between updates)</li>
+          <li>A draft protocol aligned with our standardization framework -- see the
+            <a href="Resources.html">checklist on the Resources page</a> for required elements</li>
         </ul>
+        <div class="step-cta">
+          <a href="contact.html" class="primary-button">Submit a Proposal</a>
+        </div>
       </div>
     </div>
 
     <!-- Step 2: Steering Committee Review -->
-    <div class="step-content" id="step2">
-      <h2>Step 2: Steering Committee Review</h2>
+    <div class="step-content" id="step2" role="tabpanel">
+      <h2>Steering Committee Review</h2>
       <div class="content-box">
         <h3>Review Process</h3>
+        <p>
+          Your proposal is reviewed by the AMORE steering committee, a panel of experts in
+          oxytocin research methodology. The committee evaluates feasibility, scope, and
+          adherence to platform standards.
+        </p>
         <ul>
-          <li>Evaluation that living meta-analysis is within platform remit</li>
-          <li>Confirmation that topic is suitable for inclusion</li>
-          <li>Verification that all mandatory requirements from checklist are met</li>
-          <li>Methodological review and advice if needed</li>
+          <li>Confirmation that the topic falls within the platform's remit</li>
+          <li>Verification that all mandatory checklist requirements are met</li>
+          <li>Methodological feedback and guidance where needed</li>
         </ul>
+        <p class="step-note">
+          Typical review turnaround: 2–4 weeks.
+        </p>
       </div>
     </div>
 
     <!-- Step 3: Pre-registration -->
-    <div class="step-content" id="step3">
-      <h2>Step 3: Pre-registration</h2>
+    <div class="step-content" id="step3" role="tabpanel">
+      <h2>Pre-registration</h2>
       <div class="content-box">
         <h3>Registration Requirements</h3>
+        <p>
+          Before conducting the review, you must pre-register your protocol in a recognized
+          repository. Pre-registration ensures transparency and protects against post-hoc
+          analytical decisions.
+        </p>
         <ul>
-          <li>Pre-register in recognised repository (e.g. Open Science Framework, PROSPERO)</li>
-          <li>Project will be added to AMORE homepage with its own project page</li>
+          <li>Register in a recognized repository such as the
+            <a href="https://osf.io/" target="_blank">Open Science Framework</a> or
+            <a href="https://www.crd.york.ac.uk/prospero/" target="_blank">PROSPERO</a></li>
+          <li>Include your full search strategy, inclusion/exclusion criteria, and planned analyses</li>
+          <li>Once registered, your project will receive its own page on the AMORE platform</li>
         </ul>
       </div>
     </div>
-    
+
     <!-- Step 4: Conduct Review -->
-    <div class="step-content" id="step4">
-      <h2>Step 4: Conduct Review</h2>
+    <div class="step-content" id="step4" role="tabpanel">
+      <h2>Conduct Review</h2>
       <div class="content-box">
-        <h3>Perform systematic review</h3>
+        <h3>Perform Systematic Review</h3>
+        <p>
+          With your protocol pre-registered, you can begin the systematic review. Adherence
+          to the registered protocol is essential; any deviations must be documented.
+        </p>
         <ul>
-          <li>Conduct review based on pre-registered protocol</li>
-          <li>Analyses must be performed on free software for reproducibility</li>
-          <li>Track any deviations from protocol and document in deviation report</li>
+          <li>Conduct the review based on your pre-registered protocol</li>
+          <li>All analyses must be performed using free software to ensure reproducibility</li>
+          <li>Track any deviations from the protocol and document them in a deviation report</li>
         </ul>
       </div>
     </div>
 
     <!-- Step 5: Data Deposit -->
-    <div class="step-content" id="step5">
-      <h2>Step 5: Data Deposit</h2>
+    <div class="step-content" id="step5" role="tabpanel">
+      <h2>Data Deposit</h2>
       <div class="content-box">
         <h3>Data Requirements</h3>
+        <p>
+          Open data is a cornerstone of the AMORE framework. All materials must be deposited
+          in publicly accessible repositories before publication.
+        </p>
         <ul>
-          <li>Deposit complete dataset in recognized repository (e.g. Open Science Framework or Zenodo)</li> 
-          <li>Deposit free software script in recognised repository</li>
-          <li>Provide deviation report as supplementary material to analysis script</li>
+          <li>Deposit the complete dataset in a recognized repository (e.g. Open Science Framework or Zenodo)</li>
+          <li>Deposit the analysis script in a recognized repository</li>
+          <li>Include the deviation report as supplementary material alongside the analysis script</li>
         </ul>
       </div>
     </div>
 
     <!-- Step 6: Publication -->
-    <div class="step-content" id="step6">
-      <h2>Step 6: Publication</h2>
+    <div class="step-content" id="step6" role="tabpanel">
+      <h2>Publication</h2>
       <div class="content-box">
         <h3>Publication Process</h3>
+        <p>
+          AMORE encourages rapid dissemination. Publish a pre-print before or alongside
+          journal submission so the community can access your findings immediately.
+        </p>
         <ul>
-          <li>Publish manuscript on recognized pre-print server (e.g., Open Science Framework)</li>
-          <li>Submit to peer-reviewed journal</li>
-          <li>Project page will be updated with links to:</li>
-          <ul>
-            <li>Pre-print</li>
-            <li>Published paper</li>
-            <li>Deviation report</li>
-          </ul>
-          <li>Ensure all documentation remains accessible</li>
+          <li>Publish the manuscript on a recognized pre-print server (e.g., Open Science Framework)</li>
+          <li>Submit to a peer-reviewed journal</li>
+          <li>Your AMORE project page will be updated with links to the pre-print, published paper, and deviation report</li>
+          <li>Ensure all documentation remains publicly accessible</li>
         </ul>
       </div>
     </div>
 
     <!-- Step 7: Regular Updates -->
-    <div class="step-content" id="step7">
-      <h2>Step 7: Regular Updates</h2>
+    <div class="step-content" id="step7" role="tabpanel">
+      <h2>Regular Updates</h2>
       <div class="content-box">
         <h3>Update Requirements</h3>
+        <p>
+          The defining feature of a living meta-analysis is its ongoing updates. You are
+          responsible for conducting new searches according to your registered schedule.
+        </p>
         <ul>
-          <li>Conduct new searches according to update plan</li>
-          <li>Maximum time between updates: 24 months</li>
-          <li>For each update:</li>
-          <ul>
-            <li>Document all changes</li>
-            <li>Remove any retracted papers</li>
-            <li>Update all relevant materials</li>
-            <li>Maintain accessibility of all documents</li>
-          </ul>
-          <li>Follow original protocol for consistency</li>
+          <li>Conduct new searches according to your update plan (maximum 24 months between updates)</li>
+          <li>For each update: document all changes, remove any retracted papers, and update all relevant materials</li>
+          <li>Maintain public accessibility of all documents</li>
+          <li>Follow the original protocol for consistency across updates</li>
         </ul>
       </div>
     </div>
-    
+
     <!-- Step 8: Provide Feedback -->
-    <div class="step-content" id="step8">
-      <h2>Step 8: Provide Feedback</h2>
+    <div class="step-content" id="step8" role="tabpanel">
+      <h2>Provide Feedback</h2>
       <div class="content-box">
         <h3>Help Us Improve</h3>
         <p>
@@ -174,7 +211,7 @@ format:
         <p>
           Your input helps us continuously improve AMORE for the research community.
         </p>
-        <div style="text-align: center; margin-top: 2rem;">
+        <div class="step-cta">
           <a href="contact.html#feedback-form" class="primary-button">
             Share Your Feedback
           </a>
@@ -183,222 +220,95 @@ format:
     </div>
 
     <div class="wizard-navigation">
-      <button class="nav-button prev-button" disabled>Previous</button>
-      <button class="nav-button next-button">Next</button>
+      <button class="nav-button prev-button" aria-label="Previous step" disabled>Previous</button>
+      <button class="nav-button next-button" aria-label="Next step">Next</button>
     </div>
   </div>
 </div>
 
-<style>
-.wizard-container {
-  display: flex;
-  gap: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  min-height: 600px;
-  align-items: stretch; /* Make both containers same height */
-}
-
-.wizard-nav {
-  flex: 0 0 300px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-header {
-  padding: 1rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  border-bottom: 1px solid #dee2e6;
-}
-
-.step-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex: 1; /* Take up remaining space in nav */
-}
-
-.step-item {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-left: 4px solid transparent;
-}
-
-.step-item:hover {
-  background: rgba(92, 105, 151, 0.1);
-}
-
-.step-item.active {
-  background: rgba(9, 64, 116, 0.1);
-  border-left-color: var(--primary-color);
-}
-
-.step-item.active .step-number {
-  background: var(--primary-color);
-  color: white;
-}
-
-.step-number {
-  width: 28px;
-  height: 28px;
-  background: #dee2e6;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.step-text {
-  font-size: 0.95rem;
-}
-
-.wizard-content {
-  flex: 1;
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.step-content {
-  display: none;
-  flex: 1; /* Take up available space */
-}
-
-.step-content.active {
-  display: block;
-}
-
-/* Move h2 higher up in the box */
-.step-content h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-top: 0;
-}
-
-.content-box {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  flex: 1; /* Take up remaining space */
-}
-
-.wizard-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: auto; /* Push to bottom */
-  padding-top: 1rem;
-  border-top: 1px solid #dee2e6;
-}
-
-.nav-button {
-  padding: 0.5rem 1.5rem;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.nav-button:hover:not(:disabled) {
-  background: var(--secondary-color);
-}
-
-.nav-button:disabled {
-  background: #dee2e6;
-  cursor: not-allowed;
-}
-
-@media (max-width: 768px) {
-  .wizard-container {
-    flex-direction: column;
-  }
-
-  .wizard-nav {
-    flex: none;
-    width: 100%;
-    position: relative;
-    top: 0;
-  }
-  
-  .wizard-content {
-    min-height: 400px;
-  }
-}
-</style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const stepItems = document.querySelectorAll('.step-item');
-    const stepContents = document.querySelectorAll('.step-content');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    let currentStep = 1;
-    
+    var stepItems = document.querySelectorAll('.step-item');
+    var stepContents = document.querySelectorAll('.step-content');
+    var prevButton = document.querySelector('.prev-button');
+    var nextButton = document.querySelector('.next-button');
+    var progressFill = document.querySelector('.wizard-progress-fill');
+    var stepNumDisplay = document.querySelector('.current-step-num');
+    var currentStep = 1;
+
     function setActiveStep(stepNumber) {
-        // Update navigation items
-        stepItems.forEach(item => {
-            if (parseInt(item.dataset.step) === stepNumber) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
+        // Update navigation items (active + completed states + ARIA)
+        stepItems.forEach(function(item) {
+            var num = parseInt(item.dataset.step);
+            var isActive = num === stepNumber;
+            var isCompleted = num < stepNumber;
+
+            item.classList.toggle('active', isActive);
+            item.classList.toggle('completed', isCompleted);
+            item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            item.setAttribute('tabindex', isActive ? '0' : '-1');
         });
-        
+
         // Update content sections
-        stepContents.forEach(content => {
-            if (content.id === `step${stepNumber}`) {
+        stepContents.forEach(function(content) {
+            if (content.id === 'step' + stepNumber) {
                 content.classList.add('active');
             } else {
                 content.classList.remove('active');
             }
         });
-        
+
+        // Update progress bar
+        var percent = (stepNumber / 8) * 100;
+        progressFill.style.width = percent + '%';
+
+        // Update step counter
+        stepNumDisplay.textContent = stepNumber;
+
         // Update button states
         prevButton.disabled = stepNumber === 1;
         nextButton.disabled = stepNumber === 8;
-        
+
         currentStep = stepNumber;
     }
-    
-    // Add click handlers for step items
-    stepItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const stepNumber = parseInt(item.dataset.step);
-            setActiveStep(stepNumber);
+
+    // Click handlers for step items
+    stepItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            setActiveStep(parseInt(item.dataset.step));
         });
     });
-    
-    // Add click handlers for navigation buttons
-    prevButton.addEventListener('click', () => {
-        if (currentStep > 1) {
-            setActiveStep(currentStep - 1);
-        }
-    });
-    
-    nextButton.addEventListener('click', () => {
-        if (currentStep < 8) { 
-            setActiveStep(currentStep + 1);
-        }
+
+    // Keyboard navigation for step items
+    stepItems.forEach(function(item) {
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setActiveStep(parseInt(item.dataset.step));
+            }
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                var next = item.nextElementSibling;
+                if (next) { next.focus(); }
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                var prev = item.previousElementSibling;
+                if (prev) { prev.focus(); }
+            }
+        });
     });
 
-    // Initialize the first step
+    // Navigation buttons
+    prevButton.addEventListener('click', function() {
+        if (currentStep > 1) { setActiveStep(currentStep - 1); }
+    });
+
+    nextButton.addEventListener('click', function() {
+        if (currentStep < 8) { setActiveStep(currentStep + 1); }
+    });
+
+    // Initialize
     setActiveStep(1);
 });
 </script>
