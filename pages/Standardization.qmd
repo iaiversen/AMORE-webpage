@@ -1,82 +1,290 @@
 ---
 title: "Standardization Framework for Living Meta-Analysis on AMORE"
+format:
+  html:
+    page-layout: full
 ---
 
-::: {.hero-section}
+::: {.hero-section .hero-compact}
 ::: {.hero-content}
 ::: {.hero-title}
-Standardization Framework for AMORE 
+Standardization Framework
 :::
 
 ::: {.hero-tagline}
-
-Consensus built standardization framework for collaborative living meta-analysis and transparent science 
-
-:::
-:::
+Consensus-built standards for living meta-analysis and transparent science
 :::
 
-::: {.about-tabs-container}
-::: {.tab-navigation}
-<button class="tab-button active" onclick="showTab('Requirements')">Our Requirements</button>
-<button class="tab-button" onclick="showTab('Recommended')">Recommended Practices</button>
+:::
 :::
 
-::: {.tab-content}
-::: {#Requirements .tab-pane .active}
-## Mandatory Requirements
-- **Update Frequency**  
-Maximum 24 months between analysis updates  
-  
-- **Pre-registration**  
-Meta-analysis must be pre-registered
+```{=html}
+<div class="standards-page">
 
-- **Pre-print Publication**  
-Initial results must be published on recognized pre-print server (e.g., Open Science Framework)  
-  
-- **Guidelines Adherence**  
-Must follow PRISMA or equivalent guidelines (MOOSE, MARS)  
-  
-- **Data Repository**  
-Meta-analysis data must be stored in recognized repository (e.g., Open Science Framework, Zenodo)  
-  
-- **Analysis Scripts**  
-Free software scripts must be deposited in recognized repository  
-  
-- **Deviation Reporting**  
-Supply deviation report with meta-analysis manuscript  
-:::
+  <!-- ====== FRAMEWORK OVERVIEW ====== -->
+  <section class="standards-overview">
+    <h2 class="standards-section-heading">About This Framework</h2>
+    <div class="standards-overview-grid">
+      <div class="standards-overview-item">
+        <h3>What It Is</h3>
+        <p>The AMORE Standardization Framework is a set of methodological requirements and recommended practices that all living meta-analyses hosted on the platform must follow. It defines the minimum standards for transparency, reproducibility, and scientific rigor.</p>
+      </div>
+      <div class="standards-overview-item">
+        <h3>Why It Exists</h3>
+        <p>Oxytocin research spans diverse methodologies and populations. Without shared standards, meta-analytic evidence risks becoming fragmented and unreliable. This framework ensures that every project on AMORE meets a consistent baseline of quality that the research community can trust.</p>
+      </div>
+      <div class="standards-overview-item">
+        <h3>How It Evolved</h3>
+        <p>The framework was developed by the expert steering committee. A consensus-driven process with two rounds of questionnaires resulted in the framework. The paper describing the development can be found <a href="https://www.sciencedirect.com/science/article/pii/S0306453025004366" target="_blank">here</a>.</p>
+      </div>
+    </div>
+    <div class="standards-meta">
+      <span class="standards-meta-item">Version 1.0</span>
+      <span class="standards-meta-divider" aria-hidden="true"></span>
+      <span class="standards-meta-item">Established 2025</span>
+      <span class="standards-meta-divider" aria-hidden="true"></span>
+      <span class="standards-meta-item">Maintained by the <a href="about.html">AMORE Steering Committee</a></span>
+    </div>
+  </section>
 
-::: {#Recommended .tab-pane}
-## Recommended Practices
-- **Accumulation Bias**  
-Develop plan to address accumulation bias in frequentist framework
-  
-- **Effect Determination**  
-Use Bayes factor of 10 to conclude presence/absence of effects  
-  
-- **Null Hypothesis**  
-Create plan to evaluate evidence for null hypothesis  
-  
-- **Visualizations**  
-Include forest plots and funnel plots
-:::
-:::
-:::
+  <!-- ====== MANDATORY REQUIREMENTS ====== -->
+  <section class="standards-section standards-mandatory">
+    <div class="standards-section-header">
+      <div>
+        <h2 class="standards-section-heading">Mandatory Requirements</h2>
+        <p class="standards-section-desc">All requirements must be met for a living meta-analysis to be listed on AMORE. Click any item to read the rationale.</p>
+      </div>
+      <span class="standards-count-badge standards-count-mandatory">7 Requirements</span>
+    </div>
+
+    <div class="standards-accordion" id="mandatoryAccordion">
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">1</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Update Frequency</span>
+            <span class="standards-accord-summary">Maximum 24 months between analysis updates</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>Living meta-analyses are updated over time, with authors performing an updated search since the last search was completed. Authors who contribute to the AMORE platform have the choice of how often they update their analysis, however, they must adhere to a maximum update frequency to ensure evidence remains up-to-date. The 24-month maximum was established through expert consensus to balance feasibility with the platform's commitment to current evidence synthesis.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">2</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Pre-registration</span>
+            <span class="standards-accord-summary">Meta-analysis protocol must be pre-registered before data collection</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>Pre-registration separates confirmatory from exploratory analyses by documenting the research plan before results are known. Meta-analyses with health-related outcomes can be pre-registered in <a href="https://www.crd.york.ac.uk/prospero/" target="_blank">PROSPERO</a>, while others can be pre-registered on the <a href="https://osf.io" target="_blank">Open Science Framework</a>. This protects against selective reporting and provides a public record that allows the community to evaluate whether the completed analysis followed its stated plan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">3</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Pre-print Publication</span>
+            <span class="standards-accord-summary">Initial results must be published on a recognized pre-print server</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>A key benefit of living meta-analyses is that they can provide up-to-date evidence. As peer review can take considerable time, results can quickly become out of date by the time they are accepted and published. Depositing the manuscript on a recognised pre-print server (such as the Open Science Framework) facilitates immediate reporting and ensures the research community has timely access to meta-analytic evidence.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">4</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Guidelines Adherence</span>
+            <span class="standards-accord-summary">Must follow PRISMA or equivalent reporting guidelines (MOOSE, MARS)</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>Standardized reporting guidelines ensure that meta-analyses include all information necessary for readers to evaluate the methods and findings. PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) is the most widely used standard, but MOOSE (Meta-analyses Of Observational Studies in Epidemiology) and MARS (Meta-Analysis Reporting Standards) are accepted alternatives depending on the study design. Adherence to these guidelines makes the work interpretable, reproducible, and comparable across projects.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">5</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Data Repository</span>
+            <span class="standards-accord-summary">Meta-analysis data must be stored in a recognized repository</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>Meta-analyses are typically conducted using publicly available data reported in scientific publications or summary statistics privately provided by authors. Unlike individual participant data, it is not possible to identify any individual based on this summary data, which means data can be safely shared. Open meta-analysis data will more easily facilitate living meta-analyses and help others verify the analyses. Data can be deposited in recognised repositories such as the Open Science Framework or Zenodo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">6</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Analysis Scripts</span>
+            <span class="standards-accord-summary">Free software scripts must be deposited in a recognized repository</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>One approach for facilitating transparent analyses is to share an analysis script (e.g., an R script). Another approach is to use free software packages such as <a href="https://jasp-stats.org/" target="_blank">JASP</a> or <a href="https://www.jamovi.org/" target="_blank">jamovi</a>, which include point-and-click meta-analysis options. These analysis files, along with underlying data, can be shared so that others can reproduce the analysis. The AMORE steering committee is available to provide advice on implementation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-mandatory-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">7</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Deviation Reporting</span>
+            <span class="standards-accord-summary">Supply a deviation report with the meta-analysis manuscript</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is required</span>
+            <p>A separate supplementary deviation report attached to the meta-analysis manuscript ensures that any changes from the pre-registered protocol are transparently documented.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====== RECOMMENDED PRACTICES ====== -->
+  <section class="standards-section standards-recommended">
+    <div class="standards-section-header">
+      <div>
+        <h2 class="standards-section-heading">Recommended Practices</h2>
+        <p class="standards-section-desc">Strongly encouraged practices that strengthen the quality and interpretability of your analysis. These may become mandatory in future framework versions.</p>
+      </div>
+      <span class="standards-count-badge standards-count-recommended">4 Practices</span>
+    </div>
+
+    <div class="standards-accordion" id="recommendedAccordion">
+
+      <div class="standards-accord-item standards-recommended-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">1</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Accumulation Bias</span>
+            <span class="standards-accord-summary">Develop a plan to address accumulation bias in the frequentist framework</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is recommended</span>
+            <p>A living meta-analysis introduces the issue of multiple testing. Once new evidence becomes available, a new test is run adding the new data to the existing data. Running sequential tests without appropriate alpha correction inflates the Type I error rate, also known as "accumulation bias." There are various approaches to combat this, including adjusting alpha levels according to the number of planned tests and Robust Bayesian analysis. Pre-specifying this strategy in the protocol ensures the approach is principled rather than post hoc.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-recommended-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">2</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Effect Determination</span>
+            <span class="standards-accord-summary">Use a Bayes factor of 10 to conclude presence or absence of effects</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is recommended</span>
+            <p>Robust Bayesian meta-analyses yield Bayes Factors, which quantify the relative evidence for an alternative hypothesis over a null hypothesis (or vice versa). A Bayes factor of 10 suggests there is 10 times more evidence for one hypothesis relative to the other, representing strong evidence. One commonly used set of thresholds for interpreting Bayes factors are 3 (moderate evidence), 10 (strong evidence), and 30 (very strong evidence). The threshold of 10 was established through expert consensus as a satisfactory level for concluding the presence or absence of an effect.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-recommended-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">3</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Null Hypothesis Evaluation</span>
+            <span class="standards-accord-summary">Create a plan to evaluate evidence for the null hypothesis</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is recommended</span>
+            <p>Traditional frequentist meta-analyses generate p-values, which are used to decide whether to reject the null hypothesis. However, this approach cannot evaluate if there is evidence to <em>support</em> the null hypothesis, no matter the size of the p-value. Evaluating support for a null hypothesis is critical for falsifying hypotheses. Two alternative approaches are equivalence testing and Bayesian hypothesis testing. Authors are encouraged to propose a plan for evaluating evidence for a null hypothesis using either of these approaches.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="standards-accord-item standards-recommended-item">
+        <button class="standards-accord-header" aria-expanded="false" onclick="toggleStandard(this)">
+          <span class="standards-accord-num">4</span>
+          <div class="standards-accord-text">
+            <span class="standards-accord-title">Visualizations</span>
+            <span class="standards-accord-summary">Include forest plots and funnel plots in the analysis</span>
+          </div>
+          <span class="standards-accord-chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="standards-accord-body" role="region">
+          <div class="standards-accord-rationale">
+            <span class="standards-rationale-label">Why this is recommended</span>
+            <p>Forest plots display individual study effects alongside the pooled estimate, making heterogeneity and outliers immediately visible. Funnel plots help assess potential publication bias by plotting effect sizes against precision. Together, these visualizations provide a transparent summary that complements the numerical results and helps readers form an independent judgment about the strength of the evidence. They are standard practice in well-conducted meta-analyses.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
 
 <script>
-function showTab(tabName) {
-  const panes = document.querySelectorAll('.tab-pane');
-  panes.forEach(pane => {
-    pane.classList.remove('active');
+function toggleStandard(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  var expanded = btn.getAttribute('aria-expanded') === 'true';
+
+  // Close all items in the same accordion
+  var accordion = item.parentElement;
+  var items = accordion.querySelectorAll('.standards-accord-item');
+  items.forEach(function(i) {
+    i.classList.remove('open');
+    i.querySelector('.standards-accord-header').setAttribute('aria-expanded', 'false');
   });
-  
-  const buttons = document.querySelectorAll('.tab-button');
-  buttons.forEach(button => {
-    button.classList.remove('active');
-  });
-  
-  document.getElementById(tabName).classList.add('active');
-  event.target.classList.add('active');
+
+  // Toggle the clicked item
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 </script>
+```
