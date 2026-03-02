@@ -6,6 +6,11 @@ format:
 ---
 
 ```{=html}
+<div class="page-header-bar">
+  <h1>How to Publish on AMORE</h1>
+  <p>A step-by-step guide to publishing your living meta-analysis on the platform</p>
+</div>
+
 <div class="wizard-container">
   <div class="wizard-nav">
     <div class="nav-header">

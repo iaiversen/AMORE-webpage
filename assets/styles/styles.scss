@@ -3464,7 +3464,7 @@ details[open] .resource-summary::after {
 .wizard-container {
   display: flex;
   gap: 2rem;
-  margin: 2rem auto;
+  margin: 0 auto;
   max-width: 1200px;
   min-height: 600px;
   align-items: stretch;
@@ -3477,7 +3477,7 @@ details[open] .resource-summary::after {
 .wizard-nav {
   flex: 0 0 280px;
   background: #f8f9fa;
-  border-radius: 8px;
+  border-radius: 0;
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -3590,7 +3590,7 @@ details[open] .resource-summary::after {
   flex: 1;
   padding: 2rem;
   background: white;
-  border-radius: 8px;
+  border-radius: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -4111,13 +4111,13 @@ details[open] .resource-summary::after {
 .standards-page {
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: var(--space-6) var(--space-4);
+  padding: 0 var(--space-4) var(--space-6);
 }
 
 /* --- Overview section --- */
 .standards-overview {
   background: white;
-  border-radius: var(--card-radius);
+  border-radius: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: var(--space-7) var(--space-6);
   margin-bottom: var(--space-7);
@@ -4199,7 +4199,7 @@ details[open] .resource-summary::after {
 /* --- Requirement / Practice sections --- */
 .standards-section {
   background: white;
-  border-radius: var(--card-radius);
+  border-radius: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: var(--space-7) var(--space-6);
   margin-bottom: var(--space-7);

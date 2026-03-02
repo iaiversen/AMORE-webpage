@@ -6,12 +6,12 @@ format:
 ---
 
 ```{=html}
-<div class="standards-page">
+<div class="page-header-bar">
+  <h1>Standardization Framework</h1>
+  <p>Consensus-built standards for living meta-analysis and transparent science</p>
+</div>
 
-  <div class="page-header-bar">
-    <h1>Standardization Framework</h1>
-    <p>Consensus-built standards for living meta-analysis and transparent science</p>
-  </div>
+<div class="standards-page">
 
   <!-- ====== FRAMEWORK OVERVIEW ====== -->
   <section class="standards-overview">
