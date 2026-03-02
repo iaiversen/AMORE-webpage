@@ -5,21 +5,13 @@ format:
     page-layout: full
 ---
 
-::: {.hero-section .hero-compact}
-::: {.hero-content}
-::: {.hero-title}
-Standardization Framework
-:::
-
-::: {.hero-tagline}
-Consensus-built standards for living meta-analysis and transparent science
-:::
-
-:::
-:::
-
 ```{=html}
 <div class="standards-page">
+
+  <div class="page-header-bar">
+    <h1>Standardization Framework</h1>
+    <p>Consensus-built standards for living meta-analysis and transparent science</p>
+  </div>
 
   <!-- ====== FRAMEWORK OVERVIEW ====== -->
   <section class="standards-overview">

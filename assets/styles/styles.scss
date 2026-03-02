@@ -795,7 +795,7 @@ p.hero-tagline {
    when using custom hero sections. These rules hide them.
    =============================================== */
 
-/* Hide default Quarto title when custom hero exists */
+/* Hide default Quarto title when custom hero or page-header-bar exists */
 .hero-section ~ * h1:first-child,
 #title-block-header,
 .quarto-title-block,
@@ -827,7 +827,58 @@ p.hero-tagline {
    background: linear-gradient(135deg, COLOR1, COLOR2, COLOR3);
 
    =============================================== */
-   
+
+
+/* -----------------------------------------------
+   4.1.5 PAGE HEADER BAR
+
+   Compact page header — replaces hero sections
+   on pages where a full-width gradient banner
+   is not needed. Sits directly below the navbar.
+   ----------------------------------------------- */
+
+/* Remove top spacing on main content when page-header-bar is used */
+main.content:has(.page-header-bar) {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Collapse the hidden title-block so it adds no space */
+main.content:has(.page-header-bar) > #title-block-header {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.page-header-bar {
+  background: linear-gradient(135deg, $indigo-dye 0%, $royal-blue 100%);
+  color: white;
+  text-align: center;
+  padding: var(--space-5) var(--space-6);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 0 !important;
+  margin-bottom: 0;
+}
+
+.page-header-bar h1 {
+  font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+  font-weight: 600 !important;
+  color: white !important;
+  margin: 0 0 var(--space-1) 0 !important;
+  line-height: 1.3;
+}
+
+.page-header-bar p {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.5;
+}
+
+
 /*=============================================
 =     4.2 NAVIGATION                          =
 =                                             =

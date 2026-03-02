@@ -1,22 +1,16 @@
 ---
+title: "About AMORE"
 format:
   html:
     page-layout: full
 ---
 
-::: {.hero-section}
-::: {.hero-content}
-::: {.hero-title}
-Advancing Oxytocin Research Together
-:::
-
-::: {.hero-tagline}
-
-Building the future of evidence-based research through living meta-analysis and transparent science
-:::
-
-:::
-:::
+```{=html}
+<div class="page-header-bar">
+  <h1>Advancing Oxytocin Research Together</h1>
+  <p>Building the future of evidence-based research through living meta-analysis and transparent science</p>
+</div>
+```
 
 ::: {.about-tabs-container}
 ::: {.tab-navigation}

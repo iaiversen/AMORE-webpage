@@ -6,20 +6,12 @@ format:
     container-fluid: true
 ---
 
-::: {.hero-section}
-::: {.hero-content}
-::: {.hero-title}
-Research Tools and Resources
-:::
-
-::: {.hero-tagline}
-Comprehensive tools and resources to support your living meta-analysis research
-:::
-
-:::
-:::
-
 ```{=html}
+<div class="page-header-bar">
+  <h1>Research Tools and Resources</h1>
+  <p>Comprehensive tools and resources to support your living meta-analysis research</p>
+</div>
+
 <div class="resources-page-content">
 
   <!-- Filter Bar -->
