@@ -1849,19 +1849,20 @@ body:has(.project-hero-section):not(:has(.contact-container)) .column-body {
   background: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 500;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Wizard button hover */
 .nav-button:hover:not(:disabled) {
   background: var(--secondary-color);
+  box-shadow: 0 1px 4px rgba(10, 42, 94, 0.18);
 }
 
-/* Disabled wizard button (start of wizard, end of wizard) */
 .nav-button:disabled {
   background: #dee2e6;
+  color: #9ca3af;
   cursor: not-allowed;
 }
 
@@ -2798,6 +2799,149 @@ details[open] .resource-summary::after {
 }
 
 
+/* -----------------------------------------------
+   6.3b HOMEPAGE: "Initiated by" / BNL Section
+   ----------------------------------------------- */
+
+.initiated-by-section {
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.initiated-by-label {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  margin-bottom: var(--space-5);
+}
+
+.initiated-by-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.initiated-by-content a {
+  display: inline-block;
+  border-bottom: none !important;
+}
+
+.bnl-logo {
+  display: block;
+  max-width: clamp(200px, 35vw, 340px);
+  height: auto;
+  opacity: 0.92;
+  transition: opacity 0.2s ease;
+}
+
+.bnl-logo:hover {
+  opacity: 1;
+}
+
+.paper-link {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.paper-link a {
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.paper-link a:hover {
+  border-bottom-color: white;
+}
+
+
+/* -----------------------------------------------
+   6.3c HOMEPAGE: Open Source Section
+   ----------------------------------------------- */
+
+.open-source-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.open-source-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.open-source-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.open-source-text h3 {
+  color: white !important;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.open-source-text p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: white !important;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.github-link:hover {
+  border-bottom-color: white;
+}
+
+.github-link svg {
+  transition: transform 0.2s ease;
+}
+
+.github-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 480px) {
+  .open-source-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+
 /* ===============================================
    6.4 ABOUT PAGE STYLES
    
@@ -3253,8 +3397,9 @@ details[open] .resource-summary::after {
 
 /* ===============================================
    6.6 GUIDELINES PAGE (Wizard)
-   
-   Step-by-step workflow interface
+
+   Step-by-step workflow interface with progress
+   indicators, fade animations, and responsive layout.
    =============================================== */
 
 /* Main wizard container */
@@ -3264,57 +3409,91 @@ details[open] .resource-summary::after {
   margin: 2rem auto;
   max-width: 1200px;
   min-height: 600px;
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  align-items: stretch;
 }
 
-/* Left sidebar - step navigation */
+/* -----------------------------------------------
+   Left sidebar - step navigation
+   ----------------------------------------------- */
+
 .wizard-nav {
-  flex: 0 0 300px;
+  flex: 0 0 280px;
   background: #f8f9fa;
   border-radius: 8px;
   padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .wizard-nav .nav-header {
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--primary-color);
   border-bottom: 1px solid #dee2e6;
 }
 
-/* Step list */
 .step-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex: 1;
 }
 
+/* Step items with connector line */
 .step-item {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.85rem 1.25rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
   border-left: 4px solid transparent;
+  position: relative;
+}
+
+/* Vertical connector line between steps */
+.step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(1.25rem + 17px);
+  bottom: 0;
+  height: 0;
+  width: 2px;
+  background: #dee2e6;
+  z-index: 0;
+}
+
+.step-item:not(:last-child)::after {
+  height: calc(100% - 28px);
+  bottom: -4px;
+  top: auto;
+  top: calc(0.85rem + 28px);
 }
 
 .step-item:hover {
-  background: rgba(92, 105, 151, 0.1);
+  background: rgba(92, 105, 151, 0.08);
 }
 
+/* Active step */
 .step-item.active {
-  background: rgba(9, 64, 116, 0.1);
+  background: rgba(9, 64, 116, 0.08);
   border-left-color: var(--primary-color);
 }
 
 .step-item.active .step-number {
   background: var(--primary-color);
   color: white;
+}
+
+/* Completed steps */
+.step-item.completed .step-number {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.step-item.completed::after {
+  background: var(--secondary-color);
 }
 
 /* Circular step number */
@@ -3328,28 +3507,213 @@ details[open] .resource-summary::after {
   justify-content: center;
   margin-right: 1rem;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .step-text {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: $body-color;
 }
 
-/* Right side - step content */
+.step-item.active .step-text {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* -----------------------------------------------
+   Right side - step content
+   ----------------------------------------------- */
+
 .wizard-content {
   flex: 1;
   padding: 2rem;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
+/* Progress bar */
+.wizard-progress-bar {
+  height: 3px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.wizard-progress-fill {
+  height: 100%;
+  background: var(--secondary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Step counter */
+.step-meta {
+  margin-bottom: 0.5rem;
+}
+
+.step-counter {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary-color);
+}
+
+/* Step content with fade animation */
 .step-content {
   display: none;
+  flex: 1;
 }
 
 .step-content.active {
   display: block;
+  animation: stepFadeIn 0.25s ease-out forwards;
+}
+
+@keyframes stepFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-content.active {
+    animation: none;
+  }
+}
+
+.step-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-top: 0;
+  color: $indigo-dye;
+  font-size: 1.5rem;
+}
+
+/* Content box */
+.wizard-content .content-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+/* Wizard navigation buttons */
+.wizard-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.wizard-navigation .nav-button {
+  padding: 0.5rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wizard-navigation .nav-button:hover:not(:disabled) {
+  background: var(--secondary-color);
+  box-shadow: 0 1px 4px rgba(10, 42, 94, 0.18);
+}
+
+.wizard-navigation .nav-button:disabled {
+  background: #dee2e6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Semantic utility classes for step content */
+.step-note {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 1rem;
+}
+
+.step-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* -----------------------------------------------
+   Wizard responsive: horizontal step indicator
+   ----------------------------------------------- */
+
+@media (max-width: 768px) {
+  .wizard-container {
+    flex-direction: column;
+    gap: 1rem;
+    min-height: auto;
+  }
+
+  .wizard-nav {
+    flex: none;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .wizard-nav .nav-header {
+    display: none;
+  }
+
+  .step-list {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+  }
+
+  .step-item {
+    flex-direction: column;
+    padding: 0.5rem;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    min-width: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .step-item.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--primary-color);
+  }
+
+  .step-text {
+    display: none;
+  }
+
+  .step-number {
+    margin-right: 0;
+  }
+
+  .wizard-content {
+    min-height: 400px;
+  }
 }
 
 .step-content h2 {
