@@ -186,9 +186,9 @@ Consensus-built standards for living meta-analysis and transparent science
     <div class="standards-section-header">
       <div>
         <h2 class="standards-section-heading">Recommended Practices</h2>
-        <p class="standards-section-desc">Strongly encouraged practices that strengthen the quality and interpretability of your analysis. These may become mandatory in future framework versions.</p>
+        <p class="standards-section-desc">Strongly encouraged practices that strengthen the quality and interpretability of your analysis.</p>
       </div>
-      <span class="standards-count-badge standards-count-recommended">4 Practices</span>
+      <span class="standards-count-badge standards-count-recommended">4 Recommended Practices</span>
     </div>
 
     <div class="standards-accordion" id="recommendedAccordion">
