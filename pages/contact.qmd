@@ -5,128 +5,225 @@ format:
     container-fluid: true
 ---
 ```{=html}
-<div class="contact-forms-container">
-  <div class="forms-intro">
-    <h2>Contact AMORE</h2>
+<div class="contact-page">
+  <div class="contact-header">
+    <h1 class="contact-title">Get in Touch</h1>
+    <p class="contact-subtitle">
+      Whether you want to propose a new living meta-analysis, update an existing project,
+      or share feedback, we are here to help.
+    </p>
   </div>
 
-  <!-- Tab Navigation -->
-  <div class="form-tabs">
-    <button class="form-tab-btn active" data-form="propose">
-      Propose Project
-    </button>
-    <button class="form-tab-btn" data-form="update">
-      Update Existing Project
-    </button>
-    <button class="form-tab-btn" data-form="feedback">
-      Get Help or Share Feedback
-    </button>
-  </div>
+  <div class="contact-forms-container">
+    <!-- Tab Navigation with icons and descriptions -->
+    <nav class="contact-tabs" role="tablist" aria-label="Contact form options">
+      <button class="contact-tab active" role="tab" aria-selected="true"
+              aria-controls="propose-panel" id="tab-propose" data-form="propose">
+        <svg class="contact-tab-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"/>
+        </svg>
+        <span class="contact-tab-label">Propose Project</span>
+        <span class="contact-tab-desc">Submit a new living meta-analysis</span>
+      </button>
 
-  <!-- Form Panels -->
-  <div class="form-panels">
-    <!-- Propose Project Form (loaded immediately) -->
-    <div id="propose-form" class="form-panel active" data-loaded="true">
-      <iframe class="nettskjema-iframe"
-              src="https://nettskjema.no/a/516751?embed=1"
-              title="Propose Your Project"
-              frameborder="0"
-              width="100%"></iframe>
-    </div>
+      <button class="contact-tab" role="tab" aria-selected="false"
+              aria-controls="update-panel" id="tab-update" data-form="update" tabindex="-1">
+        <svg class="contact-tab-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182"/>
+        </svg>
+        <span class="contact-tab-label">Update Project</span>
+        <span class="contact-tab-desc">Submit changes to an existing project</span>
+      </button>
 
-    <!-- Update Project Form (lazy-loaded) -->
-    <div id="update-form" class="form-panel" data-loaded="false" data-src="https://nettskjema.no/a/535098?embed=1" data-title="Update an existing living meta-analysis">
-      <div class="form-loading-placeholder">
-        <p>Loading form...</p>
+      <button class="contact-tab" role="tab" aria-selected="false"
+              aria-controls="feedback-panel" id="tab-feedback" data-form="feedback" tabindex="-1">
+        <svg class="contact-tab-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/>
+        </svg>
+        <span class="contact-tab-label">Help &amp; Feedback</span>
+        <span class="contact-tab-desc">Ask questions or share suggestions</span>
+      </button>
+    </nav>
+
+    <!-- Form Panels -->
+    <div class="contact-panels">
+      <div id="propose-panel" class="contact-panel active" role="tabpanel"
+           aria-labelledby="tab-propose" data-loaded="true">
+        <iframe class="nettskjema-iframe"
+                src="https://nettskjema.no/a/516751?embed=1"
+                title="Propose Your Project"
+                frameborder="0"
+                width="100%"></iframe>
+      </div>
+
+      <div id="update-panel" class="contact-panel" role="tabpanel"
+           aria-labelledby="tab-update" data-loaded="false"
+           data-src="https://nettskjema.no/a/535098?embed=1"
+           data-title="Update an existing living meta-analysis" hidden>
+        <div class="contact-skeleton" aria-label="Loading form">
+          <div class="skeleton-line skeleton-line--wide"></div>
+          <div class="skeleton-line skeleton-line--medium"></div>
+          <div class="skeleton-line skeleton-line--narrow"></div>
+          <div class="skeleton-line skeleton-line--wide"></div>
+          <div class="skeleton-line skeleton-line--medium"></div>
+        </div>
+      </div>
+
+      <div id="feedback-panel" class="contact-panel" role="tabpanel"
+           aria-labelledby="tab-feedback" data-loaded="false"
+           data-src="https://nettskjema.no/a/516802?embed=1"
+           data-title="Get help or share feedback" hidden>
+        <div class="contact-skeleton" aria-label="Loading form">
+          <div class="skeleton-line skeleton-line--wide"></div>
+          <div class="skeleton-line skeleton-line--medium"></div>
+          <div class="skeleton-line skeleton-line--narrow"></div>
+          <div class="skeleton-line skeleton-line--wide"></div>
+          <div class="skeleton-line skeleton-line--medium"></div>
+        </div>
       </div>
     </div>
 
-    <!-- Feedback Form (lazy-loaded) -->
-    <div id="feedback-form" class="form-panel" data-loaded="false" data-src="https://nettskjema.no/a/516802?embed=1" data-title="Get help or share feedback">
-      <div class="form-loading-placeholder">
-        <p>Loading form...</p>
-      </div>
+    <!-- Email fallback -->
+    <div class="contact-fallback">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.5" aria-hidden="true" style="vertical-align: -2px; margin-right: 4px;">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+      </svg>
+      Prefer email? Reach us at
+      <a href="mailto:danielqu@uio.no">danielqu@uio.no</a>
     </div>
-  </div>
-
-  <!-- Email fallback -->
-  <div class="contact-email-fallback">
-    Prefer email? Contact us at <a href="mailto:danielqu@uio.no">danielqu@uio.no</a>
   </div>
 </div>
 
 <style>
+/* Override body for contact page */
 body {
   background: white !important;
   animation: none !important;
 }
-
-body::before,
-body::after {
+body::before, body::after {
   display: none !important;
 }
 
-.contact-forms-container {
+.contact-page {
   max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  background: white !important;
+  margin: 0 auto;
+  padding: var(--space-7, 40px) var(--space-4, 16px);
 }
 
-.forms-intro {
+/* --- Header --- */
+.contact-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-7, 40px);
 }
 
-.forms-intro h2 {
+.contact-title {
+  font-size: var(--text-3xl, 2rem);
+  font-weight: 700;
   color: #0A2A5E;
-  margin-bottom: 0.5rem;
+  margin: 0 0 var(--space-3, 12px) 0;
 }
 
-.form-tabs {
+.contact-subtitle {
+  font-size: var(--text-base, 1rem);
+  color: #4a5568;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Tab Navigation --- */
+.contact-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3, 12px);
+  margin-bottom: var(--space-5, 24px);
+}
+
+.contact-tab {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #e5e7eb;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.form-tab-btn {
-  background: none;
-  border: none;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #6b7280;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-4, 18px) var(--space-3, 12px);
+  background: #f8fafc;
+  border: 2px solid #e2e6ed;
+  border-radius: 8px;
   cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease;
-  position: relative;
-  bottom: -2px;
+  font-family: inherit;
+  text-align: center;
+  transition: all 0.2s ease;
+  min-height: 44px;
 }
 
-.form-tab-btn:hover {
+.contact-tab:hover {
+  background: #f0f4ff;
+  border-color: #b8c9e0;
+}
+
+.contact-tab:focus-visible {
+  outline: 2px solid #1E50A0;
+  outline-offset: 2px;
+}
+
+.contact-tab.active {
+  background: white;
+  border-color: #0A2A5E;
+  box-shadow: 0 2px 8px rgba(10, 42, 94, 0.1);
+}
+
+.contact-tab-icon {
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.contact-tab.active .contact-tab-icon {
   color: #0A2A5E;
-  background: #f0f6ff;
 }
 
-.form-tab-btn.active {
+.contact-tab-label {
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 600;
+  color: #374151;
+}
+
+.contact-tab.active .contact-tab-label {
   color: #0A2A5E;
-  border-bottom-color: #0A2A5E;
 }
 
-.form-panels {
+.contact-tab-desc {
+  font-size: var(--text-xs, 0.75rem);
+  color: #9ca3af;
+  line-height: 1.3;
+}
+
+.contact-tab.active .contact-tab-desc {
+  color: #6b7280;
+}
+
+/* --- Panels --- */
+.contact-panels {
   position: relative;
   min-height: 600px;
 }
 
-.form-panel {
+.contact-panel {
   display: none;
 }
 
-.form-panel.active {
+.contact-panel.active {
   display: block;
+}
+
+.contact-panel[hidden] {
+  display: none;
 }
 
 .nettskjema-iframe {
@@ -135,93 +232,154 @@ body::after {
   height: 800px;
   border: none;
   display: block;
+  border-radius: 8px;
 }
 
-.form-loading-placeholder {
+/* --- Skeleton loading --- */
+.contact-skeleton {
+  padding: var(--space-7, 40px) var(--space-5, 24px);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: var(--space-4, 16px);
   min-height: 400px;
-  color: #9ca3af;
-  font-size: 0.9rem;
 }
 
-.contact-email-fallback {
+.skeleton-line {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f2f5 25%, #e5e7eb 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+.skeleton-line--wide   { width: 100%; }
+.skeleton-line--medium { width: 70%; }
+.skeleton-line--narrow { width: 40%; }
+
+@keyframes skeletonShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+    background: #e5e7eb;
+  }
+}
+
+/* --- Email fallback --- */
+.contact-fallback {
   text-align: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: var(--space-5, 24px);
+  padding-top: var(--space-4, 16px);
   border-top: 1px solid #e5e7eb;
   color: #6b7280;
-  font-size: 0.9rem;
+  font-size: var(--text-sm, 0.875rem);
 }
 
-.contact-email-fallback a {
+.contact-fallback a {
   color: #0A2A5E;
   font-weight: 600;
   text-decoration: none;
 }
 
-.contact-email-fallback a:hover {
+.contact-fallback a:hover {
   text-decoration: underline;
 }
 
-/* Responsive tabs */
-@media (max-width: 768px) {
-  .form-tabs {
-    flex-direction: column;
-    gap: 0.5rem;
-    border-bottom: none;
+/* --- Responsive --- */
+@media (max-width: 640px) {
+  .contact-tabs {
+    grid-template-columns: 1fr;
   }
 
-  .form-tab-btn {
-    border-bottom: none;
-    border-left: 3px solid transparent;
+  .contact-tab {
+    flex-direction: row;
     text-align: left;
-    border-radius: 6px;
+    gap: var(--space-3, 12px);
+    padding: var(--space-3, 12px) var(--space-4, 16px);
   }
 
-  .form-tab-btn.active {
-    border-left-color: #0A2A5E;
-    border-bottom: none;
-    background: #f0f6ff;
+  .contact-tab-icon {
+    flex-shrink: 0;
+  }
+
+  .contact-tab-desc {
+    display: none;
   }
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var tabs = document.querySelectorAll('.form-tab-btn');
-  var panels = document.querySelectorAll('.form-panel');
+  var tabs = document.querySelectorAll('.contact-tab');
+  var panels = document.querySelectorAll('.contact-panel');
 
-  function showForm(formId) {
-    // Hide all panels, deactivate all tabs
-    panels.forEach(function(p) { p.classList.remove('active'); });
-    tabs.forEach(function(t) { t.classList.remove('active'); });
+  function activateTab(formId) {
+    // Deactivate all
+    tabs.forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    panels.forEach(function(p) {
+      p.classList.remove('active');
+      p.setAttribute('hidden', '');
+    });
 
     // Activate selected
-    var panel = document.getElementById(formId + '-form');
-    panel.classList.add('active');
-    document.querySelector('[data-form="' + formId + '"]').classList.add('active');
+    var activeTab = document.querySelector('[data-form="' + formId + '"]');
+    var activePanel = document.getElementById(formId + '-panel');
 
-    // Lazy-load iframe if needed
-    if (panel.getAttribute('data-loaded') === 'false') {
-      var src = panel.getAttribute('data-src');
-      var title = panel.getAttribute('data-title');
-      panel.innerHTML = '<iframe class="nettskjema-iframe" src="' + src + '" title="' + title + '" frameborder="0" width="100%"></iframe>';
-      panel.setAttribute('data-loaded', 'true');
+    activeTab.classList.add('active');
+    activeTab.setAttribute('aria-selected', 'true');
+    activeTab.removeAttribute('tabindex');
+
+    activePanel.classList.add('active');
+    activePanel.removeAttribute('hidden');
+
+    // Lazy-load iframe
+    if (activePanel.getAttribute('data-loaded') === 'false') {
+      var src = activePanel.getAttribute('data-src');
+      var title = activePanel.getAttribute('data-title');
+      activePanel.innerHTML = '<iframe class="nettskjema-iframe" src="' + src +
+        '" title="' + title + '" frameborder="0" width="100%"></iframe>';
+      activePanel.setAttribute('data-loaded', 'true');
     }
   }
 
-  // Tab click handlers
+  // Click handlers
   tabs.forEach(function(tab) {
     tab.addEventListener('click', function() {
-      showForm(this.getAttribute('data-form'));
+      activateTab(this.getAttribute('data-form'));
+    });
+  });
+
+  // Keyboard navigation (arrow keys between tabs)
+  tabs.forEach(function(tab) {
+    tab.addEventListener('keydown', function(e) {
+      var tabArray = Array.from(tabs);
+      var current = tabArray.indexOf(this);
+      var next;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        next = (current + 1) % tabArray.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        next = (current - 1 + tabArray.length) % tabArray.length;
+      } else {
+        return;
+      }
+
+      e.preventDefault();
+      tabArray[next].focus();
+      activateTab(tabArray[next].getAttribute('data-form'));
     });
   });
 
   // Handle direct linking to feedback tab
-  if (window.location.hash === '#feedback-form') {
-    showForm('feedback');
+  if (window.location.hash === '#feedback-panel') {
+    activateTab('feedback');
   }
 });
 </script>

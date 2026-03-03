@@ -1,5 +1,9 @@
 ---
-title: "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis" 
+title: "Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis"
+status: "living"
+update-cadence: "24 months"
+next-update: "January 2027"
+final-version: ""
 analytical_framework: "Mixed Methods"
 oxytocin:
   intervention: ["Intranasal oxytocin administration", "Oral oxytocin administration", "Intravenous/injection oxytocin administration"]
@@ -25,8 +29,10 @@ dois:
 format:
   html:
     page-layout: full
+    toc: true
     toc-title: "On this page"
     toc-location: right
+    toc-depth: 3
 ---
 
 ::::: project-hero-section
@@ -34,6 +40,18 @@ format:
 ::: project-hero-title
 Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: A Preregistered Systematic Review and Meta-Analysis
 :::
+
+```{=html}
+<div class="project-status project-status--living">
+  <span class="status-dot status-dot--living" aria-hidden="true"></span>
+  <span class="status-text">Living meta-analysis</span>
+  <span class="status-separator" aria-hidden="true"></span>
+  <span class="status-detail">Updates every 24 months</span>
+  <span class="status-separator" aria-hidden="true"></span>
+  <span class="status-detail">Next update by January 2027</span>
+</div>
+```
+
 ::::
 :::::
 
@@ -49,8 +67,8 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
     <strong>Bernt D. Glaser</strong> (University of Oslo)<br>
     <strong>Alina I. Sartorius</strong> (University of Oslo)
   </div>
-  
-  <div id="hidden-authors" style="display:none"> 
+
+  <div id="hidden-authors" style="display:none">
     <strong>Kristin Audunsdottir</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
     <strong>Emilie Smith-Meyer Kildal</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
     <strong>Terje Nærland</strong> (K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital | Centre for Precision Psychiatry)<br>
@@ -58,14 +76,14 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
     <strong>Lars T. Westlye</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders)<br>
     <strong>Daniel S. Quintana</strong> (University of Oslo | K.G. Jebsen Centre for Neurodevelopmental Disorders | NevSom, Department of Rare Disorders, Oslo University Hospital)
   </div>
-  
+
   <a href="#" id="author-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleAuthors(); return false;">Show more authors</a>
-  
+
   <script>
   function toggleAuthors() {
     var hiddenAuthors = document.getElementById("hidden-authors");
     var toggleButton = document.getElementById("author-toggle");
-    
+
     if (hiddenAuthors.style.display === "none") {
       hiddenAuthors.style.display = "block";
       toggleButton.textContent = "Show fewer authors";
@@ -80,11 +98,11 @@ Effects of Oxytocin Administration on Non-Social Executive Functions in Humans: 
 :::
 
 ::: {.info-card .timeline-card}
-### Timeline
+### Project
 
 **Pre-registered:** July 29, 2022\
 **Published:** January 18, 2025\
-**Next update:** Transforming meta-analysis protocol into living meta-analysis protocol in progress
+**Next update:** January 2027
 :::
 
 ::: {.info-card .identifiers-card}
@@ -111,270 +129,172 @@ This preregistered systematic review and meta-analysis investigates the effects 
 
 The analysis employed both frequentist and Bayesian approaches, synthesizing 20 effect estimates from 13 eligible studies (729 total participants). The project addresses whether oxytocin administration influences executive functions when measured using non-social stimuli and tasks. A multilevel random-effects meta-analysis was conducted to account for multiple outcomes within studies.
 
-## Resources {#resources}
+## Version History {#version-history}
 
 ```{=html}
-<body>
-    <div class="resources-container">
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
-            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
-            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
+<div class="version-history">
+
+  <!-- v1: Initial Publication — expanded by default -->
+  <div class="version-entry version-latest" data-version="1">
+    <button class="version-header" aria-expanded="true" aria-controls="version-1-body">
+      <div class="version-header-left">
+        <span class="version-badge">v1</span>
+        <div class="version-meta">
+          <span class="version-label">Initial Publication</span>
+          <span class="version-date">January 2025</span>
         </div>
+      </div>
+      <div class="version-header-right">
+        <span class="version-resource-count">5 resources</span>
+        <svg class="version-chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </button>
 
-        <div id="initial" class="tab-content active">
-            <div class="timeline-indicator">
-                <div class="status-badge status-published">Published</div>
-                <span>January 2025</span>
-            </div>
+    <div class="version-body" id="version-1-body">
+      <span class="version-authors-label">Version authors</span>
+      <div class="version-authors">
+        Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., N&aelig;rland, T., Andreassen, O.A., Westlye, L.T., & Quintana, D.S.
+      </div>
 
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <h3 class="category-title">Protocol & Publication</h3>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Study Protocol</div>
-                            <div class="resource-description">Pre-registered analysis plan and methodology</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/8fzdy" class="resource-link" target="_blank">
-                                    <div class="link-title">Pre-registration on OSF</div>
-                                    <div class="link-url">osf.io/8fzdy</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Published Article</div>
-                            <div class="resource-description">Peer-reviewed publication in Molecular Psychiatry</div>
-                            <div class="resource-links">
-                                <a href="https://doi.org/10.1038/s41380-024-02871-4" class="resource-link" target="_blank">
-                                    <div class="link-title">Molecular Psychiatry Article</div>
-                                    <div class="link-doi">DOI: 10.1038/s41380-024-02871-4</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Preprint Version</div>
-                            <div class="resource-description">Open access preprint with full supplementary materials</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/cbjxd" class="resource-link" target="_blank">
-                                    <div class="link-title">OSF Preprint</div>
-                                    <div class="link-url">osf.io/cbjxd</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"></path>
-                    </svg>
-                    <h3 class="category-title">Data & Analysis</h3>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Complete Dataset & Scripts</div>
-                            <div class="resource-description">Raw data, processed data, and R analysis scripts</div>
-                            <div class="resource-links">
-                                <a href="https://osf.io/7eg5u/" class="resource-link" target="_blank">
-                                    <div class="link-title">OSF Data Repository</div>
-                                    <div class="link-url">osf.io/7eg5u</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Interactive Web Application</div>
-                            <div class="resource-description">Live Shiny app for exploring results and running analyses</div>
-                            <div class="resource-links">
-                                <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="resource-link" target="_blank">
-                                    <div class="link-title">Shiny Web Application</div>                                                   <div class="link-url">dsquintana.shinyapps.io/ot_meta_exec</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                    </svg>
-                    <h3 class="category-title">Related Research</h3>
-                </div>
-
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Theoretical Background</div>
-                            <div class="resource-description">Key theoretical papers informing this meta-analysis</div>
-                            <div class="resource-links">
-                                <a href="https://doi.org/10.1016/j.tics.2020.03.008" class="resource-link" target="_blank">
-                                    <div class="link-title">Allostatic Theory of Oxytocin</div>
-                                    <div class="link-doi">DOI: 10.1016/j.tics.2020.03.008</div>
-                                </a>
-                                <a href="https://doi.org/10.1038/s41380-020-0751-x" class="resource-link" target="_blank">
-                                    <div class="link-title">Intranasal Oxytocin Research Advances</div>
-                                    <div class="link-doi">DOI: 10.1038/s41380-020-0751-x</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="update1" class="tab-content">
-            <div class="coming-soon-notice">
-                <strong>Update 1 Coming Soon</strong> • Expected: January 2027 (24-month cycle)
-            </div>
-
-            <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">In Development</div>
-                <span>Next update within 24 months</span>
-            </div>
-        </div>
-
-        <div id="update2" class="tab-content">
-            <div class="future-notice">
-                <strong>Future Update</strong> • Expected: January 2029 (48 months from initial)
-            </div>
-
-            <div class="timeline-indicator">
-                <div class="status-badge status-future">Future</div>
-                <span>Long-term update planning</span>
-            </div>
-        </div>
+      <div class="version-resources-grid">
+        <a href="https://doi.org/10.1038/s41380-024-02871-4" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Publication</span>
+        </a>
+        <a href="https://osf.io/8fzdy" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Pre-registration</span>
+        </a>
+        <a href="https://osf.io/cbjxd" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Preprint</span>
+        </a>
+        <a href="https://osf.io/7eg5u/" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"/>
+          </svg>
+          <span>Dataset</span>
+        </a>
+        <a href="https://dsquintana.shinyapps.io/ot_meta_exec/" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span>Shiny App</span>
+        </a>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function switchTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+</div>
 
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
-
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.version-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var entry = this.closest('.version-entry');
+      var body = entry.querySelector('.version-body');
+      var isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        body.setAttribute('hidden', '');
+      } else {
+        body.removeAttribute('hidden');
+      }
+    });
+  });
+});
+</script>
 ```
 
 ## Current Results {#current-results}
 
 ```{=html}
-<body>
-    <div class="results-container">
-        <div class="overall-findings">
-            <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30).</p>
-            
-            <p>However, subgroup analyses revealed <strong>significant heterogeneity</strong> across different executive function domains, suggesting that oxytocin's effects may be domain-specific rather than uniformly distributed across all cognitive functions.</p>
-        </div>
+<div class="results-container">
+    <div class="overall-findings">
+        <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on non-social executive functions (Hedges' g = 0.07, 95% CI [-0.07, 0.22], p = 0.30).</p>
 
-        <div class="key-findings-section">
-            <h3 class="key-findings-title">Key Findings by Domain</h3>
-            
-            <div class="findings-grid">
-                <div class="finding-card significant">
-                    <div class="finding-domain">
-                        Cognitive Flexibility
-                        <span class="effect-size-badge positive-effect">Significant Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = 0.20</div>
-                    <div class="finding-significance">p = 0.02 • Statistically significant positive effect</div>
+        <p>However, subgroup analyses revealed <strong>significant heterogeneity</strong> across different executive function domains, suggesting that oxytocin's effects may be domain-specific rather than uniformly distributed across all cognitive functions.</p>
+    </div>
+
+    <div class="key-findings-section">
+        <h3 class="key-findings-title">Key Findings by Domain</h3>
+
+        <div class="findings-grid">
+            <div class="finding-card significant">
+                <div class="finding-domain">
+                    Cognitive Flexibility
+                    <span class="effect-size-badge positive-effect">Significant Effect</span>
                 </div>
+                <div class="finding-effect">Hedges' g = 0.20</div>
+                <div class="finding-significance">p = 0.02 &bull; Statistically significant positive effect</div>
+            </div>
 
-                <div class="finding-card non-significant">
-                    <div class="finding-domain">
-                        Working Memory
-                        <span class="effect-size-badge neutral-effect">No Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = 0.05</div>
-                    <div class="finding-significance">No significant effect detected</div>
+            <div class="finding-card non-significant">
+                <div class="finding-domain">
+                    Working Memory
+                    <span class="effect-size-badge neutral-effect">No Effect</span>
                 </div>
+                <div class="finding-effect">Hedges' g = 0.05</div>
+                <div class="finding-significance">No significant effect detected</div>
+            </div>
 
-                <div class="finding-card non-significant">
-                    <div class="finding-domain">
-                        Inhibitory Control
-                        <span class="effect-size-badge neutral-effect">No Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = -0.04</div>
-                    <div class="finding-significance">No significant effect detected</div>
+            <div class="finding-card non-significant">
+                <div class="finding-domain">
+                    Inhibitory Control
+                    <span class="effect-size-badge neutral-effect">No Effect</span>
                 </div>
-            </div>
-        </div>
-
-        <div class="bayesian-analysis">
-            <div class="bayesian-title">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
-                </svg>
-                Bayesian Meta-Analysis Results
-            </div>
-            <div class="bayesian-content">
-                The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an overall effect</strong> (BF₁₀ = 0.10) and <strong>moderate evidence against publication bias</strong> (BF_PB = 0.32). These findings strengthen confidence in the null result for the overall analysis.
-            </div>
-        </div>
-
-        <div class="statistical-note">
-            <div class="statistical-note-title">Statistical Power Analysis</div>
-            <div class="statistical-note-content">
-                Individual studies were generally <strong>underpowered</strong> (5-10% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects in oxytocin research.
-            </div>
-        </div>
-
-        <div class="figure-section" style="margin: 3rem 0; text-align: center;">
-            <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
-                <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png" 
-                     alt="Firepower Plot showing statistical power analysis" 
-                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
-                <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
-                    <strong>Figure 2: Firepower plot.</strong> Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
-                </div>
+                <div class="finding-effect">Hedges' g = -0.04</div>
+                <div class="finding-significance">No significant effect detected</div>
             </div>
         </div>
     </div>
-</body>
-</html>
+
+    <div class="bayesian-analysis">
+        <div class="bayesian-title">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+            </svg>
+            Bayesian Meta-Analysis Results
+        </div>
+        <div class="bayesian-content">
+            The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an overall effect</strong> (BF&#8321;&#8320; = 0.10) and <strong>moderate evidence against publication bias</strong> (BF_PB = 0.32). These findings strengthen confidence in the null result for the overall analysis.
+        </div>
+    </div>
+
+    <div class="statistical-note">
+        <div class="statistical-note-title">Statistical Power Analysis</div>
+        <div class="statistical-note-content">
+            Individual studies were generally <strong>underpowered</strong> (5-10% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects in oxytocin research.
+        </div>
+    </div>
+
+    <div class="figure-section" style="margin: 3rem 0; text-align: center;">
+        <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+            <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs41380-024-02871-4/MediaObjects/41380_2024_2871_Fig2_HTML.png"
+                 alt="Firepower Plot showing statistical power analysis"
+                 style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+            <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
+                <strong>Figure 2: Firepower plot.</strong> Statistical power of the main meta-analysis obtained by calculating the median power for effect sizes ranging from Hedges' g = 0.1–1 across all studies included in the meta-analysis. The analysis shows that individual studies had very low statistical power (median 6%) to detect the observed summary effect size.
+            </div>
+        </div>
+    </div>
+</div>
 ```
 
-## Inclusion and Exclusion Criteria {#criteria}
+## Methodology {#methodology}
+
+### Inclusion and Exclusion Criteria {#criteria}
 
 ::: criteria-box
-### Inclusion Criteria
+#### Inclusion Criteria
 
 -   **Type of Studies:** Human studies measuring effects of oxytocin administration on executive function using non-social stimuli
 -   **Intervention:** Oxytocin administered intranasally, orally, or intravenously regardless of dosage
@@ -386,7 +306,7 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
 :::
 
 ::: criteria-box
-### Exclusion Criteria
+#### Exclusion Criteria
 
 -   Non-human animal studies
 -   Studies investigating only endogenous oxytocin levels (no administration)
@@ -396,25 +316,19 @@ The analysis employed both frequentist and Bayesian approaches, synthesizing 20 
 -   Insufficient statistical data for meta-analysis
 :::
 
-## Methodology Summary {#methodology}
-
-This preregistered systematic review followed PRISMA guidelines. Searches were conducted in PubMed, Europe PubMed Central, and Bielefeld Academic Search Engine (BASE) on July 29, 2022, with an updated search on August 1, 2023.
-
-Quality assessment was conducted using the RoB 2.0 tool for assessing risk of bias in randomized trials. Two reviewers independently extracted data and assessed study quality, with disagreements resolved through discussion.
-
-Statistical analyses were implemented in R Studio 4.2.2 using the metafor package for frequentist meta-analysis and RoBMA for Robust Bayesian Meta-Analysis. A multilevel random-effects model was used to account for multiple dependent outcomes from the same studies. Between-measurement correlation was set at r = 0.3 based on available raw data from one included study.
-
-## Search Strategy {#search-strategy}
+### Search Strategy {#search-strategy}
 
 ::: search-string-box
-[PubMed:]{.search-db} Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes
+[PubMed:]{.search-db} `'oxytocin' AND ('executive function' OR 'working memory' OR 'cognitive flexibility' OR 'inhibitory control') AND ('administration' OR 'intranasal')`
 
-[Europe PubMed Central:]{.search-db} Customized search terms adapted for database specifications
+[Europe PubMed Central:]{.search-db} `'oxytocin' AND ('executive function' OR 'cognition') AND ('randomized' OR 'placebo')`
 
-[Bielefeld Academic Search Engine (BASE):]{.search-db} Comprehensive search strategy including grey literature and preprints
+[Bielefeld Academic Search Engine (BASE):]{.search-db} `'oxytocin administration' AND 'executive function' AND 'non-social'`
 :::
 
-## Study Characteristics {#study-characteristics}
+**Note:** Search terms developed with assistance from academic librarians, targeting oxytocin administration studies with executive function outcomes. Exact search strings available in the [pre-registration](https://osf.io/8fzdy).
+
+### Study Characteristics {#study-characteristics}
 
 -   **Included studies:** The final meta-analysis included 13 studies with 20 effect estimates
 -   **Total participants:** 729 (284 in within-participant studies, 445 in between-group studies)
@@ -424,35 +338,43 @@ Statistical analyses were implemented in R Studio 4.2.2 using the metafor packag
 -   **Publication status:** 76.92% peer-reviewed articles, 23.07% letters to editor
 -   **Study designs:** 6 within-participant, 7 between-group studies
 
+### Methodology Summary {#methodology-summary}
+
+This preregistered systematic review followed PRISMA guidelines. Searches were conducted in PubMed, Europe PubMed Central, and Bielefeld Academic Search Engine (BASE) on July 29, 2022, with an updated search on August 1, 2023.
+
+Quality assessment was conducted using the RoB 2.0 tool for assessing risk of bias in randomized trials. Two reviewers independently extracted data and assessed study quality, with disagreements resolved through discussion.
+
+Statistical analyses were implemented in R Studio 4.2.2 using the metafor package for frequentist meta-analysis and RoBMA for Robust Bayesian Meta-Analysis. A multilevel random-effects model was used to account for multiple dependent outcomes from the same studies. Between-measurement correlation was set at r = 0.3 based on available raw data from one included study.
+
 ## References {#references}
 
 ```{=html}
 <div id="reference-list" style="font-size: 0.85rem;">
   <div id="visible-references">
     Kang, H., Glaser, B.D., Sartorius, A.I., Audunsdottir, K., Kildal, E.S.M., Nærland, T., ... & Quintana, D.S. (2025). Effects of oxytocin administration on non-social executive functions in humans: a preregistered systematic review and meta-analysis. <i>Molecular Psychiatry, 30</i>, 2239–2251. <a href="https://doi.org/10.1038/s41380-024-02871-4">https://doi.org/10.1038/s41380-024-02871-4</a><br><br>
-    
+
     Quintana, D.S., & Guastella, A.J. (2020). An allostatic theory of oxytocin. <i>Trends in Cognitive Sciences, 24</i>(6), 515-528. <a href="https://doi.org/10.1016/j.tics.2020.03.008">https://doi.org/10.1016/j.tics.2020.03.008</a><br><br>
-    
+
     Chini, B., Leonzino, M., Braida, D., & Sala, M. (2014). Learning about oxytocin: pharmacologic and behavioral issues. <i>Biological Psychiatry, 76</i>(5), 360-366. <a href="https://doi.org/10.1016/j.biopsych.2013.08.029">https://doi.org/10.1016/j.biopsych.2013.08.029</a><br><br>
   </div>
-  
+
   <div id="hidden-references" style="display:none">
     Miyake, A., & Friedman, N.P. (2012). The nature and organization of individual differences in executive functions: four general conclusions. <i>Current Directions in Psychological Science, 21</i>(1), 8-14.<br><br>
-    
+
     Kapetaniou, G.E., Reinhard, M.A., Christian, P., Jobst, A., Tobler, P.N., Padberg, F., ... & Hurlemann, R. (2021). The role of oxytocin in delay of gratification and flexibility in non-social decision making. <i>eLife, 10</i>, e61844.<br><br>
-    
+
     Quintana, D.S., Lischke, A., Grace, S., Scheele, D., Ma, Y., & Becker, B. (2021). Advances in the field of intranasal oxytocin research: lessons learned and future directions for clinical research. <i>Molecular Psychiatry, 26</i>(1), 80-91.<br><br>
-    
-    Bartoš, F., Maier, M., Quintana, D.S., & Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. <i>Advances in Methods and Practices in Psychological Science, 5</i>(3), 25152459221109259.<br><br>
+
+    Bartos, F., Maier, M., Quintana, D.S., & Wagenmakers, E.J. (2022). Adjusting for publication bias in JASP and R: selection models, PET-PEESE, and robust Bayesian meta-analysis. <i>Advances in Methods and Practices in Psychological Science, 5</i>(3), 25152459221109259.<br><br>
   </div>
-  
+
   <a href="#" id="reference-toggle" style="font-size: 0.9rem; color: #1E50A0; text-decoration: none; display: inline-block; margin-top: 8px;" onclick="toggleReferences(); return false;">Show more references</a>
-  
+
   <script>
   function toggleReferences() {
     var hiddenReferences = document.getElementById("hidden-references");
     var toggleButton = document.getElementById("reference-toggle");
-    
+
     if (hiddenReferences.style.display === "none") {
       hiddenReferences.style.display = "block";
       toggleButton.textContent = "Show fewer references";

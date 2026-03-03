@@ -1,27 +1,31 @@
 ---
-title: "Write title here" 
-analytical_framework: # Choose one or more 
+title: "Write title here"
+status: "living" # "living" or "retired"
+update-cadence: "24 months" # e.g. "6 months", "12 months", "24 months"
+next-update: "Month YYYY" # only for living status
+final-version: "" # only for retired status, e.g. "v3 (2028)"
+analytical_framework: # Choose one or more
   - "Frequentist"
   - "Bayesian"
   - "Mixed methods"
 oxytocin:
-  intervention: # if applicable, choose one or more:   
+  intervention: # if applicable, choose one or more:
     - "Intranasal oxytocin administration"
     - "Oral oxytocin administration"
-    - "Intravenous/injection oxytocin administration" 
+    - "Intravenous/injection oxytocin administration"
     - "Environmental/behavioral oxytocin manipulation"
     - "Perinatal oxytocin exposure"
-  assessment_method: # if applicable, choose one or more: 
+  assessment_method: # if applicable, choose one or more:
     - "Behavioral assessment"
     - "Physiological response"
     - "Biological sample collection"
     - "Genetic studies"
     - "Neural/imaging measurement"
-  route: # Choose one or more:# if applicable, choose one or more: 
+  route: # Choose one or more:# if applicable, choose one or more:
     - "Central"
-    - "Peripheral" 
+    - "Peripheral"
     - "Various administration routes"
-  dosage: # if applicable, choose one or more: 
+  dosage: # if applicable, choose one or more:
     - "8 IU"
     - "16 IU"
     - "24 IU"
@@ -29,11 +33,11 @@ oxytocin:
     - "40 IU"
     - "Variable dosage"
 population:
-  status: # if applicable, choose one or more: 
+  status: # if applicable, choose one or more:
     - "Healthy"
     - "Clinical"
     - "Mixed"
-  age_group: # if applicable, choose one or more: 
+  age_group: # if applicable, choose one or more:
     - "Children"
     - "Adolescents"
     - "Adults"
@@ -41,7 +45,7 @@ population:
     - "Mixed Age Groups"
   clinical_type: # Describe if applicable (e.g., "Autism Spectrum Disorder", "Depression")
 outcomes:
-  biological: # if applicable, choose one or more: 
+  biological: # if applicable, choose one or more:
     - "Cardiovascular"
     - "Neuroendocrine"
     - "Neurological"
@@ -49,7 +53,7 @@ outcomes:
     - "Immune and Inflammatory"
     - "Pain and Sensory"
     - "Sleep and Circadian"
-  psychological_behavioral: # if applicable, choose one or more: 
+  psychological_behavioral: # if applicable, choose one or more:
     - "Mood and Emotion"
     - "Cognition and Memory"
     - "Stress and Coping"
@@ -60,7 +64,7 @@ outcomes:
     - "Trust and Cooperation"
     - "Communication and Empathy"
     - "Aggression and Conflict"
-  clinical: # if applicable, choose one or more: 
+  clinical: # if applicable, choose one or more:
     - "Neurodevelopmental"
     - "Mood Disorders"
     - "Psychotic Disorders"
@@ -73,8 +77,10 @@ dois:
 format:
   html:
     page-layout: full
+    toc: true
     toc-title: "On this page"
     toc-location: right
+    toc-depth: 3
 ---
 
 ::::: project-hero-section
@@ -82,6 +88,30 @@ format:
 ::: project-hero-title
 \[Write title here, this is the title that shows in the blue hero section\]
 :::
+
+```{=html}
+<!-- Living status (use this for active projects) -->
+<div class="project-status project-status--living">
+  <span class="status-dot status-dot--living" aria-hidden="true"></span>
+  <span class="status-text">Living meta-analysis</span>
+  <span class="status-separator" aria-hidden="true"></span>
+  <span class="status-detail">Updates every [XX] months</span>
+  <span class="status-separator" aria-hidden="true"></span>
+  <span class="status-detail">Next update by [Month YYYY]</span>
+</div>
+
+<!-- Retired status (use this for completed projects, remove the living div above)
+<div class="project-status project-status--retired">
+  <span class="status-dot status-dot--retired" aria-hidden="true"></span>
+  <span class="status-text">Retired</span>
+  <span class="status-separator" aria-hidden="true"></span>
+  <span class="status-detail">Final version: vN (YYYY)</span>
+  <span class="status-separator" aria-hidden="true"></span>
+  <span class="status-detail">No further updates planned</span>
+</div>
+-->
+```
+
 ::::
 :::::
 
@@ -93,12 +123,12 @@ format:
 ```{=html}
 <div id="author-list">
   <div id="visible-authors">
-    <strong>[First Author Name]</strong> ([Affiliation])<br> 
+    <strong>[First Author Name]</strong> ([Affiliation])<br>
     <strong>[Second Author Name]</strong> ([Affiliation])<br>
     <strong>[Senior Author Name]</strong> ([Multiple Affiliations Separated by | Pipes])
   </div>
-  
-  <div id="hidden-authors" style="display:none"> 
+
+  <div id="hidden-authors" style="display:none">
     <strong>[Fourth Author]</strong> ([Affiliation])<br>
     <strong>[Fifth Author]</strong> ([Affiliation])<br>
     <strong>[Sixth Author]</strong> ([Affiliation])<br>
@@ -106,14 +136,14 @@ format:
     <strong>[Eighth Author]</strong> ([Multiple Affiliations | Separated by Pipes])<br>
     <strong>[Additional Authors as needed...]</strong><br>
   </div>
-  
+
   <a href="#" id="author-toggle" class="toggle-link" onclick="toggleAuthors(); return false;">+ Show more authors</a>
-  
+
   <script>
   function toggleAuthors() {
     var hiddenAuthors = document.getElementById("hidden-authors");
     var toggleButton = document.getElementById("author-toggle");
-    
+
     if (hiddenAuthors.style.display === "none") {
       hiddenAuthors.style.display = "block";
       toggleButton.textContent = "- Show fewer authors";
@@ -128,11 +158,11 @@ format:
 :::
 
 ::: {.info-card .timeline-card}
-### Timeline
+### Project
 
 **Pre-registered:** \[Month DD, YYYY\]\
-**Last update:** \[Status of current analysis\]\
-**Next update:** \[Planned date or "To be determined" (XX-month update cycle)\]
+**Published:** \[Month DD, YYYY or "Pending"\]\
+**Next update:** \[Month YYYY or "To be determined"\]
 :::
 
 ::: {.info-card .identifiers-card}
@@ -157,433 +187,310 @@ format:
 
 \[Write abstract here. This should be a concise summary of the living meta-analysis, including the research question, methodology, and significance of the study.\]
 
-## Resources {#resources}
+## Version History {#version-history}
 
 ```{=html}
-<body>
-    <div class="resources-container">
-        
-        <!-- TAB NAVIGATION BUTTONS -->
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
-            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
-            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
+<div class="version-history">
+
+  <!-- NEWEST VERSION — expanded by default -->
+  <div class="version-entry version-latest" data-version="1">
+    <button class="version-header" aria-expanded="true" aria-controls="version-1-body">
+      <div class="version-header-left">
+        <span class="version-badge">v1</span>
+        <div class="version-meta">
+          <span class="version-label">Initial Publication</span>
+          <span class="version-date">[Month YYYY]</span>
         </div>
+      </div>
+      <div class="version-header-right">
+        <span class="version-resource-count">[N] resources</span>
+        <svg class="version-chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </button>
 
+    <div class="version-body" id="version-1-body">
+      <span class="version-authors-label">Version authors</span>
+      <div class="version-authors">
+        [Author, A.B., Author, C.D., Author, E.F., et al.]
+      </div>
 
-        <!-- INITIAL PUBLICATION TAB -->
-        <div id="initial" class="tab-content active">
-            
-            <!-- Timeline indicator for initial publication -->
-            <div class="timeline-indicator">
-                <div class="status-badge status-published">Published</div>
-                <span>[Month Year]</span>
-            </div>
-
-
-            <!-- PROTOCOL & PUBLICATION CATEGORY -->
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <h3 class="category-title">Protocol & Publication</h3>
-                </div>
-
-                <!-- Study Protocol Item -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">[Resource Type Name]</div>
-                            <div class="resource-description">[Write short description of this resource]</div>
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or title]</div>
-                                    <div class="link-url">[Clean display URL]</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Published Article Item -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">[Resource Type Name]</div>
-                            <div class="resource-description">[Write short description of this resource]</div>
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or title]</div>
-                                    <div class="link-doi">[DOI if applicable]</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Preprint Version Item -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">[Resource Type Name]</div>
-                            <div class="resource-description">[Write short description of this resource]</div>
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or title]</div>
-                                    <div class="link-url">[Clean display URL]</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- DATA & ANALYSIS CATEGORY -->
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"></path>
-                    </svg>
-                    <h3 class="category-title">Data & Analysis</h3>
-                </div>
-
-                <!-- Complete Dataset Item -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">[Resource Type Name]</div>
-                            <div class="resource-description">[Write short description of this resource]</div>
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or title]</div>
-                                    <div class="link-url">[Clean display URL]</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Analysis Scripts Item -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">[Resource Type Name]</div>
-                            <div class="resource-description">[Write short description of this resource]</div>
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or title]</div>
-                                    <div class="link-url">[Clean display URL or DOI]</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- RELATED RESEARCH CATEGORY -->
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                    </svg>
-                    <h3 class="category-title">Related Research</h3>
-                </div>
-
-                <!-- Related Research Item with Multiple Links -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">[Resource Type Name]</div>
-                            <div class="resource-description">[Write short description of this resource]</div>
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or paper title]</div>
-                                    <div class="link-doi">[DOI if applicable]</div>
-                                </a>
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                    <div class="link-title">[Link name or paper title]</div>
-                                    <div class="link-doi">[DOI if applicable]</div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-        <!-- UPDATE 1 TAB -->
-        <div id="update1" class="tab-content">
-            
-            <!-- Coming soon notice -->
-            <div class="future-notice">
-                <strong>Update 1 Coming Soon</strong> • Expected: [Month Year] (updates every [XX] months)
-            </div>
-
-            <!-- Timeline indicator for update 1 -->
-            <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">Coming Soon</div>
-                <span>Next update within [XX] months</span>
-            </div>
-        </div>
-
-
-        <!-- UPDATE 2 TAB -->
-        <div id="update2" class="tab-content">
-            
-            <!-- Coming soon notice -->
-            <div class="future-notice">
-                <strong>Update 2</strong> • Expected: [Month Year] (updates every [XX] months)
-            </div>
-
-            <!-- Timeline indicator for update 2 -->
-            <div class="timeline-indicator">
-                <div class="status-badge future-notice">Coming Soon</div>
-                <span>Next update within [XX] months</span>
-            </div>
-        </div>
-
-
+      <div class="version-resources-grid">
+        <a href="[INSERT_URL]" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Publication</span>
+        </a>
+        <a href="[INSERT_URL]" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Pre-registration</span>
+        </a>
+        <a href="[INSERT_URL]" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Preprint</span>
+        </a>
+        <a href="[INSERT_URL]" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.589 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.589 4 8 4s8-1.79 8-4M4 7c0-2.21 3.589-4 8-4s8 1.79 8 4"/>
+          </svg>
+          <span>Dataset</span>
+        </a>
+        <a href="[INSERT_URL]" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span>Shiny App</span>
+        </a>
+      </div>
     </div>
+  </div>
 
+  <!-- FUTURE UPDATE (collapsed, placeholder) -->
+  <!--
+  <div class="version-entry" data-version="2">
+    <button class="version-header" aria-expanded="false" aria-controls="version-2-body">
+      <div class="version-header-left">
+        <span class="version-badge">v2</span>
+        <div class="version-meta">
+          <span class="version-label">Update 1</span>
+          <span class="version-date">[Expected: Month YYYY]</span>
+        </div>
+      </div>
+      <div class="version-header-right">
+        <span class="version-resource-count">Upcoming</span>
+        <svg class="version-chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </button>
+    <div class="version-body" id="version-2-body" hidden>
+      <div class="version-authors">To be determined upon publication.</div>
+      <div class="version-resources-grid">
+        <span class="version-resource-link" style="opacity: 0.5; pointer-events: none;">
+          <span>Resources will be added upon publication</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  -->
 
-    <!-- JAVASCRIPT FOR TAB SWITCHING -->
-    <script>
-        function switchTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+</div>
 
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
+<!-- SHOW EARLIER VERSIONS TOGGLE (uncomment when 4+ versions exist) -->
+<!--
+<button class="version-show-earlier" aria-expanded="false">
+  Show N earlier versions
+</button>
+<div class="version-earlier-group" hidden>
+  ... older version-entry elements ...
+</div>
+-->
 
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Version expand/collapse
+  document.querySelectorAll('.version-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var entry = this.closest('.version-entry');
+      var body = entry.querySelector('.version-body');
+      var isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        body.setAttribute('hidden', '');
+      } else {
+        body.removeAttribute('hidden');
+      }
+    });
+  });
 
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
-    </script>
-
-</body>
-</html>
+  // "Show earlier versions" toggle
+  var showEarlierBtn = document.querySelector('.version-show-earlier');
+  if (showEarlierBtn) {
+    showEarlierBtn.addEventListener('click', function() {
+      var group = document.querySelector('.version-earlier-group');
+      var isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        group.setAttribute('hidden', '');
+        this.textContent = this.textContent.replace('Hide', 'Show');
+      } else {
+        group.removeAttribute('hidden');
+        this.textContent = this.textContent.replace('Show', 'Hide');
+      }
+    });
+  }
+});
+</script>
 ```
 
 ## Current Results {#current-results}
 
 ```{=html}
-<body> 
-    <div class="results-container">
-    
-        
-        <!-- OVERALL FINDINGS OPTIONS -->
-        
-        
-        <!-- Option A: No Overall Effect -->
-        <div class="overall-findings" style="background: #f0f9ff; border-left: 4px solid #3b82f6;">
-            <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).
-        </div>
+<div class="results-container">
 
+    <!-- OVERALL FINDINGS OPTIONS (choose one, delete the others) -->
 
-
-        <!-- Option B: Significant Positive Effect -->
-        <div class="overall-findings" style="background: #f0fdf4; border-left: 4px solid #10b981;">
-            <p>The meta-analysis found a <strong>significant positive effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).</p>
-            <p>This effect was [consistent across domains / varied by subdomain], with [ADDITIONAL CONTEXT].</p>
-        </div>
-
-
-
-        <!-- Option C: Significant Negative Effect -->
-        <div class="overall-findings" style="background: #fef2f2; border-left: 4px solid #ef4444;">
-            <p>The meta-analysis found a <strong>significant negative effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).</p>
-            <p>This effect suggests that oxytocin [INTERPRETATION OF NEGATIVE EFFECT].</p>
-        </div>
-
-
-
-        <!-- Option D: Mixed/Heterogeneous Effects -->
-        <div class="overall-findings" style="background: #fffbeb; border-left: 4px solid #f59e0b;">
-            <p>The meta-analysis revealed <strong>substantial heterogeneity</strong> in oxytocin's effects on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], I² = [VALUE]%).</p>
-            <p>Effects varied significantly by [MODERATOR], suggesting that oxytocin's impact is highly context-dependent.</p>
-        </div>
-
-
-
-        <!-- KEY FINDINGS SECTION WRAPPER -->
-        <div class="key-findings-section">
-            <h3 class="key-findings-title">Key Findings by Domain</h3>
-            
-            <div class="findings-grid">
-                
-                <!-- FINDING CARD OPTIONS -->
-
-
-                
-                <!-- Card Type A: Significant Positive Effect -->
-                <div class="finding-card significant" style="background: #f0fdf4;">
-                    <div class="finding-domain">
-                        [DOMAIN NAME]
-                        <span class="effect-size-badge positive-effect">Significant Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = [VALUE]</div>
-                    <div class="finding-significance">p = [P-VALUE] • Statistically significant positive effect</div>
-                </div>
-
-
-
-                <!-- Card Type B: No Significant Effect -->
-                <div class="finding-card non-significant" style="background: #f9fafb;">
-                    <div class="finding-domain">
-                        [DOMAIN NAME]
-                        <span class="effect-size-badge neutral-effect">No Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = [VALUE]</div>
-                    <div class="finding-significance">No significant effect detected</div>
-                </div>
-
-
-
-                <!-- Card Type C: Significant Negative Effect -->
-                <div class="finding-card negative-significant" style="background: #fef2f2;">
-                    <div class="finding-domain">
-                        [DOMAIN NAME]
-                        <span class="effect-size-badge negative-effect">Significant Negative Effect</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = [NEGATIVE VALUE]</div>
-                    <div class="finding-significance">p = [P-VALUE] • Statistically significant negative effect</div>
-                </div>
-
-
-
-                <!-- Card Type D: Trending/Marginal Effect -->
-                <div class="finding-card non-significant" style="background: #fffbeb;">
-                    <div class="finding-domain">
-                        [DOMAIN NAME]
-                        <span class="effect-size-badge neutral-effect">Trending</span>
-                    </div>
-                    <div class="finding-effect">Hedges' g = [VALUE]</div>
-                    <div class="finding-significance">p = [P-VALUE] • Marginally significant trend</div>
-                </div>
-
-
-                
-            </div>
-        </div>
-
-
-
-
-        <!-- BAYESIAN ANALYSIS OPTIONS -->
-
-
-        
-        <!-- Option A: Evidence Against Effect (Null Result) -->
-        <div class="bayesian-analysis" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
-            <div class="bayesian-title">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
-                </svg>
-                Bayesian Meta-Analysis Results
-            </div>
-            <div class="bayesian-content">
-                The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an effect</strong> (BF₁₀ = [VALUE]) and <strong>[moderate/strong] evidence against publication bias</strong> (BF_PB = [VALUE]). These findings strengthen confidence in the null result.
-            </div>
-        </div>
-
-
-
-        <!-- Option B: Evidence For Effect -->
-        <div class="bayesian-analysis" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
-            <div class="bayesian-title">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
-                </svg>
-                Bayesian Meta-Analysis Results
-            </div>
-            <div class="bayesian-content">
-                The Robust Bayesian Meta-Analysis provided <strong>strong evidence for the effect</strong> (BF₁₀ = [VALUE]), supporting the frequentist findings. [ADDITIONAL INTERPRETATION].
-            </div>
-        </div>
-
-
-
-
-        <!-- Option C: Inconclusive Bayesian Evidence -->
-        <div class="bayesian-analysis" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
-            <div class="bayesian-title">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
-                </svg>
-                Bayesian Meta-Analysis Results
-            </div>
-            <div class="bayesian-content">
-                The Robust Bayesian Meta-Analysis provided <strong>inconclusive evidence</strong> (BF₁₀ = [VALUE]), suggesting the data cannot clearly distinguish between the presence and absence of an effect.
-            </div>
-        </div>
-
-
-
-
-        <!-- STATISTICAL NOTES OPTIONS -->
-        
-        <!-- Power Analysis Note -->
-        <div class="statistical-note" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
-            <div class="statistical-note-title">Statistical Power Analysis</div>
-            <div class="statistical-note-content">
-                Individual studies were generally <strong>underpowered</strong> ([PERCENT]% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects.
-            </div>
-        </div>
-
-
-
-        <!-- Heterogeneity Note -->
-        <div class="statistical-note" style="background: #fef3c7; border-left: 3px solid #f59e0b;">
-            <div class="statistical-note-title">Heterogeneity Analysis</div>
-            <div class="statistical-note-content">
-                Substantial heterogeneity was observed across studies (I² = [VALUE]%, τ² = [VALUE]), suggesting that [INTERPRETATION OF HETEROGENEITY SOURCE].
-            </div>
-        </div>
-
-
-
-        <!-- Publication Bias Note -->
-        <div class="statistical-note" style="background: #dbeafe; border-left: 3px solid #3b82f6;">
-            <div class="statistical-note-title">Publication Bias Assessment</div>
-            <div class="statistical-note-content">
-                [Evidence of publication bias was/was not detected] using [METHOD]. [INTERPRETATION AND IMPLICATIONS].
-            </div>
-        </div>
-
-
-
-        <!-- FIGURE SECTION -->
-        <div class="figure-section" style="margin: 3rem 0; text-align: center;">
-            <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
-                <img src="[IMAGE_URL]" 
-                     alt="[DESCRIPTIVE ALT TEXT]" 
-                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
-                <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
-                    <strong>Figure [NUMBER]: [FIGURE TITLE].</strong> [DETAILED CAPTION DESCRIBING THE FIGURE AND KEY FINDINGS]
-                </div>
-            </div>
-        </div>
-
-
-
+    <!-- Option A: No Overall Effect -->
+    <div class="overall-findings" style="background: #f0f9ff; border-left: 4px solid #3b82f6;">
+        <p>The meta-analysis found <strong>no overall significant effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).
     </div>
-</body>
+
+    <!-- Option B: Significant Positive Effect -->
+    <div class="overall-findings" style="background: #f0fdf4; border-left: 4px solid #10b981;">
+        <p>The meta-analysis found a <strong>significant positive effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).</p>
+        <p>This effect was [consistent across domains / varied by subdomain], with [ADDITIONAL CONTEXT].</p>
+    </div>
+
+    <!-- Option C: Significant Negative Effect -->
+    <div class="overall-findings" style="background: #fef2f2; border-left: 4px solid #ef4444;">
+        <p>The meta-analysis found a <strong>significant negative effect</strong> of oxytocin administration on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], p = [P-VALUE]).</p>
+        <p>This effect suggests that oxytocin [INTERPRETATION OF NEGATIVE EFFECT].</p>
+    </div>
+
+    <!-- Option D: Mixed/Heterogeneous Effects -->
+    <div class="overall-findings" style="background: #fffbeb; border-left: 4px solid #f59e0b;">
+        <p>The meta-analysis revealed <strong>substantial heterogeneity</strong> in oxytocin's effects on [OUTCOME] (Hedges' g = [VALUE], 95% CI [[LOWER], [UPPER]], I² = [VALUE]%).</p>
+        <p>Effects varied significantly by [MODERATOR], suggesting that oxytocin's impact is highly context-dependent.</p>
+    </div>
+
+    <!-- KEY FINDINGS SECTION -->
+    <div class="key-findings-section">
+        <h3 class="key-findings-title">Key Findings by Domain</h3>
+
+        <div class="findings-grid">
+            <!-- Card Type A: Significant Positive Effect -->
+            <div class="finding-card significant" style="background: #f0fdf4;">
+                <div class="finding-domain">
+                    [DOMAIN NAME]
+                    <span class="effect-size-badge positive-effect">Significant Effect</span>
+                </div>
+                <div class="finding-effect">Hedges' g = [VALUE]</div>
+                <div class="finding-significance">p = [P-VALUE] &bull; Statistically significant positive effect</div>
+            </div>
+
+            <!-- Card Type B: No Significant Effect -->
+            <div class="finding-card non-significant" style="background: #f9fafb;">
+                <div class="finding-domain">
+                    [DOMAIN NAME]
+                    <span class="effect-size-badge neutral-effect">No Effect</span>
+                </div>
+                <div class="finding-effect">Hedges' g = [VALUE]</div>
+                <div class="finding-significance">No significant effect detected</div>
+            </div>
+
+            <!-- Card Type C: Significant Negative Effect -->
+            <div class="finding-card negative-significant" style="background: #fef2f2;">
+                <div class="finding-domain">
+                    [DOMAIN NAME]
+                    <span class="effect-size-badge negative-effect">Significant Negative Effect</span>
+                </div>
+                <div class="finding-effect">Hedges' g = [NEGATIVE VALUE]</div>
+                <div class="finding-significance">p = [P-VALUE] &bull; Statistically significant negative effect</div>
+            </div>
+
+            <!-- Card Type D: Trending/Marginal Effect -->
+            <div class="finding-card non-significant" style="background: #fffbeb;">
+                <div class="finding-domain">
+                    [DOMAIN NAME]
+                    <span class="effect-size-badge neutral-effect">Trending</span>
+                </div>
+                <div class="finding-effect">Hedges' g = [VALUE]</div>
+                <div class="finding-significance">p = [P-VALUE] &bull; Marginally significant trend</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BAYESIAN ANALYSIS OPTIONS (choose one, delete the others) -->
+
+    <!-- Option A: Evidence Against Effect (Null Result) -->
+    <div class="bayesian-analysis" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);">
+        <div class="bayesian-title">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+            </svg>
+            Bayesian Meta-Analysis Results
+        </div>
+        <div class="bayesian-content">
+            The Robust Bayesian Meta-Analysis provided <strong>moderate support for the absence of an effect</strong> (BF&#8321;&#8320; = [VALUE]) and <strong>[moderate/strong] evidence against publication bias</strong> (BF_PB = [VALUE]). These findings strengthen confidence in the null result.
+        </div>
+    </div>
+
+    <!-- Option B: Evidence For Effect -->
+    <div class="bayesian-analysis" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);">
+        <div class="bayesian-title">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+            </svg>
+            Bayesian Meta-Analysis Results
+        </div>
+        <div class="bayesian-content">
+            The Robust Bayesian Meta-Analysis provided <strong>strong evidence for the effect</strong> (BF&#8321;&#8320; = [VALUE]), supporting the frequentist findings. [ADDITIONAL INTERPRETATION].
+        </div>
+    </div>
+
+    <!-- Option C: Inconclusive Bayesian Evidence -->
+    <div class="bayesian-analysis" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+        <div class="bayesian-title">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7H7a1 1 0 100 2h6a1 1 0 100-2zm0 4H7a1 1 0 100 2h6a1 1 0 100-2z" clip-rule="evenodd"/>
+            </svg>
+            Bayesian Meta-Analysis Results
+        </div>
+        <div class="bayesian-content">
+            The Robust Bayesian Meta-Analysis provided <strong>inconclusive evidence</strong> (BF&#8321;&#8320; = [VALUE]), suggesting the data cannot clearly distinguish between the presence and absence of an effect.
+        </div>
+    </div>
+
+    <!-- STATISTICAL NOTES (include as applicable) -->
+
+    <div class="statistical-note" style="background: #f3f4f6; border-left: 3px solid #6b7280;">
+        <div class="statistical-note-title">Statistical Power Analysis</div>
+        <div class="statistical-note-content">
+            Individual studies were generally <strong>underpowered</strong> ([PERCENT]% median power) to detect the observed summary effect size. This highlights the importance of meta-analytic approaches for detecting small but meaningful effects.
+        </div>
+    </div>
+
+    <div class="statistical-note" style="background: #fef3c7; border-left: 3px solid #f59e0b;">
+        <div class="statistical-note-title">Heterogeneity Analysis</div>
+        <div class="statistical-note-content">
+            Substantial heterogeneity was observed across studies (I&sup2; = [VALUE]%, &tau;&sup2; = [VALUE]), suggesting that [INTERPRETATION OF HETEROGENEITY SOURCE].
+        </div>
+    </div>
+
+    <div class="statistical-note" style="background: #dbeafe; border-left: 3px solid #3b82f6;">
+        <div class="statistical-note-title">Publication Bias Assessment</div>
+        <div class="statistical-note-content">
+            [Evidence of publication bias was/was not detected] using [METHOD]. [INTERPRETATION AND IMPLICATIONS].
+        </div>
+    </div>
+
+    <!-- FIGURE SECTION -->
+    <div class="figure-section" style="margin: 3rem 0; text-align: center;">
+        <div class="figure-container" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+            <img src="[IMAGE_URL]"
+                 alt="[DESCRIPTIVE ALT TEXT]"
+                 style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+            <div class="figure-caption" style="font-size: 0.9rem; color: #4b5563; line-height: 1.6; text-align: left; margin-top: 1rem;">
+                <strong>Figure [NUMBER]: [FIGURE TITLE].</strong> [DETAILED CAPTION DESCRIBING THE FIGURE AND KEY FINDINGS]
+            </div>
+        </div>
+    </div>
+
+</div>
 ```
 
-## Inclusion and Exclusion Criteria {#criteria}
+## Methodology {#methodology}
+
+### Inclusion and Exclusion Criteria {#criteria}
 
 ::: criteria-box
-### Inclusion Criteria
+#### Inclusion Criteria
 
 -   **Type of Studies:** Study designs included, e.g., "Randomized controlled trials", "Original research written in English"
 -   **Intervention:** Specific intervention criteria, e.g., "Intranasal oxytocin administration"
@@ -593,36 +500,45 @@ format:
 :::
 
 ::: criteria-box
-### Exclusion Criteria
+#### Exclusion Criteria
 
 -   Specific exclusion criteria relevant to the research question
 -   Additional exclusion criteria
 -   Overlap/duplicate publication handling
 :::
 
-## Methodology Summary {#methodology}
-
-This living meta-analysis follows the PRISMA guidelines for systematic reviews. Our methodology is pre-registered and will incorporate \[relevant previous research if applicable\].
-
-The quality of included studies will be assessed using \[specific quality assessment tool, e.g., "Cochrane Risk of Bias tool for RCTs"\]. Studies will be independently rated by two reviewers \[describe rating categories and scoring system\].
-
-Statistical analyses will be conducted using \[statistical software\] with the \[specific packages\]. \[Type of effects model\] will be used with \[specific estimator\]. Heterogeneity will be evaluated by calculating \[heterogeneity measures\]. Publication bias will be assessed using \[bias assessment methods\].
-
-## Search Strategy {#search-strategy}
+### Search Strategy {#search-strategy}
 
 ::: search-string-box
-[Write search engine here e.g. PubMed:]{.search-db} the search string used in e.g pubmed here
+[Write search engine here e.g. PubMed:]{.search-db} `'search terms here' AND 'more terms' OR 'alternative terms'`
 
-[Write search engine here:]{.search-db} search string here
+[Write search engine here:]{.search-db} `'search string here'`
 
-[Write search engine here:]{.search-db} search string here
+[Write search engine here:]{.search-db} `'search string here'`
 :::
 
-**Note:** If your search strings contain special characters (quotes, parentheses, ®, etc.), wrap them in backticks like this: `'search string'` to ensure proper formatting.Example:
+**Note:** Wrap search strings in backticks to ensure proper formatting of special characters (quotes, parentheses, Boolean operators, etc.).
 
-[MEDLINE:]{.search-db} `'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric' AND 'antepartum'`
+### Related Research {#related-research}
 
-## Update Protocol {#update-protocol}
+<!-- Optional: Include if this project builds on previous meta-analyses or key foundational studies.
+     Remove this section if not applicable. -->
+
+::: related-research-box
+This living meta-analysis builds on \[Previous Author et al. (YYYY)\], which concluded \[key finding\]. Links to related work:
+
+- \[Previous meta-analysis title\] — [DOI link](https://doi.org/XXXX)
+- \[Related foundational study\] — [DOI link](https://doi.org/XXXX)
+:::
+
+### Study Characteristics {#study-characteristics}
+
+-   **Included studies:** \[Number of included studies and effect estimates\]
+-   **Total participants:** \[Total N and breakdown if applicable\]
+-   **Study designs:** \[Types of study designs included\]
+-   **Additional characteristics:** \[Other relevant study-level details\]
+
+### Update Protocol {#update-protocol}
 
 This is a living meta-analysis that will be updated every \[XX\] months for a minimum of \[XX\] years (\[number\] updates after initial publication). Updates will include:
 
@@ -638,27 +554,27 @@ This is a living meta-analysis that will be updated every \[XX\] months for a mi
 <div id="reference-list" style="font-size: 0.85rem;">
   <div id="visible-references">
     [Author, A. B., & Coauthor, C. D. (YEAR). Title of first reference. <i>Journal Name, Volume</i>(Issue), pages. https://doi.org/DOI]<br><br>
-    
+
     [Author, E. F., Author, G. H., & Author, I. J. (YEAR). Title of second reference. <i>Journal Name, Volume</i>(Issue), pages. https://doi.org/DOI]<br><br>
-    
+
     [Author, K. L. et al. (YEAR). Title of third reference. <i>Journal Name, Volume</i>(Issue), pages. https://doi.org/DOI]<br><br>
   </div>
-  
+
   <div id="hidden-references" style="display:none">
     [Additional references in same format]<br><br>
-    
+
     [Continue with remaining references]<br><br>
-    
+
     [Last reference in same format]<br><br>
   </div>
-  
+
   <a href="#" id="reference-toggle" class="toggle-link" onclick="toggleReferences(); return false;">+ Show more references</a>
-  
+
   <script>
   function toggleReferences() {
     var hiddenReferences = document.getElementById("hidden-references");
     var toggleButton = document.getElementById("reference-toggle");
-    
+
     if (hiddenReferences.style.display === "none") {
       hiddenReferences.style.display = "block";
       toggleButton.textContent = "- Show fewer references";
