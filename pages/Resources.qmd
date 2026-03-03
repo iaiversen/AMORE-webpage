@@ -17,22 +17,40 @@ format:
   <!-- Filter Bar -->
   <div class="resource-filter-bar">
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">All Resources</button>
-      <button class="filter-btn" data-filter="protocol">Protocol Development</button>
-      <button class="filter-btn" data-filter="statistical">Statistical Resources</button>
-      <button class="filter-btn" data-filter="reporting">Reporting &amp; Registration</button>
-      <button class="filter-btn" data-filter="reference">Reference Management</button>
+      <button class="filter-btn active" data-filter="all">All Resources <span class="filter-count"></span></button>
+      <button class="filter-btn" data-filter="plan">Plan &amp; Register <span class="filter-count"></span></button>
+      <button class="filter-btn" data-filter="search">Search &amp; Screen <span class="filter-count"></span></button>
+      <button class="filter-btn" data-filter="analyze">Analyze &amp; Synthesize <span class="filter-count"></span></button>
+      <button class="filter-btn" data-filter="report">Report &amp; Publish <span class="filter-count"></span></button>
+      <button class="filter-btn" data-filter="monitor">Monitor &amp; Update <span class="filter-count"></span></button>
     </div>
     <div class="filter-search">
       <input type="text" id="resourceSearch" placeholder="Search resources..." class="resource-search-input" />
     </div>
   </div>
 
+  <!-- Getting Started Banner -->
+  <div class="getting-started-banner">
+    <div class="getting-started-content">
+      <h3>New to Living Meta-Analysis?</h3>
+      <p>Follow our recommended resource path to get started:</p>
+      <div class="getting-started-steps">
+        <span class="step">Register your protocol (OSF / PROSPERO)</span>
+        <span class="step-arrow">&rarr;</span>
+        <span class="step">Follow PRISMA-LSR guidelines</span>
+        <span class="step-arrow">&rarr;</span>
+        <span class="step">Set up R + metafor</span>
+        <span class="step-arrow">&rarr;</span>
+        <span class="step">Use the AMORE Protocol Checklist</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Resource Cards -->
   <div class="resource-card-grid">
 
-    <!-- Protocol Development -->
-    <div class="resource-card" data-category="protocol" data-type="tool">
+    <!-- Plan & Register -->
+    <div class="resource-card" data-category="plan" data-type="tool">
       <div class="resource-header">
         <h3>Protocol Checklist Tool</h3>
         <span class="resource-type-badge badge-tool">Tool</span>
@@ -45,8 +63,57 @@ format:
       </div>
     </div>
 
-    <!-- Statistical Resources -->
-    <div class="resource-card" data-category="statistical" data-type="textbook">
+    <div class="resource-card" data-category="plan" data-type="database">
+      <div class="resource-header">
+        <h3>PROSPERO</h3>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-database">Database</span>
+          <span class="resource-free-badge">Free</span>
+        </div>
+      </div>
+      <div class="resource-description">
+        A registration platform specifically designed for systematic review protocols focused on health-related research. Provides a standardized format for documenting methods before reviews begin.
+      </div>
+      <div class="resource-links">
+        <a href="https://www.crd.york.ac.uk/prospero/" class="resource-button" target="_blank">Visit PROSPERO</a>
+      </div>
+    </div>
+
+    <div class="resource-card" data-category="plan" data-type="database">
+      <div class="resource-header">
+        <h3>Open Science Framework (OSF)</h3>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-database">Database</span>
+          <span class="resource-free-badge">Free</span>
+        </div>
+      </div>
+      <div class="resource-description">
+        A free, open-source platform supporting project management, data sharing, pre-registration, and collaboration for transparent research practices.
+      </div>
+      <div class="resource-links">
+        <a href="https://osf.io/" class="resource-button" target="_blank">Visit OSF</a>
+      </div>
+    </div>
+
+    <!-- Search & Screen -->
+    <div class="resource-card" data-category="search" data-type="software">
+      <div class="resource-header">
+        <h3>Zotero</h3>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-software">Software</span>
+          <span class="resource-free-badge">Free</span>
+        </div>
+      </div>
+      <div class="resource-description">
+        Reference management software that helps collect, organize, and cite research. Alerts users when articles have been retracted or corrected.
+      </div>
+      <div class="resource-links">
+        <a href="https://www.zotero.org/" class="resource-button" target="_blank">Visit Zotero</a>
+      </div>
+    </div>
+
+    <!-- Analyze & Synthesize -->
+    <div class="resource-card" data-category="analyze" data-type="textbook">
       <div class="resource-header">
         <h3>Introduction to Meta-Analysis</h3>
         <span class="resource-type-badge badge-textbook">Textbook</span>
@@ -59,10 +126,13 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="statistical" data-type="textbook">
+    <div class="resource-card" data-category="analyze" data-type="textbook">
       <div class="resource-header">
         <h3>Doing Meta-Analysis with R: A Hands-On Guide</h3>
-        <span class="resource-type-badge badge-textbook">Textbook</span>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-textbook">Textbook</span>
+          <span class="resource-free-badge">Open Access</span>
+        </div>
       </div>
       <div class="resource-description">
         A hands-on guide to conducting meta-analyses in R, covering effect sizes, heterogeneity, publication bias, multilevel meta-analysis, and Bayesian approaches.
@@ -72,10 +142,13 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="statistical" data-type="software">
+    <div class="resource-card" data-category="analyze" data-type="software">
       <div class="resource-header">
         <h3>R and RStudio</h3>
-        <span class="resource-type-badge badge-software">Software</span>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-software">Software</span>
+          <span class="resource-free-badge">Free</span>
+        </div>
       </div>
       <div class="resource-description">
         R is a programming language for statistical computing and graphics. RStudio provides an integrated development environment with a user-friendly interface. Together, they are widely used for data analysis and visualization.
@@ -86,7 +159,7 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="statistical" data-type="article">
+    <div class="resource-card" data-category="analyze" data-type="article">
       <div class="resource-header">
         <h3>A Review of Meta-Analysis Packages in R</h3>
         <span class="resource-type-badge badge-article">Article</span>
@@ -99,10 +172,13 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="statistical" data-type="software">
+    <div class="resource-card" data-category="analyze" data-type="software">
       <div class="resource-header">
         <h3>JASP</h3>
-        <span class="resource-type-badge badge-software">Software</span>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-software">Software</span>
+          <span class="resource-free-badge">Free</span>
+        </div>
       </div>
       <div class="resource-description">
         Free, open-source statistical software with a user-friendly interface for conducting analyses. Suitable for researchers with varying levels of statistical expertise.
@@ -112,7 +188,7 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="statistical" data-type="article">
+    <div class="resource-card" data-category="analyze" data-type="article">
       <div class="resource-header">
         <h3>Adjusting for Publication Bias in JASP and R</h3>
         <span class="resource-type-badge badge-article">Article</span>
@@ -125,7 +201,7 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="statistical" data-type="article">
+    <div class="resource-card" data-category="analyze" data-type="article">
       <div class="resource-header">
         <h3>Equivalence Tests</h3>
         <span class="resource-type-badge badge-article">Article</span>
@@ -138,8 +214,8 @@ format:
       </div>
     </div>
 
-    <!-- Reporting & Registration -->
-    <div class="resource-card" data-category="reporting" data-type="tool">
+    <!-- Report & Publish -->
+    <div class="resource-card" data-category="report" data-type="tool">
       <div class="resource-header">
         <h3>PRISMA for Living Systematic Reviews</h3>
         <span class="resource-type-badge badge-tool">Tool</span>
@@ -152,37 +228,14 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="reporting" data-type="database">
-      <div class="resource-header">
-        <h3>PROSPERO</h3>
-        <span class="resource-type-badge badge-database">Database</span>
-      </div>
-      <div class="resource-description">
-        A registration platform specifically designed for systematic review protocols focused on health-related research. Provides a standardized format for documenting methods before reviews begin.
-      </div>
-      <div class="resource-links">
-        <a href="https://www.crd.york.ac.uk/prospero/" class="resource-button" target="_blank">Visit PROSPERO</a>
-      </div>
-    </div>
-
-    <div class="resource-card" data-category="reporting" data-type="database">
-      <div class="resource-header">
-        <h3>Open Science Framework (OSF)</h3>
-        <span class="resource-type-badge badge-database">Database</span>
-      </div>
-      <div class="resource-description">
-        A free, open-source platform supporting project management, data sharing, pre-registration, and collaboration for transparent research practices.
-      </div>
-      <div class="resource-links">
-        <a href="https://osf.io/" class="resource-button" target="_blank">Visit OSF</a>
-      </div>
-    </div>
-
-    <!-- Reference Management -->
-    <div class="resource-card" data-category="reference" data-type="tool">
+    <!-- Monitor & Update -->
+    <div class="resource-card" data-category="monitor" data-type="tool">
       <div class="resource-header">
         <h3>Retraction Watch</h3>
-        <span class="resource-type-badge badge-tool">Tool</span>
+        <div class="resource-badges">
+          <span class="resource-type-badge badge-tool">Tool</span>
+          <span class="resource-free-badge">Free</span>
+        </div>
       </div>
       <div class="resource-description">
         Tracks retractions of scientific papers as a window into the scientific process. Essential for maintaining the integrity of living meta-analyses.
@@ -192,24 +245,12 @@ format:
       </div>
     </div>
 
-    <div class="resource-card" data-category="reference" data-type="software">
-      <div class="resource-header">
-        <h3>Zotero</h3>
-        <span class="resource-type-badge badge-software">Software</span>
-      </div>
-      <div class="resource-description">
-        Reference management software that helps collect, organize, and cite research. Alerts users when articles have been retracted or corrected.
-      </div>
-      <div class="resource-links">
-        <a href="https://www.zotero.org/" class="resource-button" target="_blank">Visit Zotero</a>
-      </div>
-    </div>
-
   </div>
 
   <!-- No results message -->
   <div class="no-results" style="display: none;">
-    <p>No resources match your search. Try a different keyword or clear the filter.</p>
+    <p>No resources found for your search. Try broadening your search or clearing the filter.</p>
+    <p><a href="contact.html#feedback-form" class="resource-button secondary">Suggest a resource we should add</a></p>
   </div>
 
 </div>
@@ -221,6 +262,24 @@ document.addEventListener('DOMContentLoaded', function() {
   var cards = document.querySelectorAll('.resource-card');
   var noResults = document.querySelector('.no-results');
   var activeFilter = 'all';
+  var banner = document.querySelector('.getting-started-banner');
+
+  function updateCounts() {
+    var searchTerm = searchInput.value.toLowerCase().trim();
+    filterBtns.forEach(function(btn) {
+      var filter = btn.getAttribute('data-filter');
+      var countSpan = btn.querySelector('.filter-count');
+      var count = 0;
+      cards.forEach(function(card) {
+        var category = card.getAttribute('data-category');
+        var text = card.textContent.toLowerCase();
+        var matchesFilter = (filter === 'all' || category === filter);
+        var matchesSearch = (!searchTerm || text.indexOf(searchTerm) !== -1);
+        if (matchesFilter && matchesSearch) count++;
+      });
+      countSpan.textContent = '(' + count + ')';
+    });
+  }
 
   function filterCards() {
     var searchTerm = searchInput.value.toLowerCase().trim();
@@ -241,6 +300,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+
+    // Hide banner when filtering or searching
+    if (banner) {
+      banner.style.display = (activeFilter === 'all' && !searchTerm) ? '' : 'none';
+    }
+
+    updateCounts();
   }
 
   filterBtns.forEach(function(btn) {
@@ -253,6 +319,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   searchInput.addEventListener('input', filterCards);
+
+  // Initialize counts on load
+  updateCounts();
 });
 </script>
 ```

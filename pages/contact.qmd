@@ -1,7 +1,7 @@
 ---
-format: 
+format:
   html:
-    page-layout: full 
+    page-layout: full
     container-fluid: true
 ---
 ```{=html}
@@ -12,22 +12,21 @@ format:
 
   <!-- Tab Navigation -->
   <div class="form-tabs">
-    <button class="form-tab-btn active" onclick="showForm('propose', this)">
+    <button class="form-tab-btn active" data-form="propose">
       Propose Project
     </button>
-    <button class="form-tab-btn" onclick="showForm('update', this)">
+    <button class="form-tab-btn" data-form="update">
       Update Existing Project
     </button>
-    <button class="form-tab-btn" onclick="showForm('feedback', this)">
+    <button class="form-tab-btn" data-form="feedback">
       Get Help or Share Feedback
     </button>
   </div>
 
   <!-- Form Panels -->
   <div class="form-panels">
-    <!-- Propose Project Form -->
-    <div id="propose-form" class="form-panel active">
-      <script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
+    <!-- Propose Project Form (loaded immediately) -->
+    <div id="propose-form" class="form-panel active" data-loaded="true">
       <iframe class="nettskjema-iframe"
               src="https://nettskjema.no/a/516751?embed=1"
               title="Propose Your Project"
@@ -35,25 +34,24 @@ format:
               width="100%"></iframe>
     </div>
 
-    <!-- Update Project Form -->
-    <div id="update-form" class="form-panel">
-      <script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
-      <iframe class="nettskjema-iframe"
-              src="https://nettskjema.no/a/535098?embed=1"
-              title="Update an existing living meta-analysis"
-              frameborder="0"
-              width="100%"></iframe>
+    <!-- Update Project Form (lazy-loaded) -->
+    <div id="update-form" class="form-panel" data-loaded="false" data-src="https://nettskjema.no/a/535098?embed=1" data-title="Update an existing living meta-analysis">
+      <div class="form-loading-placeholder">
+        <p>Loading form...</p>
+      </div>
     </div>
 
-    <!-- Feedback Form -->
-    <div id="feedback-form" class="form-panel">
-      <script type="text/javascript" src="https://nettskjema.no/static/js/external-embedding.js"></script>
-      <iframe class="nettskjema-iframe"
-              src="https://nettskjema.no/a/516802?embed=1"
-              title="Get help or share feedback"
-              frameborder="0"
-              width="100%"></iframe>
+    <!-- Feedback Form (lazy-loaded) -->
+    <div id="feedback-form" class="form-panel" data-loaded="false" data-src="https://nettskjema.no/a/516802?embed=1" data-title="Get help or share feedback">
+      <div class="form-loading-placeholder">
+        <p>Loading form...</p>
+      </div>
     </div>
+  </div>
+
+  <!-- Email fallback -->
+  <div class="contact-email-fallback">
+    Prefer email? Contact us at <a href="mailto:danielqu@uio.no">danielqu@uio.no</a>
   </div>
 </div>
 
@@ -72,7 +70,7 @@ body::after {
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 1rem;
-  background: white !important; 
+  background: white !important;
 }
 
 .forms-intro {
@@ -131,6 +129,42 @@ body::after {
   display: block;
 }
 
+.nettskjema-iframe {
+  width: 100%;
+  min-height: 800px;
+  height: 800px;
+  border: none;
+  display: block;
+}
+
+.form-loading-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.contact-email-fallback {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.contact-email-fallback a {
+  color: #0A2A5E;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-email-fallback a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive tabs */
 @media (max-width: 768px) {
   .form-tabs {
@@ -138,14 +172,14 @@ body::after {
     gap: 0.5rem;
     border-bottom: none;
   }
-  
+
   .form-tab-btn {
     border-bottom: none;
     border-left: 3px solid transparent;
     text-align: left;
     border-radius: 6px;
   }
-  
+
   .form-tab-btn.active {
     border-left-color: #0A2A5E;
     border-bottom: none;
@@ -153,29 +187,41 @@ body::after {
   }
 }
 </style>
-<script>
-function showForm(formId, clickedButton) {
-  // Hide all panels
-  document.querySelectorAll('.form-panel').forEach(panel => {
-    panel.classList.remove('active');
-  });
-  
-  // Remove active state from all buttons
-  document.querySelectorAll('.form-tab-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  
-  // Show selected panel
-  document.getElementById(formId + '-form').classList.add('active');
-  
-  // Add active state to clicked button
-  clickedButton.classList.add('active');
-}
 
-// Handle direct linking to feedback tab
-window.addEventListener('load', function() {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var tabs = document.querySelectorAll('.form-tab-btn');
+  var panels = document.querySelectorAll('.form-panel');
+
+  function showForm(formId) {
+    // Hide all panels, deactivate all tabs
+    panels.forEach(function(p) { p.classList.remove('active'); });
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+
+    // Activate selected
+    var panel = document.getElementById(formId + '-form');
+    panel.classList.add('active');
+    document.querySelector('[data-form="' + formId + '"]').classList.add('active');
+
+    // Lazy-load iframe if needed
+    if (panel.getAttribute('data-loaded') === 'false') {
+      var src = panel.getAttribute('data-src');
+      var title = panel.getAttribute('data-title');
+      panel.innerHTML = '<iframe class="nettskjema-iframe" src="' + src + '" title="' + title + '" frameborder="0" width="100%"></iframe>';
+      panel.setAttribute('data-loaded', 'true');
+    }
+  }
+
+  // Tab click handlers
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      showForm(this.getAttribute('data-form'));
+    });
+  });
+
+  // Handle direct linking to feedback tab
   if (window.location.hash === '#feedback-form') {
-    showForm('feedback', document.querySelector('[onclick*="feedback"]'));
+    showForm('feedback');
   }
 });
 </script>

@@ -18,7 +18,14 @@ body::after {
 }
 
 /* Remove all container constraints */
-#quarto-content,
+#quarto-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  padding-top: calc(var(--navbar-height, 72px) + 24px) !important;
+  margin: 0 !important;
+}
+
 .page-columns,
 .column-page,
 .column-body {

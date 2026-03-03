@@ -857,6 +857,7 @@ main.content:has(.page-header-bar) > #title-block-header {
   color: white;
   text-align: center;
   padding: var(--space-5) var(--space-6);
+  padding-top: calc(var(--navbar-height, 72px) + var(--space-5));
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-top: 0 !important;
@@ -2743,117 +2744,184 @@ details[open] .resource-summary::after {
    Two-column layout with contact info and logo
    =============================================== */
 
+/* Contact page body override */
+.contact-page-body {
+  background: white !important;
+  animation: none !important;
+
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}
+
 /* Main contact container */
-.contact-container {
-  background: transparent !important;
-  border-radius: 12px;
-  padding: 0;
-  margin: 0.3rem auto;
-  max-width: 2000px;
-  width: 85%;
-  height: 600px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 1fr 1fr;  /* Two equal columns */
+.contact-forms-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: white !important;
+}
+
+/* Tab navigation */
+.contact-tab-navigation {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  bottom: -2px;
+
+  &:hover {
+    color: $indigo-dye;
+    background: rgba(10, 42, 94, 0.04);
+  }
+
+  &.active {
+    color: $indigo-dye;
+    border-bottom-color: $indigo-dye;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $royal-blue;
+    outline-offset: -2px;
+  }
 }
 
-/* Large logo watermark on right side
-   Different from body::before/after logos */
-.contact-container::before {
-  content: '' !important;
-  position: absolute !important;
-  right: -15% !important;
-  top: 0 !important;
-  width: 65% !important;
-  height: 100% !important;
-  background: url('assets/images/logo.unfinished_nowhite- Copy.png') no-repeat center center !important;
-  background-size: contain !important;
-  background-position: center !important;
-  filter: brightness(0) invert(1) opacity(0.3) !important;
-  z-index: 2 !important;
-  pointer-events: none !important;
-  display: block !important;
+/* Context info cards before forms */
+.contact-context-card {
+  background: linear-gradient(135deg, rgba(10, 42, 94, 0.03) 0%, rgba(30, 80, 160, 0.06) 100%);
+  border: 1px solid rgba(10, 42, 94, 0.1);
+  border-left: 3px solid $indigo-dye;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.6;
+
+  strong {
+    color: $indigo-dye;
+  }
 }
 
-/* Left column - contact information */
-.contact-section {
-  padding: 2rem 2.5rem 2rem 3rem;
-  background: white;
+/* Form panels */
+.contact-form-panels {
+  position: relative;
+  min-height: 600px;
+}
+
+.contact-form-panel {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+/* Iframe loading skeleton */
+.contact-loading-skeleton {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 2;
-  height: 100%;
+  min-height: 400px;
+  background: #f9fafb;
+  border: 1px dashed #d1d5db;
+
+  p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
 }
 
-.contact-section h2 {
-  font-size: 2.2rem;
-  color: #0A2A5E;
-  margin-bottom: 1.2rem;
-  text-align: left;
+.contact-skeleton-pulse {
+  width: 60%;
+  max-width: 400px;
+
+  .skeleton-line {
+    height: 12px;
+    background: #e5e7eb;
+    margin-bottom: 0.75rem;
+    animation: contactSkeletonPulse 1.5s ease-in-out infinite;
+
+    &:nth-child(2) { width: 80%; animation-delay: 0.15s; }
+    &:nth-child(3) { width: 60%; animation-delay: 0.3s; }
+  }
+}
+
+@keyframes contactSkeletonPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Iframe wrapper and iframe sizing */
+.contact-iframe-wrapper {
+  width: 100%;
+  min-height: 600px;
+}
+
+.nettskjema-iframe {
+  width: 100%;
+  min-height: 800px;
+  height: 800px;
   border: none;
-  padding: 0;
-  margin-top: 0;
+  display: block;
 }
 
-.contact-section p {
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  color: #2d3748;
+/* Email fallback */
+.contact-email-fallback {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 0.9rem;
+
+  a {
+    color: $indigo-dye;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-/* Contact list styling */
-.contact-section ul {
-  background: none;
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0;
-}
+/* Responsive tabs */
+@media (max-width: 768px) {
+  .contact-tab-navigation {
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: none;
+  }
 
-.contact-section li {
-  background: none;
-  margin: 0.8rem 0;
-  padding: 0;
-  border: none;
-  color: #2d3748;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
+  .contact-tab-btn {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    text-align: left;
 
-.contact-section li strong {
-  color: #0A2A5E;
-  font-weight: 600;
-}
-
-/* Contact button container */
-.contact-buttons {
-  margin-top: 1.5rem;
-  position: relative;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-}
-
-.contact-buttons .primary-button {
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
-  padding: 0.8rem 1.6rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  display: inline-block;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contact-buttons .primary-button:hover {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: white;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    &.active {
+      border-left-color: $indigo-dye;
+      border-bottom: none;
+      background: rgba(10, 42, 94, 0.04);
+    }
+  }
 }
 
 
@@ -3288,20 +3356,106 @@ details[open] .resource-summary::after {
    6.5 Resource Card - Category Left Borders
    ----------------------------------------------- */
 
-.resource-card[data-category="protocol"] {
+.resource-card[data-category="plan"] {
   border-left: 4px solid $indigo-dye;
 }
 
-.resource-card[data-category="statistical"] {
+.resource-card[data-category="search"] {
   border-left: 4px solid $royal-blue;
 }
 
-.resource-card[data-category="reporting"] {
+.resource-card[data-category="analyze"] {
   border-left: 4px solid $lapis-lazuli;
 }
 
-.resource-card[data-category="reference"] {
+.resource-card[data-category="report"] {
   border-left: 4px solid #64748b;
+}
+
+.resource-card[data-category="monitor"] {
+  border-left: 4px solid #059669;
+}
+
+
+/* -----------------------------------------------
+   6.5 Getting Started Banner
+   ----------------------------------------------- */
+
+.getting-started-banner {
+  background: linear-gradient(135deg, rgba(10, 42, 94, 0.04) 0%, rgba(30, 80, 160, 0.08) 100%);
+  border: 1px solid rgba(10, 42, 94, 0.12);
+  border-left: 4px solid $indigo-dye;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+
+  h3 {
+    color: $indigo-dye;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+
+  p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin: 0 0 1rem 0;
+  }
+}
+
+.getting-started-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .step {
+    background: white;
+    border: 1px solid #d1d5db;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $indigo-dye;
+  }
+
+  .step-arrow {
+    color: $lapis-lazuli;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+}
+
+
+/* -----------------------------------------------
+   6.5 Free / Open Access Badge
+   ----------------------------------------------- */
+
+.resource-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.resource-free-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: rgba(5, 150, 105, 0.1);
+  color: #059669;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+
+/* -----------------------------------------------
+   6.5 Filter Count Badges
+   ----------------------------------------------- */
+
+.filter-count {
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.75;
 }
 
 

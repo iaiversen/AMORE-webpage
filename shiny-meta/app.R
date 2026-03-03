@@ -55,7 +55,7 @@ ui <- fluidPage(
     tags$link(rel = "icon", type = "image/x-icon", href = "amore.favicon.ico"),
     tags$style(HTML("
       /* Import modern fonts */
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
       
       /* Main colors - modernized palette */
       :root {
@@ -75,7 +75,7 @@ ui <- fluidPage(
       }
 
       body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: #FFFFFF;
         min-height: 100vh;
         font-size: 12px; 
@@ -127,26 +127,36 @@ ui <- fluidPage(
         opacity: 0.7;
       }
       
-      /* Title styling */
-      .title {
-        font-size: 2.5rem;
-        color: var(--primary-blue);
-        margin: 9rem 0 0.5rem 0;
-        font-weight: 700;
-        text-align: center;
-        letter-spacing: -0.025em;
+      /* Page header bar */
+      .page-header-bar {
         background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        flex-shrink: 0;
+        color: white;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        margin: 0 -1rem 1.5rem -1rem;
+      }
+
+      .page-header-bar h1 {
+        color: white;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin: 0 0 0.5rem 0;
+        background: none;
+        -webkit-text-fill-color: white;
+      }
+
+      .page-header-bar p {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.1rem;
+        margin: 0;
+        font-weight: 400;
       }
       
       /* Main search section - simplified */
       .search-section {
         background: white;
         padding: 1.5rem;
-        border-radius: 12px;
+        border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         margin: 1rem auto;
         max-width: 1600px;
@@ -167,7 +177,7 @@ ui <- fluidPage(
       .filter-tab {
         background: white;
         border: 2px solid var(--gray-200);
-        border-radius: 25px;
+        border-radius: 4px;
         padding: 1rem 2rem;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -193,7 +203,7 @@ ui <- fluidPage(
       /* Simplified filter panels */
       .filter-panels {
         background: white;
-        border-radius: 8px;
+        border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         margin-top: 1rem;
         overflow: hidden;
@@ -211,7 +221,7 @@ ui <- fluidPage(
         background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         color: white;
         padding: 0.75rem 1.5rem;
-        border-radius: 8px;
+        border-radius: 4px;
         margin: 1rem auto;
         text-align: center;
         font-weight: 500;
@@ -232,7 +242,7 @@ ui <- fluidPage(
         background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         color: white;
         padding: 0.4rem 0.8rem;
-        border-radius: 20px;
+        border-radius: 4px;
         font-size: 0.85rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
@@ -400,7 +410,7 @@ ui <- fluidPage(
       .lma-entry {
         background: white;
         padding: 2rem;
-        border-radius: 12px;
+        border-radius: 4px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         border-left: 4px solid var(--accent-blue);
         transition: all 0.3s ease;
@@ -456,7 +466,7 @@ ui <- fluidPage(
         text-align: center;
         color: var(--gray-600);
         background: white;
-        border-radius: 12px;
+        border-radius: 4px;
         font-size: 1.1rem;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         margin: 2rem auto;
@@ -517,9 +527,8 @@ ui <- fluidPage(
           padding: 0 1.5rem;
         }
         
-        .title {
+        .page-header-bar h1 {
           font-size: 2.2rem;
-          padding-top: 2.5rem
         }
         
         .form-control, .search-input {
@@ -552,9 +561,8 @@ ui <- fluidPage(
           padding: 0 1rem;
         }
         
-        .title {
+        .page-header-bar h1 {
           font-size: 2rem;
-          padding-top: 2.5rem;
         }
         
          .form-control, .search-input {
@@ -603,9 +611,8 @@ ui <- fluidPage(
           padding: 0 0.75rem;
         }
         
-        .title {
+        .page-header-bar h1 {
           font-size: 1.5rem;
-          padding-top: 2.5rem;
         }
         
          .form-control, .search-input {
@@ -621,7 +628,7 @@ ui <- fluidPage(
         .filter-tab {
           padding: 0.8rem 1rem;
           font-size: 0.9rem;
-          border-radius: 8px;
+          border-radius: 4px;
           text-align: center;
           margin: 0;
         }
@@ -699,9 +706,8 @@ ui <- fluidPage(
           padding: 0 0.5rem;
         }
         
-        .title {
+        .page-header-bar h1 {
           font-size: 1.6rem;
-          padding-top: 2.5rem;
         }
         
         .form-control, .search-input {
@@ -718,7 +724,7 @@ ui <- fluidPage(
         .filter-tab {
           padding: 0.75rem 1rem;
           font-size: 0.7rem;
-          border-radius: 6px;
+          border-radius: 4px;
           text-align: center;
         }
         
@@ -729,7 +735,7 @@ ui <- fluidPage(
         .search-section {
           padding: 0.75rem;
           margin: 0.5rem 0;
-          border-radius: 8px;
+          border-radius: 4px;
         }
         
         .filter-panel {
@@ -805,9 +811,8 @@ ui <- fluidPage(
           padding: 0 0.25rem;
         }
         
-        .title {
+        .page-header-bar h1 {
           font-size: 1.4rem;
-          padding-top: 2rem;
         }
         
         .form-control, .search-input {
@@ -893,12 +898,89 @@ ui <- fluidPage(
           max-height: 200px;
         }
       }
+
+      /* ===== ACTIVE FILTER CHIPS ===== */
+      .active-filters-bar {
+        max-width: 1600px;
+        margin: 0.75rem auto;
+        padding: 0.75rem 1.5rem;
+        background: var(--light-blue);
+        border: 1px solid var(--gray-200);
+        border-radius: 4px;
+      }
+
+      .active-filters-content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .active-filters-label {
+        font-weight: 600;
+        color: var(--gray-700);
+        font-size: 0.9rem;
+        margin-right: 0.5rem;
+      }
+
+      .filter-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .filter-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: white;
+        border: 1px solid var(--gray-300);
+        border-radius: 4px;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+        color: var(--gray-700);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .filter-chip:hover {
+        border-color: #ef4444;
+        background: #fef2f2;
+        color: #dc2626;
+      }
+
+      .filter-chip .chip-remove {
+        font-size: 1rem;
+        line-height: 1;
+        font-weight: 600;
+      }
+
+      .clear-all-btn {
+        background: none;
+        border: 1px solid var(--gray-300);
+        border-radius: 4px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+        color: var(--gray-600);
+        cursor: pointer;
+        margin-left: auto;
+        transition: all 0.2s ease;
+      }
+
+      .clear-all-btn:hover {
+        border-color: #ef4444;
+        color: #dc2626;
+        background: #fef2f2;
+      }
     "))
-  ), 
+  ),
   
   
   div(class = "container-fluid",
-      titlePanel(tags$h1("Living Meta-Analysis Directory", class = "title")),
+      div(class = "page-header-bar",
+          tags$h1("Living Meta-Analysis Directory"),
+          tags$p("Search and filter AMORE's living meta-analyses by outcome, population, and methodology")
+      ),
       
       # Main search section
       div(class = "search-section",
@@ -1078,7 +1160,16 @@ ui <- fluidPage(
               )  # ← closes details-panel
           )  # ← closes filter-panels div
       ),  # ← closes search-section div
-      
+
+      # Active filter chips bar
+      div(id = "active-filters-bar", class = "active-filters-bar", style = "display: none;",
+          div(class = "active-filters-content",
+              tags$span(class = "active-filters-label", "Active filters:"),
+              div(id = "filter-chips", class = "filter-chips"),
+              tags$button("Clear all", id = "clear-all-filters", class = "clear-all-btn", type = "button")
+          )
+      ),
+
       # Ranking notice (hidden by default, shown when filters are active)
       div(id = "ranking-notice", 
           class = "ranking-notice",
@@ -1227,6 +1318,67 @@ ui <- fluidPage(
       } else {
         $('#ranking-notice').slideUp(300);
       }
+      updateFilterChips();
+    });
+
+    // ===== ACTIVE FILTER CHIPS =====
+    function updateFilterChips() {
+      var $chipsContainer = $('#filter-chips');
+      var $filtersBar = $('#active-filters-bar');
+      $chipsContainer.empty();
+      var hasFilters = false;
+
+      $('input[type=\"checkbox\"]:checked').each(function() {
+        hasFilters = true;
+        var $checkbox = $(this);
+        var label = $.trim($checkbox.parent().text());
+        var inputId = $checkbox.closest('.shiny-input-checkboxgroup').attr('id') || '';
+        var value = $checkbox.val();
+
+        var $chip = $('<span class=\"filter-chip\" data-input=\"' + inputId + '\" data-value=\"' + value + '\">' +
+                      '<span class=\"chip-label\">' + label + '</span>' +
+                      '<span class=\"chip-remove\">&times;</span>' +
+                      '</span>');
+        $chipsContainer.append($chip);
+      });
+
+      if (hasFilters) {
+        $filtersBar.slideDown(200);
+      } else {
+        $filtersBar.slideUp(200);
+      }
+    }
+
+    // Remove individual filter chip
+    $(document).on('click', '.filter-chip', function() {
+      var inputId = $(this).data('input');
+      var value = String($(this).data('value'));
+
+      var $checkbox = $('#' + inputId + ' input[value=\"' + value + '\"]');
+      $checkbox.prop('checked', false).trigger('change');
+
+      var currentValues = [];
+      $('#' + inputId + ' input[type=\"checkbox\"]:checked').each(function() {
+        currentValues.push($(this).val());
+      });
+      Shiny.setInputValue(inputId, currentValues.length > 0 ? currentValues : null);
+
+      updateFilterChips();
+    });
+
+    // Clear all filters
+    $('#clear-all-filters').on('click', function() {
+      $('input[type=\"checkbox\"]:checked').prop('checked', false);
+
+      var groups = ['biological_outcomes', 'psychological_behavioral_outcomes', 'clinical_outcomes',
+                    'oxytocin_intervention', 'assessment_method', 'oxytocin_route', 'oxytocin_dosage',
+                    'population_status', 'population_age', 'analysis_framework'];
+      $.each(groups, function(i, groupId) {
+        Shiny.setInputValue(groupId, null);
+      });
+
+      $('#ranking-notice').slideUp(300);
+      updateFilterChips();
     });
   });
 ")),
