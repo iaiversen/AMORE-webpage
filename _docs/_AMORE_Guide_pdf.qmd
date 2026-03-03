@@ -1529,23 +1529,29 @@ The project .qmd files consists of sections that must be filled and structured c
 
 -   **YAML header** - Contains all metadata for filtering and display in the directory
 
--   **Information container** - The top blue title panel with project details (timeline, team, links)
+-   **Information container** - The top blue title panel with project details, status badge, authors, project info, identifiers, and contact
 
 -   **Abstract** - Brief overview of the meta-analysis
 
--   **Resources** - Links to preregistration, data, scripts, and publications
+-   **Version History** - Expand/collapse timeline of all versions with resource links (replaces the old tabbed Resources section)
 
 #### **Optional sections** (include if relevant):
 
 -   Current Results
 
--   Methodology Summary
+-   Methodology (parent heading `##`) containing subsections (`###`):
 
--   Inclusion and Exclusion Criteria
+    -   Inclusion and Exclusion Criteria
 
--   Search Strategy
+    -   Search Strategy
 
--   Study Characteristics
+    -   Related Research (for previous meta-analyses this project builds on)
+
+    -   Study Characteristics
+
+    -   Methodology Summary
+
+    -   Update Protocol
 
 -   References
 
@@ -1631,11 +1637,15 @@ When research groups propose new projects through nettskjema "Propose your proje
 
 
 ---
-title: "Write title here" 
-analytical_framework: # Choose one or more 
-  - "Frequentist" # The meta-analysis performed a frequentist meta-analysis 
-  - "Bayesian" # The meta-analysis performed a bayesian meta-analysis 
-  - "Mixed methods" # the meta-analysis used a mix of both frequentist and bayesian methods. This is a parent category.  
+title: "Write title here"
+status: "living" # "living" or "retired" — controls the status badge in the hero section
+update-cadence: "24 months" # e.g. "6 months", "12 months", "24 months" — shown in the hero status badge
+next-update: "Month YYYY" # only for living status — shown in hero and Project info card
+final-version: "" # only for retired status, e.g. "v3 (2028)" — shown when status is "retired"
+analytical_framework: # Choose one or more
+  - "Frequentist" # The meta-analysis performed a frequentist meta-analysis
+  - "Bayesian" # The meta-analysis performed a bayesian meta-analysis
+  - "Mixed methods" # the meta-analysis used a mix of both frequentist and bayesian methods. This is a parent category.
 oxytocin:
   intervention: # if applicable, choose one or more:   
     - "Intranasal oxytocin administration" # The meta-analysis investigates research question on intranasal oxytocin administration
@@ -1730,9 +1740,31 @@ The title and information container is the first visible section of the project 
 ::: {.project-hero-content}
 ::: {.project-hero-title}
 
-[Write title here] 
+[Write title here]
 
 :::
+
+<!-- Living status badge (use this for active projects) -->
+<div class="project-status project-status--living">
+  <span class="status-dot status-dot--living"></span>
+  <span class="status-text">Living meta-analysis</span>
+  <span class="status-separator"></span>
+  <span class="status-detail">Updates every [XX] months</span>
+  <span class="status-separator"></span>
+  <span class="status-detail">Next update by [Month YYYY]</span>
+</div>
+
+<!-- Retired status badge (use this instead for completed projects)
+<div class="project-status project-status--retired">
+  <span class="status-dot status-dot--retired"></span>
+  <span class="status-text">Retired</span>
+  <span class="status-separator"></span>
+  <span class="status-detail">Final version: vN (YYYY)</span>
+  <span class="status-separator"></span>
+  <span class="status-detail">No further updates planned</span>
+</div>
+-->
+
 :::
 :::
 
@@ -1741,29 +1773,32 @@ The title and information container is the first visible section of the project 
 
 ::: {.info-card .authors-card}
 ### Authors
+
+<!-- NOTE: The Authors card should list ALL authors across ALL versions of the project. -->
+
 <div id="author-list">
   <div id="visible-authors">
-    <strong>[First Author Name]</strong> ([Affiliation])<br> ## Write authors and affiliations inside the brackets [] 
-    <strong>[Second Author Name]</strong> ([Affiliation])<br>  
-    <strong>[Senior Author Name]</strong> ([Affiliation]) 
+    <strong>[First Author Name]</strong> ([Affiliation])<br> ## Write authors and affiliations inside the brackets []
+    <strong>[Second Author Name]</strong> ([Affiliation])<br>
+    <strong>[Senior Author Name]</strong> ([Affiliation])
   </div>
-  
-  <div id="hidden-authors" style="display:none"> 
-    <strong>[Fourth Author]</strong> ([Affiliation])<br> ## Write authors and affiliations inside the brackets [] 
+
+  <div id="hidden-authors" style="display:none">
+    <strong>[Fourth Author]</strong> ([Affiliation])<br> ## Write authors and affiliations inside the brackets []
     <strong>[Fifth Author]</strong> ([Affiliation])<br>
     <strong>[Sixth Author]</strong> ([Affiliation])<br>
     <strong>[Seventh Author]</strong> ([Affiliation])<br>
     <strong>[Eighth Author]</strong> ([Multiple Affiliations | Separated by Pipes])<br>
     <strong>[Additional Authors as needed...]</strong><br>
   </div>
-  
+
   <a href="#" id="author-toggle" class="toggle-link" onclick="toggleAuthors(); return false;">+ Show more authors</a>
-  
+
   <script>
   function toggleAuthors() {
     var hiddenAuthors = document.getElementById("hidden-authors");
     var toggleButton = document.getElementById("author-toggle");
-    
+
     if (hiddenAuthors.style.display === "none") {
       hiddenAuthors.style.display = "block";
       toggleButton.textContent = "- Show fewer authors";
@@ -1777,10 +1812,10 @@ The title and information container is the first visible section of the project 
 :::
 
 ::: {.info-card .timeline-card} ## Fill information inside the [] brackets
-### Timeline
-**Pre-registered:** [Month DD, YYYY]   
-**Last update:** [Status of current analysis] 
-**Next update:** [Planned date or "To be determined" (XX-month update cycle)]
+### Project
+**Pre-registered:** [Month DD, YYYY]
+**Published:** [Month DD, YYYY or "Pending"]
+**Next update:** [Month YYYY or "To be determined"]
 :::
 
 ::: {.info-card .identifiers-card} ## Fill information inside the [] brackets
@@ -1816,304 +1851,176 @@ The title and information container is the first visible section of the project 
 write abstract under abstract header  
 ```
 
-### Resources
+### Version History
 
-The resources box is where all materials connected to the project is linked. The resources box is structured by publication version.
+The Version History section replaces the old tabbed Resources interface. It uses an expand/collapse pattern where each version of the project is a collapsible entry showing publication date, version-specific authors, and resource links as compact pill-buttons.
 
-![Reference image: Resources box for all materials connected to project.](images/resources.png){fig-align="center"}
+**Key design principles:**
 
-The Resources section uses tabbed navigation to organize materials from the initial publication and subsequent updates. Subsequent sections will present how to build the **Resources** html code structure supported by JavaScript. **HTML structure and indentation must be preserved exactly** - only replace content within `[brackets]`.
+-   The **newest version is expanded by default**, older versions are collapsed
 
-#### Part 1: Tab Navigation (DO NOT EDIT)
+-   Each collapsed version shows an **"N resources" count** as summary
+
+-   When there are **4+ versions**, a "Show N earlier versions" toggle hides the oldest ones
+
+-   **Related studies and previous meta-analyses do NOT belong here** — they go in the optional Related Research subsection under Methodology
+
+-   **Version authors** in each entry should list only the authors for that specific version, while the Authors info card shows ALL authors across ALL versions
+
+#### Version Entry Structure
+
+Each version entry follows this HTML structure. Copy and paste for each new version, updating the version number, label, date, authors, and resource links:
 
 ``` html
-<body>
-    <div class="resources-container">
-        
-        <!-- TAB NAVIGATION BUTTONS -->
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
-            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
-            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
+## Version History {#version-history}
+
+<div class="version-history">
+
+  <!-- NEWEST VERSION — expanded by default -->
+  <div class="version-entry version-latest" data-version="1">
+    <button class="version-header" aria-expanded="true" aria-controls="version-1-body">
+      <div class="version-header-left">
+        <span class="version-badge">v1</span>
+        <div class="version-meta">
+          <span class="version-label">Initial Publication</span>
+          <span class="version-date">[Month YYYY]</span>
+          <!-- EDIT: Replace with actual date -->
         </div>
-```
+      </div>
+      <div class="version-header-right">
+        <span class="version-resource-count">[N] resources</span>
+        <!-- EDIT: Replace [N] with actual count -->
+        <svg class="version-chevron" width="20" height="20" viewBox="0 0 20 20"
+             fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10
+          11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0
+          01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </button>
 
-**Critical:** Keep all HTML tags, classes, and structure unchanged.
+    <div class="version-body" id="version-1-body">
+      <span class="version-authors-label">Version authors</span>
+      <div class="version-authors">
+        [Author, A.B., Author, C.D., Author, E.F., et al.]
+        <!-- EDIT: List only authors for THIS version -->
+      </div>
 
-#### Part 2: Initial Publication Tab Structure
+      <div class="version-resources-grid">
+        <!-- EDIT: Add one link per resource. Copy the <a> block for each. -->
+        <a href="[URL]" class="version-resource-link" target="_blank" rel="noopener">
+          <svg class="version-resource-icon" width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1
+                  1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Publication</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-#### 2A: Timeline Indicator
-
-``` html
-        <!-- INITIAL PUBLICATION TAB -->
-        <div id="initial" class="tab-content active">
-            
-            <!-- Timeline indicator for initial publication -->
-            <div class="timeline-indicator">
-                <div class="status-badge status-published">Published</div>
-                <span>[Month Year]</span>  <!-- EDIT: Replace with actual date, e.g., "January 2024" -->
-            </div>
-```
-
-**EDITABLE:** Only the content inside `<span>[Month Year]</span>`
-
-#### 2B: Resource Categories
-
-Each resource category follows this structure:
-
-**Standard Category Headers (Use as-is):**
-
--   Protocol & Publication
-
--   Data & Analysis
-
--   Related Research
-
-**Optional: Custom Category** If you need a different category name, you can modify the category title while keeping the structure:
-
-``` html
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <h3 class="category-title">Protocol & Publication</h3>  <!-- ✏️ OPTIONAL EDIT: Change category name if needed -->
-                </div>
-```
-
-**Keep unchanged:** All `<div>` tags, classes, and the entire `<svg>` element
-
-#### 2C: Resource Items
-
-**Template for each resource item:**
-
-``` html
-<!-- Study Protocol Item -->
-                <div class="resource-item">
-                    <div class="resource-header">
-                        <div class="resource-info">
-                            <div class="resource-title">Study Protocol</div>  
-                            <!-- ✏️ EDIT: Replace "Study Protocol" with your resource type -->
-                            
-                            <div class="resource-description">[Write short description of study protocol, e.g., "Preregistered analysis plan outlining inclusion criteria and analytical approach"]</div>
-                            <!-- ✏️ EDIT: Replace entire [bracketed text] with your description -->
-                            
-                            <div class="resource-links">
-                                <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                                <!-- ✏️ EDIT: Replace [INSERT_FULL_URL_HERE] with actual URL -->
-                                
-                                    <div class="link-title">[Link name, e.g., "Preregistration on OSF"]</div>
-                                    <!-- ✏️ EDIT: Replace [bracketed text] with link name -->
-                                    
-                                    <div class="link-url">[Clean URL, e.g., "osf.io/8fzdy"]</div>
-                                    <!-- ✏️ EDIT: Replace [bracketed text] with display URL -->
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+</div>
 ```
 
 **Editing Guidelines:**
 
--   🟩 **MUST EDIT:** All content within `[brackets]`
+-   **MUST EDIT:** Content within `[brackets]` — dates, author names, URLs, resource labels, resource counts
 
--   🟩 **CAN EDIT:** Text between `<div class="resource-title">` and `</div>`
+-   **CAN EDIT:** The `<span>` text inside each resource link (e.g., "Publication", "Pre-registration", "Dataset", "Shiny App", "Preprint")
 
--   🟥 **DO NOT EDIT:** Any HTML tags, class names, or structure
+-   **DO NOT EDIT:** HTML tags, class names, SVG elements, or `data-` attributes
 
--   🟥 **PRESERVE:** All indentation exactly as shown
+#### Adding a New Version
 
-#### 2D: Multiple Links Example
+When a new update is published:
 
-If a resource has multiple links, duplicate the `<a>` block:
+1.  Move the `version-latest` class from the previous newest entry to the new one
 
-``` html
-              <div class="resource-links">
-                  <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                      <div class="link-title">[Paper title or description]</div>
-                      <div class="link-doi">[DOI, e.g., "10.1234/example"]</div>
-                  </a>
-                  <!-- ✏️ ADD MORE: Copy and paste this <a> block for additional links -->
-                  <a href="[INSERT_FULL_URL_HERE]" class="resource-link" target="_blank">
-                      <div class="link-title">[Second paper title or description]</div>
-                      <div class="link-doi">[DOI, e.g., "10.5678/example"]</div>
-                  </a>
-              </div>
-```
+2.  Set `aria-expanded="false"` and add `hidden` to the body of the old version
 
-#### 2E: Adding/Removing Resource Items
+3.  Add the new version entry above the old one with `version-latest` class and `aria-expanded="true"`
 
-**To add a new resource item:** Copy an entire resource item block (from `<div class="resource-item">` to its closing `</div>`) and paste within the same category.
-
-**To remove a resource item:** Delete the entire block from `<div class="resource-item">` to its matching closing `</div>`.
-
-**Critical:** Maintain proper indentation when adding/removing items.
-
-#### Part 3: Update Tabs
-
-Both Update 1 and Update 2 follow the same structure until they are published. Once an update is published, replace the content with the full structure from Part 2 (Initial Publication Tab).
-
-#### Update 1 Tab:
+**Example: Adding Update 1 (v2) above Initial Publication (v1):**
 
 ``` html
-<!-- UPDATE 1 TAB -->
-        <div id="update1" class="tab-content">
-            
-            <!-- Coming soon notice -->
-            <div class="future-notice">
-                <strong>Update 1 Coming Soon</strong> • Expected: [Month Year] (updates every [XX] months)
-                <!-- ✏️ EDIT: Replace [Month Year] and [XX] with actual dates -->
-            </div>
+<div class="version-history">
 
-            <!-- Timeline indicator for update 1 -->
-            <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">Coming Soon</div>
-                <span>Next update within [XX] months</span>  
-                <!-- ✏️ EDIT: Replace [XX] with your update cycle timeframe -->
-            </div>
-        </div>
+  <!-- v2 is now the latest -->
+  <div class="version-entry version-latest" data-version="2">
+    <button class="version-header" aria-expanded="true" aria-controls="version-2-body">
+      ...v2 content...
+    </button>
+    <div class="version-body" id="version-2-body">
+      ...v2 resources...
+    </div>
+  </div>
+
+  <!-- v1 is now collapsed (no longer version-latest) -->
+  <div class="version-entry" data-version="1">
+    <button class="version-header" aria-expanded="false" aria-controls="version-1-body">
+      ...v1 content...
+    </button>
+    <div class="version-body" id="version-1-body" hidden>
+      ...v1 resources...
+    </div>
+  </div>
+
+</div>
 ```
 
-#### Update 2 Tab:
+#### Show Earlier Versions Toggle (4+ versions)
+
+When there are 4 or more versions, hide the oldest versions behind a toggle. Uncomment this block and place older version entries inside the `version-earlier-group`:
 
 ``` html
-        <!-- UPDATE 2 TAB -->
-        <div id="update2" class="tab-content">
-            
-            <!-- Coming soon notice -->
-            <div class="future-notice">
-                <strong>Update 2</strong> • Expected: [Month Year] (updates every [XX] months)
-                <!-- ✏️ EDIT: Replace [Month Year] and [XX] with actual dates -->
-            </div>
-
-            <!-- Timeline indicator for update 2 -->
-            <div class="timeline-indicator">
-                <div class="status-badge future-notice">Coming Soon</div>
-                <span>Next update within [XX] months</span>
-                <!-- ✏️ EDIT: Replace [XX] with your update cycle timeframe -->
-            </div>
-        </div>
+<button class="version-show-earlier" aria-expanded="false">
+  Show N earlier versions
+</button>
+<div class="version-earlier-group" hidden>
+  <!-- Move older version-entry elements here -->
+</div>
 ```
 
-#### Adding New Update Tabs
+#### JavaScript (DO NOT EDIT)
 
-If you need to add Update 3, Update 4, etc., follow these steps:
-
-#### Step 1: Add the tab button
-
-In the **Tab Navigation section** (Part 1), add a new button:
-
-``` html
-        <div class="tab-navigation">
-            <button class="tab-button active" onclick="switchTab('initial')">Initial Publication</button>
-            <button class="tab-button" onclick="switchTab('update1')">Update 1</button>
-            <button class="tab-button" onclick="switchTab('update2')">Update 2</button>
-            <button class="tab-button" onclick="switchTab('update3')">Update 3</button>
-            <!-- ✏️ ADD MORE: Copy the button line and change the number -->
-        </div>
-```
-
-**⚠️ Critical:**
-
--   Change `switchTab('updateX')` where X is your update number
-
--   Change the button text to match (e.g., "Update 3")
-
-#### Step 2: Add the tab content section
-
-**Before the closing `</div>` of the resources-container** and **before the JavaScript**, add:
-
-``` html
-<!-- UPDATE 3 TAB -->
-        <div id="update3" class="tab-content">
-            <!-- ⚠️ IMPORTANT: The id must match the name used in switchTab() -->
-            
-            <!-- Coming soon notice -->
-            <div class="coming-soon-notice">
-                <strong>Update 3 Coming Soon</strong> • Expected: [Month Year] (updates every [XX] months)
-                <!-- ✏️ EDIT: Replace [Month Year] and [XX] with actual dates -->
-            </div>
-
-            <!-- Timeline indicator -->
-            <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">Coming Soon</div>
-                <span>Next update within [XX] months</span>  
-                <!-- ✏️ EDIT: Replace [XX] with your update cycle timeframe -->
-            </div>
-        </div>
-```
-
-**⚠️ Critical matching requirements:**
-
--   The `id="update3"` must match the button's `onclick="switchTab('update3')"`
-
--   Keep the exact same structure for all future updates
-
-#### When an Update is Published
-
-When Update 1 (or any update) is published, replace the "Coming Soon" content with the full publication structure:
-
-**BEFORE (unpublished):**
-
-``` html
-        <div id="update1" class="tab-content">
-            <div class="coming-soon-notice">
-                <strong>Update 1 Coming Soon</strong> • Expected: January 2026
-            </div>
-            <div class="timeline-indicator">
-                <div class="status-badge status-coming-soon">Coming Soon</div>
-                <span>Next update within 24 months</span>
-            </div>
-        </div>
-```
-
-**AFTER (published):**
-
-``` html
-        <div id="update1" class="tab-content">
-            
-            <!-- Timeline indicator for update 1 -->
-            <div class="timeline-indicator">
-                <div class="status-badge status-published">Published</div>
-                <span>January 2026</span>  <!-- ✏️ EDIT: Actual publication date -->
-            </div>
-
-            <!-- PROTOCOL & PUBLICATION CATEGORY -->
-            <div class="resource-category">
-                <div class="category-header">
-                    <svg class="category-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <h3 class="category-title">Protocol & Publication</h3>
-                </div>
-                
-                <!-- Add all resource items here, following Part 2 structure -->
-                
-            </div>
-```
-
-**Simply copy the entire structure from the Initial Publication tab (Part 2) and paste it, replacing all the "Coming Soon" content.**
+The following script handles expand/collapse and the "Show earlier versions" toggle. It is included once at the end of the Version History HTML block:
 
 ``` javascript
-    <!-- JAVASCRIPT FOR TAB SWITCHING -->
-    <script>
-        function switchTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.version-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var entry = this.closest('.version-entry');
+      var body = entry.querySelector('.version-body');
+      var isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        body.setAttribute('hidden', '');
+      } else {
+        body.removeAttribute('hidden');
+      }
+    });
+  });
 
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
-
-            // Add active class to clicked button
-            event.target.classList.add('active');
-        }
-    </script>
+  var showEarlierBtn = document.querySelector('.version-show-earlier');
+  if (showEarlierBtn) {
+    showEarlierBtn.addEventListener('click', function() {
+      var group = document.querySelector('.version-earlier-group');
+      var isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        group.setAttribute('hidden', '');
+        this.textContent = this.textContent.replace('Hide', 'Show');
+      } else {
+        group.removeAttribute('hidden');
+        this.textContent = this.textContent.replace('Show', 'Hide');
+      }
+    });
+  }
+});
+</script>
 ```
 
 ------------------------------------------------------------------------
@@ -2503,22 +2410,42 @@ If your analysis hasn't been conducted yet, use this instead of Parts 2-6:
 
 **⚠️ CRITICAL:** Always include these closing tags at the end of your results section.
 
+### Methodology (parent section)
+
+All methodology-related subsections are now grouped under a single `## Methodology` heading. This ensures the Quarto native Table of Contents (TOC) works correctly with subsections appearing as nested items. The TOC structure will be:
+
+-   Abstract
+-   Version History
+-   Current Results
+-   **Methodology**
+    -   Inclusion and Exclusion Criteria
+    -   Search Strategy
+    -   Related Research (optional)
+    -   Study Characteristics
+    -   Methodology Summary
+    -   Update Protocol
+-   References
+
+**Important:** Use `##` for the Methodology heading and `###` for all subsections within it. Use `####` for sub-sub-sections like "Inclusion Criteria" and "Exclusion Criteria".
+
 ### Inclusion and exclusion criteria
 
 ![Reference image: inclusion and exclusion boxes](images/inclu.png){fig-align="center"}
 
 ``` r
 {r}
-#| label: Inclusion and Exclusion Criteria 
-#| description: Here you can create two seperate boxes with the inclusion and exclusion criteria for the meta-analysis. 
-#| eval: false 
-#| echo: true 
+#| label: Inclusion and Exclusion Criteria
+#| description: Nested under ## Methodology as ### subsection. Use #### for Inclusion/Exclusion sub-headers.
+#| eval: false
+#| echo: true
 
 
-## Inclusion and Exclusion Criteria {#criteria}
+## Methodology {#methodology}
+
+### Inclusion and Exclusion Criteria {#criteria}
 
 ::: {.criteria-box}
-### Inclusion Criteria
+#### Inclusion Criteria
 
 - **Type of Studies:** [Study designs included, e.g., "Randomized controlled trials", "Original research written in English"]
 - **Intervention:** [Specific intervention criteria, e.g., "Intranasal oxytocin administration"]
@@ -2528,7 +2455,7 @@ If your analysis hasn't been conducted yet, use this instead of Parts 2-6:
 :::
 
 ::: {.criteria-box}
-### Exclusion Criteria
+#### Exclusion Criteria
 
 - [Specific exclusion criteria relevant to the research question]
 - [Additional exclusion criteria]
@@ -2536,50 +2463,67 @@ If your analysis hasn't been conducted yet, use this instead of Parts 2-6:
 :::
 ```
 
+### Search strategy
+
+Search strings should be wrapped in backticks for proper formatting of special characters (quotes, parentheses, Boolean operators, registered symbols, etc.).
+
+``` r
+{r}
+#| label: Search strategy of main content area
+#| description: Write the search strings used on different search engines. Wrap search strings in backticks for proper formatting.
+#| eval: false
+#| echo: true
+
+
+### Search Strategy {#search-strategy}
+
+::: search-string-box
+[EMBASE:]{.search-db} `'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth'`
+
+[Web of Science:]{.search-db} `('Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin') AND ('delivery' AND 'augment*' OR 'induc*')`
+
+[MEDLINE:]{.search-db} `'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' AND 'antepartum'`
+:::
+```
+
+**Note:** The `[Database:]{.search-db}` syntax creates a styled label. The backtick-wrapped search strings preserve special characters and formatting.
+
+### Related Research (optional)
+
+Include this subsection if the project builds on previous meta-analyses or key foundational studies. This is separate from the Version History — related studies that inspired the project belong here, not in version entries.
+
+``` r
+{r}
+#| label: Related Research
+#| description: Optional subsection under Methodology. Include previous meta-analyses the project builds on.
+#| eval: false
+#| echo: true
+
+
+### Related Research {#related-research}
+
+This living meta-analysis builds on [Previous Author et al. (YYYY)], which concluded [key finding].
+
+- [Previous meta-analysis title](https://doi.org/XXXX)
+- [Related foundational study](https://doi.org/XXXX)
+```
+
 ### Methodology summary
 
 ``` r
 {r}
-#| label: Methodology summary of main content area 
-#| description: A section handy to explain a summary of the methodology of the living meta-analysis. 
-#| eval: false 
-#| echo: true 
+#| label: Methodology summary of main content area
+#| description: Now a ### subsection under ## Methodology.
+#| eval: false
+#| echo: true
 
-## Methodology Summary {#methodology}
+### Methodology Summary {#methodology-summary}
 
-This living meta-analysis follows the PRISMA guidelines for systematic reviews. 
+This living meta-analysis follows the PRISMA guidelines for systematic reviews.
 
 The quality of included studies will be assessed using [specific quality assessment tool, e.g., "Cochrane Risk of Bias tool for RCTs"]. Studies will be independently rated by two reviewers [describe rating categories and scoring system].
 
 Statistical analyses will be conducted using [statistical software] with the [specific packages]. [Type of effects model] will be used with [specific estimator]. Heterogeneity will be evaluated by calculating [heterogeneity measures]. Publication bias will be assessed using [bias assessment methods].
-```
-
-### Search strategy
-
-``` r
-{r}
-#| label: Search strategy of main content area 
-#| description: Write the search strings used on different search engines like PubMed or similar for reproducibility. It is very nice to have the search strings on the project page as this is apparently not always documented as makes reproducibility more difficult. 
-#| eval: false 
-#| echo: true 
-
-
-## Search Strategy {#search-strategy}
-
-::: {.search-strategy-box}
-<span class="search-db">write database here:</span>
-write [search AND string] here
-
-<span class="search-db">EMBASE:</span>
-'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric'
-
-<span class="search-db">Web of Science:</span>
-('Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric') AND ('delivery' AND 'augment*' OR 'induc*')
-
-<span class="search-db">MEDLINE:</span>
-'Pitocin®' OR 'Syntocinon®' OR 'synthetic oxytocin' AND 'labour/labor' OR 'birth' OR 'perinatal' OR 'prenatal' OR 'obstetric' AND 'antepartum'
-
-:::
 ```
 
 ## Previewing your work
