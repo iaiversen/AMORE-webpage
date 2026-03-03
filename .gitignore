@@ -41,6 +41,10 @@ rsconnect/
 *.dcf
 
 
+# Claude Code
+.claude/
+CLAUDE.md
+
 # OS files
 .DS_Store
 Thumbs.db

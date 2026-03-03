@@ -2,7 +2,7 @@
 set -ex
 
 echo "Installing Quarto..."
-QUARTO_VERSION="1.3.450"
+QUARTO_VERSION="1.8.27"
 QUARTO_URL="https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz"
 
 # Create directories for installation
