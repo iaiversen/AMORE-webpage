@@ -857,7 +857,6 @@ main.content:has(.page-header-bar) > #title-block-header {
   color: white;
   text-align: center;
   padding: var(--space-5) var(--space-6);
-  padding-top: calc(var(--navbar-height, 72px) + var(--space-5));
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-top: 0 !important;
@@ -950,13 +949,15 @@ main.content:has(.page-header-bar) > #title-block-header {
   gap: var(--space-2);
 }
 
-/* Fluid logo — scales with viewport, no manual per-breakpoint overrides */
+/* Fluid logo — scales with viewport, no manual per-breakpoint overrides.
+   Filter increases stroke weight and tints to match brand color (#0A2A5E). */
 .navbar .navbar-brand img {
   height: var(--navbar-logo);
   width: auto;
   max-height: none;
   display: block;
   flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(14%) sepia(61%) saturate(3242%) hue-rotate(204deg) brightness(92%) contrast(103%);
 }
 
 /* Site title — wraps to 2 lines, bold, clearly visible as the site name.
@@ -1105,6 +1106,13 @@ body:has(.project-hero-section):not(:has(.contact-container)) .navbar {
   max-width: 80%;                 /* 80% of viewport width */
   margin: 0 auto;                 /* Center horizontally */
   background: white !important;
+}
+
+/* Increase top margin on h3 subsection headings within project content
+   so that content visually groups with its own heading, not the next one.
+   e.g. "Note:" under Search Strategy won't look closer to "Study Characteristics" */
+.main-content-container h3 {
+  margin-top: 2.5rem;
 }
 
 /* Override for project pages - ensures white background */
